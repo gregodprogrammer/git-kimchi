@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Self-Hosted Git — Git Kimchi</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body data-page="lesson">
+  <div class="site-wrapper">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-brand">
+          <span class="brand-icon">🌶️</span>
+          <span class="brand-text">Git Kimchi</span>
+        </a>
+        <button class="sidebar-close" id="sidebar-close" aria-label="Close navigation">×</button>
+      </div>
+      <nav class="sidebar-nav" aria-label="Lessons">
+        <div class="nav-section">
+          <span class="nav-section-title">Core Git</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="01-getting-started.html" class="nav-link" data-lesson="1">
+                <span class="nav-num">1</span>
+                <span class="nav-title">Getting Started with Git</span>
+                <span class="nav-status" data-status-lesson="1"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="02-staging-and-commits.html" class="nav-link" data-lesson="2">
+                <span class="nav-num">2</span>
+                <span class="nav-title">Staging and Commits</span>
+                <span class="nav-status" data-status-lesson="2"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="03-history-and-diff.html" class="nav-link" data-lesson="3">
+                <span class="nav-num">3</span>
+                <span class="nav-title">History and Diff</span>
+                <span class="nav-status" data-status-lesson="3"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="04-undoing-changes.html" class="nav-link" data-lesson="4">
+                <span class="nav-num">4</span>
+                <span class="nav-title">Undoing Changes</span>
+                <span class="nav-status" data-status-lesson="4"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Intermediate</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="05-branching.html" class="nav-link" data-lesson="5">
+                <span class="nav-num">5</span>
+                <span class="nav-title">Branching</span>
+                <span class="nav-status" data-status-lesson="5"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="06-merging.html" class="nav-link" data-lesson="6">
+                <span class="nav-num">6</span>
+                <span class="nav-title">Merging</span>
+                <span class="nav-status" data-status-lesson="6"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="07-remotes.html" class="nav-link" data-lesson="7">
+                <span class="nav-num">7</span>
+                <span class="nav-title">Remotes</span>
+                <span class="nav-status" data-status-lesson="7"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="08-github-repos-and-forks.html" class="nav-link" data-lesson="8">
+                <span class="nav-num">8</span>
+                <span class="nav-title">GitHub Repositories and Forks</span>
+                <span class="nav-status" data-status-lesson="8"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="09-pull-requests-and-issues.html" class="nav-link" data-lesson="9">
+                <span class="nav-num">9</span>
+                <span class="nav-title">Pull Requests and Issues</span>
+                <span class="nav-status" data-status-lesson="9"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Advanced / DevOps</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="10-code-review.html" class="nav-link" data-lesson="10">
+                <span class="nav-num">10</span>
+                <span class="nav-title">Code Review</span>
+                <span class="nav-status" data-status-lesson="10"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="11-branching-strategies.html" class="nav-link" data-lesson="11">
+                <span class="nav-num">11</span>
+                <span class="nav-title">Branching Strategies</span>
+                <span class="nav-status" data-status-lesson="11"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="12-github-pages.html" class="nav-link" data-lesson="12">
+                <span class="nav-num">12</span>
+                <span class="nav-title">GitHub Pages</span>
+                <span class="nav-status" data-status-lesson="12"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="13-git-hooks.html" class="nav-link" data-lesson="13">
+                <span class="nav-num">13</span>
+                <span class="nav-title">Git Hooks</span>
+                <span class="nav-status" data-status-lesson="13"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="14-self-hosted-git.html" class="nav-link" data-lesson="14">
+                <span class="nav-num">14</span>
+                <span class="nav-title">Self-Hosted Git</span>
+                <span class="nav-status" data-status-lesson="14"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Capstone &amp; Reference</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="15-capstone.html" class="nav-link" data-lesson="15">
+                <span class="nav-num">15</span>
+                <span class="nav-title">Capstone Mini-Project</span>
+                <span class="nav-status" data-status-lesson="15"></span>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="../solutions.html" class="nav-link" data-lesson="solutions">
+                <span class="nav-num">💡</span>
+                <span class="nav-title">Solutions</span>
+                <span class="nav-status" data-status-lesson="solutions"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="main-area">
+      <header class="site-header">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="header-title">
+          <a href="../index.html">Git Kimchi</a>
+        </div>
+        <div class="header-progress" id="header-progress" style="display:none;">
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+          </div>
+          <span class="progress-text" id="progress-text">0 / 15</span>
+        </div>
+      </header>
+
+      <main class="content-wrapper">
+<article class="lesson">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">Self-Hosted Git</span>
+  </nav>
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="lesson-number">Lesson 14</span>
+      <span class="lesson-readtime">16 min read</span>
+    </div>
+    <h1 class="lesson-title">Self-Hosted Git</h1>
+  </header>
+
+  <div class="lesson-body-wrapper">
+    <div class="lesson-toc" id="lesson-toc" aria-label="Table of contents">
+      <h2>On this page</h2>
+      <div class="toc">
+<ul>
+<li><a href="#self-hosted-git">Self-Hosted Git</a><ul>
+<li><a href="#why-self-host-git">Why Self-Host Git?</a><ul>
+<li><a href="#data-sovereignty-and-compliance">Data Sovereignty and Compliance</a></li>
+<li><a href="#air-gapped-environments">Air-Gapped Environments</a></li>
+<li><a href="#no-vendor-lock-in">No Vendor Lock-In</a></li>
+<li><a href="#cicd-on-private-runners">CI/CD on Private Runners</a></li>
+<li><a href="#cost-control-at-scale">Cost Control at Scale</a></li>
+<li><a href="#full-platform-ownership">Full Platform Ownership</a></li>
+</ul>
+</li>
+<li><a href="#gitlab">GitLab</a><ul>
+<li><a href="#what-is-gitlab">What Is GitLab?</a></li>
+<li><a href="#installing-gitlab">Installing GitLab</a><ul>
+<li><a href="#option-a-omnibus-package-recommended-for-production">Option A: Omnibus Package (Recommended for Production)</a></li>
+<li><a href="#option-b-docker-install-simpler-for-exploration">Option B: Docker Install (Simpler for Exploration)</a></li>
+</ul>
+</li>
+<li><a href="#post-install-setup">Post-Install Setup</a></li>
+<li><a href="#key-configuration-concepts">Key Configuration Concepts</a></li>
+</ul>
+</li>
+<li><a href="#gitea">Gitea</a><ul>
+<li><a href="#what-is-gitea">What Is Gitea?</a></li>
+<li><a href="#installing-gitea">Installing Gitea</a><ul>
+<li><a href="#option-a-docker-install-recommended">Option A: Docker Install (Recommended)</a></li>
+<li><a href="#option-b-binary-install-no-docker">Option B: Binary Install (No Docker)</a></li>
+</ul>
+</li>
+<li><a href="#first-time-setup-wizard-web-ui">First-Time Setup Wizard (Web UI)</a></li>
+<li><a href="#key-configuration-concepts-appini">Key Configuration Concepts (app.ini)</a></li>
+</ul>
+</li>
+<li><a href="#gitlab-vs-gitea-comparison">GitLab vs Gitea: Comparison</a></li>
+<li><a href="#self-hosted-vs-github">Self-Hosted vs GitHub</a><ul>
+<li><a href="#choose-self-hosted-when">Choose Self-Hosted When:</a></li>
+<li><a href="#choose-github-when">Choose GitHub When:</a></li>
+<li><a href="#the-middle-ground">The Middle Ground</a></li>
+</ul>
+</li>
+<li><a href="#exercise">Exercise</a><ul>
+<li><a href="#scenario">Scenario</a></li>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#steps">Steps</a></li>
+</ul>
+</li>
+<li><a href="#solution">Solution</a></li>
+<li><a href="#recap">Recap</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+    </div>
+
+    <div class="lesson-body">
+      <h1 id="self-hosted-git">Self-Hosted Git</h1>
+<p><a href="13-git-hooks.html">← Previous: Git Hooks</a></p>
+<p>So far in this guide you've worked with GitHub, the world's largest Git hosting platform. But GitHub is not the only option, and for many organisations it is not the <em>right</em> option. This section introduces <strong>self-hosted Git servers</strong> — software you install and operate on your own infrastructure. You'll learn why teams choose this path, get hands-on with two popular platforms (GitLab and Gitea), and complete a practical exercise that installs Gitea using Docker.</p>
+<hr />
+<h2 id="why-self-host-git">Why Self-Host Git?</h2>
+<p>Before diving into tools, let's understand the motivations. Self-hosting Git is a deliberate architectural choice with concrete benefits:</p>
+<h3 id="data-sovereignty-and-compliance">Data Sovereignty and Compliance</h3>
+<p>Many industries — healthcare, finance, defence, and government — are subject to data-residency laws that require code and user data to remain within specific geographic boundaries. When you host Git on your own servers, you control exactly where every byte lives. With GitHub's cloud offering you cannot make that guarantee.</p>
+<h3 id="air-gapped-environments">Air-Gapped Environments</h3>
+<p>Secure networks that are physically isolated from the internet (air-gapped) cannot reach GitHub at all. Engineers in such environments have no choice but to run Git infrastructure internally. Defence contractors, nuclear facilities, and some research institutions operate this way.</p>
+<h3 id="no-vendor-lock-in">No Vendor Lock-In</h3>
+<p>When you run your own Git server, you own the data and the upgrade path. If a hosted provider changes pricing, terms, or sunsets a product, you migrate to a new host or even a different self-hosted solution without losing your history. Your code is not held hostage to a service's business decisions.</p>
+<h3 id="cicd-on-private-runners">CI/CD on Private Runners</h3>
+<p>GitHub Actions runners are shared, public cloud machines. Some teams need build agents that sit inside their private network, accessing internal APIs, proprietary toolchains, or hardware that cannot be exposed externally. Self-hosted runners on GitLab CI or custom Git hooks let you keep your pipeline infrastructure behind the firewall.</p>
+<h3 id="cost-control-at-scale">Cost Control at Scale</h3>
+<p>GitHub's per-user pricing becomes expensive for large engineering organisations with hundreds or thousands of developers. Self-hosted solutions have no per-user licence cost — you pay only for the infrastructure to run them.</p>
+<h3 id="full-platform-ownership">Full Platform Ownership</h3>
+<p>Running GitLab, Gitea, or Gitea gives you a full DevOps platform — not just Git hosting, but also CI/CD pipelines, container registries, package registries, issue tracking, and more — without depending on a third party's roadmap or availability.</p>
+<hr />
+<h2 id="gitlab">GitLab</h2>
+<h3 id="what-is-gitlab">What Is GitLab?</h3>
+<p><strong>GitLab</strong> is a full-featured, open-source DevOps platform. It started as a Git hosting solution and evolved into an almost complete replacement for the entire software delivery toolchain:</p>
+<ul>
+<li>Git repositories (bare and mirrored)</li>
+<li>Built-in CI/CD (GitLab Pipelines)</li>
+<li>Container registry (per-project Docker images)</li>
+<li>GitLab Pages (static site hosting, like GitHub Pages)</li>
+<li>Issue tracking, epics, roadmaps, and time tracking</li>
+<li>Security scanning and compliance dashboards</li>
+<li>Kubernetes integration</li>
+</ul>
+<p>GitLab is distributed as both a free open-source Community Edition (CE) and an Enterprise Edition (EE) with additional paid features. Most of what this section covers works in CE.</p>
+<p><strong>When to choose GitLab:</strong> You want an all-in-one platform with CI/CD, container registry, and project management built in. You have a team that will benefit from GitHub-like features without relying on a separate SaaS product.</p>
+<h3 id="installing-gitlab">Installing GitLab</h3>
+<p>GitLab can be installed in several ways. Two are most common for beginners:</p>
+<h4 id="option-a-omnibus-package-recommended-for-production">Option A: Omnibus Package (Recommended for Production)</h4>
+<p>The Omnibus package bundles all GitLab services (NGINX, PostgreSQL, Redis, Sidekiq, GitLab Rails) into a single installable package. It is the officially recommended way to deploy GitLab for teams.</p>
+<p><strong>Ubuntu/Debian install:</strong></p>
+<pre><code class="language-bash"># Install dependencies
+sudo apt-get update
+sudo apt-get install -y curl ca-certificates openssh-server perl
+
+# Add the GitLab package repository and install
+curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash
+sudo apt-get install gitlab-ce
+</code></pre>
+<p>Once installed, edit the configuration file to set your external URL:</p>
+<pre><code class="language-bash">sudo nano /etc/gitlab/gitlab.rb
+</code></pre>
+<pre><code class="language-ruby"># /etc/gitlab/gitlab.rb
+external_url 'http://gitlab.example.com'
+</code></pre>
+<p>Then apply the configuration and start GitLab:</p>
+<pre><code class="language-bash">sudo gitlab-ctl reconfigure
+</code></pre>
+<p>This command runs Chef recipes that configure every GitLab component. It takes 2–5 minutes on a fresh machine. After it completes, GitLab is available at the URL you configured.</p>
+<p><strong>Essential Omnibus commands:</strong></p>
+<pre><code class="language-bash">sudo gitlab-ctl status          # Check all services are running
+sudo gitlab-ctl start           # Start all GitLab services
+sudo gitlab-ctl stop            # Stop all GitLab services
+sudo gitlab-ctl restart         # Restart all services
+sudo gitlab-ctl reconfigure     # Re-apply configuration changes
+sudo gitlab-ctl tail            # Stream all log files (troubleshooting)
+sudo gitlab-rails console       # Rails console for advanced administration
+</code></pre>
+<h4 id="option-b-docker-install-simpler-for-exploration">Option B: Docker Install (Simpler for Exploration)</h4>
+<p>Docker is often the fastest way to get GitLab running for learning or evaluation:</p>
+<pre><code class="language-bash">docker run --detach \
+  --hostname gitlab.example.com \
+  --publish 443:443 --publish 80:80 --publish 22:22 \
+  --name gitlab \
+  --restart always \
+  --volume /srv/gitlab/config:/etc/gitlab \
+  --volume /srv/gitlab/logs:/var/log/gitlab \
+  --volume /srv/gitlab/data:/var/opt/gitlab \
+  gitlab/gitlab-ce:latest
+</code></pre>
+<p>Breaking this down:</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--detach</code></td>
+<td>Run container in the background</td>
+</tr>
+<tr>
+<td><code>--hostname</code></td>
+<td>Internal hostname GitLab uses for SSL certs</td>
+</tr>
+<tr>
+<td><code>-p 443:443 -p 80:80 -p 22:22</code></td>
+<td>Expose HTTPS, HTTP, and SSH</td>
+</tr>
+<tr>
+<td><code>--name gitlab</code></td>
+<td>Friendly container name</td>
+</tr>
+<tr>
+<td><code>-v /srv/gitlab/...</code></td>
+<td>Persist data and config outside the container</td>
+</tr>
+</tbody>
+</table>
+<p>GitLab in Docker takes 3–5 minutes to fully start while it runs the initial database migrations. You can monitor progress with:</p>
+<pre><code class="language-bash">docker logs -f gitlab
+</code></pre>
+<h3 id="post-install-setup">Post-Install Setup</h3>
+<p>Once GitLab is running, complete the first-run setup:</p>
+<p><strong>1. Set the root password</strong></p>
+<p>Navigate to <code>http://your-gitlab-host/users/sign_in</code> and click "Forgot your password?" to reset the root account password. (In Omnibus, you can also set it before first login using <code>sudo gitlab-rails console</code>):</p>
+<pre><code class="language-bash">sudo gitlab-rails console
+# Inside the console:
+user = User.where(id: 1).first
+user.password = 'YourSecurePassword123!'
+user.password_confirmation = 'YourSecurePassword123!'
+user.save!
+exit
+</code></pre>
+<p><strong>2. Create users and groups</strong></p>
+<p>Log in as root, then navigate to <strong>Admin Area → Users → New User</strong>. Fill in name, username, and email. Users receive an invitation email to set their password.</p>
+<p>Create a group to organise related projects: <strong>Admin Area → Groups → New Group</strong>. Groups let you manage permissions across multiple projects at once.</p>
+<p><strong>3. Create your first project</strong></p>
+<p>Click <strong>Create a project</strong> on the welcome screen. You can:</p>
+<ul>
+<li>Start blank (push an existing local repo)</li>
+<li>Import from GitHub, Bitbucket, or other sources</li>
+<li>Use a GitLab template</li>
+</ul>
+<p>GitLab displays the exact commands to push an existing repo:</p>
+<pre><code class="language-bash">git remote add gitlab http://gitlab.example.com/username/project.git
+git push -u gitlab main
+</code></pre>
+<h3 id="key-configuration-concepts">Key Configuration Concepts</h3>
+<p>This is not a full configuration reference, but here are the concepts you'll encounter most often:</p>
+<p><strong>External URL</strong> — The URL GitLab uses to generate links in emails, SSH clone URLs, and the UI:</p>
+<pre><code class="language-ruby">external_url 'https://gitlab.internal.company.com'
+</code></pre>
+<p><strong>SMTP / Email Notifications</strong> — Without configuring SMTP, GitLab cannot send password-reset emails, issue notifications, or pipeline status emails:</p>
+<pre><code class="language-ruby"># /etc/gitlab/gitlab.rb
+gitlab_rails['smtp_enable'] = true
+gitlab_rails['smtp_address'] = 'smtp.company.com'
+gitlab_rails['smtp_port'] = 587
+gitlab_rails['smtp_user_name'] = 'gitlab@company.com'
+gitlab_rails['smtp_password'] = 'your-smtp-password'
+gitlab_rails['smtp_domain'] = 'company.com'
+gitlab_rails['smtp_authentication'] = 'login'
+gitlab_rails['smtp_tls'] = false
+</code></pre>
+<p><strong>GitLab Runners (CI/CD)</strong> — GitLab CI/CD jobs run on <strong>runners</strong> — individual machines registered with your GitLab instance. A runner can be:</p>
+<ul>
+<li><strong>Shared</strong> — available to all projects (set up by admins)</li>
+<li><strong>Group-specific</strong> — available to projects within a group</li>
+<li><strong>Project-specific</strong> — registered for one project only</li>
+</ul>
+<p>Register a runner after installing the <code>gitlab-runner</code> binary:</p>
+<pre><code class="language-bash">sudo gitlab-runner register \
+  --url http://gitlab.example.com/ \
+  --registration-token &quot;YOUR-REGISTRATION-TOKEN&quot; \
+  --description &quot;docker-runner&quot; \
+  --tag-list &quot;docker&quot; \
+  --executor docker \
+  --docker-image docker:24.0.5 \
+  --locked=&quot;false&quot;
+</code></pre>
+<p>The registration token is found in <strong>Settings → CI/CD → Runners</strong> in the GitLab UI. Runners are discussed in depth in the GitLab documentation; the key concept is that the runner machine executes your CI/CD jobs — it is your private build agent.</p>
+<hr />
+<h2 id="gitea">Gitea</h2>
+<h3 id="what-is-gitea">What Is Gitea?</h3>
+<p><strong>Gitea</strong> is a lightweight, self-hosted Git service written in Go. It was forked from Gogs in late 2016 when the Gogs community and the original author disagreed on the project's direction. Gitea aims to be:</p>
+<ul>
+<li><strong>Lightweight</strong> — runs on minimal hardware (512 MB RAM is enough for small teams)</li>
+<li><strong>Simple</strong> — a single binary with no external dependencies</li>
+<li><strong>GitHub-compatible UI</strong> — the interface looks and feels familiar to GitHub users</li>
+<li><strong>Easy to upgrade</strong> — replace the binary, restart, done</li>
+</ul>
+<p>Gitea deliberately omits some features that GitLab includes (container registry, built-in CI/CD pipeline editor, Kubernetes integration). For CI/CD, Gitea integrates with external systems — you write Actions YAML that runs in lightweight containers. The trade-off is deliberate: Gitea is a focused Git hosting tool, not a full DevOps suite.</p>
+<p><strong>When to choose Gitea:</strong> You want GitHub-like hosting with minimal resource usage, no need for container registry or built-in CI, and prefer a simple upgrade story. Gitea is popular among small teams, personal projects on low-cost VPS instances, and homelab enthusiasts.</p>
+<h3 id="installing-gitea">Installing Gitea</h3>
+<h4 id="option-a-docker-install-recommended">Option A: Docker Install (Recommended)</h4>
+<p>The fastest path to a running Gitea instance:</p>
+<pre><code class="language-bash">docker run -d \
+  --name=gitea \
+  --hostname=gitea.example.com \
+  -p 3000:3000 \
+  -p 2222:22 \
+  -v /var/lib/gitea:/data \
+  -v /etc/timezone:/etc/timezone:ro \
+  -v /etc/localtime:/etc/localtime:ro \
+  -e USER_UID=1000 \
+  -e USER_GID=1000 \
+  --restart unless-stopped \
+  gitea/gitea:latest
+</code></pre>
+<p>Key points:<br />
+- Port <code>3000</code> serves the web UI<br />
+- Port <code>2222</code> maps to Gitea's internal SSH port (avoiding conflict with the host's SSH on port 22)<br />
+- <code>/var/lib/gitea</code> persists all data — repositories, users, database<br />
+- <code>USER_UID</code> and <code>USER_GID</code> ensure the Gitea process can write to mounted volumes</p>
+<p>After the container starts, Gitea is available at <code>http://your-host:3000</code>. The first-run wizard runs automatically on a fresh install.</p>
+<h4 id="option-b-binary-install-no-docker">Option B: Binary Install (No Docker)</h4>
+<p>Download the latest release from <code>https://github.com/go-gitea/gitea/releases</code>:</p>
+<pre><code class="language-bash"># Replace VERSION with the latest stable release, e.g. 1.21.x
+VERSION=1.21.11
+wget https://github.com/go-gitea/gitea/releases/download/v${VERSION}/gitea-${VERSION}-linux-amd64
+chmod +x gitea-${VERSION}-linux-amd64
+sudo mv gitea-${VERSION}-linux-amd64 /usr/local/bin/gitea
+</code></pre>
+<p>Create a dedicated user (good practice — never run Git services as root):</p>
+<pre><code class="language-bash">sudo adduser --system --shell /bin/bash --group --disabled-password \
+  --home /home/git git
+sudo mkdir -p /var/lib/gitea
+sudo chown git:git /var/lib/gitea
+</code></pre>
+<p>Create a basic <code>app.ini</code> configuration before starting:</p>
+<pre><code class="language-ini"># /etc/gitea/app.ini
+RUN_MODE = prod
+
+[server]
+PROTOCOL         = http
+DOMAIN           = gitea.example.com
+ROOT_URL         = http://gitea.example.com/
+HTTP_PORT        = 3000
+SSH_DOMAIN       = gitea.example.com
+SSH_PORT         = 22
+DISABLE_SSH      = false
+MINIMUM_KEY_SIZE = 3072
+
+[database]
+DB_TYPE  = sqlite3
+PATH     = /var/lib/gitea/gitea.db
+
+[security]
+INSTALL_LOCK = true
+SECRET_KEY   = change-this-to-a-random-secret
+</code></pre>
+<p>Run Gitea:</p>
+<pre><code class="language-bash">sudo -u git /usr/local/bin/gitea web --config /etc/gitea/app.ini
+</code></pre>
+<p>On first run, Gitea detects an uninitialised database and redirects you to the web setup wizard automatically.</p>
+<h3 id="first-time-setup-wizard-web-ui">First-Time Setup Wizard (Web UI)</h3>
+<p>Navigate to <code>http://your-gitea-host:3000/install</code>. You'll configure:</p>
+<p><strong>Database Settings</strong><br />
+- SQLite is the default and sufficient for small teams (no separate database server needed)<br />
+- For production with multiple workers, PostgreSQL is recommended</p>
+<p><strong>General Settings</strong><br />
+- <strong>Site Title:</strong> Your organisation name<br />
+- <strong>Repository Root Path:</strong> Where Git repos are stored (default <code>/var/lib/gitea/gitea-repositories</code>)<br />
+- <strong>Git LFS Path:</strong> Path for Git LFS storage<br />
+- <strong>Run as User:</strong> <code>git</code><br />
+- <strong>Domain:</strong> Used in SSH clone URLs</p>
+<p><strong>Optional Settings</strong><br />
+- Disable user registration (<code>DISABLE_REGISTRATION</code>) if you want admin-only account creation<br />
+- Require sign-in to view repos (<code>REQUIRE_SIGNIN_VIEW</code>)</p>
+<p><strong>Administrator Account</strong> — Create your first admin user here. This is the only time the form appears; after setup, you create additional admins from within the UI.</p>
+<p>Click <strong>Install Gitea</strong>. After installation completes, you'll be redirected to the sign-in page.</p>
+<h3 id="key-configuration-concepts-appini">Key Configuration Concepts (app.ini)</h3>
+<p><code>app.ini</code> is Gitea's sole configuration file. Some important sections:</p>
+<pre><code class="language-ini">[server]
+# Set RUN_MODE = prod for production (enables more aggressive caching)
+RUN_MODE = prod
+
+[security]
+# INSTALL_LOCK must be true after first setup — it prevents the install page
+INSTALL_LOCK = true
+# Generate a proper secret: openssl rand -base64 32
+SECRET_KEY = your-random-secret-here
+
+[database]
+DB_TYPE  = postgres
+HOST     = 127.0.0.1:5432
+NAME     = gitea
+USER     = gitea
+PASSWD   = your-db-password
+
+[service]
+# Require email confirmation before users can act
+REGISTER_EMAIL_CONFIRM            = true
+DISABLE_REGISTRATION              = false
+ALLOW_ONLY_EXTERNAL_REGISTRATION  = false
+REQUIRE_SIGNIN_VIEW               = false
+
+[ssh]
+# Minimum RSA key size (default 2048, recommend 3072+)
+MINIMUM_KEY_SIZE = 3072
+</code></pre>
+<p>Changes to <code>app.ini</code> take effect after restarting Gitea:</p>
+<pre><code class="language-bash"># Binary install
+sudo -u git pkill gitea
+sudo -u git /usr/local/bin/gitea web --config /etc/gitea/app.ini
+
+# Docker install
+docker restart gitea
+</code></pre>
+<hr />
+<h2 id="gitlab-vs-gitea-comparison">GitLab vs Gitea: Comparison</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>GitLab CE/EE</th>
+<th>Gitea</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>License</strong></td>
+<td>MIT (CE), proprietary (EE)</td>
+<td>MIT</td>
+</tr>
+<tr>
+<td><strong>Minimum RAM</strong></td>
+<td>4 GB recommended</td>
+<td>512 MB</td>
+</tr>
+<tr>
+<td><strong>Dependencies</strong></td>
+<td>Bundled (PostgreSQL, Redis, NGINX)</td>
+<td>Single binary (optional external DB)</td>
+</tr>
+<tr>
+<td><strong>Built-in CI/CD</strong></td>
+<td>Yes (GitLab Pipelines)</td>
+<td>No (use external: Drone, Jenkins, GitHub Actions remote)</td>
+</tr>
+<tr>
+<td><strong>Container Registry</strong></td>
+<td>Yes, per-project</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Issue Tracking</strong></td>
+<td>Full (Issues, Epics, Roadmaps, Time tracking)</td>
+<td>Basic issues and pull requests</td>
+</tr>
+<tr>
+<td><strong>Markdown Wiki</strong></td>
+<td>Per-project wiki</td>
+<td>Per-project wiki</td>
+</tr>
+<tr>
+<td><strong>Import/Export</strong></td>
+<td>GitHub, Bitbucket, GitLab → GitLab</td>
+<td>GitHub, Bitbucket, Gitea, and more</td>
+</tr>
+<tr>
+<td><strong>Upgrade Complexity</strong></td>
+<td><code>apt upgrade</code> or <code>docker pull</code></td>
+<td>Replace binary + migrate (usually trivial)</td>
+</tr>
+<tr>
+<td><strong>API</strong></td>
+<td>REST + GraphQL (comprehensive)</td>
+<td>REST (functional, less comprehensive)</td>
+</tr>
+<tr>
+<td><strong>GitHub Compatibility</strong></td>
+<td>Partial (import only)</td>
+<td>High (import + compatible UI)</td>
+</tr>
+<tr>
+<td><strong>Best For</strong></td>
+<td>Teams needing full DevOps platform</td>
+<td>Small teams, personal projects, homelabs</td>
+</tr>
+<tr>
+<td><strong>Complexity</strong></td>
+<td>Higher (more powerful, more to manage)</td>
+<td>Lower (simpler, leaner)</td>
+</tr>
+</tbody>
+</table>
+<p>Both are excellent choices. The decision typically comes down to: do you need built-in CI/CD and container registry? Choose GitLab. Do you need something lean that runs on a $10/month VPS? Choose Gitea.</p>
+<hr />
+<h2 id="self-hosted-vs-github">Self-Hosted vs GitHub</h2>
+<h3 id="choose-self-hosted-when">Choose Self-Hosted When:</h3>
+<ul>
+<li><strong>Compliance or data residency</strong> is a hard requirement (cannot store code on third-party servers)</li>
+<li>You need <strong>CI/CD runners inside a private network</strong> with access to on-prem resources</li>
+<li>Your organisation has <strong>&gt;50 developers</strong> and the per-seat GitHub cost is a budget concern</li>
+<li>You operate in an <strong>air-gapped environment</strong> with no internet access</li>
+<li>You want <strong>full control over upgrades</strong> and no risk of a SaaS deprecation</li>
+</ul>
+<h3 id="choose-github-when">Choose GitHub When:</h3>
+<ul>
+<li>You want the <strong>latest features</strong> without managing infrastructure</li>
+<li>Your team is <strong>distributed globally</strong> and you want GitHub's CDN-backed global edge network</li>
+<li>You rely on <strong>GitHub Actions</strong> as your primary CI/CD system</li>
+<li>You want seamless integration with <strong>GitHub Marketplace</strong> apps and third-party tooling</li>
+<li>You are an <strong>open-source project</strong> that benefits from GitHub's social graph and discoverability</li>
+</ul>
+<h3 id="the-middle-ground">The Middle Ground</h3>
+<p>Some teams use both: a self-hosted GitLab for private, compliance-sensitive work, and GitHub for open-source contributions. Multi-remote repositories make this feasible — you add both as remotes and push to each as needed:</p>
+<pre><code class="language-bash">git remote add github git@github.com:org/private-repo.git
+git remote add gitlab git@gitlab.internal.com:dev/private-repo.git
+
+# Push to both remotes
+git push github main
+git push gitlab main
+</code></pre>
+<hr />
+<h2 id="exercise">Exercise</h2>
+<h3 id="scenario">Scenario</h3>
+<p>You are a DevOps engineer setting up internal Git hosting for a small development team of 5 people. Your team needs Git hosting quickly without spending money on infrastructure. You have a Linux server (or can use Docker) available.</p>
+<p>Your task:<br />
+1. Install Gitea using Docker<br />
+2. Complete the first-run setup wizard in the web UI<br />
+3. Create an admin account<br />
+4. Create a new repository named <code>hello-devops</code><br />
+5. Clone the repository to your local machine<br />
+6. Add a file, commit it, and push to your self-hosted Gitea instance<br />
+7. Verify the commit appears in the Gitea web UI</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>Docker installed (<code>docker --version</code>)</li>
+<li>Port <code>3000</code> available on localhost</li>
+<li>A web browser to access the Gitea UI</li>
+</ul>
+<h3 id="steps">Steps</h3>
+<p><strong>1. Start the Gitea container:</strong></p>
+<pre><code class="language-bash">docker run -d \
+  --name=gitea \
+  --hostname=localhost \
+  -p 3000:3000 \
+  -p 2222:22 \
+  -v /tmp/gitea:/data \
+  --restart unless-stopped \
+  gitea/gitea:latest
+</code></pre>
+<p><strong>2. Wait for Gitea to start (30–60 seconds):</strong></p>
+<pre><code class="language-bash">docker logs gitea 2&gt;&amp;1 | tail -5
+</code></pre>
+<p>Expected output (truncated):</p>
+<pre><code class="language-text">2024/11/01 14:23:01 [I] Gitea version 1.21.11 built with GNU Make
+2024/11/01 14:23:01 [I] Log mode: File (Info)
+2024/11/01 14:23:02 [I] XORM Log Mode: File (Info)
+2024/11/01 14:23:03 [I] Migration completed successfully
+2024/11/01 14:23:03 [I] listen: http://0.0.0.0:3000
+</code></pre>
+<p>The line <code>listen: http://0.0.0.0:3000</code> confirms Gitea is ready.</p>
+<p><strong>3. Open the setup wizard:</strong></p>
+<p>Open <code>http://localhost:3000</code> in your browser. If this is the first time, you are redirected to <code>http://localhost:3000/install</code>.</p>
+<p><strong>4. Fill in the setup form:</strong></p>
+<ul>
+<li><strong>Database Type:</strong> SQLite3 (default, no setup needed)</li>
+<li><strong>Site Title:</strong> <code>Gitea Local</code></li>
+<li><strong>Repository Root Path:</strong> <code>/data/git/repositories</code> (default)</li>
+<li><strong>Run As User:</strong> <code>git</code></li>
+<li><strong>Domain:</strong> <code>localhost</code></li>
+<li><strong>SSH Port:</strong> <code>2222</code></li>
+<li><strong>HTTP Port:</strong> <code>3000</code></li>
+<li><strong>Base URL:</strong> <code>http://localhost:3000/</code></li>
+</ul>
+<p>Under <strong>Administrator Account</strong>:<br />
+- <strong>Email:</strong> <code>admin@gitea.local</code><br />
+- <strong>Password:</strong> <code>SecureAdmin123!</code><br />
+- <strong>Confirm Password:</strong> <code>SecureAdmin123!</code><br />
+- <strong>Username:</strong> <code>gitea_admin</code></p>
+<p>Click <strong>Install Gitea</strong>.</p>
+<p><strong>5. Sign in as admin:</strong></p>
+<p>After installation, you are redirected to the sign-in page. Sign in with the admin credentials you just created.</p>
+<p><strong>6. Create the repository:</strong></p>
+<p>Click the <strong>+</strong> icon in the top navigation bar → <strong>Create Repository</strong>.</p>
+<ul>
+<li>Name: <code>hello-devops</code></li>
+<li>Description: <code>My first Gitea repository</code></li>
+<li>Visibility: <strong>Private</strong> (default)</li>
+<li>Initialize Repository: ☑️ <strong>Add a README</strong></li>
+</ul>
+<p>Click <strong>Create Repository</strong>.</p>
+<p><strong>7. Clone the repository:</strong></p>
+<p>On the repository page, Gitea shows clone instructions. Copy the SSH or HTTP URL. For local testing on <code>localhost</code> with no real SSH, use HTTP:</p>
+<pre><code class="language-bash">git clone http://localhost:3000/gitea_admin/hello-devops.git
+</code></pre>
+<pre><code class="language-text">Cloning into 'hello-devops'...
+warning: redirecting to http://localhost:3000/gitea_admin/hello-devops.git/
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+</code></pre>
+<p><strong>8. Add a file, commit, and push:</strong></p>
+<pre><code class="language-bash">cd hello-devops
+echo &quot;# Hello DevOps&quot; &gt; devops.txt
+git add devops.txt
+git commit -m &quot;Add devops.txt marker file&quot;
+git push -u origin main
+</code></pre>
+<pre><code class="language-text">[main (root-commit) abc1234] Add devops.txt marker file
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ create mode 100644 devops.txt
+Username for 'http://localhost:3000': gitea_admin
+Password for 'http://localhost:3000': SecureAdmin123!
+Enumerating objects: 2, done.
+Counting objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 81 bytes, done.
+Total 2 (delta 0), reused 0 (delta 0), pack-reused 0
+To http://localhost:3000/gitea_admin/hello-devops.git
+ * [new branch]      main -&gt; main
+branch 'main' set up to track 'main'.
+</code></pre>
+<p><strong>9. Verify in the web UI:</strong></p>
+<p>Refresh the Gitea repository page. You should see:</p>
+<ul>
+<li>The <code>devops.txt</code> file listed in the file tree</li>
+<li>The commit <code>Add devops.txt marker file</code> in the commit history</li>
+</ul>
+<p><strong>10. Clean up (optional):</strong></p>
+<pre><code class="language-bash">docker stop gitea &amp;&amp; docker rm gitea
+rm -rf /tmp/gitea
+</code></pre>
+<hr />
+<h2 id="solution">Solution</h2>
+<p>The full step-by-step solution is embedded above. To verify your setup was successful:</p>
+<pre><code class="language-bash"># Verify the container is running
+docker ps --filter name=gitea --format &quot;{{.Names}} {{.Status}}&quot;
+
+# Verify the clone worked
+ls hello-devops/devops.txt &amp;&amp; echo &quot;File exists&quot;
+
+# Verify the commit history
+git -C hello-devops log --oneline
+</code></pre>
+<p>Expected output:</p>
+<pre><code class="language-text">gitea Up (healthy)
+File exists
+abc1234 Add devops.txt marker file
+</code></pre>
+<p>If you see the commit in the log and the file exists, your self-hosted Git server is working correctly.</p>
+<hr />
+<h2 id="recap">Recap</h2>
+<p>In this section you learned:</p>
+<ul>
+<li><strong>Why self-host</strong> — data sovereignty, air-gapped networks, cost control, and private CI/CD runners</li>
+<li><strong>GitLab</strong> — a full DevOps platform installed via Omnibus or Docker, with post-install user management, runner registration, and key config concepts</li>
+<li><strong>Gitea</strong> — a lightweight, Go-based Git host installed via Docker or binary, configured through <code>app.ini</code> and a web setup wizard</li>
+<li><strong>Comparison</strong> — GitLab is feature-rich and heavier; Gitea is lean and runs on minimal hardware</li>
+<li><strong>When to choose</strong> self-hosted vs GitHub.com based on compliance, team size, and infrastructure needs</li>
+</ul>
+<hr />
+<p><a href="13-git-hooks.html">← Previous: Git Hooks</a> · <a href="15-capstone.html">Next: Capstone Mini-Project →</a> · <a href="../index.html">← Back to Index</a></p>
+
+      <div class="lesson-actions">
+        <button class="btn-mark-complete" id="btn-mark-complete" data-lesson="14">
+          <span class="btn-icon">✓</span> Mark Complete
+        </button>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Previous and next lessons">
+        <a href="13-git-hooks.html" class="lesson-nav-prev">
+          <span class="nav-label">← Previous</span>
+          <span class="nav-title">Git Hooks</span>
+        </a>
+
+        <a href="15-capstone.html" class="lesson-nav-next">
+          <span class="nav-label">Next →</span>
+          <span class="nav-title">Capstone Mini-Project</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+</article>
+      </main>
+
+      <footer class="site-footer">
+        <p>Built with ❤️ for DevOps learners</p>
+        <p class="footer-small">Git Kimchi — A free Git &amp; GitHub course</p>
+      </footer>
+    </div>
+  </div>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script src="../static/js/app.js"></script>
+</body>
+</html>

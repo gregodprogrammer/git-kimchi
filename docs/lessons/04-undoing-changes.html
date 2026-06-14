@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undoing Changes — Git Kimchi</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body data-page="lesson">
+  <div class="site-wrapper">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-brand">
+          <span class="brand-icon">🌶️</span>
+          <span class="brand-text">Git Kimchi</span>
+        </a>
+        <button class="sidebar-close" id="sidebar-close" aria-label="Close navigation">×</button>
+      </div>
+      <nav class="sidebar-nav" aria-label="Lessons">
+        <div class="nav-section">
+          <span class="nav-section-title">Core Git</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="01-getting-started.html" class="nav-link" data-lesson="1">
+                <span class="nav-num">1</span>
+                <span class="nav-title">Getting Started with Git</span>
+                <span class="nav-status" data-status-lesson="1"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="02-staging-and-commits.html" class="nav-link" data-lesson="2">
+                <span class="nav-num">2</span>
+                <span class="nav-title">Staging and Commits</span>
+                <span class="nav-status" data-status-lesson="2"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="03-history-and-diff.html" class="nav-link" data-lesson="3">
+                <span class="nav-num">3</span>
+                <span class="nav-title">History and Diff</span>
+                <span class="nav-status" data-status-lesson="3"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="04-undoing-changes.html" class="nav-link" data-lesson="4">
+                <span class="nav-num">4</span>
+                <span class="nav-title">Undoing Changes</span>
+                <span class="nav-status" data-status-lesson="4"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Intermediate</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="05-branching.html" class="nav-link" data-lesson="5">
+                <span class="nav-num">5</span>
+                <span class="nav-title">Branching</span>
+                <span class="nav-status" data-status-lesson="5"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="06-merging.html" class="nav-link" data-lesson="6">
+                <span class="nav-num">6</span>
+                <span class="nav-title">Merging</span>
+                <span class="nav-status" data-status-lesson="6"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="07-remotes.html" class="nav-link" data-lesson="7">
+                <span class="nav-num">7</span>
+                <span class="nav-title">Remotes</span>
+                <span class="nav-status" data-status-lesson="7"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="08-github-repos-and-forks.html" class="nav-link" data-lesson="8">
+                <span class="nav-num">8</span>
+                <span class="nav-title">GitHub Repositories and Forks</span>
+                <span class="nav-status" data-status-lesson="8"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="09-pull-requests-and-issues.html" class="nav-link" data-lesson="9">
+                <span class="nav-num">9</span>
+                <span class="nav-title">Pull Requests and Issues</span>
+                <span class="nav-status" data-status-lesson="9"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Advanced / DevOps</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="10-code-review.html" class="nav-link" data-lesson="10">
+                <span class="nav-num">10</span>
+                <span class="nav-title">Code Review</span>
+                <span class="nav-status" data-status-lesson="10"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="11-branching-strategies.html" class="nav-link" data-lesson="11">
+                <span class="nav-num">11</span>
+                <span class="nav-title">Branching Strategies</span>
+                <span class="nav-status" data-status-lesson="11"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="12-github-pages.html" class="nav-link" data-lesson="12">
+                <span class="nav-num">12</span>
+                <span class="nav-title">GitHub Pages</span>
+                <span class="nav-status" data-status-lesson="12"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="13-git-hooks.html" class="nav-link" data-lesson="13">
+                <span class="nav-num">13</span>
+                <span class="nav-title">Git Hooks</span>
+                <span class="nav-status" data-status-lesson="13"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="14-self-hosted-git.html" class="nav-link" data-lesson="14">
+                <span class="nav-num">14</span>
+                <span class="nav-title">Self-Hosted Git</span>
+                <span class="nav-status" data-status-lesson="14"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Capstone &amp; Reference</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="15-capstone.html" class="nav-link" data-lesson="15">
+                <span class="nav-num">15</span>
+                <span class="nav-title">Capstone Mini-Project</span>
+                <span class="nav-status" data-status-lesson="15"></span>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="../solutions.html" class="nav-link" data-lesson="solutions">
+                <span class="nav-num">💡</span>
+                <span class="nav-title">Solutions</span>
+                <span class="nav-status" data-status-lesson="solutions"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="main-area">
+      <header class="site-header">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="header-title">
+          <a href="../index.html">Git Kimchi</a>
+        </div>
+        <div class="header-progress" id="header-progress" style="display:none;">
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+          </div>
+          <span class="progress-text" id="progress-text">0 / 15</span>
+        </div>
+      </header>
+
+      <main class="content-wrapper">
+<article class="lesson">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">Undoing Changes</span>
+  </nav>
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="lesson-number">Lesson 4</span>
+      <span class="lesson-readtime">9 min read</span>
+    </div>
+    <h1 class="lesson-title">Undoing Changes</h1>
+  </header>
+
+  <div class="lesson-body-wrapper">
+    <div class="lesson-toc" id="lesson-toc" aria-label="Table of contents">
+      <h2>On this page</h2>
+      <div class="toc">
+<ul>
+<li><a href="#undoing-changes">Undoing Changes</a><ul>
+<li><a href="#when-to-undo">When to Undo</a></li>
+<li><a href="#discarding-working-directory-changes">Discarding Working Directory Changes</a><ul>
+<li><a href="#using-git-restore-git-223">Using git restore (Git 2.23+)</a></li>
+<li><a href="#using-git-checkout-legacy">Using git checkout (Legacy)</a></li>
+<li><a href="#when-to-use-each">When to Use Each</a></li>
+</ul>
+</li>
+<li><a href="#unstaging-files">Unstaging Files</a><ul>
+<li><a href="#using-git-restore-staged">Using git restore --staged</a></li>
+<li><a href="#using-git-reset-legacy">Using git reset (Legacy)</a></li>
+<li><a href="#practical-example">Practical Example</a></li>
+</ul>
+</li>
+<li><a href="#resetting-commits">Resetting Commits</a><ul>
+<li><a href="#three-modes">Three Modes</a></li>
+<li><a href="#-soft-keep-everything-staged">--soft: Keep Everything Staged</a></li>
+<li><a href="#-mixed-keep-changes-unstaged">--mixed: Keep Changes Unstaged</a></li>
+<li><a href="#-hard-destroy-changes-completely">--hard: Destroy Changes Completely</a></li>
+<li><a href="#safety-rule">Safety Rule</a></li>
+</ul>
+</li>
+<li><a href="#reverting-commits">Reverting Commits</a><ul>
+<li><a href="#when-to-use-revert">When to Use Revert</a></li>
+<li><a href="#basic-revert">Basic Revert</a></li>
+<li><a href="#revert-with-no-editor">Revert with No Editor</a></li>
+<li><a href="#handling-revert-conflicts">Handling Revert Conflicts</a></li>
+<li><a href="#reverting-a-merge-commit">Reverting a Merge Commit</a></li>
+</ul>
+</li>
+<li><a href="#the-reflog-your-safety-net">The Reflog: Your Safety Net</a><ul>
+<li><a href="#viewing-the-reflog">Viewing the Reflog</a></li>
+<li><a href="#recovering-from-a-bad-reset">Recovering from a Bad Reset</a></li>
+<li><a href="#alternative-using-git-checkout-with-reflog">Alternative: Using git checkout with Reflog</a></li>
+<li><a href="#when-reflog-expires">When Reflog Expires</a></li>
+</ul>
+</li>
+<li><a href="#exercise">Exercise</a><ul>
+<li><a href="#scenario">Scenario</a></li>
+<li><a href="#steps">Steps</a></li>
+<li><a href="#hint">Hint</a></li>
+</ul>
+</li>
+<li><a href="#solution">Solution</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+    </div>
+
+    <div class="lesson-body">
+      <h1 id="undoing-changes">Undoing Changes</h1>
+<p><a href="03-history-and-diff.html">← Previous: History and Diff</a></p>
+<p>Git's safety net is one of its best features. Almost everything you do can be undone. However, choosing the <strong>wrong undo method</strong> can create confusion or even lose work. This section teaches you the right tool for each situation.</p>
+<p>The golden rule: <strong>Git rarely destroys data permanently — but <code>git reset --hard</code> is the exception.</strong> Understand each command before you run it.</p>
+<hr />
+<h2 id="when-to-undo">When to Undo</h2>
+<p>You will need to undo changes in several common situations:</p>
+<ul>
+<li>You edited a file but decided the changes were wrong</li>
+<li>You ran <code>git add</code> on a file you didn't want to stage</li>
+<li>You committed too early or forgot to include a file</li>
+<li>You merged or pulled something that broke your code</li>
+<li>You used <code>git reset</code> and need to find lost work</li>
+</ul>
+<p><strong>The key question is:</strong> Are your changes in the working tree, the staging area, or the commit history? Each location requires a different approach.</p>
+<hr />
+<h2 id="discarding-working-directory-changes">Discarding Working Directory Changes</h2>
+<p>When you have edited a file but want to throw away those changes, you have two options. Both commands only affect the <strong>working tree</strong> — your commits stay safe.</p>
+<h3 id="using-git-restore-git-223">Using <code>git restore</code> (Git 2.23+)</h3>
+<p>The modern, recommended approach:</p>
+<pre><code class="language-bash">git restore README.md
+</code></pre>
+<pre><code class="language-text"># No output means success — the file is back to its last committed state
+</code></pre>
+<p><code>git restore</code> reads the file from the index (or the last commit if the file was never staged) and overwrites your working copy.</p>
+<h3 id="using-git-checkout-legacy">Using <code>git checkout</code> (Legacy)</h3>
+<p>Older tutorials and scripts may show this syntax:</p>
+<pre><code class="language-bash">git checkout -- README.md
+</code></pre>
+<pre><code class="language-text"># Same result — file reverted, no output
+</code></pre>
+<p>The <code>--</code> separates the branch name from the file path, preventing accidental branch switches.</p>
+<h3 id="when-to-use-each">When to Use Each</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What it does</th>
+<th>Safety</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git restore &lt;file&gt;</code></td>
+<td>Reverts working tree</td>
+<td>Safe — commits unchanged</td>
+</tr>
+<tr>
+<td><code>git checkout -- &lt;file&gt;</code></td>
+<td>Same, legacy syntax</td>
+<td>Safe — commits unchanged</td>
+</tr>
+</tbody>
+</table>
+<p>Use <code>git restore</code>. It was introduced in Git 2.23 specifically to remove the ambiguity of <code>git checkout</code>, which does many different things.</p>
+<hr />
+<h2 id="unstaging-files">Unstaging Files</h2>
+<p>You ran <code>git add</code> on a file too soon. You want it back out of the staging area but keep your working changes.</p>
+<h3 id="using-git-restore-staged">Using <code>git restore --staged</code></h3>
+<pre><code class="language-bash">git restore --staged README.md
+</code></pre>
+<pre><code class="language-text"># File removed from staging, changes remain in working tree
+</code></pre>
+<p>Your edits to <code>README.md</code> are still there — it's just no longer staged for commit.</p>
+<h3 id="using-git-reset-legacy">Using <code>git reset</code> (Legacy)</h3>
+<pre><code class="language-bash">git reset HEAD README.md
+</code></pre>
+<pre><code class="language-text"># Same result — file unstaged, but not lost
+</code></pre>
+<p><code>HEAD</code> here refers to the current commit. <code>git reset</code> moves the current branch's tip back, but without <code>--hard</code>, it only updates the staging area.</p>
+<h3 id="practical-example">Practical Example</h3>
+<pre><code class="language-bash">echo &quot;notes for tomorrow&quot; &gt;&gt; TODO.txt
+git add TODO.txt
+git status
+</code></pre>
+<pre><code class="language-text">On branch main
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to update)
+        modified:   TODO.txt
+
+git reset HEAD TODO.txt
+Unstaged changes after reset:
+M   TODO.txt
+</code></pre>
+<p>After unstaging, your <code>TODO.txt</code> changes are still in the working tree, ready to edit further or stage again later.</p>
+<hr />
+<h2 id="resetting-commits">Resetting Commits</h2>
+<p>Sometimes you committed too early or on the wrong branch. <code>git reset</code> moves the branch tip backward. The key difference is what happens to your working tree and staging area.</p>
+<h3 id="three-modes">Three Modes</h3>
+<pre><code class="language-bash">git reset --soft HEAD~1   # Keep changes staged
+git reset --mixed HEAD~1  # Keep changes unstaged (default)
+git reset --hard HEAD~1   # Destroy changes completely
+</code></pre>
+<h3 id="-soft-keep-everything-staged"><code>--soft</code>: Keep Everything Staged</h3>
+<p>Your changes are preserved and staged. Useful for combining commits:</p>
+<pre><code class="language-bash">git commit -m &quot;Fix typo&quot;
+git commit -m &quot;Add feature&quot;
+# Oops — these should be one commit
+git reset --soft HEAD~1
+git commit -m &quot;Fix typo and add feature&quot;
+</code></pre>
+<p>After <code>--soft HEAD~1</code>, your second commit's changes are back in the staging area, ready to be recommitted.</p>
+<h3 id="-mixed-keep-changes-unstaged"><code>--mixed</code>: Keep Changes Unstaged</h3>
+<p>This is the <strong>default behavior</strong>. Changes are preserved but unstaged:</p>
+<pre><code class="language-bash">git commit -m &quot;WIP feature that needs more work&quot;
+git reset --mixed HEAD~1
+</code></pre>
+<pre><code class="language-text">Unstaged changes after reset:
+M   src/main.py
+</code></pre>
+<p>Your changes to <code>src/main.py</code> are still there, but not staged. You can continue editing, then commit correctly.</p>
+<h3 id="-hard-destroy-changes-completely"><code>--hard</code>: Destroy Changes Completely</h3>
+<p><strong>Warning:</strong> This deletes your uncommitted work permanently.</p>
+<pre><code class="language-bash">git reset --hard HEAD~1
+</code></pre>
+<pre><code class="language-text">HEAD is now at a3f2b1c Added initial project structure
+</code></pre>
+<p>Everything you had in the working tree and staging area is gone. Only the commit remains.</p>
+<h3 id="safety-rule">Safety Rule</h3>
+<blockquote>
+<p><strong>Never use <code>git reset --hard</code> unless you are certain you don't need your changes.</strong></p>
+<p>If you might need the work later, run <code>git reflog</code> first to find your current position, or use <code>--soft</code> or <code>--mixed</code>.</p>
+</blockquote>
+<p>A safer workflow before a hard reset:</p>
+<pre><code class="language-bash"># Create a backup branch just in case
+git branch backup-before-reset
+git reset --hard HEAD~1
+</code></pre>
+<p>If you realize you made a mistake:</p>
+<pre><code class="language-bash">git checkout backup-before-reset  # Go back to your backup
+</code></pre>
+<hr />
+<h2 id="reverting-commits">Reverting Commits</h2>
+<p>Unlike <code>git reset</code>, <code>git revert</code> creates a <strong>new commit</strong> that undoes a previous one. This is safe for shared or published history because it doesn't rewrite history.</p>
+<h3 id="when-to-use-revert">When to Use Revert</h3>
+<ul>
+<li>You pushed a commit to a shared branch (like <code>main</code> or <code>develop</code>)</li>
+<li>You need to undo a merge commit</li>
+<li>You want to keep history intact while removing a change</li>
+</ul>
+<h3 id="basic-revert">Basic Revert</h3>
+<pre><code class="language-bash">git revert a3f2b1c
+</code></pre>
+<p>Git opens your editor to write a commit message:</p>
+<pre><code class="language-text">Revert &quot;Added initial project structure&quot;
+
+This reverts commit a3f2b1c7d8e9f.
+</code></pre>
+<p>Save and close the editor:</p>
+<pre><code class="language-text">[main (root-commit) 9b4d2e1] Revert &quot;Added initial project structure&quot;
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+</code></pre>
+<p>The original commit is still in the history. A new commit that undoes it now sits on top.</p>
+<h3 id="revert-with-no-editor">Revert with No Editor</h3>
+<p>Skip the editor prompt with <code>-m</code>:</p>
+<pre><code class="language-bash">git revert a3f2b1c --no-edit
+</code></pre>
+<pre><code class="language-text">[main 9b4d2e1] Revert &quot;Added initial project structure&quot;
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+</code></pre>
+<h3 id="handling-revert-conflicts">Handling Revert Conflicts</h3>
+<p>If the same lines were modified since the commit you're reverting, you may get a conflict:</p>
+<pre><code class="language-bash">git revert a3f2b1c
+</code></pre>
+<pre><code class="language-text">error: could not revert a3f2b1c &quot;Added initial project structure&quot;
+hint: Resolve conflicts manually and mark them as resolved
+hint: Run &quot;git revert --abort&quot; to abandon the revert
+</code></pre>
+<p>You have two choices:</p>
+<p><strong>Abort the revert</strong> (abandon the operation):</p>
+<pre><code class="language-bash">git revert --abort
+</code></pre>
+<pre><code class="language-text"># Revert abandoned, back to previous state
+</code></pre>
+<p><strong>Resolve and continue:</strong></p>
+<pre><code class="language-bash"># Edit the conflicted files manually
+git add conflicted-file.txt
+git revert --continue
+</code></pre>
+<h3 id="reverting-a-merge-commit">Reverting a Merge Commit</h3>
+<p>Merge commits have two parents. You must tell Git which parent to revert:</p>
+<pre><code class="language-bash">git revert -m 1 abc1234
+</code></pre>
+<p><code>-m 1</code> means "keep the first parent's changes" — undoing the merge as if the branch was never merged.</p>
+<hr />
+<h2 id="the-reflog-your-safety-net">The Reflog: Your Safety Net</h2>
+<p>The reflog records every movement of <code>HEAD</code>. Even if you use <code>git reset --hard</code>, the reflog remembers where you were a moment ago.</p>
+<h3 id="viewing-the-reflog">Viewing the Reflog</h3>
+<pre><code class="language-bash">git reflog
+</code></pre>
+<pre><code class="language-text">a3f2b1c HEAD@{0}: commit: Added feature
+9b4d2e1 HEAD@{1}: reset: moving to HEAD~1
+7c3e8a2 HEAD@{2}: commit: Fix typo
+1a9d6f4 HEAD@{3}: clone: from https://github.com/example/repo.git
+</code></pre>
+<p>Each entry shows:<br />
+- The commit hash<br />
+- The action that moved HEAD<br />
+- The commit message (if any)</p>
+<h3 id="recovering-from-a-bad-reset">Recovering from a Bad Reset</h3>
+<p>You used <code>--hard</code> and lost work:</p>
+<pre><code class="language-bash">git reflog
+</code></pre>
+<pre><code class="language-text">a3f2b1c HEAD@{0}: reset: moving to HEAD~1
+7c3e8a2 HEAD@{1}: commit: Work in progress
+</code></pre>
+<p>Your lost work was at <code>7c3e8a2</code>. Restore it:</p>
+<pre><code class="language-bash">git reset --hard HEAD@{1}
+</code></pre>
+<pre><code class="language-text">HEAD is now at 7c3e8a2 Work in progress
+</code></pre>
+<h3 id="alternative-using-git-checkout-with-reflog">Alternative: Using <code>git checkout</code> with Reflog</h3>
+<p>For a more cautious recovery, checkout the old state as a detached HEAD:</p>
+<pre><code class="language-bash">git checkout HEAD@{1}
+</code></pre>
+<pre><code class="language-text">Note: switching to 'HEAD@{1}'.
+You are in 'detached HEAD' state...
+</code></pre>
+<p>This lets you inspect the old state before deciding what to do with it.</p>
+<h3 id="when-reflog-expires">When Reflog Expires</h3>
+<p>The reflog is local to your repository. It expires by default after 90 days for reachable commits, or 30 days for unreachable (orphaned) commits. Do not rely on it as a long-term backup — commits you need long-term should be properly branched.</p>
+<hr />
+<h2 id="exercise">Exercise</h2>
+<h3 id="scenario">Scenario</h3>
+<p>You're working on a project and made several mistakes:</p>
+<ol>
+<li>You added a change to <code>config.txt</code> and staged it</li>
+<li>You then accidentally committed it with the wrong message</li>
+<li>You realize the committed change was actually correct, but the message was wrong</li>
+</ol>
+<p>Your task: Fix the commit message but keep the actual changes.</p>
+<h3 id="steps">Steps</h3>
+<ol>
+<li>Initialize a new repository or use an existing one</li>
+<li>Create a file called <code>config.txt</code> with some content</li>
+<li>Stage and commit it (with a temporary message like "WIP")</li>
+<li>Edit <code>config.txt</code> to add more content</li>
+<li>Stage and commit again (with another temporary message)</li>
+<li>Use <code>git log --oneline</code> to see your commits</li>
+<li>Change the last commit message to something meaningful</li>
+<li>Verify with <code>git log --oneline</code></li>
+</ol>
+<h3 id="hint">Hint</h3>
+<p>Think about which reset mode keeps your changes staged and lets you recommit with a new message.</p>
+<hr />
+<h2 id="solution">Solution</h2>
+<pre><code class="language-bash">mkdir undo-practice
+cd undo-practice
+git init
+</code></pre>
+<pre><code class="language-text">Initialized empty Git repository in /home/user/undo-practice/.git/
+</code></pre>
+<pre><code class="language-bash">echo &quot;database=localhost&quot; &gt; config.txt
+git add config.txt
+git commit -m &quot;WIP&quot;
+</code></pre>
+<pre><code class="language-text">[main (root-commit) 1a2b3c4] WIP
+ 1 file changed, 1 insertion(+)
+ create mode 100644 config.txt
+</code></pre>
+<pre><code class="language-bash">echo &quot;port=8080&quot; &gt;&gt; config.txt
+git add config.txt
+git commit -m &quot;WIP 2&quot;
+</code></pre>
+<pre><code class="language-text">[main 5d6e7f8] WIP 2
+ 1 file changed, 1 insertion(+)
+</code></pre>
+<pre><code class="language-bash">git log --oneline
+</code></pre>
+<pre><code class="language-text">5d6e7f8 WIP 2
+1a2b3c4 WIP
+</code></pre>
+<p>Now fix the last commit. Use <code>--soft</code> to keep changes staged, then recommit with the correct message:</p>
+<pre><code class="language-bash">git reset --soft HEAD~1
+</code></pre>
+<pre><code class="language-text"># No output — changes are staged
+</code></pre>
+<pre><code class="language-bash">git commit -m &quot;Add port configuration to config.txt&quot;
+</code></pre>
+<pre><code class="language-text">[main 9g0h1i2] Add port configuration to config.txt
+ 1 file changed, 1 insertion(+)
+</code></pre>
+<pre><code class="language-bash">git log --oneline
+</code></pre>
+<pre><code class="language-text">9g0h1i2 Add port configuration to config.txt
+1a2b3c4 WIP
+</code></pre>
+<p>The "WIP 2" commit is gone, but its changes are now in a properly named commit. Your file <code>config.txt</code> contains both lines:</p>
+<pre><code class="language-bash">cat config.txt
+</code></pre>
+<pre><code class="language-text">database=localhost
+port=8080
+</code></pre>
+<hr />
+<h2 id="summary">Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Discard working tree changes</td>
+<td><code>git restore &lt;file&gt;</code></td>
+</tr>
+<tr>
+<td>Unstage a file</td>
+<td><code>git restore --staged &lt;file&gt;</code></td>
+</tr>
+<tr>
+<td>Undo last commit, keep staged</td>
+<td><code>git reset --soft HEAD~1</code></td>
+</tr>
+<tr>
+<td>Undo last commit, keep unstaged</td>
+<td><code>git reset --mixed HEAD~1</code></td>
+</tr>
+<tr>
+<td>Destroy last commit entirely</td>
+<td><code>git reset --hard HEAD~1</code></td>
+</tr>
+<tr>
+<td>Safe undo of a public commit</td>
+<td><code>git revert &lt;commit&gt;</code></td>
+</tr>
+<tr>
+<td>Find lost commits</td>
+<td><code>git reflog</code></td>
+</tr>
+</tbody>
+</table>
+<p>Remember: <strong>Safety first.</strong> When in doubt, use <code>--soft</code> or <code>--mixed</code> instead of <code>--hard</code>, and check <code>git reflog</code> before panic.</p>
+<p><a href="05-branching.html">Next: Branching →</a></p>
+<p><a href="../index.html">← Back to Index</a></p>
+
+      <div class="lesson-actions">
+        <button class="btn-mark-complete" id="btn-mark-complete" data-lesson="4">
+          <span class="btn-icon">✓</span> Mark Complete
+        </button>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Previous and next lessons">
+        <a href="03-history-and-diff.html" class="lesson-nav-prev">
+          <span class="nav-label">← Previous</span>
+          <span class="nav-title">History and Diff</span>
+        </a>
+
+        <a href="05-branching.html" class="lesson-nav-next">
+          <span class="nav-label">Next →</span>
+          <span class="nav-title">Branching</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+</article>
+      </main>
+
+      <footer class="site-footer">
+        <p>Built with ❤️ for DevOps learners</p>
+        <p class="footer-small">Git Kimchi — A free Git &amp; GitHub course</p>
+      </footer>
+    </div>
+  </div>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script src="../static/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page_title %}{{ page_title }} — {% endif %}Git Kimchi</title>
+  <link rel="stylesheet" href="{{ css_path }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body data-page="{{ page_type }}">
+  <div class="site-wrapper">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="{{ root_path }}index.html" class="sidebar-brand">
+          <span class="brand-icon">🌶️</span>
+          <span class="brand-text">Git Kimchi</span>
+        </a>
+        <button class="sidebar-close" id="sidebar-close" aria-label="Close navigation">×</button>
+      </div>
+      <nav class="sidebar-nav" aria-label="Lessons">
+        <div class="nav-section">
+          <span class="nav-section-title">Core Git</span>
+          <ul class="nav-list">
+            {% for lesson in lessons_core %}
+            <li class="nav-item">
+              <a href="{{ lessons_path }}{{ lesson.slug }}.html" class="nav-link" data-lesson="{{ lesson.number }}">
+                <span class="nav-num">{{ lesson.number }}</span>
+                <span class="nav-title">{{ lesson.title }}</span>
+                <span class="nav-status" data-status-lesson="{{ lesson.number }}"></span>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Intermediate</span>
+          <ul class="nav-list">
+            {% for lesson in lessons_intermediate %}
+            <li class="nav-item">
+              <a href="{{ lessons_path }}{{ lesson.slug }}.html" class="nav-link" data-lesson="{{ lesson.number }}">
+                <span class="nav-num">{{ lesson.number }}</span>
+                <span class="nav-title">{{ lesson.title }}</span>
+                <span class="nav-status" data-status-lesson="{{ lesson.number }}"></span>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Advanced / DevOps</span>
+          <ul class="nav-list">
+            {% for lesson in lessons_advanced %}
+            <li class="nav-item">
+              <a href="{{ lessons_path }}{{ lesson.slug }}.html" class="nav-link" data-lesson="{{ lesson.number }}">
+                <span class="nav-num">{{ lesson.number }}</span>
+                <span class="nav-title">{{ lesson.title }}</span>
+                <span class="nav-status" data-status-lesson="{{ lesson.number }}"></span>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Capstone &amp; Reference</span>
+          <ul class="nav-list">
+            {% for lesson in lessons_capstone %}
+            <li class="nav-item">
+              <a href="{{ lessons_path }}{{ lesson.slug }}.html" class="nav-link" data-lesson="{{ lesson.number }}">
+                <span class="nav-num">{{ lesson.number }}</span>
+                <span class="nav-title">{{ lesson.title }}</span>
+                <span class="nav-status" data-status-lesson="{{ lesson.number }}"></span>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="{{ root_path }}solutions.html" class="nav-link" data-lesson="solutions">
+                <span class="nav-num">💡</span>
+                <span class="nav-title">Solutions</span>
+                <span class="nav-status" data-status-lesson="solutions"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="main-area">
+      <header class="site-header">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="header-title">
+          <a href="{{ root_path }}index.html">Git Kimchi</a>
+        </div>
+        <div class="header-progress" id="header-progress" style="display:none;">
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+          </div>
+          <span class="progress-text" id="progress-text">0 / 15</span>
+        </div>
+      </header>
+
+      <main class="content-wrapper">
+        {% block content %}{% endblock %}
+      </main>
+
+      <footer class="site-footer">
+        <p>Built with ❤️ for DevOps learners</p>
+        <p class="footer-small">Git Kimchi — A free Git &amp; GitHub course</p>
+      </footer>
+    </div>
+  </div>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script src="{{ js_path }}"></script>
+</body>
+</html>

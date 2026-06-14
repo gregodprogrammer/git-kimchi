@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Branching Strategies — Git Kimchi</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body data-page="lesson">
+  <div class="site-wrapper">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-brand">
+          <span class="brand-icon">🌶️</span>
+          <span class="brand-text">Git Kimchi</span>
+        </a>
+        <button class="sidebar-close" id="sidebar-close" aria-label="Close navigation">×</button>
+      </div>
+      <nav class="sidebar-nav" aria-label="Lessons">
+        <div class="nav-section">
+          <span class="nav-section-title">Core Git</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="01-getting-started.html" class="nav-link" data-lesson="1">
+                <span class="nav-num">1</span>
+                <span class="nav-title">Getting Started with Git</span>
+                <span class="nav-status" data-status-lesson="1"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="02-staging-and-commits.html" class="nav-link" data-lesson="2">
+                <span class="nav-num">2</span>
+                <span class="nav-title">Staging and Commits</span>
+                <span class="nav-status" data-status-lesson="2"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="03-history-and-diff.html" class="nav-link" data-lesson="3">
+                <span class="nav-num">3</span>
+                <span class="nav-title">History and Diff</span>
+                <span class="nav-status" data-status-lesson="3"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="04-undoing-changes.html" class="nav-link" data-lesson="4">
+                <span class="nav-num">4</span>
+                <span class="nav-title">Undoing Changes</span>
+                <span class="nav-status" data-status-lesson="4"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Intermediate</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="05-branching.html" class="nav-link" data-lesson="5">
+                <span class="nav-num">5</span>
+                <span class="nav-title">Branching</span>
+                <span class="nav-status" data-status-lesson="5"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="06-merging.html" class="nav-link" data-lesson="6">
+                <span class="nav-num">6</span>
+                <span class="nav-title">Merging</span>
+                <span class="nav-status" data-status-lesson="6"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="07-remotes.html" class="nav-link" data-lesson="7">
+                <span class="nav-num">7</span>
+                <span class="nav-title">Remotes</span>
+                <span class="nav-status" data-status-lesson="7"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="08-github-repos-and-forks.html" class="nav-link" data-lesson="8">
+                <span class="nav-num">8</span>
+                <span class="nav-title">GitHub Repositories and Forks</span>
+                <span class="nav-status" data-status-lesson="8"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="09-pull-requests-and-issues.html" class="nav-link" data-lesson="9">
+                <span class="nav-num">9</span>
+                <span class="nav-title">Pull Requests and Issues</span>
+                <span class="nav-status" data-status-lesson="9"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Advanced / DevOps</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="10-code-review.html" class="nav-link" data-lesson="10">
+                <span class="nav-num">10</span>
+                <span class="nav-title">Code Review</span>
+                <span class="nav-status" data-status-lesson="10"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="11-branching-strategies.html" class="nav-link" data-lesson="11">
+                <span class="nav-num">11</span>
+                <span class="nav-title">Branching Strategies</span>
+                <span class="nav-status" data-status-lesson="11"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="12-github-pages.html" class="nav-link" data-lesson="12">
+                <span class="nav-num">12</span>
+                <span class="nav-title">GitHub Pages</span>
+                <span class="nav-status" data-status-lesson="12"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="13-git-hooks.html" class="nav-link" data-lesson="13">
+                <span class="nav-num">13</span>
+                <span class="nav-title">Git Hooks</span>
+                <span class="nav-status" data-status-lesson="13"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="14-self-hosted-git.html" class="nav-link" data-lesson="14">
+                <span class="nav-num">14</span>
+                <span class="nav-title">Self-Hosted Git</span>
+                <span class="nav-status" data-status-lesson="14"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Capstone &amp; Reference</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="15-capstone.html" class="nav-link" data-lesson="15">
+                <span class="nav-num">15</span>
+                <span class="nav-title">Capstone Mini-Project</span>
+                <span class="nav-status" data-status-lesson="15"></span>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="../solutions.html" class="nav-link" data-lesson="solutions">
+                <span class="nav-num">💡</span>
+                <span class="nav-title">Solutions</span>
+                <span class="nav-status" data-status-lesson="solutions"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="main-area">
+      <header class="site-header">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="header-title">
+          <a href="../index.html">Git Kimchi</a>
+        </div>
+        <div class="header-progress" id="header-progress" style="display:none;">
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+          </div>
+          <span class="progress-text" id="progress-text">0 / 15</span>
+        </div>
+      </header>
+
+      <main class="content-wrapper">
+<article class="lesson">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">Branching Strategies</span>
+  </nav>
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="lesson-number">Lesson 11</span>
+      <span class="lesson-readtime">12 min read</span>
+    </div>
+    <h1 class="lesson-title">Branching Strategies</h1>
+  </header>
+
+  <div class="lesson-body-wrapper">
+    <div class="lesson-toc" id="lesson-toc" aria-label="Table of contents">
+      <h2>On this page</h2>
+      <div class="toc">
+<ul>
+<li><a href="#branching-strategies">Branching Strategies</a><ul>
+<li><a href="#why-branching-strategies-matter-in-devops">Why Branching Strategies Matter in DevOps</a><ul>
+<li><a href="#key-devops-concerns">Key DevOps Concerns</a></li>
+</ul>
+</li>
+<li><a href="#feature-branching">Feature Branching</a><ul>
+<li><a href="#how-it-works">How It Works</a></li>
+<li><a href="#commands">Commands</a></li>
+<li><a href="#when-to-use">When to Use</a></li>
+</ul>
+</li>
+<li><a href="#gitflow">GitFlow</a><ul>
+<li><a href="#the-five-branch-types">The Five Branch Types</a></li>
+<li><a href="#the-gitflow-flow-visual">The GitFlow Flow (Visual)</a></li>
+<li><a href="#detailed-flow-by-branch-type">Detailed Flow by Branch Type</a><ul>
+<li><a href="#feature-branches">Feature Branches</a></li>
+<li><a href="#release-branches">Release Branches</a></li>
+<li><a href="#hotfix-branches">Hotfix Branches</a></li>
+</ul>
+</li>
+<li><a href="#gitflow-pros-and-cons">GitFlow: Pros and Cons</a></li>
+</ul>
+</li>
+<li><a href="#trunk-based-development">Trunk-Based Development</a><ul>
+<li><a href="#the-core-principles">The Core Principles</a></li>
+<li><a href="#visual-flow">Visual Flow</a></li>
+<li><a href="#commands_1">Commands</a></li>
+<li><a href="#feature-flags-in-practice">Feature Flags in Practice</a></li>
+<li><a href="#trunk-based-development-pros-and-cons">Trunk-Based Development: Pros and Cons</a></li>
+</ul>
+</li>
+<li><a href="#strategy-comparison">Strategy Comparison</a></li>
+<li><a href="#when-to-use-which">When to Use Which</a></li>
+<li><a href="#exercise">Exercise</a><ul>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#tasks">Tasks</a></li>
+</ul>
+</li>
+<li><a href="#solution">Solution</a><ul>
+<li><a href="#final-history">Final History</a></li>
+</ul>
+</li>
+<li><a href="#key-takeaways">Key Takeaways</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+    </div>
+
+    <div class="lesson-body">
+      <h1 id="branching-strategies">Branching Strategies</h1>
+<p><a href="10-code-review.html">← Previous: Code Review</a> | <a href="../index.html">← Back to Index</a></p>
+<p>In DevOps, how you manage branches is not a cosmetic decision — it directly determines how fast your team can ship, how safely you can hotfix production issues, and how cleanly your CI/CD pipeline integrates with your workflow. A poor branching strategy creates merge hell, missed releases, and CI pipelines that break unexpectedly. This section teaches you to reason about branching as an architectural choice, not just a convention.</p>
+<hr />
+<h2 id="why-branching-strategies-matter-in-devops">Why Branching Strategies Matter in DevOps</h2>
+<p>A branching strategy defines <strong>when</strong> you create branches, <strong>what</strong> you name them, <strong>where</strong> they get merged, and <strong>who</strong> is responsible for the merge. The right strategy aligns with your team's release cadence and tooling.</p>
+<h3 id="key-devops-concerns">Key DevOps Concerns</h3>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>What a Branching Strategy Must Support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Release cadence</strong></td>
+<td>Can you ship weekly? Daily? Multiple times per day?</td>
+</tr>
+<tr>
+<td><strong>Hotfix handling</strong></td>
+<td>How fast can you fix production without destabilizing in-progress work?</td>
+</tr>
+<tr>
+<td><strong>Parallel development</strong></td>
+<td>Can multiple teams work on the same codebase without blocking each other?</td>
+</tr>
+<tr>
+<td><strong>CI/CD pipeline triggers</strong></td>
+<td>Does your strategy map cleanly to automated build/test/deploy pipelines?</td>
+</tr>
+<tr>
+<td><strong>Auditability</strong></td>
+<td>Can you trace every production change back to a branch and a review?</td>
+</tr>
+</tbody>
+</table>
+<p>Teams that deploy multiple times per day typically use <strong>trunk-based development</strong>. Teams that maintain multiple long-running release trains (e.g., enterprise software with quarterly releases) typically use <strong>GitFlow</strong> or a variant.</p>
+<hr />
+<h2 id="feature-branching">Feature Branching</h2>
+<p>Feature branching is the simplest model: every piece of work gets its own branch, cut from <code>main</code>, merged back when done.</p>
+<h3 id="how-it-works">How It Works</h3>
+<pre><code>main:    ──────●───────────────────────────────●
+             │                                   │
+             └─── feature/login ─────────────────┘
+                               (merge back when done)
+</code></pre>
+<ol>
+<li>Cut a branch from <code>main</code></li>
+<li>Write code, commit freely</li>
+<li>Open a pull request</li>
+<li>After review, merge into <code>main</code></li>
+</ol>
+<h3 id="commands">Commands</h3>
+<pre><code class="language-bash"># Create and switch to a new feature branch
+git checkout -b feature/user-dashboard main
+
+# Work on the feature, commit as needed
+git add README.md  # replace with your actual file names
+git commit -m &quot;Add user dashboard skeleton&quot;
+
+# Push and create a pull request
+git push -u origin feature/user-dashboard
+</code></pre>
+<h3 id="when-to-use">When to Use</h3>
+<table>
+<thead>
+<tr>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simple to understand</td>
+<td>Breaks down with many parallel features</td>
+</tr>
+<tr>
+<td>Each feature is self-contained</td>
+<td>Long-lived feature branches drift from <code>main</code></td>
+</tr>
+<tr>
+<td>Clear audit trail per feature</td>
+<td>Hard to coordinate releases</td>
+</tr>
+<tr>
+<td>Good for small teams (&lt; 5 people)</td>
+<td>No formal place for in-progress work between feature completion and release</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="gitflow">GitFlow</h2>
+<p>GitFlow is a <strong>branching model</strong> (not a technical requirement) created by Vincent Driessen. It defines five branch types and a strict lifecycle for each. It is well-suited for projects with scheduled releases and separate release-engineering responsibilities.</p>
+<h3 id="the-five-branch-types">The Five Branch Types</h3>
+<table>
+<thead>
+<tr>
+<th>Branch</th>
+<th>Purpose</th>
+<th>Lifetime</th>
+<th>Cuts From</th>
+<th>Merges To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>main</code></td>
+<td>Production-ready code only</td>
+<td>Forever</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>develop</code></td>
+<td>Integration branch for next release</td>
+<td>Forever</td>
+<td><code>main</code></td>
+<td><code>main</code> (via release)</td>
+</tr>
+<tr>
+<td><code>feature/*</code></td>
+<td>Individual feature work</td>
+<td>Temporary</td>
+<td><code>develop</code></td>
+<td><code>develop</code></td>
+</tr>
+<tr>
+<td><code>release/*</code></td>
+<td>Release preparation (bug fixes, version bumps)</td>
+<td>Temporary</td>
+<td><code>develop</code></td>
+<td><code>main</code> and <code>develop</code></td>
+</tr>
+<tr>
+<td><code>hotfix/*</code></td>
+<td>Urgent production fixes</td>
+<td>Temporary</td>
+<td><code>main</code></td>
+<td><code>main</code> and <code>develop</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-gitflow-flow-visual">The GitFlow Flow (Visual)</h3>
+<pre><code>main:    ●────────────────────────────────────────●──────────────────●
+              ↑                                    ↑                  ↑
+         (initial)                           merge release        merge hotfix
+                                                  ↓                      ↓
+                                              [main + tag]          [main + tag]
+                                                  ↑                      ↑
+develop:    ●────────●────────●────────●────────●───●───●─────────────●
+               ↑       ↑       ↑       ↑       ↑   ↑   ↑               ↑
+          feature/a feature/b feature/c  release/1.0  hotfix/  develop keeps
+                                                         1.0.1   advancing
+</code></pre>
+<h3 id="detailed-flow-by-branch-type">Detailed Flow by Branch Type</h3>
+<h4 id="feature-branches">Feature Branches</h4>
+<p>Features branch off <code>develop</code> and merge back into <code>develop</code>. They never touch <code>main</code>.</p>
+<pre><code class="language-bash"># Start a feature branch
+git checkout -b feature/login develop
+
+# ... work, commit, push ...
+git push -u origin feature/login
+
+# After PR review, merge back into develop with no fast-forward
+git checkout develop
+git merge --no-ff feature/login
+
+# Delete the feature branch
+git branch -d feature/login
+git push origin --delete feature/login
+</code></pre>
+<p><strong>What <code>--no-ff</code> does here:</strong> It creates a merge commit even when a fast-forward merge is possible, preserving the fact that all commits on this branch belong to one feature. Your history becomes a tree with visible feature groupings:</p>
+<pre><code>*   Merge branch 'feature/login'
+|\
+| * Add login form component
+| * Add login validation
+| * Add login tests
+</code></pre>
+<p>Without <code>--no-ff</code>, all those commits would be scattered linearly across <code>develop</code> with no indication they belong together.</p>
+<h4 id="release-branches">Release Branches</h4>
+<p>When <code>develop</code> has enough features for a release, cut a <code>release/*</code> branch from <code>develop</code>. Only bug fixes and release-related metadata changes (version numbers, CHANGELOG) go on this branch. No new features.</p>
+<pre><code class="language-bash"># Create the release branch
+git checkout -b release/1.0.0 develop
+
+# Bump version — edit files, commit
+git add version.txt
+git commit -m &quot;Bump version to 1.0.0&quot;
+
+# Finish the release: merge into main, tag, merge back into develop, delete branch
+git checkout main
+git merge --no-ff release/1.0.0
+git tag -a v1.0.0 -m &quot;Release version 1.0.0&quot;
+
+git checkout develop
+git merge --no-ff release/1.0.0
+
+git branch -d release/1.0.0
+</code></pre>
+<h4 id="hotfix-branches">Hotfix Branches</h4>
+<p>Hotfixes branch from <code>main</code> (production is broken, <code>develop</code> may be unstable), get fixed, and merge back into both <code>main</code> and <code>develop</code> so the fix is not lost when the next release cut happens.</p>
+<pre><code class="language-bash"># Create hotfix branch from main
+git checkout -b hotfix/critical main
+
+# ... fix the bug, commit ...
+git commit -m &quot;Fix critical auth bypass&quot;
+
+# Merge into main and tag
+git checkout main
+git merge --no-ff hotfix/critical
+git tag -a v1.0.1 -m &quot;Hotfix: critical auth bypass&quot;
+
+# Merge into develop so the fix is included in the next release
+git checkout develop
+git merge --no-ff hotfix/critical
+
+git branch -d hotfix/critical
+</code></pre>
+<h3 id="gitflow-pros-and-cons">GitFlow: Pros and Cons</h3>
+<table>
+<thead>
+<tr>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clear separation between development and production</td>
+<td>High ceremony: many branches, many merges</td>
+</tr>
+<tr>
+<td>Formal hotfix path protects production</td>
+<td>CI/CD pipelines must track multiple integration points</td>
+</tr>
+<tr>
+<td>Excellent audit trail with <code>--no-ff</code></td>
+<td>Too heavyweight for teams deploying multiple times per day</td>
+</tr>
+<tr>
+<td>Scales to many parallel features and teams</td>
+<td>Release branches can drift from <code>develop</code> if not managed</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="trunk-based-development">Trunk-Based Development</h2>
+<p>Trunk-based development (TBD) is the practice where developers commit directly to <code>main</code> (the "trunk") or to very short-lived feature branches (typically &lt; 1 day, often &lt; 2 hours). The goal is to keep the codebase in a continuously integrateable state.</p>
+<h3 id="the-core-principles">The Core Principles</h3>
+<ol>
+<li><strong>Everyone commits to <code>main</code> frequently</strong> — at least once per day.</li>
+<li><strong>Short-lived branches</strong> — if you use branches at all, they live for minutes or hours, not days or weeks.</li>
+<li><strong>Feature flags</strong> — unfinished or experimental features are merged behind a toggle, not behind a branch.</li>
+<li><strong>Continuous integration</strong> — every commit to <code>main</code> triggers the full pipeline. If the pipeline is red, you fix it immediately.</li>
+</ol>
+<h3 id="visual-flow">Visual Flow</h3>
+<pre><code>main (trunk): ──●───●───●───●───●───●───●───●───●───●───●───●───●───●───●───●───●
+               ↑   ↑   ↑                           ↑   ↑
+            [short-lived feature branches, merged within hours]
+
+# Feature flags gate incomplete work:
+# if (features.isEnabled(&quot;new-checkout&quot;)) { ... }
+</code></pre>
+<h3 id="commands_1">Commands</h3>
+<pre><code class="language-bash"># Keep main up to date before starting work
+git checkout main
+git pull origin main
+
+# For larger work, create a very short-lived branch
+git checkout -b feature/checkout main
+
+# ... small, focused commit ...
+git commit -m &quot;Add checkout form&quot;
+
+# Immediately merge — do not let the branch live more than a few hours
+git checkout main
+git pull origin main
+git merge --no-ff feature/checkout
+
+git branch -d feature/checkout
+git push origin main
+</code></pre>
+<h3 id="feature-flags-in-practice">Feature Flags in Practice</h3>
+<p>With feature flags, you merge incomplete code into <code>main</code> behind a toggle:</p>
+<pre><code class="language-bash">git checkout main
+git pull origin main
+
+# Add new feature behind a flag
+cat &gt;&gt; config/features.py &lt;&lt; 'EOF'
+NEW_CHECKOUT = os.getenv(&quot;NEW_CHECKOUT&quot;, &quot;false&quot;) == &quot;true&quot;
+EOF
+
+git add config/features.py
+git commit -m &quot;Add feature flag for new checkout flow&quot;
+
+git push origin main
+</code></pre>
+<p>In your application code:</p>
+<pre><code class="language-python">if features.NEW_CHECKOUT:
+    return render_new_checkout()
+else:
+    return render_legacy_checkout()
+</code></pre>
+<p>This means <strong>every commit is production-ready</strong> even if the feature behind the flag is not finished.</p>
+<h3 id="trunk-based-development-pros-and-cons">Trunk-Based Development: Pros and Cons</h3>
+<table>
+<thead>
+<tr>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Minimal merge complexity — branches are tiny</td>
+<td>Requires a strong CI/CD culture and fast pipelines</td>
+</tr>
+<tr>
+<td>Maximum velocity for high-release-frequency teams</td>
+<td>Engineers must be comfortable committing incomplete-but-flagged work</td>
+</tr>
+<tr>
+<td>Early integration catches conflicts and regressions</td>
+<td>Feature flags add code complexity and testing overhead</td>
+</tr>
+<tr>
+<td>Simple mental model — <code>main</code> is always the truth</td>
+<td>Not suitable when you cannot merge unfinished work safely (e.g., compiled libraries with semantic versioning)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="strategy-comparison">Strategy Comparison</h2>
+<table>
+<thead>
+<tr>
+<th>Criteria</th>
+<th>Feature Branching</th>
+<th>GitFlow</th>
+<th>Trunk-Based Development</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Complexity</strong></td>
+<td>Low</td>
+<td>High</td>
+<td>Medium (low branch complexity, high CI complexity)</td>
+</tr>
+<tr>
+<td><strong>Best release frequency</strong></td>
+<td>Weekly or less</td>
+<td>Scheduled (monthly, quarterly)</td>
+<td>Multiple times per day</td>
+</tr>
+<tr>
+<td><strong>Team size fit</strong></td>
+<td>1–8</td>
+<td>5–50+</td>
+<td>5–500+</td>
+</tr>
+<tr>
+<td><strong>Hotfix speed</strong></td>
+<td>Medium</td>
+<td>Fast (dedicated hotfix branch)</td>
+<td>Fast (direct to main)</td>
+</tr>
+<tr>
+<td><strong>Merge conflict risk</strong></td>
+<td>High on long-lived branches</td>
+<td>Medium</td>
+<td>Very low (short branches)</td>
+</tr>
+<tr>
+<td><strong>CI/CD fit</strong></td>
+<td>Basic</td>
+<td>Requires multi-branch pipeline logic</td>
+<td>Continuous pipeline triggers</td>
+</tr>
+<tr>
+<td><strong>Auditability</strong></td>
+<td>Good per-feature</td>
+<td>Excellent with <code>--no-ff</code></td>
+<td>Good (linear history, but no branch context)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="when-to-use-which">When to Use Which</h2>
+<p>Use this as a decision guide, not a rigid rule:</p>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Recommended Strategy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Startup, daily deploys, small team</strong></td>
+<td>Trunk-based development</td>
+</tr>
+<tr>
+<td><strong>Open-source project with many contributors</strong></td>
+<td>Feature branching with protected <code>main</code></td>
+</tr>
+<tr>
+<td><strong>Enterprise software, quarterly releases</strong></td>
+<td>GitFlow</td>
+</tr>
+<tr>
+<td><strong>Product with multiple release trains</strong></td>
+<td>GitFlow with multiple <code>develop</code> tracks</td>
+</tr>
+<tr>
+<td><strong>Team new to version control</strong></td>
+<td>Feature branching → migrate to GitFlow → trunk-based as maturity grows</td>
+</tr>
+<tr>
+<td><strong>Monolithic release with scheduled freeze</strong></td>
+<td>GitFlow release branches</td>
+</tr>
+</tbody>
+</table>
+<p>Many teams <strong>combine</strong> strategies: they use trunk-based <code>main</code> for daily work but create formal <code>release/*</code> branches when preparing a version for certification or distribution.</p>
+<hr />
+<h2 id="exercise">Exercise</h2>
+<p>In this exercise you will simulate a complete GitFlow lifecycle from scratch.</p>
+<h3 id="setup">Setup</h3>
+<p>Create a new working directory for this exercise:</p>
+<pre><code class="language-bash">mkdir ~/gitflow-practice &amp;&amp; cd ~/gitflow-practice
+git init
+git config user.email &quot;student@example.com&quot;
+git config user.name &quot;Student&quot;
+</code></pre>
+<h3 id="tasks">Tasks</h3>
+<p>Perform the following steps in order:</p>
+<ol>
+<li>Create the initial commit on <code>main</code></li>
+<li>Create a <code>develop</code> branch off <code>main</code></li>
+<li>Create a <code>feature/dashboard</code> branch off <code>develop</code> and make a commit</li>
+<li>Merge the feature into <code>develop</code> using <code>--no-ff</code></li>
+<li>Create a <code>release/1.0.0</code> branch off <code>develop</code></li>
+<li>Finish the release: merge into <code>main</code> with a tag <code>v1.0.0</code>, merge back into <code>develop</code></li>
+<li>Create a <code>hotfix/security-patch</code> branch off <code>main</code>, make a commit, and merge back into both <code>main</code> and <code>develop</code> with a tag <code>v1.0.1</code></li>
+<li>Run <code>git log --oneline --graph --all</code> to display the final history</li>
+</ol>
+<p>Show all commands and the final <code>git log</code> output.</p>
+<hr />
+<h2 id="solution">Solution</h2>
+<pre><code class="language-bash"># 1. Setup and initial commit on main
+mkdir -p ~/gitflow-practice &amp;&amp; cd ~/gitflow-practice
+git init
+git config user.email &quot;student@example.com&quot;
+git config user.name &quot;Student&quot;
+
+echo &quot;Initial project&quot; &gt; README.md
+git add README.md
+git commit -m &quot;Initial commit&quot;
+
+# 2. Create develop branch
+git checkout -b develop
+
+# 3. Create feature branch and make a commit
+git checkout -b feature/dashboard develop
+echo &quot;Dashboard page&quot; &gt; dashboard.html
+git add dashboard.html
+git commit -m &quot;Add dashboard feature&quot;
+
+# 4. Merge feature into develop with --no-ff
+git checkout develop
+git merge --no-ff feature/dashboard -m &quot;Merge feature/dashboard into develop&quot;
+
+# 5. Create release branch
+git checkout -b release/1.0.0 develop
+echo &quot;1.0.0&quot; &gt; version.txt
+git add version.txt
+git commit -m &quot;Bump version to 1.0.0&quot;
+
+# 6. Finish the release: merge into main, tag, merge back to develop
+git checkout main
+git merge --no-ff release/1.0.0 -m &quot;Merge release/1.0.0 into main&quot;
+git tag -a v1.0.0 -m &quot;Release version 1.0.0&quot;
+
+git checkout develop
+git merge --no-ff release/1.0.0 -m &quot;Merge release/1.0.0 into develop&quot;
+
+# Clean up release branch
+git branch -d release/1.0.0
+
+# 7. Create and finish a hotfix
+git checkout -b hotfix/security-patch main
+echo &quot;Security fix applied&quot; &gt; security.txt
+git add security.txt
+git commit -m &quot;Apply security hotfix&quot;
+
+git checkout main
+git merge --no-ff hotfix/security-patch -m &quot;Merge hotfix/security-patch into main&quot;
+git tag -a v1.0.1 -m &quot;Hotfix version 1.0.1&quot;
+
+git checkout develop
+git merge --no-ff hotfix/security-patch -m &quot;Merge hotfix/security-patch into develop&quot;
+
+git branch -d hotfix/security-patch
+git branch -d feature/dashboard
+</code></pre>
+<h3 id="final-history">Final History</h3>
+<pre><code class="language-text">*   3f2a1b4 Merge hotfix/security-patch into develop
+|\  
+| * 2a1b3c5 Apply security hotfix
+* |   1b2c3d4 Merge hotfix/security-patch into main
+|\ \  
+| |/  
+| * 4d5e6f7 Security fix applied
+|/|  
+* |   a1b2c3d Merge release/1.0.0 into develop
+|\ \  
+| |/  
+| *   e1f2g3h Merge release/1.0.0 into main
+| |\  
+| | * 9i8j7k6 Bump version to 1.0.0
+* | |   b2c3d4e Merge feature/dashboard into develop
+|\ \ \  
+| | |/  
+| | * 5f6g7h8 Add dashboard feature
+| |/  
+| * c3d4e5f Initial develop setup
+|/  
+* 7h8i9j0 Initial commit
+</code></pre>
+<p>Notice how <code>--no-ff</code> creates a <strong>merge commit</strong> (the commit with two parents shown as <code>*   ...</code>) for each feature and release, making it easy to see where each piece of work began and ended. The <code>develop</code> branch commits (b2c3d4e, 3f2a1b4) show the integration history. The <code>main</code> branch shows only production-ready commits (initial, v1.0.0, v1.0.1).</p>
+<hr />
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><strong>GitFlow</strong> gives you rigid structure at the cost of ceremony. Use it when you have scheduled releases, formal QA gates, or multiple simultaneous release trains.</li>
+<li><strong>Trunk-based development</strong> keeps you moving fast but demands strong CI/CD, fast pipelines, and discipline around feature flags.</li>
+<li><strong>Feature branching</strong> is the right starting point for new teams — it is simple and teaches the fundamentals of branch isolation.</li>
+<li><strong>Always use <code>--no-ff</code></strong> when merging into <code>main</code> or <code>develop</code> from a feature or release branch. It preserves the semantic grouping of commits that belong together.</li>
+<li><strong>Hotfixes</strong> need to touch both <code>main</code> and <code>develop</code> — never forget to merge back into <code>develop</code> or your hotfix will be lost at the next release.</li>
+</ul>
+<hr />
+<p><a href="12-github-pages.html">Next: GitHub Pages →</a></p>
+
+      <div class="lesson-actions">
+        <button class="btn-mark-complete" id="btn-mark-complete" data-lesson="11">
+          <span class="btn-icon">✓</span> Mark Complete
+        </button>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Previous and next lessons">
+        <a href="10-code-review.html" class="lesson-nav-prev">
+          <span class="nav-label">← Previous</span>
+          <span class="nav-title">Code Review</span>
+        </a>
+
+        <a href="12-github-pages.html" class="lesson-nav-next">
+          <span class="nav-label">Next →</span>
+          <span class="nav-title">GitHub Pages</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+</article>
+      </main>
+
+      <footer class="site-footer">
+        <p>Built with ❤️ for DevOps learners</p>
+        <p class="footer-small">Git Kimchi — A free Git &amp; GitHub course</p>
+      </footer>
+    </div>
+  </div>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script src="../static/js/app.js"></script>
+</body>
+</html>

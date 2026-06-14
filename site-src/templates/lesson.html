@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article class="lesson">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ root_path }}index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">{{ page_title }}</span>
+  </nav>
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="lesson-number">Lesson {{ lesson_number }}</span>
+      <span class="lesson-readtime">{{ readtime }}</span>
+    </div>
+    <h1 class="lesson-title">{{ page_title }}</h1>
+  </header>
+
+  <div class="lesson-body-wrapper">
+    <div class="lesson-toc" id="lesson-toc" aria-label="Table of contents">
+      <h2>On this page</h2>
+      {{ toc_html }}
+    </div>
+
+    <div class="lesson-body">
+      {{ lesson_html }}
+
+      <div class="lesson-actions">
+        <button class="btn-mark-complete" id="btn-mark-complete" data-lesson="{{ lesson_number }}">
+          <span class="btn-icon">✓</span> Mark Complete
+        </button>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Previous and next lessons">
+        {% if prev_slug %}
+        <a href="{{ lessons_path }}{{ prev_slug }}.html" class="lesson-nav-prev">
+          <span class="nav-label">← Previous</span>
+          <span class="nav-title">{{ prev_title }}</span>
+        </a>
+        {% else %}
+        <span class="lesson-nav-prev disabled">
+          <span class="nav-label">← Previous</span>
+          <span class="nav-title">—</span>
+        </span>
+        {% endif %}
+
+        {% if next_slug %}
+        <a href="{{ lessons_path }}{{ next_slug }}.html" class="lesson-nav-next">
+          <span class="nav-label">Next →</span>
+          <span class="nav-title">{{ next_title }}</span>
+        </a>
+        {% else %}
+        <span class="lesson-nav-next disabled">
+          <span class="nav-label">Next →</span>
+          <span class="nav-title">—</span>
+        </span>
+        {% endif %}
+      </nav>
+    </div>
+  </div>
+</article>
+{% endblock %}

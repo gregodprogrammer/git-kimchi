@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Review — Git Kimchi</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body data-page="lesson">
+  <div class="site-wrapper">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-brand">
+          <span class="brand-icon">🌶️</span>
+          <span class="brand-text">Git Kimchi</span>
+        </a>
+        <button class="sidebar-close" id="sidebar-close" aria-label="Close navigation">×</button>
+      </div>
+      <nav class="sidebar-nav" aria-label="Lessons">
+        <div class="nav-section">
+          <span class="nav-section-title">Core Git</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="01-getting-started.html" class="nav-link" data-lesson="1">
+                <span class="nav-num">1</span>
+                <span class="nav-title">Getting Started with Git</span>
+                <span class="nav-status" data-status-lesson="1"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="02-staging-and-commits.html" class="nav-link" data-lesson="2">
+                <span class="nav-num">2</span>
+                <span class="nav-title">Staging and Commits</span>
+                <span class="nav-status" data-status-lesson="2"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="03-history-and-diff.html" class="nav-link" data-lesson="3">
+                <span class="nav-num">3</span>
+                <span class="nav-title">History and Diff</span>
+                <span class="nav-status" data-status-lesson="3"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="04-undoing-changes.html" class="nav-link" data-lesson="4">
+                <span class="nav-num">4</span>
+                <span class="nav-title">Undoing Changes</span>
+                <span class="nav-status" data-status-lesson="4"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Intermediate</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="05-branching.html" class="nav-link" data-lesson="5">
+                <span class="nav-num">5</span>
+                <span class="nav-title">Branching</span>
+                <span class="nav-status" data-status-lesson="5"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="06-merging.html" class="nav-link" data-lesson="6">
+                <span class="nav-num">6</span>
+                <span class="nav-title">Merging</span>
+                <span class="nav-status" data-status-lesson="6"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="07-remotes.html" class="nav-link" data-lesson="7">
+                <span class="nav-num">7</span>
+                <span class="nav-title">Remotes</span>
+                <span class="nav-status" data-status-lesson="7"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="08-github-repos-and-forks.html" class="nav-link" data-lesson="8">
+                <span class="nav-num">8</span>
+                <span class="nav-title">GitHub Repositories and Forks</span>
+                <span class="nav-status" data-status-lesson="8"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="09-pull-requests-and-issues.html" class="nav-link" data-lesson="9">
+                <span class="nav-num">9</span>
+                <span class="nav-title">Pull Requests and Issues</span>
+                <span class="nav-status" data-status-lesson="9"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Advanced / DevOps</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="10-code-review.html" class="nav-link" data-lesson="10">
+                <span class="nav-num">10</span>
+                <span class="nav-title">Code Review</span>
+                <span class="nav-status" data-status-lesson="10"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="11-branching-strategies.html" class="nav-link" data-lesson="11">
+                <span class="nav-num">11</span>
+                <span class="nav-title">Branching Strategies</span>
+                <span class="nav-status" data-status-lesson="11"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="12-github-pages.html" class="nav-link" data-lesson="12">
+                <span class="nav-num">12</span>
+                <span class="nav-title">GitHub Pages</span>
+                <span class="nav-status" data-status-lesson="12"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="13-git-hooks.html" class="nav-link" data-lesson="13">
+                <span class="nav-num">13</span>
+                <span class="nav-title">Git Hooks</span>
+                <span class="nav-status" data-status-lesson="13"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="14-self-hosted-git.html" class="nav-link" data-lesson="14">
+                <span class="nav-num">14</span>
+                <span class="nav-title">Self-Hosted Git</span>
+                <span class="nav-status" data-status-lesson="14"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Capstone &amp; Reference</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="15-capstone.html" class="nav-link" data-lesson="15">
+                <span class="nav-num">15</span>
+                <span class="nav-title">Capstone Mini-Project</span>
+                <span class="nav-status" data-status-lesson="15"></span>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="../solutions.html" class="nav-link" data-lesson="solutions">
+                <span class="nav-num">💡</span>
+                <span class="nav-title">Solutions</span>
+                <span class="nav-status" data-status-lesson="solutions"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="main-area">
+      <header class="site-header">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="header-title">
+          <a href="../index.html">Git Kimchi</a>
+        </div>
+        <div class="header-progress" id="header-progress" style="display:none;">
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+          </div>
+          <span class="progress-text" id="progress-text">0 / 15</span>
+        </div>
+      </header>
+
+      <main class="content-wrapper">
+<article class="lesson">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">Code Review</span>
+  </nav>
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="lesson-number">Lesson 10</span>
+      <span class="lesson-readtime">19 min read</span>
+    </div>
+    <h1 class="lesson-title">Code Review</h1>
+  </header>
+
+  <div class="lesson-body-wrapper">
+    <div class="lesson-toc" id="lesson-toc" aria-label="Table of contents">
+      <h2>On this page</h2>
+      <div class="toc">
+<ul>
+<li><a href="#code-review">Code Review</a><ul>
+<li><a href="#why-code-review-matters">Why Code Review Matters</a></li>
+<li><a href="#the-review-mindset">The Review Mindset</a><ul>
+<li><a href="#giving-feedback">Giving Feedback</a></li>
+<li><a href="#receiving-feedback">Receiving Feedback</a></li>
+</ul>
+</li>
+<li><a href="#types-of-feedback">Types of Feedback</a><ul>
+<li><a href="#blocking-feedback">Blocking Feedback</a></li>
+<li><a href="#non-blocking-feedback-suggestions-nits">Non-Blocking Feedback (Suggestions / Nits)</a></li>
+<li><a href="#questions">Questions</a></li>
+</ul>
+</li>
+<li><a href="#github-review-features">GitHub Review Features</a><ul>
+<li><a href="#pr-diff-view">PR Diff View</a></li>
+<li><a href="#line-level-comments">Line-Level Comments</a></li>
+<li><a href="#suggested-changes">Suggested Changes</a></li>
+<li><a href="#viewing-a-pr">Viewing a PR</a></li>
+<li><a href="#opening-the-diff-in-your-terminal">Opening the Diff in Your Terminal</a></li>
+<li><a href="#submitting-a-review">Submitting a Review</a></li>
+<li><a href="#checking-review-status">Checking Review Status</a></li>
+</ul>
+</li>
+<li><a href="#review-checklist">Review Checklist</a><ul>
+<li><a href="#correctness">Correctness</a></li>
+<li><a href="#tests">Tests</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#security">Security</a></li>
+<li><a href="#performance">Performance</a></li>
+<li><a href="#style-and-consistency">Style and Consistency</a></li>
+</ul>
+</li>
+<li><a href="#responding-to-reviews">Responding to Reviews</a><ul>
+<li><a href="#acknowledge-every-comment">Acknowledge Every Comment</a></li>
+<li><a href="#ask-for-clarification-early">Ask for Clarification Early</a></li>
+<li><a href="#push-focused-fixes">Push Focused Fixes</a></li>
+<li><a href="#resolve-conversations">Resolve Conversations</a></li>
+<li><a href="#re-request-review-when-ready">Re-Request Review When Ready</a></li>
+</ul>
+</li>
+<li><a href="#exercise">Exercise</a><ul>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#tasks">Tasks</a></li>
+</ul>
+</li>
+<li><a href="#solution">Solution</a><ul>
+<li><a href="#finding-prs-awaiting-review">Finding PRs Awaiting Review</a></li>
+<li><a href="#examining-the-diff">Examining the Diff</a></li>
+<li><a href="#leaving-a-comment">Leaving a Comment</a></li>
+<li><a href="#requesting-changes">Requesting Changes</a></li>
+<li><a href="#simulating-the-fix">Simulating the Fix</a></li>
+<li><a href="#approving">Approving</a></li>
+<li><a href="#verifying">Verifying</a></li>
+</ul>
+</li>
+<li><a href="#key-takeaways">Key Takeaways</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+    </div>
+
+    <div class="lesson-body">
+      <h1 id="code-review">Code Review</h1>
+<p><a href="09-pull-requests-and-issues.html">← Previous: Pull Requests and Issues</a> · <a href="../index.html">← Back to Index</a></p>
+<hr />
+<h2 id="why-code-review-matters">Why Code Review Matters</h2>
+<p>Code review is the practice of having another person examine your changes before they become part of the codebase. It is a cornerstone of healthy software teams, and in a DevOps culture it is not just a quality gate — it is a collaboration ritual.</p>
+<p><strong>Benefits for your team:</strong></p>
+<ul>
+<li><strong>Catch bugs early</strong> — A second pair of eyes finds issues before they reach production. Fixing a bug in review costs a fraction of what it costs in production.</li>
+<li><strong>Share knowledge</strong> — Code review spreads understanding of the codebase across the team. No single person becomes a bottleneck.</li>
+<li><strong>Maintain standards</strong> — Over time, consistent review enforces coding style, architectural patterns, and documentation expectations.</li>
+<li><strong>Onboard new members faster</strong> — New engineers learn the codebase and team conventions by reading others' PRs and getting their own reviewed.</li>
+</ul>
+<p><strong>DevOps context:</strong> In a CI/CD pipeline, code review is the "human" stage before automation takes over. Your pipeline can run tests, but it cannot notice that a variable name is confusing, that error handling is missing, or that the new dependency introduces a security risk. That is the reviewer's job.</p>
+<p><strong>A note on trust:</strong> Code review is not about catching mistakes to blame people. It is about improving code together. The best teams treat it as a normal, expected part of the workflow — not as a confrontation.</p>
+<hr />
+<h2 id="the-review-mindset">The Review Mindset</h2>
+<p>How you approach a review matters as much as what you look for. A good reviewer and a good author both follow the same principle: <strong>focus on the code, not the person.</strong></p>
+<h3 id="giving-feedback">Giving Feedback</h3>
+<p><strong>Do:</strong> Describe what the code does and why it might be a problem.</p>
+<pre><code class="language-text"># Instead of:
+&quot;You forgot to handle the error case.&quot;
+
+# Say:
+&quot;This function does not handle the case where the API returns a 403.
+That could cause an unhandled exception for users whose tokens expire mid-session.&quot;
+</code></pre>
+<p>The second version describes the specific situation, explains the consequence, and gives the author enough context to understand and fix it without feeling attacked.</p>
+<p><strong>Avoid:</strong> Absolute language that sounds like a verdict. Words like "wrong," "stupid," "always," or "never" put people on the defensive and make conversations less productive.</p>
+<h3 id="receiving-feedback">Receiving Feedback</h3>
+<p>When someone leaves a review comment on your PR:</p>
+<ol>
+<li><strong>Read it fully before responding.</strong> Do not assume you know what they mean.</li>
+<li><strong>Ask clarifying questions if the comment is unclear.</strong> A genuine question is not a challenge — it is useful signal.</li>
+<li><strong>Acknowledge the feedback, even if you disagree.</strong> A simple "Good point, I will fix it" or "I had considered that — here is why I chose this approach" opens a productive conversation.</li>
+<li><strong>Do not take it personally.</strong> The reviewer is looking at your code, not at you.</li>
+</ol>
+<hr />
+<h2 id="types-of-feedback">Types of Feedback</h2>
+<p>Not every comment on a PR carries the same weight. Understanding the difference helps both reviewers and authors prioritize what to address first.</p>
+<h3 id="blocking-feedback">Blocking Feedback</h3>
+<p>Blocking comments indicate a problem that <strong>must be resolved before the PR can merge.</strong> These are typically:</p>
+<ul>
+<li>Bugs or logic errors</li>
+<li>Missing tests for core functionality</li>
+<li>Security vulnerabilities (e.g., unsanitized user input, hardcoded secrets)</li>
+<li>Breaking changes that were not discussed</li>
+<li>Missing documentation for public APIs</li>
+</ul>
+<p><strong>Example blocking comment:</strong></p>
+<pre><code class="language-text">&quot;This null check is missing. If `user` is `None` here, the line below will
+raise an `AttributeError` at runtime. Please add a guard before proceeding.&quot;
+</code></pre>
+<h3 id="non-blocking-feedback-suggestions-nits">Non-Blocking Feedback (Suggestions / Nits)</h3>
+<p>Non-blocking comments are ideas for improvement that do not prevent merging. They include:</p>
+<ul>
+<li>Style preferences (indentation, naming conventions)</li>
+<li>Simplifications that make code more readable</li>
+<li>Suggestions for future improvements beyond the PR scope</li>
+</ul>
+<p>Prefix suggestions with a marker so the author knows the urgency:</p>
+<pre><code class="language-text">&quot;Nit: this could be a one-liner with a list comprehension.&quot;
+</code></pre>
+<p>The term "nit" comes from "nitpick" — small, minor issues. If everything in a PR is a nit, the PR can merge. If anything is blocking, it should not.</p>
+<h3 id="questions">Questions</h3>
+<p>Questions are not feedback at all — they are requests for understanding:</p>
+<pre><code class="language-text">&quot;Why do we need to retry here? Is the API known to be unreliable, or is this
+protecting against a specific edge case I am not aware of?&quot;
+</code></pre>
+<p>A question invites discussion. The author might realize the code needs to change, or they might explain a constraint the reviewer was missing. Either way, both people learn something.</p>
+<hr />
+<h2 id="github-review-features">GitHub Review Features</h2>
+<p>GitHub provides a rich interface for conducting reviews directly in the browser. Familiarize yourself with these tools — they make reviews faster and more precise.</p>
+<h3 id="pr-diff-view">PR Diff View</h3>
+<p>When you open a PR on GitHub, you see a split or unified diff. Lines that were added appear in green (with a <code>+</code> prefix in unified view), and lines removed appear in red (with a <code>-</code> prefix). The <strong>Files Changed</strong> tab shows every modified file.</p>
+<p>At the top of the Files Changed view, you can switch between <strong>unified diff</strong> (all changes in one column) and <strong>split diff</strong> (old version on the left, new version on the right). Split view is often easier to read for large changes.</p>
+<h3 id="line-level-comments">Line-Level Comments</h3>
+<p>Click the <code>+</code> button to the left of any line in the diff to add a comment directly to that line. This is the most precise way to leave feedback — the comment is anchored to the exact code in question.</p>
+<p>When you add a line-level comment, GitHub gives you two options:</p>
+<ul>
+<li><strong>Add a single comment</strong> — Leaves a comment without formally starting a review.</li>
+<li><strong>Start a review</strong> — Holds your comments and submits them all together with a summary.</li>
+</ul>
+<p>For anything more than a quick note, <strong>start a review</strong> and submit all comments at once. This reduces notification noise and gives the author a comprehensive picture of what needs attention.</p>
+<h3 id="suggested-changes">Suggested Changes</h3>
+<p>For small, specific fixes (a typo, a missing import, a variable name), GitHub can generate the fix for you. Click the <code>±</code> button on a line-level comment to open the suggestion editor:</p>
+<pre><code class="language-text">```suggestion
+def authenticate(user_id: int, token: str) -&gt; User:
+    &quot;&quot;&quot;Authenticate a user by ID and token.&quot;&quot;&quot;
+    if not token:
+        raise ValueError(&quot;Token is required&quot;)
+</code></pre>
+<pre><code>
+The suggestion appears as a code block in the comment. The author can click **Commit suggestion** to apply it directly, or **Add to batch** to apply multiple suggestions at once. Suggested changes are powerful because they turn a review comment into a one-click fix — no back-and-forth about what the author meant to write.
+
+### Review Summary
+
+When you finish a review on GitHub, you choose one of three dispositions:
+
+| Disposition | Meaning |
+|---|---|
+| **Comment** | General feedback, no formal approval or request for changes |
+| **Approve** | The PR is ready to merge as-is |
+| **Request changes** | The PR has blocking issues that must be addressed before merging |
+
+After choosing a disposition, you write a **review summary** — a top-level comment that explains the overall feedback. This summary is especially important when the PR is complex or when there are multiple blocking comments. It gives the author a narrative to go with the detailed line comments.
+
+---
+
+## CLI Review with `gh`
+
+You can conduct a full review workflow from the terminal using the `gh` GitHub CLI. This is especially useful for DevOps engineers who spend most of their time in a terminal and want to avoid context-switching to a browser.
+
+### Finding PRs That Need Your Review
+
+```bash
+gh pr list --search &quot;review-requested:@me&quot; --state open
+</code></pre>
+<pre><code class="language-text">Pull requests credited to you as a reviewer:
+  #42  fix-user-auth-logic          feature/auth-improvements    [Feature Auth]
+  #39  add-timeout-to-db-pool       infrastructure/db-pool        [Infra]
+</code></pre>
+<p><code>review-requested:@me</code> filters to PRs where your review is explicitly requested. You can also use <code>assignee:@me</code> to find PRs you authored.</p>
+<h3 id="viewing-a-pr">Viewing a PR</h3>
+<pre><code class="language-bash">gh pr view 42
+</code></pre>
+<pre><code class="language-text">fix-user-auth-logic · #42
+Authors:    sarahdev
+Reviewers:  total 1
+            kimchi (review-requested)
+Assignees:  sarahdev
+Labels:     feature/auth-improvements, security
+Milestone:  Sprint 7
+
+Fixes several authentication edge cases that were causing silent logouts
+for users with expired sessions. Adds retry logic to the token refresh
+flow and improves error messaging.
+
+* Adds retry logic to token refresh (max 3 attempts)
+* Returns descriptive error messages instead of generic 401
+* Adds integration tests for the auth flow
+
+View this pull request on GitHub: https://github.com/sarahdev/secure-api/pull/42
+</code></pre>
+<h3 id="opening-the-diff-in-your-terminal">Opening the Diff in Your Terminal</h3>
+<pre><code class="language-bash">gh pr diff 42
+</code></pre>
+<pre><code class="language-text">diff --git a/src/auth/token.py b/src/auth/token.py
+index abc1234..def5678 100644
+--- a/src/auth/token.py
++++ b/src/auth/token.py
+@@ -14,6 +14,9 @@ def refresh_token(user_id: int, token: str) -&gt; str:
+     &quot;&quot;&quot;Refresh an authentication token.&quot;&quot;&quot;
+     if not token:
+         raise ValueError(&quot;Token is required&quot;)
++    for attempt in range(MAX_RETRIES):
++        response = _call_auth_service(user_id, token)
++        if response.ok:
++            return response.data[&quot;token&quot;]
+     return _call_auth_service(user_id, token)
+</code></pre>
+<h3 id="submitting-a-review">Submitting a Review</h3>
+<p><strong>Approve a PR:</strong></p>
+<pre><code class="language-bash">gh pr review 42 --approve -b &quot;Clean implementation. The retry logic is well-
+handled and the error messages are much clearer now. Left a few nits on
+style, but nothing blocking. Ship it!&quot;
+</code></pre>
+<pre><code class="language-text">Approved pull request #42 (fix-user-auth-logic)
+</code></pre>
+<p><strong>Request changes:</strong></p>
+<pre><code class="language-bash">gh pr review 42 --request-changes -b &quot;The retry logic looks good overall, but
+it still does not handle the case where ALL retry attempts fail. Currently
+it will throw whatever exception _call_auth_service raises on the last
+attempt, but it does not wrap it in a meaningful error. Please add a
+custom exception and retry the error message to explain what happened.&quot;
+</code></pre>
+<pre><code class="language-text">Pull request #42 (fix-user-auth-logic) reviewed with requested changes.
+</code></pre>
+<p><strong>Leave a comment without a verdict:</strong></p>
+<pre><code class="language-bash">gh pr review 42 --comment -b &quot;Consider extracting this retry logic into a
+separate decorator. That would make it reusable across other service calls
+without duplicating the loop. Not blocking, just a suggestion for a future
+refactor.&quot;
+</code></pre>
+<pre><code class="language-text">Comment submitted on pull request #42 (fix-user-auth-logic)
+</code></pre>
+<h3 id="checking-review-status">Checking Review Status</h3>
+<pre><code class="language-bash">gh pr status
+</code></pre>
+<pre><code class="language-text">GitHub
+  Created by you
+  #41  add-health-check-endpoint     infrastructure/monitoring    (main)
+  #38  refactor-config-loader        infrastructure/config       (main)
+
+  Reviewing
+  #42  fix-user-auth-logic           feature/auth-improvements    (sarahdev)  [PR open]
+
+  Unrelated
+  #40  update-readme                 docs                         (alexdev)
+</code></pre>
+<p>This shows your position relative to PRs you have authored, been asked to review, or are otherwise connected to.</p>
+<hr />
+<h2 id="review-checklist">Review Checklist</h2>
+<p>Before you submit a review (approve, request changes, or comment), work through this checklist. You do not need to manually verify every item — scan for the ones relevant to the PR in front of you.</p>
+<h3 id="correctness">Correctness</h3>
+<ul>
+<li>[ ] Does the logic do what the description says it does?</li>
+<li>[ ] Are there edge cases that are not handled? (empty inputs, null values, large inputs, concurrent access)</li>
+<li>[ ] Are errors handled explicitly, or do they propagate silently?</li>
+<li>[ ] Are return values used correctly by the caller?</li>
+</ul>
+<h3 id="tests">Tests</h3>
+<ul>
+<li>[ ] Does the PR add or update tests for the new behavior?</li>
+<li>[ ] Do the tests cover the edge cases, not just the happy path?</li>
+<li>[ ] Do the tests assert outcomes, not just that code runs without crashing?</li>
+</ul>
+<h3 id="documentation">Documentation</h3>
+<ul>
+<li>[ ] Are new public functions, classes, or methods documented?</li>
+<li>[ ] Are complex logic blocks explained with comments?</li>
+<li>[ ] Was the README or other documentation updated if behavior changed?</li>
+</ul>
+<h3 id="security">Security</h3>
+<ul>
+<li>[ ] Are user inputs validated before use?</li>
+<li>[ ] Are secrets (API keys, tokens, passwords) loaded from environment variables or a secrets manager, not hardcoded?</li>
+<li>[ ] Are database queries parameterized to prevent SQL injection?</li>
+<li>[ ] Are file paths sanitized to prevent path traversal attacks?</li>
+</ul>
+<h3 id="performance">Performance</h3>
+<ul>
+<li>[ ] Are there any obvious N+1 query patterns or unnecessary loops?</li>
+<li>[ ] Are large data structures processed lazily or in chunks where appropriate?</li>
+<li>[ ] Are expensive operations (network calls, file I/O) handled with timeouts?</li>
+</ul>
+<h3 id="style-and-consistency">Style and Consistency</h3>
+<ul>
+<li>[ ] Does the code follow the project's established conventions?</li>
+<li>[ ] Are variable and function names descriptive enough to understand without a comment?</li>
+<li>[ ] Is there dead code or commented-out blocks that should be removed?</li>
+</ul>
+<hr />
+<h2 id="responding-to-reviews">Responding to Reviews</h2>
+<p>Getting a review is not the end of the process — it is the start of a back-and-forth. Here is how to handle it professionally.</p>
+<h3 id="acknowledge-every-comment">Acknowledge Every Comment</h3>
+<p>Even if you disagree with a comment, acknowledge it. A quick "Got it, addressed in the latest push" or "I had considered that — see my reply above" closes the loop. GitHub marks conversations as resolved by default when the author replies; reviewers can also resolve conversations they opened.</p>
+<h3 id="ask-for-clarification-early">Ask for Clarification Early</h3>
+<p>If a reviewer asks for something that is unclear, do not guess. Ask:</p>
+<pre><code class="language-text">&quot;Could you clarify what you mean by 'handle the error'? Do you want me to
+log it, return an error code, or raise a custom exception? Happy to do
+whatever you prefer once I understand the goal.&quot;
+</code></pre>
+<p>This is faster than implementing something and having the reviewer ask for a different approach.</p>
+<h3 id="push-focused-fixes">Push Focused Fixes</h3>
+<p>When you address review comments, keep your fix commits focused:</p>
+<pre><code class="language-bash">git add src/auth/token.py
+git commit -m &quot;Address review: add descriptive exception when all retries fail&quot;
+git push origin feature/auth-improvements
+</code></pre>
+<p>Reference the review comment in your commit message or in a PR comment so the reviewer can quickly verify the fix:</p>
+<pre><code class="language-text">&quot;@reviewer Done — I added a `TokenRefreshError` exception that wraps the
+underlying error and includes the number of retries attempted. Screenshot
+of the new error message: [link]&quot;
+</code></pre>
+<h3 id="resolve-conversations">Resolve Conversations</h3>
+<p>After the reviewer verifies your fix and marks a conversation resolved, it is done. Do not reopen old resolved conversations unless you have genuinely found a new issue.</p>
+<h3 id="re-request-review-when-ready">Re-Request Review When Ready</h3>
+<p>After pushing all fixes, re-request a review from the same reviewers:</p>
+<pre><code class="language-bash">gh pr review 42 --request-reviewers sarahdev
+</code></pre>
+<p>Or use the GitHub UI — look for the <strong>Re-request review</strong> button on the PR page. This sends a notification to the reviewer that their attention is needed again.</p>
+<hr />
+<h2 id="exercise">Exercise</h2>
+<p>In this exercise you will play both the <strong>reviewer</strong> and the <strong>author</strong>. You will find a PR that needs your review, leave feedback, request changes, and then — after the "author" fixes the issue — approve the PR.</p>
+<p><strong>Scenario:</strong> You are on the DevOps team at a startup. Your colleague <code>alexdev</code> has opened PR #38 to add a health check endpoint to your API. You have been asked to review it. When you look at the diff, you notice a problem: the endpoint does not handle the case where the database connection fails — it will crash with an unhandled exception instead of returning a healthy status.</p>
+<p><strong>Time needed:</strong> ~10 minutes</p>
+<h3 id="setup">Setup</h3>
+<p>Ensure you are logged into <code>gh</code> and have a repository with at least one open PR to work with. If you are following along with a real repository, replace <code>owner/repo</code> and PR numbers with your actual values.</p>
+<pre><code class="language-bash">gh auth status
+</code></pre>
+<pre><code class="language-text">github.com
+  ✓ Logged in to github.com as your-username
+  ✓ GitHub CLI: gh 2.x.x
+  ✓ git: git 2.x.x
+</code></pre>
+<h3 id="tasks">Tasks</h3>
+<p><strong>Task 1 — Find PRs awaiting your review</strong></p>
+<p>List open PRs where your review is requested:</p>
+<pre><code class="language-bash">gh pr list --search &quot;review-requested:@me&quot; --state open --json number,title,url
+</code></pre>
+<pre><code class="language-text">[
+  {
+    &quot;number&quot;: 38,
+    &quot;title&quot;: &quot;Add health check endpoint&quot;,
+    &quot;url&quot;: &quot;https://github.com/alexdev/your-repo/pull/38&quot;
+  }
+]
+</code></pre>
+<p><strong>Task 2 — Examine the PR diff</strong></p>
+<p>Open the diff for PR #38:</p>
+<pre><code class="language-bash">gh pr diff 38
+</code></pre>
+<pre><code class="language-text">diff --git a/api/health.py b/api/health.py
+new file mode 100644
+index 0000000..123abc
+--- /dev/null
++++ b/api/health.py
+@@ -0,0 +1,14 @@
++&quot;&quot;&quot;Health check endpoint for load balancer probes.&quot;&quot;&quot;
++from flask import Blueprint, jsonify
++
++health_bp = Blueprint(&quot;health&quot;, __name__)
++
++@health_bp.route(&quot;/health&quot;)
++def health_check():
++    &quot;&quot;&quot;Return service health status.&quot;&quot;&quot;
++    from api.db import check_connection  # expensive import at request time
++
++    db_ok = check_connection()
++    return jsonify({&quot;status&quot;: &quot;ok&quot;, &quot;db&quot;: db_ok})
+</code></pre>
+<p>Notice the comment <code># expensive import at request time</code> — that is a red flag. Also notice there is no error handling around <code>check_connection()</code>.</p>
+<p><strong>Task 3 — Leave a blocking review comment</strong></p>
+<p>As a comment on the PR (not a full review yet, just a single comment to start the conversation):</p>
+<pre><code class="language-bash">gh pr comment 38 --body &quot;The health check looks like a good start, but there
+is no error handling around \`check_connection()\`. If the database is
+unreachable, this will raise an unhandled exception and return a 500 error.
+Instead, it should catch that exception and return a 200 with \`db: false\`
+so the load balancer knows the service is \`ok\` but the database is
+unhealthy. That is the correct behavior for a health check.&quot;
+</code></pre>
+<pre><code class="language-text">https://github.com/alexdev/your-repo/pull/38#issuecomment-XXXXXXX
+</code></pre>
+<p><strong>Task 4 — Request changes formally</strong></p>
+<p>Now submit a formal review with the "request changes" disposition:</p>
+<pre><code class="language-bash">gh pr review 38 --request-changes -b &quot;Thanks for adding this! The structure
+looks good. Blocking issue: \`check_connection()\` is not wrapped in a
+try/except. If the DB is down, the endpoint crashes instead of returning a
+health status. Please catch exceptions and return \`db: false\` rather than
+raising. Non-blocking: consider moving the \`from api.db import ...\` import
+to the top of the file — importing at request time adds latency to every
+health check call.&quot;
+</code></pre>
+<pre><code class="language-text">Pull request #38 (Add health check endpoint) reviewed with requested changes.
+</code></pre>
+<p><strong>Task 5 — Simulate the author fixing the issue</strong></p>
+<p>Pretend the author pushed a fix. Create a local "fix" commit to simulate the updated code:</p>
+<pre><code class="language-bash">git checkout -b simulate-fix
+# Simulate the fixed health check file
+cat &gt; api/health.py &lt;&lt; 'EOF'
+&quot;&quot;&quot;Health check endpoint for load balancer probes.&quot;&quot;&quot;
+from flask import Blueprint, jsonify
+
+health_bp = Blueprint(&quot;health&quot;, __name__)
+
+@health_bp.route(&quot;/health&quot;)
+def health_check():
+    &quot;&quot;&quot;Return service health status.&quot;&quot;&quot;
+    try:
+        db_ok = check_connection()
+    except Exception:
+        db_ok = False
+
+    return jsonify({&quot;status&quot;: &quot;ok&quot;, &quot;db&quot;: db_ok})
+EOF
+git add api/health.py
+git commit -m &quot;fix: handle database errors gracefully in health check&quot;
+# Note: we are not actually pushing this — it is a simulation
+</code></pre>
+<pre><code class="language-text">[simulate-fix abc123d] fix: handle database errors gracefully in health check
+ 1 file changed, 4 insertions(+), 5 deletions(-)
+</code></pre>
+<p><strong>Task 6 — Approve the PR</strong></p>
+<p>After the simulated fix, submit an approval:</p>
+<pre><code class="language-bash">gh pr review 38 --approve -b &quot;The try/except handles database errors correctly
+now. The health check returns \`db: false\` instead of crashing — exactly
+what the load balancer needs. Non-blocking note from before about the import
+is a future improvement, not a merge blocker. Thanks for the quick fix!
+LGTM, ship it.&quot;
+</code></pre>
+<pre><code class="language-text">Approved pull request #38 (Add health check endpoint)
+</code></pre>
+<p><strong>Task 7 — Verify the final state</strong></p>
+<pre><code class="language-bash">gh pr view 38 --json reviews --jq '.reviews[] | {state, body}'
+</code></pre>
+<pre><code class="language-text">{&quot;state&quot;:&quot;COMMENTED&quot;,&quot;body&quot;:&quot;The health check looks like a good start...&quot;}
+{&quot;state&quot;:&quot;CHANGES_REQUESTED&quot;,&quot;body&quot;:&quot;Thanks for adding this...&quot;}
+{&quot;state&quot;:&quot;APPROVED&quot;,&quot;body&quot;:&quot;The try/except handles database errors...&quot;}
+</code></pre>
+<p>You have completed the full review cycle: examined the diff, left blocking feedback, requested changes, verified the fix, and approved.</p>
+<hr />
+<h2 id="solution">Solution</h2>
+<p>The solution below shows the key commands and their expected outputs for the exercise. The narrative follows the same scenario described in the Tasks section.</p>
+<h3 id="finding-prs-awaiting-review">Finding PRs Awaiting Review</h3>
+<pre><code class="language-bash">gh pr list --search &quot;review-requested:@me&quot; --state open --json number,title,url
+</code></pre>
+<pre><code class="language-text">[
+  {
+    &quot;number&quot;: 38,
+    &quot;title&quot;: &quot;Add health check endpoint&quot;,
+    &quot;url&quot;: &quot;https://github.com/alexdev/your-repo/pull/38&quot;
+  }
+]
+</code></pre>
+<h3 id="examining-the-diff">Examining the Diff</h3>
+<pre><code class="language-bash">gh pr diff 38
+</code></pre>
+<pre><code class="language-text">diff --git a/api/health.py b/api/health.py
+new file mode 100644
+index 0000000..123abc
+--- /dev/null
++++ b/api/health.py
+@@ -0,0 +1,14 @@
++&quot;&quot;&quot;Health check endpoint for load balancer probes.&quot;&quot;&quot;
++from flask import Blueprint, jsonify
++
++health_bp = Blueprint(&quot;health&quot;, __name__)
++
++@health_bp.route(&quot;/health&quot;)
++def health_check():
++    &quot;&quot;&quot;Return service health status.&quot;&quot;&quot;
++    from api.db import check_connection  # expensive import at request time
++
++    db_ok = check_connection()
++    return jsonify({&quot;status&quot;: &quot;ok&quot;, &quot;db&quot;: db_ok})
+</code></pre>
+<h3 id="leaving-a-comment">Leaving a Comment</h3>
+<pre><code class="language-bash">gh pr comment 38 --body &quot;The health check looks like a good start, but there
+is no error handling around \`check_connection()\`. If the database is
+unreachable, this will raise an unhandled exception and return a 500 error.
+Instead, it should catch that exception and return a 200 with \`db: false\`
+so the load balancer knows the service is \`ok\` but the database is
+unhealthy.&quot;
+</code></pre>
+<pre><code class="language-text">https://github.com/alexdev/your-repo/pull/38#issuecomment-XXXXXXX
+</code></pre>
+<h3 id="requesting-changes">Requesting Changes</h3>
+<pre><code class="language-bash">gh pr review 38 --request-changes -b &quot;Thanks for adding this! The structure
+looks good. Blocking issue: \`check_connection()\` is not wrapped in a
+try/except. If the DB is down, the endpoint crashes instead of returning a
+health status. Please catch exceptions and return \`db: false\` rather than
+raising. Non-blocking: consider moving the import to the top of the file —
+importing at request time adds latency to every health check call.&quot;
+</code></pre>
+<pre><code class="language-text">Pull request #38 (Add health check endpoint) reviewed with requested changes.
+</code></pre>
+<h3 id="simulating-the-fix">Simulating the Fix</h3>
+<pre><code class="language-bash">cat &gt; api/health.py &lt;&lt; 'EOF'
+&quot;&quot;&quot;Health check endpoint for load balancer probes.&quot;&quot;&quot;
+from flask import Blueprint, jsonify
+
+health_bp = Blueprint(&quot;health&quot;, __name__)
+
+@health_bp.route(&quot;/health&quot;)
+def health_check():
+    &quot;&quot;&quot;Return service health status.&quot;&quot;&quot;
+    try:
+        db_ok = check_connection()
+    except Exception:
+        db_ok = False
+
+    return jsonify({&quot;status&quot;: &quot;ok&quot;, &quot;db&quot;: db_ok})
+EOF
+</code></pre>
+<pre><code class="language-bash">git add api/health.py
+git commit -m &quot;fix: handle database errors gracefully in health check&quot;
+</code></pre>
+<pre><code class="language-text">[simulate-fix abc123d] fix: handle database errors gracefully in health check
+ 1 file changed, 4 insertions(+), 5 deletions(-)
+</code></pre>
+<h3 id="approving">Approving</h3>
+<pre><code class="language-bash">gh pr review 38 --approve -b &quot;The try/except handles database errors correctly
+now. The health check returns \`db: false\` instead of crashing. Non-blocking
+note about the import placement is a future refactor — not a merge blocker.
+LGTM, ship it!&quot;
+</code></pre>
+<pre><code class="language-text">Approved pull request #38 (Add health check endpoint)
+</code></pre>
+<h3 id="verifying">Verifying</h3>
+<pre><code class="language-bash">gh pr view 38 --json reviews --jq '.reviews[] | {state, body}'
+</code></pre>
+<pre><code class="language-text">{&quot;state&quot;:&quot;COMMENTED&quot;,&quot;body&quot;:&quot;The health check looks like a good start...&quot;}
+{&quot;state&quot;:&quot;CHANGES_REQUESTED&quot;,&quot;body&quot;:&quot;Thanks for adding this...&quot;}
+{&quot;state&quot;:&quot;APPROVED&quot;,&quot;body&quot;:&quot;The try/except handles database errors...&quot;}
+</code></pre>
+<p>The review history shows the complete lifecycle: a comment, a request for changes, and an approval.</p>
+<hr />
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><strong>Code review is collaboration, not judgment.</strong> Treat it as a shared responsibility for code quality.</li>
+<li><strong>Blocking vs. non-blocking matters.</strong> Be explicit about what must change before merge and what is optional.</li>
+<li><strong>GitHub's review tools (line comments, suggestions, review summaries) are designed for precise, efficient feedback.</strong></li>
+<li><strong><code>gh</code> brings the full review workflow to the terminal.</strong> You rarely need to open a browser.</li>
+<li><strong>Responding to reviews well is a skill.</strong> Acknowledge feedback, ask for clarification, push focused fixes, and re-request review when ready.</li>
+<li><strong>A good reviewer checks correctness, tests, documentation, security, performance, and style — in that order of priority.</strong></li>
+</ul>
+<hr />
+<p><a href="09-pull-requests-and-issues.html">← Previous: Pull Requests and Issues</a> · <a href="11-branching-strategies.html">Next: Branching Strategies →</a> · <a href="../index.html">← Back to Index</a></p>
+
+      <div class="lesson-actions">
+        <button class="btn-mark-complete" id="btn-mark-complete" data-lesson="10">
+          <span class="btn-icon">✓</span> Mark Complete
+        </button>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Previous and next lessons">
+        <a href="09-pull-requests-and-issues.html" class="lesson-nav-prev">
+          <span class="nav-label">← Previous</span>
+          <span class="nav-title">Pull Requests and Issues</span>
+        </a>
+
+        <a href="11-branching-strategies.html" class="lesson-nav-next">
+          <span class="nav-label">Next →</span>
+          <span class="nav-title">Branching Strategies</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+</article>
+      </main>
+
+      <footer class="site-footer">
+        <p>Built with ❤️ for DevOps learners</p>
+        <p class="footer-small">Git Kimchi — A free Git &amp; GitHub course</p>
+      </footer>
+    </div>
+  </div>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script src="../static/js/app.js"></script>
+</body>
+</html>

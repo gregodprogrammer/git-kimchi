@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staging and Commits — Git Kimchi</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body data-page="lesson">
+  <div class="site-wrapper">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-brand">
+          <span class="brand-icon">🌶️</span>
+          <span class="brand-text">Git Kimchi</span>
+        </a>
+        <button class="sidebar-close" id="sidebar-close" aria-label="Close navigation">×</button>
+      </div>
+      <nav class="sidebar-nav" aria-label="Lessons">
+        <div class="nav-section">
+          <span class="nav-section-title">Core Git</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="01-getting-started.html" class="nav-link" data-lesson="1">
+                <span class="nav-num">1</span>
+                <span class="nav-title">Getting Started with Git</span>
+                <span class="nav-status" data-status-lesson="1"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="02-staging-and-commits.html" class="nav-link" data-lesson="2">
+                <span class="nav-num">2</span>
+                <span class="nav-title">Staging and Commits</span>
+                <span class="nav-status" data-status-lesson="2"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="03-history-and-diff.html" class="nav-link" data-lesson="3">
+                <span class="nav-num">3</span>
+                <span class="nav-title">History and Diff</span>
+                <span class="nav-status" data-status-lesson="3"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="04-undoing-changes.html" class="nav-link" data-lesson="4">
+                <span class="nav-num">4</span>
+                <span class="nav-title">Undoing Changes</span>
+                <span class="nav-status" data-status-lesson="4"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Intermediate</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="05-branching.html" class="nav-link" data-lesson="5">
+                <span class="nav-num">5</span>
+                <span class="nav-title">Branching</span>
+                <span class="nav-status" data-status-lesson="5"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="06-merging.html" class="nav-link" data-lesson="6">
+                <span class="nav-num">6</span>
+                <span class="nav-title">Merging</span>
+                <span class="nav-status" data-status-lesson="6"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="07-remotes.html" class="nav-link" data-lesson="7">
+                <span class="nav-num">7</span>
+                <span class="nav-title">Remotes</span>
+                <span class="nav-status" data-status-lesson="7"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="08-github-repos-and-forks.html" class="nav-link" data-lesson="8">
+                <span class="nav-num">8</span>
+                <span class="nav-title">GitHub Repositories and Forks</span>
+                <span class="nav-status" data-status-lesson="8"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="09-pull-requests-and-issues.html" class="nav-link" data-lesson="9">
+                <span class="nav-num">9</span>
+                <span class="nav-title">Pull Requests and Issues</span>
+                <span class="nav-status" data-status-lesson="9"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Advanced / DevOps</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="10-code-review.html" class="nav-link" data-lesson="10">
+                <span class="nav-num">10</span>
+                <span class="nav-title">Code Review</span>
+                <span class="nav-status" data-status-lesson="10"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="11-branching-strategies.html" class="nav-link" data-lesson="11">
+                <span class="nav-num">11</span>
+                <span class="nav-title">Branching Strategies</span>
+                <span class="nav-status" data-status-lesson="11"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="12-github-pages.html" class="nav-link" data-lesson="12">
+                <span class="nav-num">12</span>
+                <span class="nav-title">GitHub Pages</span>
+                <span class="nav-status" data-status-lesson="12"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="13-git-hooks.html" class="nav-link" data-lesson="13">
+                <span class="nav-num">13</span>
+                <span class="nav-title">Git Hooks</span>
+                <span class="nav-status" data-status-lesson="13"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="14-self-hosted-git.html" class="nav-link" data-lesson="14">
+                <span class="nav-num">14</span>
+                <span class="nav-title">Self-Hosted Git</span>
+                <span class="nav-status" data-status-lesson="14"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Capstone &amp; Reference</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="15-capstone.html" class="nav-link" data-lesson="15">
+                <span class="nav-num">15</span>
+                <span class="nav-title">Capstone Mini-Project</span>
+                <span class="nav-status" data-status-lesson="15"></span>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="../solutions.html" class="nav-link" data-lesson="solutions">
+                <span class="nav-num">💡</span>
+                <span class="nav-title">Solutions</span>
+                <span class="nav-status" data-status-lesson="solutions"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="main-area">
+      <header class="site-header">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="header-title">
+          <a href="../index.html">Git Kimchi</a>
+        </div>
+        <div class="header-progress" id="header-progress" style="display:none;">
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+          </div>
+          <span class="progress-text" id="progress-text">0 / 15</span>
+        </div>
+      </header>
+
+      <main class="content-wrapper">
+<article class="lesson">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">Staging and Commits</span>
+  </nav>
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="lesson-number">Lesson 2</span>
+      <span class="lesson-readtime">11 min read</span>
+    </div>
+    <h1 class="lesson-title">Staging and Commits</h1>
+  </header>
+
+  <div class="lesson-body-wrapper">
+    <div class="lesson-toc" id="lesson-toc" aria-label="Table of contents">
+      <h2>On this page</h2>
+      <div class="toc">
+<ul>
+<li><a href="#staging-and-commits">Staging and Commits</a><ul>
+<li><a href="#the-staging-area-your-draft-space">The Staging Area — Your Draft Space</a><ul>
+<li><a href="#why-staging-exists">Why Staging Exists</a></li>
+</ul>
+</li>
+<li><a href="#checking-status-with-git-status">Checking Status with git status</a><ul>
+<li><a href="#a-clean-repository">A Clean Repository</a></li>
+<li><a href="#untracked-files">Untracked Files</a></li>
+<li><a href="#modified-files">Modified Files</a></li>
+<li><a href="#staged-files">Staged Files</a></li>
+</ul>
+</li>
+<li><a href="#staging-files-with-git-add">Staging Files with git add</a><ul>
+<li><a href="#staging-a-new-untracked-file">Staging a New (Untracked) File</a></li>
+<li><a href="#staging-a-modified-file">Staging a Modified File</a></li>
+<li><a href="#staging-multiple-specific-files">Staging Multiple Specific Files</a></li>
+</ul>
+</li>
+<li><a href="#removing-files-from-staging">Removing Files from Staging</a><ul>
+<li><a href="#modern-git-restore-staged">Modern: git restore --staged</a></li>
+<li><a href="#legacy-git-reset-head">Legacy: git reset HEAD</a></li>
+</ul>
+</li>
+<li><a href="#writing-commits-with-git-commit">Writing Commits with git commit</a><ul>
+<li><a href="#a-basic-commit">A Basic Commit</a></li>
+<li><a href="#what-makes-a-good-commit-message">What Makes a Good Commit Message</a></li>
+<li><a href="#why-imperative-mood">Why Imperative Mood?</a></li>
+</ul>
+</li>
+<li><a href="#amending-commits">Amending Commits</a><ul>
+<li><a href="#correcting-a-commit-message">Correcting a Commit Message</a></li>
+<li><a href="#adding-a-forgotten-file">Adding a Forgotten File</a></li>
+<li><a href="#when-not-to-amend">When NOT to Amend</a></li>
+</ul>
+</li>
+<li><a href="#viewing-commit-history">Viewing Commit History</a></li>
+<li><a href="#exercise">Exercise</a><ul>
+<li><a href="#scenario">Scenario</a></li>
+<li><a href="#tasks">Tasks</a></li>
+</ul>
+</li>
+<li><a href="#solution">Solution</a></li>
+<li><a href="#key-takeaways">Key Takeaways</a></li>
+<li><a href="#whats-next">What's Next</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+    </div>
+
+    <div class="lesson-body">
+      <h1 id="staging-and-commits">Staging and Commits</h1>
+<p><a href="01-getting-started.html">← Previous: Getting Started</a></p>
+<p>In the previous section you created your first Git repository with <code>git init</code>. Now comes the real power of Git: capturing meaningful snapshots of your work. This section teaches you how to stage files intentionally and commit them with clear, professional messages.</p>
+<hr />
+<h2 id="the-staging-area-your-draft-space">The Staging Area — Your Draft Space</h2>
+<p>Before Git saves a snapshot, you choose exactly what goes into it. The <strong>staging area</strong> (also called the <strong>index</strong>) is a holding zone between your working directory and the repository history. Think of it as a rehearsal space where you arrange what the next "photo" will capture.</p>
+<h3 id="why-staging-exists">Why Staging Exists</h3>
+<p>Without staging, every save would be all-or-nothing. Staging lets you:</p>
+<ul>
+<li><strong>Select specific files</strong> for a commit, ignoring temporary or unrelated changes</li>
+<li><strong>Split unrelated changes</strong> into separate commits (a bug fix in one file, a new feature in another)</li>
+<li><strong>Review what you are about to commit</strong> before locking it in history</li>
+</ul>
+<p>Git's three states help you understand where your files live at any moment:</p>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Modified</strong></td>
+<td>You have changed a file but not staged it yet</td>
+</tr>
+<tr>
+<td><strong>Staged</strong></td>
+<td>You have marked the changed file to be included in the next commit</td>
+</tr>
+<tr>
+<td><strong>Committed</strong></td>
+<td>The staged snapshot is safely stored in the repository</td>
+</tr>
+</tbody>
+</table>
+<p>This is Git's fundamental workflow: modify files, stage the ones you want, commit the staged snapshot, repeat.</p>
+<hr />
+<h2 id="checking-status-with-git-status">Checking Status with <code>git status</code></h2>
+<p>The <code>git status</code> command shows exactly what state your files are in. Run it often — it is your map of the working directory.</p>
+<h3 id="a-clean-repository">A Clean Repository</h3>
+<p>When nothing has changed, Git tells you the branch is up to date:</p>
+<pre><code class="language-bash">git status
+</code></pre>
+<pre><code class="language-text">On branch main
+nothing to commit, working tree clean
+</code></pre>
+<h3 id="untracked-files">Untracked Files</h3>
+<p>An untracked file is a new file that Git has never seen before. Git does not track it automatically — you must add it:</p>
+<pre><code class="language-bash">git status
+</code></pre>
+<pre><code class="language-text">On branch main
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+
+        README.md
+
+nothing staged for commit
+</code></pre>
+<h3 id="modified-files">Modified Files</h3>
+<p>When you edit a tracked file but have not staged the changes:</p>
+<pre><code class="language-bash">git status
+</code></pre>
+<pre><code class="language-text">On branch main
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+
+        modified:   README.md
+
+no changes added to commit
+</code></pre>
+<h3 id="staged-files">Staged Files</h3>
+<p>After you stage a file, it appears under "Changes to be committed":</p>
+<pre><code class="language-bash">git status
+</code></pre>
+<pre><code class="language-text">On branch main
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to undo this)
+
+        new file:   README.md
+
+nothing staged for commit
+</code></pre>
+<hr />
+<h2 id="staging-files-with-git-add">Staging Files with <code>git add</code></h2>
+<p>The <code>git add</code> command moves files from modified or untracked into the staging area. You stage <strong>by name</strong> — this gives you precise control over what enters the next snapshot.</p>
+<h3 id="staging-a-new-untracked-file">Staging a New (Untracked) File</h3>
+<pre><code class="language-bash">git add README.md
+</code></pre>
+<p>After running this command, <code>README.md</code> moves from untracked to staged:</p>
+<pre><code class="language-bash">git status
+</code></pre>
+<pre><code class="language-text">On branch main
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to undo this)
+
+        new file:   README.md
+
+nothing staged for commit
+</code></pre>
+<h3 id="staging-a-modified-file">Staging a Modified File</h3>
+<p>Imagine you edited <code>app.py</code>. First, check its status:</p>
+<pre><code class="language-bash">git status
+</code></pre>
+<pre><code class="language-text">On branch main
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+
+        modified:   app.py
+
+no changes added to commit
+</code></pre>
+<p>Stage it explicitly:</p>
+<pre><code class="language-bash">git add app.py
+</code></pre>
+<pre><code class="language-bash">git status
+</code></pre>
+<pre><code class="language-text">On branch main
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to undo this)
+
+        modified:   app.py
+
+nothing staged for commit
+</code></pre>
+<h3 id="staging-multiple-specific-files">Staging Multiple Specific Files</h3>
+<p>If you have changes in several files, stage them one by one:</p>
+<pre><code class="language-bash">git add config.py
+git add utils.py
+git add tests/test_app.py
+</code></pre>
+<p>This lets you group related changes into a single thoughtful commit while leaving unrelated changes unstaged.</p>
+<blockquote>
+<p><strong>Note:</strong> This guide uses explicit <code>git add</code> throughout. Avoid <code>git add -A</code> or <code>git add .</code> — they stage everything at once and make it easy to accidentally commit files you did not intend to include (like temporary files, build artifacts, or secrets).</p>
+</blockquote>
+<hr />
+<h2 id="removing-files-from-staging">Removing Files from Staging</h2>
+<p>Sometimes you stage a file by mistake. Git gives you two ways to unstage — one modern, one legacy.</p>
+<h3 id="modern-git-restore-staged">Modern: <code>git restore --staged</code></h3>
+<p>The modern approach uses <code>git restore</code> with the <code>--staged</code> flag:</p>
+<pre><code class="language-bash">git restore --staged app.py
+</code></pre>
+<p>This removes <code>app.py</code> from the staging area. The file returns to the "modified but not staged" state — your changes are not lost:</p>
+<pre><code class="language-bash">git status
+</code></pre>
+<pre><code class="language-text">On branch main
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+
+        modified:   app.py
+
+nothing staged for commit
+</code></pre>
+<h3 id="legacy-git-reset-head">Legacy: <code>git reset HEAD</code></h3>
+<p>The <code>git reset</code> command with <code>HEAD</code> as the target achieves the same result:</p>
+<pre><code class="language-bash">git reset HEAD app.py
+</code></pre>
+<pre><code class="language-text">Unstaged changes after reset:
+M       app.py
+</code></pre>
+<p>Both commands unstage the file without destroying your changes. The modern <code>git restore --staged</code> is clearer in intent and is recommended for new users. The <code>git reset</code> approach appears in older tutorials and some automated scripts, so it is worth recognizing.</p>
+<hr />
+<h2 id="writing-commits-with-git-commit">Writing Commits with <code>git commit</code></h2>
+<p>A commit is a permanent snapshot of your staged changes, timestamped and stored in the repository history. Each commit has a unique identifier (a SHA-1 hash) and records who made it and when.</p>
+<h3 id="a-basic-commit">A Basic Commit</h3>
+<p>After staging your changes, commit them with a message:</p>
+<pre><code class="language-bash">git commit -m &quot;Add user authentication module&quot;
+</code></pre>
+<p>Git confirms the commit with its hash, the branch, and what changed:</p>
+<pre><code class="language-text">[main b3f1a2c] Add user authentication module
+ 2 files changed, 87 insertions(+)
+ create mode 100644 auth.py
+ create mode 100644 auth_test.py
+</code></pre>
+<h3 id="what-makes-a-good-commit-message">What Makes a Good Commit Message</h3>
+<p>A commit message explains <strong>why</strong> a change was made, not just what changed. Follow these rules:</p>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Imperative mood</strong> — describe what the commit does, not what you did</td>
+<td><code>"Fix null pointer in login handler"</code> not <code>"Fixed null pointer"</code></td>
+</tr>
+<tr>
+<td><strong>First line under 72 characters</strong></td>
+<td>Keep the subject line concise</td>
+</tr>
+<tr>
+<td><strong>Separate subject from body with a blank line</strong></td>
+<td>Enables good rendering in tools</td>
+</tr>
+<tr>
+<td><strong>Explain the why, not the what</strong></td>
+<td>Code shows what; message explains why</td>
+</tr>
+<tr>
+<td><strong>Reference the issue if one exists</strong></td>
+<td><code>"Close #42: Add password reset flow"</code></td>
+</tr>
+</tbody>
+</table>
+<p>A well-formed multi-line commit message:</p>
+<pre><code class="language-bash">git commit -m &quot;Add rate limiting to API endpoints
+
+Implements a token bucket algorithm with 100 req/min per user.
+Prevents abuse in the staging environment where no rate limiting existed.
+Fixes #38.&quot;
+</code></pre>
+<p>The first line is the <strong>subject</strong>. The blank line separates it from the <strong>body</strong>, which can be as long as needed to provide context.</p>
+<h3 id="why-imperative-mood">Why Imperative Mood?</h3>
+<p>You may wonder why Git itself uses imperative messages. When you write <code>"Add feature"</code> rather than <code>"Added feature"</code> or <code>"Adds feature"</code>, it completes the sentence: <em>"If applied, this commit will [subject]."</em> This keeps every message grammatically consistent and matches the style used in merge commits and release notes.</p>
+<hr />
+<h2 id="amending-commits">Amending Commits</h2>
+<p>Made a mistake in your last commit — wrong message, forgot to include a file? You can fix it with <code>git commit --amend</code>.</p>
+<h3 id="correcting-a-commit-message">Correcting a Commit Message</h3>
+<p>If you just committed and realized the message has a typo:</p>
+<pre><code class="language-bash">git commit --amend -m &quot;Add user authentication with JWT tokens&quot;
+</code></pre>
+<p>This replaces the previous commit message entirely. The commit hash changes because the content (including metadata) is different.</p>
+<h3 id="adding-a-forgotten-file">Adding a Forgotten File</h3>
+<p>If you forgot to stage a file:</p>
+<pre><code class="language-bash">git add forgotten_file.py
+git commit --amend --no-edit
+</code></pre>
+<p>The <code>--no-edit</code> flag keeps the original message while including the newly staged file in the same commit.</p>
+<h3 id="when-not-to-amend">When NOT to Amend</h3>
+<p><strong>Never amend commits that have been pushed to a shared repository.</strong> Other people may have built work on top of your commit. Amending rewrites history and breaks their clones. If you need to fix a pushed commit, the correct approach is a new commit that reverts or corrects the error.</p>
+<p>For local commits that have not been shared, amending is safe and common during active development.</p>
+<hr />
+<h2 id="viewing-commit-history">Viewing Commit History</h2>
+<p>After you have made a few commits, view them with <code>git log</code>. The <code>--oneline</code> flag gives a compact view that is perfect for everyday use:</p>
+<pre><code class="language-bash">git log --oneline
+</code></pre>
+<pre><code class="language-text">b3f1a2c Add user authentication module
+91da4e1 Initial project setup
+</code></pre>
+<p>Each line shows the first 7 characters of the commit hash followed by the subject line. This format scales well — a project with hundreds of commits remains readable.</p>
+<p>For more detail on <code>git log</code> and <code>git diff</code> (which shows exactly what changed in each commit), see the next section: <a href="03-history-and-diff.html">History and Diff</a>.</p>
+<hr />
+<h2 id="exercise">Exercise</h2>
+<h3 id="scenario">Scenario</h3>
+<p>You are working on a small documentation project. You have created a new repository and made changes to several files, but you have not staged or committed anything yet. Your task is to stage and commit your changes using proper Git workflow.</p>
+<h3 id="tasks">Tasks</h3>
+<ol>
+<li>Create a new file called <code>notes.txt</code> and add the text <code>Learning Git staging and commits.</code></li>
+<li>Modify an existing file (or create and modify <code>progress.txt</code>) with the text <code>Day 1: Getting started with Git.</code></li>
+<li>Run <code>git status</code> to observe the untracked and modified states.</li>
+<li>Stage <strong>only</strong> <code>notes.txt</code> using <code>git add</code>.</li>
+<li>Check <code>git status</code> to confirm <code>notes.txt</code> is staged and <code>progress.txt</code> remains unstaged.</li>
+<li>Commit <code>notes.txt</code> with a meaningful commit message in imperative mood.</li>
+<li>Run <code>git log --oneline</code> to confirm the commit appears in history.</li>
+<li>Now stage and commit <code>progress.txt</code> with its own message.</li>
+<li>Confirm both commits appear in the log.</li>
+</ol>
+<hr />
+<h2 id="solution">Solution</h2>
+<p>Follow these steps to complete the exercise:</p>
+<p><strong>Step 1 — Create the first file:</strong></p>
+<pre><code class="language-bash">echo &quot;Learning Git staging and commits.&quot; &gt; notes.txt
+</code></pre>
+<p><strong>Step 2 — Create the second file:</strong></p>
+<pre><code class="language-bash">echo &quot;Day 1: Getting started with Git.&quot; &gt; progress.txt
+</code></pre>
+<p><strong>Step 3 — Check status (untracked files):</strong></p>
+<pre><code class="language-bash">git status
+</code></pre>
+<pre><code class="language-text">On branch main
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+
+        notes.txt
+        progress.txt
+
+nothing staged for commit
+</code></pre>
+<p><strong>Step 4 — Stage only <code>notes.txt</code>:</strong></p>
+<pre><code class="language-bash">git add notes.txt
+</code></pre>
+<p><strong>Step 5 — Confirm staging state:</strong></p>
+<pre><code class="language-bash">git status
+</code></pre>
+<pre><code class="language-text">On branch main
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to undo this)
+
+        new file:   notes.txt
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+
+        progress.txt
+
+nothing staged for commit
+</code></pre>
+<p><code>notes.txt</code> is staged. <code>progress.txt</code> is still untracked and unstaged.</p>
+<p><strong>Step 6 — Commit <code>notes.txt</code>:</strong></p>
+<pre><code class="language-bash">git commit -m &quot;Add notes.txt with initial learning notes&quot;
+</code></pre>
+<pre><code class="language-text">[main 7c3a1fb] Add notes.txt with initial learning notes
+ 1 file changed, 1 insertion(+)
+ create mode 100644 notes.txt
+</code></pre>
+<p><strong>Step 7 — Confirm commit in history:</strong></p>
+<pre><code class="language-bash">git log --oneline
+</code></pre>
+<pre><code class="language-text">7c3a1fb Add notes.txt with initial learning notes
+91da4e1 Initial project setup
+</code></pre>
+<p><strong>Step 8 — Stage and commit <code>progress.txt</code>:</strong></p>
+<pre><code class="language-bash">git add progress.txt
+git commit -m &quot;Add progress.txt tracking daily learning&quot;
+</code></pre>
+<pre><code class="language-text">[main 2e9d4a3] Add progress.txt tracking daily learning
+ 1 file changed, 1 insertion(+)
+ create mode 100644 progress.txt
+</code></pre>
+<p><strong>Step 9 — Confirm both commits in log:</strong></p>
+<pre><code class="language-bash">git log --oneline
+</code></pre>
+<pre><code class="language-text">2e9d4a3 Add progress.txt tracking daily learning
+7c3a1fb Add notes.txt with initial learning notes
+91da4e1 Initial project setup
+</code></pre>
+<p>Both commits appear in history, each with its own meaningful message. You staged and committed files one at a time, giving you full control over the snapshot each commit captures.</p>
+<hr />
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><strong>Staging is intentional</strong> — use <code>git add</code> to choose exactly which files enter the next commit.</li>
+<li><strong>Check status often</strong> — <code>git status</code> shows you what is modified, staged, or untracked at a glance.</li>
+<li><strong>Unstage with <code>git restore --staged</code></strong> — your changes are safe; they just move back to modified.</li>
+<li><strong>Write clear commit messages</strong> in imperative mood — <code>"Add feature"</code> not <code>"Added feature"</code>.</li>
+<li><strong>Amend only local commits</strong> — never rewrite history of pushed commits.</li>
+<li><strong><code>git log --oneline</code></strong> gives a compact history view — useful for orienting yourself in any project.</li>
+</ul>
+<hr />
+<h2 id="whats-next">What's Next</h2>
+<p>Now that you understand staging and commits, learn how to browse and understand your project history in depth.</p>
+<p><a href="03-history-and-diff.html">Next: History and Diff →</a></p>
+<p><a href="../index.html">← Back to Index</a></p>
+
+      <div class="lesson-actions">
+        <button class="btn-mark-complete" id="btn-mark-complete" data-lesson="2">
+          <span class="btn-icon">✓</span> Mark Complete
+        </button>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Previous and next lessons">
+        <a href="01-getting-started.html" class="lesson-nav-prev">
+          <span class="nav-label">← Previous</span>
+          <span class="nav-title">Getting Started with Git</span>
+        </a>
+
+        <a href="03-history-and-diff.html" class="lesson-nav-next">
+          <span class="nav-label">Next →</span>
+          <span class="nav-title">History and Diff</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+</article>
+      </main>
+
+      <footer class="site-footer">
+        <p>Built with ❤️ for DevOps learners</p>
+        <p class="footer-small">Git Kimchi — A free Git &amp; GitHub course</p>
+      </footer>
+    </div>
+  </div>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script src="../static/js/app.js"></script>
+</body>
+</html>

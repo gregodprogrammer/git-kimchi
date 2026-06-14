@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merging — Git Kimchi</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body data-page="lesson">
+  <div class="site-wrapper">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-brand">
+          <span class="brand-icon">🌶️</span>
+          <span class="brand-text">Git Kimchi</span>
+        </a>
+        <button class="sidebar-close" id="sidebar-close" aria-label="Close navigation">×</button>
+      </div>
+      <nav class="sidebar-nav" aria-label="Lessons">
+        <div class="nav-section">
+          <span class="nav-section-title">Core Git</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="01-getting-started.html" class="nav-link" data-lesson="1">
+                <span class="nav-num">1</span>
+                <span class="nav-title">Getting Started with Git</span>
+                <span class="nav-status" data-status-lesson="1"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="02-staging-and-commits.html" class="nav-link" data-lesson="2">
+                <span class="nav-num">2</span>
+                <span class="nav-title">Staging and Commits</span>
+                <span class="nav-status" data-status-lesson="2"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="03-history-and-diff.html" class="nav-link" data-lesson="3">
+                <span class="nav-num">3</span>
+                <span class="nav-title">History and Diff</span>
+                <span class="nav-status" data-status-lesson="3"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="04-undoing-changes.html" class="nav-link" data-lesson="4">
+                <span class="nav-num">4</span>
+                <span class="nav-title">Undoing Changes</span>
+                <span class="nav-status" data-status-lesson="4"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Intermediate</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="05-branching.html" class="nav-link" data-lesson="5">
+                <span class="nav-num">5</span>
+                <span class="nav-title">Branching</span>
+                <span class="nav-status" data-status-lesson="5"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="06-merging.html" class="nav-link" data-lesson="6">
+                <span class="nav-num">6</span>
+                <span class="nav-title">Merging</span>
+                <span class="nav-status" data-status-lesson="6"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="07-remotes.html" class="nav-link" data-lesson="7">
+                <span class="nav-num">7</span>
+                <span class="nav-title">Remotes</span>
+                <span class="nav-status" data-status-lesson="7"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="08-github-repos-and-forks.html" class="nav-link" data-lesson="8">
+                <span class="nav-num">8</span>
+                <span class="nav-title">GitHub Repositories and Forks</span>
+                <span class="nav-status" data-status-lesson="8"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="09-pull-requests-and-issues.html" class="nav-link" data-lesson="9">
+                <span class="nav-num">9</span>
+                <span class="nav-title">Pull Requests and Issues</span>
+                <span class="nav-status" data-status-lesson="9"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Advanced / DevOps</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="10-code-review.html" class="nav-link" data-lesson="10">
+                <span class="nav-num">10</span>
+                <span class="nav-title">Code Review</span>
+                <span class="nav-status" data-status-lesson="10"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="11-branching-strategies.html" class="nav-link" data-lesson="11">
+                <span class="nav-num">11</span>
+                <span class="nav-title">Branching Strategies</span>
+                <span class="nav-status" data-status-lesson="11"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="12-github-pages.html" class="nav-link" data-lesson="12">
+                <span class="nav-num">12</span>
+                <span class="nav-title">GitHub Pages</span>
+                <span class="nav-status" data-status-lesson="12"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="13-git-hooks.html" class="nav-link" data-lesson="13">
+                <span class="nav-num">13</span>
+                <span class="nav-title">Git Hooks</span>
+                <span class="nav-status" data-status-lesson="13"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="14-self-hosted-git.html" class="nav-link" data-lesson="14">
+                <span class="nav-num">14</span>
+                <span class="nav-title">Self-Hosted Git</span>
+                <span class="nav-status" data-status-lesson="14"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Capstone &amp; Reference</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="15-capstone.html" class="nav-link" data-lesson="15">
+                <span class="nav-num">15</span>
+                <span class="nav-title">Capstone Mini-Project</span>
+                <span class="nav-status" data-status-lesson="15"></span>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="../solutions.html" class="nav-link" data-lesson="solutions">
+                <span class="nav-num">💡</span>
+                <span class="nav-title">Solutions</span>
+                <span class="nav-status" data-status-lesson="solutions"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="main-area">
+      <header class="site-header">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="header-title">
+          <a href="../index.html">Git Kimchi</a>
+        </div>
+        <div class="header-progress" id="header-progress" style="display:none;">
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+          </div>
+          <span class="progress-text" id="progress-text">0 / 15</span>
+        </div>
+      </header>
+
+      <main class="content-wrapper">
+<article class="lesson">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">Merging</span>
+  </nav>
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="lesson-number">Lesson 6</span>
+      <span class="lesson-readtime">10 min read</span>
+    </div>
+    <h1 class="lesson-title">Merging</h1>
+  </header>
+
+  <div class="lesson-body-wrapper">
+    <div class="lesson-toc" id="lesson-toc" aria-label="Table of contents">
+      <h2>On this page</h2>
+      <div class="toc">
+<ul>
+<li><a href="#merging">Merging</a><ul>
+<li><a href="#what-is-a-merge">What Is a Merge?</a></li>
+<li><a href="#the-git-merge-command">The git merge Command</a></li>
+<li><a href="#fast-forward-merge">Fast-Forward Merge</a><ul>
+<li><a href="#when-it-happens">When It Happens</a></li>
+<li><a href="#example">Example</a></li>
+</ul>
+</li>
+<li><a href="#three-way-merge">Three-Way Merge</a><ul>
+<li><a href="#when-it-happens_1">When It Happens</a></li>
+<li><a href="#example_1">Example</a></li>
+</ul>
+</li>
+<li><a href="#forcing-a-merge-commit-with-no-ff">Forcing a Merge Commit with --no-ff</a><ul>
+<li><a href="#why-use-it">Why Use It?</a></li>
+</ul>
+</li>
+<li><a href="#merge-conflicts">Merge Conflicts</a><ul>
+<li><a href="#why-conflicts-happen">Why Conflicts Happen</a></li>
+<li><a href="#how-git-marks-conflicts">How Git Marks Conflicts</a></li>
+<li><a href="#viewing-conflict-status">Viewing Conflict Status</a></li>
+<li><a href="#resolving-a-conflict-manually">Resolving a Conflict Manually</a></li>
+<li><a href="#aborting-a-merge">Aborting a Merge</a></li>
+</ul>
+</li>
+<li><a href="#visualizing-merge-history-with-git-log-graph">Visualizing Merge History with git log --graph</a></li>
+<li><a href="#exercise">Exercise</a><ul>
+<li><a href="#scenario">Scenario</a></li>
+<li><a href="#tasks">Tasks</a></li>
+<li><a href="#estimated-time">Estimated Time</a></li>
+</ul>
+</li>
+<li><a href="#solution">Solution</a><ul>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#create-branch-a-and-make-a-change">Create branch-a and make a change</a></li>
+<li><a href="#create-branch-b-from-main-not-from-branch-a">Create branch-b from main (not from branch-a)</a></li>
+<li><a href="#merge-branch-a-fast-forward">Merge branch-a (fast-forward)</a></li>
+<li><a href="#merge-branch-b-conflict">Merge branch-b (conflict!)</a></li>
+<li><a href="#check-the-conflict-status">Check the conflict status</a></li>
+<li><a href="#view-the-conflicted-file">View the conflicted file</a></li>
+<li><a href="#resolve-the-conflict-by-keeping-both-lines">Resolve the conflict by keeping both lines</a></li>
+<li><a href="#complete-the-merge">Complete the merge</a></li>
+<li><a href="#verify-the-final-result">Verify the final result</a></li>
+<li><a href="#cleanup">Cleanup</a></li>
+</ul>
+</li>
+<li><a href="#key-takeaways">Key Takeaways</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+    </div>
+
+    <div class="lesson-body">
+      <h1 id="merging">Merging</h1>
+<p><a href="05-branching.html">← Previous: Branching</a> | <a href="../index.html">← Back to Index</a></p>
+<p>So far you've learned how to create branches and switch between them. But branches only become useful when you <strong>combine</strong> them. Merging is the process of integrating changes from one branch into another, bringing your divergent histories back together.</p>
+<hr />
+<h2 id="what-is-a-merge">What Is a Merge?</h2>
+<p>A <strong>merge</strong> in Git combines the histories of two or more branches. When you merge a feature branch into <code>main</code>, Git takes all the commits from the feature branch and integrates them into the target branch's history. The result is a single, unified branch that contains changes from both places.</p>
+<p>Think of it this way: if you've been working on a <code>login-feature</code> branch while someone else has been adding tests to <code>main</code>, a merge is how you bring those login changes into <code>main</code> without losing anyone's work.</p>
+<hr />
+<h2 id="the-git-merge-command">The <code>git merge</code> Command</h2>
+<p>The basic syntax is:</p>
+<pre><code class="language-bash">git merge &lt;branch-name&gt;
+</code></pre>
+<p><strong>Critical rule:</strong> You must be on the branch that will <strong>receive</strong> the changes (the target), and you merge the source branch <em>into</em> it.</p>
+<p>For example, to merge <code>login-feature</code> into <code>main</code>:</p>
+<pre><code class="language-bash">git switch main
+git merge login-feature
+</code></pre>
+<p>The current branch (<code>main</code> in this case) is where the result ends up. The source branch (<code>login-feature</code>) is not modified — its history remains as-is.</p>
+<hr />
+<h2 id="fast-forward-merge">Fast-Forward Merge</h2>
+<p>A <strong>fast-forward</strong> merge happens when the target branch has not moved forward since the source branch was created. Git can simply "fast-forward" the target pointer to the same commit as the source branch, because there is a clear linear path.</p>
+<h3 id="when-it-happens">When It Happens</h3>
+<p>You branched off <code>main</code> at commit <code>A</code>. Since then, <code>main</code> has not changed — no new commits were added to <code>main</code>. Your branch has two new commits (<code>B</code> and <code>C</code>). Git can just move <code>main</code>'s pointer forward to <code>C</code>.</p>
+<h3 id="example">Example</h3>
+<pre><code class="language-bash">git switch main
+git merge feature
+</code></pre>
+<pre><code class="language-text">Updating a1b2c3d..e4f5g6h
+Fast-forward
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+</code></pre>
+<p>Git reports "Fast-forward" and does not create a merge commit. The history remains a single straight line. This is clean and simple — but it only works when the branches have not diverged.</p>
+<hr />
+<h2 id="three-way-merge">Three-Way Merge</h2>
+<p>A <strong>three-way merge</strong> is necessary when both the target branch and the source branch have moved forward since they diverged. Git must combine the changes from both branches, which may involve different modifications to the same lines of code.</p>
+<p>Because neither branch is simply ahead of the other, Git creates a new <strong>merge commit</strong> that has two parent commits — one from each branch. This merge commit ties the two histories together.</p>
+<h3 id="when-it-happens_1">When It Happens</h3>
+<p>You branched off <code>main</code> at commit <code>A</code>. Meanwhile, someone else committed to <code>main</code> (commit <code>B</code>). Your branch also has commits (commit <code>C</code>). Now <code>main</code> and your branch have "diverged" — they both contain unique commits that the other doesn't have. Git must perform a three-way merge.</p>
+<h3 id="example_1">Example</h3>
+<pre><code class="language-bash">git switch main
+git merge feature
+</code></pre>
+<pre><code class="language-text">Merge made by the 'ort' strategy.
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+</code></pre>
+<p>Git combines the changes and creates a merge commit. Your history now looks like:</p>
+<pre><code class="language-text">*---.
+ \  \
+  A--B--C--M
+         /
+   (main)
+</code></pre>
+<p>Commit <code>M</code> is the merge commit, with two parents: <code>B</code> (from <code>main</code>) and <code>C</code> (from <code>feature</code>).</p>
+<hr />
+<h2 id="forcing-a-merge-commit-with-no-ff">Forcing a Merge Commit with <code>--no-ff</code></h2>
+<p>Even when a fast-forward merge is possible, you might want to explicitly record that a branch was merged. The <code>--no-ff</code> flag forces Git to create a merge commit regardless of whether a fast-forward would work.</p>
+<pre><code class="language-bash">git merge --no-ff feature
+</code></pre>
+<h3 id="why-use-it">Why Use It?</h3>
+<ul>
+<li><strong>Preserves branch history</strong> — In tools like GitHub's network graph or <code>git log --graph</code>, you can clearly see when a feature branch was integrated.</li>
+<li><strong>Auditing</strong> — A merge commit stands out as a landmark in the history, making it easier to trace when features landed.</li>
+<li><strong>Reversibility</strong> — Reverting a merge commit is cleaner than trying to "un-fast-forward" a branch.</li>
+</ul>
+<p>For long-lived feature branches that you want to see clearly in the history, <code>--no-ff</code> is the conventional choice.</p>
+<hr />
+<h2 id="merge-conflicts">Merge Conflicts</h2>
+<p>A merge conflict happens when Git cannot automatically resolve differences between two branches. This occurs when <strong>both branches modified the same lines</strong> of the same file, or when one branch deleted a file that another branch modified.</p>
+<h3 id="why-conflicts-happen">Why Conflicts Happen</h3>
+<p>Git is very good at combining changes automatically when they touch different parts of a file. But when two people both edit line 15 of <code>config.py</code>, Git doesn't know which change to keep. It pauses the merge and asks you to decide.</p>
+<h3 id="how-git-marks-conflicts">How Git Marks Conflicts</h3>
+<p>When a conflict occurs, Git inserts special markers into the conflicted file:</p>
+<pre><code class="language-text">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Changes from the current branch (main)
+=======
+Changes from the branch you're merging in (feature)
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature
+</code></pre>
+<ul>
+<li><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> marks the start of the conflict and the beginning of the current branch's content.</li>
+<li><code>=======</code> separates the two versions.</li>
+<li><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature</code> marks the end of the conflict and the incoming branch's content.</li>
+</ul>
+<h3 id="viewing-conflict-status">Viewing Conflict Status</h3>
+<pre><code class="language-bash">git status
+</code></pre>
+<pre><code class="language-text">On branch main
+You have unmerged paths.
+  (fix conflicts and run &quot;git commit&quot;)
+
+Unmerged paths:
+  (use &quot;git add &lt;file&gt;...&quot;)
+
+        both modified:   config.py
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit&quot;)
+</code></pre>
+<p>The phrase <strong>"both modified"</strong> tells you this is a conflict between two branches that both changed the file.</p>
+<h3 id="resolving-a-conflict-manually">Resolving a Conflict Manually</h3>
+<ol>
+<li><strong>Open the conflicted file</strong> and find the <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> markers.</li>
+<li><strong>Decide what the final content should be.</strong> Delete the markers and keep the version you want (or combine both changes manually).</li>
+<li><strong>Add the resolved file:</strong></li>
+</ol>
+<p><code>bash
+   git add config.py</code></p>
+<ol>
+<li><strong>Complete the merge with a commit</strong> (Git pre-fills a merge commit message for you):</li>
+</ol>
+<p><code>bash
+   git commit</code></p>
+<p><code>text
+   Merge branch 'feature' into main</code></p>
+<p>Git automatically opens your editor for the commit message. The default message is fine — just save and close it.</p>
+<h3 id="aborting-a-merge">Aborting a Merge</h3>
+<p>If you've made a mess of conflict resolution and want to start over, you can abort the merge entirely:</p>
+<pre><code class="language-bash">git merge --abort
+</code></pre>
+<p>This returns your repository to the state it was in before you started the merge. No changes are lost — you can try again once you've prepared better.</p>
+<hr />
+<h2 id="visualizing-merge-history-with-git-log-graph">Visualizing Merge History with <code>git log --graph</code></h2>
+<p>After merging, <code>git log</code> shows you a linear list of commits. But it doesn't show you the branch structure. Adding <code>--graph</code> draws an ASCII art diagram that reveals the topology of your history.</p>
+<pre><code class="language-bash">git log --oneline --graph --all
+</code></pre>
+<pre><code class="language-text">*   Merge branch 'feature' into main
+|\
+| * e4f5g6h Add login page
+* | a1b2c3d Update README
+|/
+* a9b1c2d Initial commit
+</code></pre>
+<p>Each asterisk <code>*</code> is a commit. The backslash <code>\</code>, vertical bar <code>|</code>, and forward slash <code>/</code> characters show where branches split and merged.</p>
+<p>The <code>--all</code> flag ensures Git shows branches other than the current one. Combined with <code>--oneline</code>, it gives you a compact but informative view of your project's history.</p>
+<hr />
+<h2 id="exercise">Exercise</h2>
+<p>In this exercise, you will practice both a fast-forward merge and a conflict-causing merge, then resolve the conflict manually.</p>
+<h3 id="scenario">Scenario</h3>
+<p>You are working on a project with a <code>main</code> branch. You create two branches from <code>main</code>, make different changes to the same file on each branch, and merge them one at a time. The second merge will produce a conflict that you will resolve.</p>
+<h3 id="tasks">Tasks</h3>
+<ol>
+<li>Initialize a new Git repository with one commit on <code>main</code>.</li>
+<li>Create a branch called <code>branch-a</code> and add a line to a file called <code>notes.txt</code>.</li>
+<li>Create a branch called <code>branch-b</code> from <code>main</code> (not from <code>branch-a</code>) and add a <em>different</em> line to <code>notes.txt</code> on the same line number.</li>
+<li>Merge <code>branch-a</code> into <code>main</code> (expect fast-forward).</li>
+<li>Merge <code>branch-b</code> into <code>main</code> (expect a conflict).</li>
+<li>Resolve the conflict by keeping both changes in <code>notes.txt</code>.</li>
+<li>Complete the merge commit and verify the final file contains both lines.</li>
+</ol>
+<h3 id="estimated-time">Estimated Time</h3>
+<p>15–20 minutes.</p>
+<hr />
+<h2 id="solution">Solution</h2>
+<h3 id="setup">Setup</h3>
+<pre><code class="language-bash">mkdir merge-practice
+cd merge-practice
+git init
+echo &quot;Line 1&quot; &gt; notes.txt
+git add notes.txt
+git commit -m &quot;Initial commit&quot;
+</code></pre>
+<pre><code class="language-text">[main (root-commit) a1b2c3d] Initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 notes.txt
+</code></pre>
+<h3 id="create-branch-a-and-make-a-change">Create branch-a and make a change</h3>
+<pre><code class="language-bash">git checkout -b branch-a
+echo &quot;Line 2 from branch-a&quot; &gt;&gt; notes.txt
+git add notes.txt
+git commit -m &quot;Add line from branch-a&quot;
+</code></pre>
+<pre><code class="language-text">[branch-a 4d5e6f7] Add line from branch-a
+ 1 file changed, 1 insertion(+)
+</code></pre>
+<h3 id="create-branch-b-from-main-not-from-branch-a">Create branch-b from main (not from branch-a)</h3>
+<pre><code class="language-bash">git checkout main
+git checkout -b branch-b
+echo &quot;Line 2 from branch-b&quot; &gt;&gt; notes.txt
+git add notes.txt
+git commit -m &quot;Add line from branch-b&quot;
+</code></pre>
+<pre><code class="language-text">[branch-b 8h9i0j1] Add line from branch-b
+ 1 file changed, 1 insertion(+)
+</code></pre>
+<h3 id="merge-branch-a-fast-forward">Merge branch-a (fast-forward)</h3>
+<pre><code class="language-bash">git checkout main
+git merge branch-a
+</code></pre>
+<pre><code class="language-text">Updating a1b2c3d..4d5e6f7
+Fast-forward
+ notes.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+</code></pre>
+<p>Because <code>main</code> hasn't moved since <code>branch-a</code> was created, Git fast-forwards <code>main</code> to <code>branch-a</code>'s commit. No merge commit is created.</p>
+<h3 id="merge-branch-b-conflict">Merge branch-b (conflict!)</h3>
+<pre><code class="language-bash">git merge branch-b
+</code></pre>
+<pre><code class="language-text">Auto-merging notes.txt
+CONFLICT (content): Merge conflict in notes.txt
+Automatic merge failed; fix conflicts and then commit the result.
+</code></pre>
+<h3 id="check-the-conflict-status">Check the conflict status</h3>
+<pre><code class="language-bash">git status
+</code></pre>
+<pre><code class="language-text">On branch main
+You have unmerged paths.
+  (use &quot;git add &lt;file&gt;...&quot;)
+
+        both modified:   notes.txt
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit&quot;)
+</code></pre>
+<h3 id="view-the-conflicted-file">View the conflicted file</h3>
+<pre><code class="language-bash">cat notes.txt
+</code></pre>
+<pre><code class="language-text">Line 1
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Line 2 from branch-a
+=======
+Line 2 from branch-b
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; branch-b
+</code></pre>
+<p>Git has marked the conflicting region. The current branch (<code>main</code>, which now includes <code>branch-a</code>'s change) wants "Line 2 from branch-a". The incoming <code>branch-b</code> wants "Line 2 from branch-b".</p>
+<h3 id="resolve-the-conflict-by-keeping-both-lines">Resolve the conflict by keeping both lines</h3>
+<p>Open <code>notes.txt</code> in your editor and replace the conflict markers with both lines:</p>
+<pre><code class="language-text">Line 1
+Line 2 from branch-a
+Line 2 from branch-b
+</code></pre>
+<p>Now the file contains both additions, which is the correct combined result.</p>
+<h3 id="complete-the-merge">Complete the merge</h3>
+<pre><code class="language-bash">git add notes.txt
+git commit
+</code></pre>
+<pre><code class="language-text">[main 2k3l4m5] Merge branch 'branch-b' into main
+</code></pre>
+<p>Git has created a merge commit that combines both histories.</p>
+<h3 id="verify-the-final-result">Verify the final result</h3>
+<pre><code class="language-bash">cat notes.txt
+git log --oneline --graph --all
+</code></pre>
+<pre><code class="language-text">Line 1
+Line 2 from branch-a
+Line 2 from branch-b
+</code></pre>
+<pre><code class="language-text">*   Merge branch 'branch-b' into main
+|\
+| * 8h9i0j1 Add line from branch-b
+* | 4d5e6f7 Add line from branch-a
+|/
+* a1b2c3d Initial commit
+</code></pre>
+<p>The <code>notes.txt</code> file now contains all three lines. The graph clearly shows the two branches diverging from the initial commit and being brought back together by the merge commit.</p>
+<h3 id="cleanup">Cleanup</h3>
+<pre><code class="language-bash">cd ..
+rm -rf merge-practice
+</code></pre>
+<hr />
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li>A <strong>fast-forward</strong> merge is only possible when the target branch has not advanced since the source branch was created. It creates no merge commit and results in a linear history.</li>
+<li>A <strong>three-way merge</strong> is needed when both branches have advanced. Git creates a merge commit with two parents to join the histories.</li>
+<li>Use <code>git merge --no-ff</code> when you want to preserve the fact that a branch was merged, even if a fast-forward would have been possible.</li>
+<li>Merge conflicts happen when both branches modified the same lines. Git marks the conflict with <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> markers. You decide which version to keep, add the file, and commit.</li>
+<li><code>git merge --abort</code> lets you back out of a conflicted merge if you need to start fresh.</li>
+<li><code>git log --oneline --graph --all</code> reveals the true shape of your history, including branches and merges.</li>
+</ul>
+<hr />
+<p><a href="05-branching.html">← Previous: Branching</a> | <a href="07-remotes.html">Next: Remotes →</a></p>
+
+      <div class="lesson-actions">
+        <button class="btn-mark-complete" id="btn-mark-complete" data-lesson="6">
+          <span class="btn-icon">✓</span> Mark Complete
+        </button>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Previous and next lessons">
+        <a href="05-branching.html" class="lesson-nav-prev">
+          <span class="nav-label">← Previous</span>
+          <span class="nav-title">Branching</span>
+        </a>
+
+        <a href="07-remotes.html" class="lesson-nav-next">
+          <span class="nav-label">Next →</span>
+          <span class="nav-title">Remotes</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+</article>
+      </main>
+
+      <footer class="site-footer">
+        <p>Built with ❤️ for DevOps learners</p>
+        <p class="footer-small">Git Kimchi — A free Git &amp; GitHub course</p>
+      </footer>
+    </div>
+  </div>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script src="../static/js/app.js"></script>
+</body>
+</html>

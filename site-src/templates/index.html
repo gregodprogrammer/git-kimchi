@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="hero-title">Git Kimchi</h1>
+    <p class="hero-subtitle">Master Git &amp; GitHub from Zero to DevOps Hero</p>
+    <div class="hero-meta">
+      <span class="hero-badge">15 Lessons</span>
+      <span class="hero-badge">Self-Paced</span>
+      <span class="hero-badge">Free</span>
+    </div>
+    <div class="hero-progress">
+      <div class="progress-overview">
+        <svg class="progress-ring" viewBox="0 0 120 120" width="120" height="120">
+          <circle class="progress-ring-bg" cx="60" cy="60" r="52"></circle>
+          <circle class="progress-ring-fill" id="progress-ring-fill" cx="60" cy="60" r="52"></circle>
+        </svg>
+        <div class="progress-ring-label">
+          <span class="progress-percent" id="progress-percent">0%</span>
+          <span class="progress-label">Complete</span>
+        </div>
+      </div>
+    </div>
+    <a href="{{ lessons_path }}01-getting-started.html" class="hero-cta">Start Learning</a>
+  </div>
+</section>
+
+<section class="course-sections">
+  {% for section in sections %}
+  <div class="section-block">
+    <h2 class="section-heading">{{ section.name }}</h2>
+    <div class="masonry-grid">
+      {% for lesson in section.lessons %}
+      <article class="course-card" data-lesson="{{ lesson.number }}">
+        <div class="card-header">
+          <span class="card-number">{{ lesson.number }}</span>
+          <span class="card-readtime">{{ lesson.readtime }}</span>
+        </div>
+        <h3 class="card-title">{{ lesson.title }}</h3>
+        <p class="card-desc">{{ lesson.description }}</p>
+        <div class="card-footer">
+          <a href="{{ lessons_path }}{{ lesson.slug }}.html" class="card-btn">Start Lesson</a>
+          <span class="card-status" data-status-lesson="{{ lesson.number }}"></span>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+</section>
+{% endblock %}

@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consolidated Solutions — Git Kimchi</title>
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body data-page="solutions">
+  <div class="site-wrapper">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-brand">
+          <span class="brand-icon">🌶️</span>
+          <span class="brand-text">Git Kimchi</span>
+        </a>
+        <button class="sidebar-close" id="sidebar-close" aria-label="Close navigation">×</button>
+      </div>
+      <nav class="sidebar-nav" aria-label="Lessons">
+        <div class="nav-section">
+          <span class="nav-section-title">Core Git</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="lessons/01-getting-started.html" class="nav-link" data-lesson="1">
+                <span class="nav-num">1</span>
+                <span class="nav-title">Getting Started with Git</span>
+                <span class="nav-status" data-status-lesson="1"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="lessons/02-staging-and-commits.html" class="nav-link" data-lesson="2">
+                <span class="nav-num">2</span>
+                <span class="nav-title">Staging and Commits</span>
+                <span class="nav-status" data-status-lesson="2"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="lessons/03-history-and-diff.html" class="nav-link" data-lesson="3">
+                <span class="nav-num">3</span>
+                <span class="nav-title">History and Diff</span>
+                <span class="nav-status" data-status-lesson="3"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="lessons/04-undoing-changes.html" class="nav-link" data-lesson="4">
+                <span class="nav-num">4</span>
+                <span class="nav-title">Undoing Changes</span>
+                <span class="nav-status" data-status-lesson="4"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Intermediate</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="lessons/05-branching.html" class="nav-link" data-lesson="5">
+                <span class="nav-num">5</span>
+                <span class="nav-title">Branching</span>
+                <span class="nav-status" data-status-lesson="5"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="lessons/06-merging.html" class="nav-link" data-lesson="6">
+                <span class="nav-num">6</span>
+                <span class="nav-title">Merging</span>
+                <span class="nav-status" data-status-lesson="6"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="lessons/07-remotes.html" class="nav-link" data-lesson="7">
+                <span class="nav-num">7</span>
+                <span class="nav-title">Remotes</span>
+                <span class="nav-status" data-status-lesson="7"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="lessons/08-github-repos-and-forks.html" class="nav-link" data-lesson="8">
+                <span class="nav-num">8</span>
+                <span class="nav-title">GitHub Repositories and Forks</span>
+                <span class="nav-status" data-status-lesson="8"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="lessons/09-pull-requests-and-issues.html" class="nav-link" data-lesson="9">
+                <span class="nav-num">9</span>
+                <span class="nav-title">Pull Requests and Issues</span>
+                <span class="nav-status" data-status-lesson="9"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Advanced / DevOps</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="lessons/10-code-review.html" class="nav-link" data-lesson="10">
+                <span class="nav-num">10</span>
+                <span class="nav-title">Code Review</span>
+                <span class="nav-status" data-status-lesson="10"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="lessons/11-branching-strategies.html" class="nav-link" data-lesson="11">
+                <span class="nav-num">11</span>
+                <span class="nav-title">Branching Strategies</span>
+                <span class="nav-status" data-status-lesson="11"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="lessons/12-github-pages.html" class="nav-link" data-lesson="12">
+                <span class="nav-num">12</span>
+                <span class="nav-title">GitHub Pages</span>
+                <span class="nav-status" data-status-lesson="12"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="lessons/13-git-hooks.html" class="nav-link" data-lesson="13">
+                <span class="nav-num">13</span>
+                <span class="nav-title">Git Hooks</span>
+                <span class="nav-status" data-status-lesson="13"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="lessons/14-self-hosted-git.html" class="nav-link" data-lesson="14">
+                <span class="nav-num">14</span>
+                <span class="nav-title">Self-Hosted Git</span>
+                <span class="nav-status" data-status-lesson="14"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Capstone &amp; Reference</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="lessons/15-capstone.html" class="nav-link" data-lesson="15">
+                <span class="nav-num">15</span>
+                <span class="nav-title">Capstone Mini-Project</span>
+                <span class="nav-status" data-status-lesson="15"></span>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="solutions.html" class="nav-link" data-lesson="solutions">
+                <span class="nav-num">💡</span>
+                <span class="nav-title">Solutions</span>
+                <span class="nav-status" data-status-lesson="solutions"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="main-area">
+      <header class="site-header">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="header-title">
+          <a href="index.html">Git Kimchi</a>
+        </div>
+        <div class="header-progress" id="header-progress" style="display:none;">
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+          </div>
+          <span class="progress-text" id="progress-text">0 / 15</span>
+        </div>
+      </header>
+
+      <main class="content-wrapper">
+<article class="lesson">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">Consolidated Solutions</span>
+  </nav>
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="lesson-number">Lesson solutions</span>
+      <span class="lesson-readtime">29 min read</span>
+    </div>
+    <h1 class="lesson-title">Consolidated Solutions</h1>
+  </header>
+
+  <div class="lesson-body-wrapper">
+    <div class="lesson-toc" id="lesson-toc" aria-label="Table of contents">
+      <h2>On this page</h2>
+      <div class="toc">
+<ul>
+<li><a href="#consolidated-solutions">Consolidated Solutions</a><ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#01-getting-started">01: Getting Started</a><ul>
+<li><a href="#step-1-configure-git">Step 1 — Configure Git</a></li>
+<li><a href="#step-2-create-and-initialize-the-repository">Step 2 — Create and Initialize the Repository</a></li>
+<li><a href="#step-3-create-a-file">Step 3 — Create a File</a></li>
+<li><a href="#step-4-stage-and-commit">Step 4 — Stage and Commit</a></li>
+<li><a href="#step-5-verify-your-work">Step 5 — Verify Your Work</a></li>
+</ul>
+</li>
+<li><a href="#02-staging-and-commits">02: Staging and Commits</a></li>
+<li><a href="#03-history-and-diff">03: History and Diff</a></li>
+<li><a href="#04-undoing-changes">04: Undoing Changes</a></li>
+<li><a href="#05-branching">05: Branching</a></li>
+<li><a href="#06-merging">06: Merging</a><ul>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#create-branch-a-and-make-a-change">Create branch-a and make a change</a></li>
+<li><a href="#create-branch-b-from-main-not-from-branch-a">Create branch-b from main (not from branch-a)</a></li>
+<li><a href="#merge-branch-a-fast-forward">Merge branch-a (fast-forward)</a></li>
+<li><a href="#merge-branch-b-conflict">Merge branch-b (conflict!)</a></li>
+<li><a href="#check-the-conflict-status">Check the conflict status</a></li>
+<li><a href="#view-the-conflicted-file">View the conflicted file</a></li>
+<li><a href="#resolve-the-conflict-by-keeping-both-lines">Resolve the conflict by keeping both lines</a></li>
+<li><a href="#complete-the-merge">Complete the merge</a></li>
+<li><a href="#verify-the-final-result">Verify the final result</a></li>
+</ul>
+</li>
+<li><a href="#07-remotes">07: Remotes</a></li>
+<li><a href="#08-github-repos-and-forks">08: GitHub Repos and Forks</a><ul>
+<li><a href="#part-1-create-your-own-repository">Part 1: Create Your Own Repository</a></li>
+</ul>
+</li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#contributing">Contributing</a><ul>
+<li><a href="#part-2-fork-and-sync">Part 2: Fork and Sync</a></li>
+</ul>
+</li>
+<li><a href="#09-pull-requests-and-issues">09: Pull Requests and Issues</a></li>
+<li><a href="#10-code-review">10: Code Review</a><ul>
+<li><a href="#finding-prs-awaiting-review">Finding PRs Awaiting Review</a></li>
+<li><a href="#examining-the-diff">Examining the Diff</a></li>
+<li><a href="#leaving-a-comment">Leaving a Comment</a></li>
+<li><a href="#requesting-changes">Requesting Changes</a></li>
+<li><a href="#simulating-the-fix">Simulating the Fix</a></li>
+<li><a href="#approving">Approving</a></li>
+<li><a href="#verifying">Verifying</a></li>
+</ul>
+</li>
+<li><a href="#11-branching-strategies">11: Branching Strategies</a><ul>
+<li><a href="#final-history">Final History</a></li>
+</ul>
+</li>
+<li><a href="#12-github-pages">12: GitHub Pages</a><ul>
+<li><a href="#step-1-create-the-repository">Step 1: Create the Repository</a></li>
+<li><a href="#step-2-create-the-indexmd-file">Step 2: Create the index.md File</a></li>
+<li><a href="#step-3-enable-github-pages">Step 3: Enable GitHub Pages</a></li>
+<li><a href="#step-4-push-and-wait">Step 4: Push and Wait</a></li>
+<li><a href="#step-5-verify-the-site">Step 5: Verify the Site</a></li>
+</ul>
+</li>
+<li><a href="#13-git-hooks">13: Git Hooks</a><ul>
+<li><a href="#step-1-create-the-commit-msg-hook">Step 1: Create the commit-msg Hook</a></li>
+<li><a href="#step-2-test-block-a-short-message">Step 2: Test — Block a Short Message</a></li>
+<li><a href="#step-3-test-allow-a-valid-message">Step 3: Test — Allow a Valid Message</a></li>
+</ul>
+</li>
+<li><a href="#14-self-hosted-git">14: Self-Hosted Git</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+    </div>
+
+    <div class="lesson-body">
+      <h1 id="consolidated-solutions">Consolidated Solutions</h1>
+<p>All exercise solutions from the Git and GitHub Documentation guide.</p>
+<p><a href="index.html">← Back to Index</a></p>
+<hr />
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#01-getting-started">01: Getting Started</a></li>
+<li><a href="#02-staging-and-commits">02: Staging and Commits</a></li>
+<li><a href="#03-history-and-diff">03: History and Diff</a></li>
+<li><a href="#04-undoing-changes">04: Undoing Changes</a></li>
+<li><a href="#05-branching">05: Branching</a></li>
+<li><a href="#06-merging">06: Merging</a></li>
+<li><a href="#07-remotes">07: Remotes</a></li>
+<li><a href="#08-github-repos-and-forks">08: GitHub Repos and Forks</a></li>
+<li><a href="#09-pull-requests-and-issues">09: Pull Requests and Issues</a></li>
+<li><a href="#10-code-review">10: Code Review</a></li>
+<li><a href="#11-branching-strategies">11: Branching Strategies</a></li>
+<li><a href="#12-github-pages">12: GitHub Pages</a></li>
+<li><a href="#13-git-hooks">13: Git Hooks</a></li>
+<li><a href="#14-self-hosted-git">14: Self-Hosted Git</a></li>
+</ul>
+<hr />
+<h2 id="01-getting-started">01: Getting Started</h2>
+<p><strong>Exercise:</strong> Configure Git with your name and email, create a directory called <code>git-practice</code>, initialize it as a Git repository, create a file named <code>notes.txt</code> with the text <code>Learning Git is fun!</code>, and stage and commit the file with a descriptive message.</p>
+<p><strong>Solution:</strong></p>
+<h3 id="step-1-configure-git">Step 1 — Configure Git</h3>
+<pre><code class="language-bash">git config --global user.name &quot;Your Name&quot;
+git config --global user.email &quot;your.email@example.com&quot;
+git config --global init.defaultBranch main
+</code></pre>
+<h3 id="step-2-create-and-initialize-the-repository">Step 2 — Create and Initialize the Repository</h3>
+<pre><code class="language-bash">mkdir git-practice
+cd git-practice
+git init
+</code></pre>
+<pre><code class="language-text">Initialized empty Git repository in /home/username/git-practice/.git/
+</code></pre>
+<h3 id="step-3-create-a-file">Step 3 — Create a File</h3>
+<pre><code class="language-bash">echo &quot;Learning Git is fun!&quot; &gt; notes.txt
+</code></pre>
+<h3 id="step-4-stage-and-commit">Step 4 — Stage and Commit</h3>
+<pre><code class="language-bash">git add notes.txt
+git commit -m &quot;Add notes.txt with opening message&quot;
+</code></pre>
+<pre><code class="language-text">[main (root-commit) b2c3d4e] Add notes.txt with opening message
+ 1 file changed, 1 insertion(+)
+ create mode 100644 notes.txt
+</code></pre>
+<h3 id="step-5-verify-your-work">Step 5 — Verify Your Work</h3>
+<pre><code class="language-bash">git status
+</code></pre>
+<pre><code class="language-text">On branch main
+nothing to commit, working tree clean
+</code></pre>
+<pre><code class="language-bash">git log
+</code></pre>
+<pre><code class="language-text">commit b2c3d4e (HEAD -&gt; main)
+Author: Your Name &lt;your.email@example.com&gt;
+Date:   Sat Jun 13 10:00:00 2026
+
+    Add notes.txt with opening message
+</code></pre>
+<p>You have successfully initialized a repository, created a file, and committed it. The repository now tracks your work.</p>
+<hr />
+<h2 id="02-staging-and-commits">02: Staging and Commits</h2>
+<p><strong>Exercise:</strong> Create two files (<code>notes.txt</code> and <code>progress.txt</code>), stage and commit only <code>notes.txt</code>, then stage and commit <code>progress.txt</code>. Verify both commits appear in the log.</p>
+<p><strong>Solution:</strong></p>
+<p><strong>Step 1 — Create the first file:</strong></p>
+<pre><code class="language-bash">echo &quot;Learning Git staging and commits.&quot; &gt; notes.txt
+</code></pre>
+<p><strong>Step 2 — Create the second file:</strong></p>
+<pre><code class="language-bash">echo &quot;Day 1: Getting started with Git.&quot; &gt; progress.txt
+</code></pre>
+<p><strong>Step 3 — Check status (untracked files):</strong></p>
+<pre><code class="language-bash">git status
+</code></pre>
+<pre><code class="language-text">On branch main
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+
+        notes.txt
+        progress.txt
+
+nothing staged for commit
+</code></pre>
+<p><strong>Step 4 — Stage only <code>notes.txt</code>:</strong></p>
+<pre><code class="language-bash">git add notes.txt
+</code></pre>
+<p><strong>Step 5 — Confirm staging state:</strong></p>
+<pre><code class="language-bash">git status
+</code></pre>
+<pre><code class="language-text">On branch main
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to undo this)
+
+        new file:   notes.txt
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+
+        progress.txt
+
+nothing staged for commit
+</code></pre>
+<p><code>notes.txt</code> is staged. <code>progress.txt</code> is still untracked and unstaged.</p>
+<p><strong>Step 6 — Commit <code>notes.txt</code>:</strong></p>
+<pre><code class="language-bash">git commit -m &quot;Add notes.txt with initial learning notes&quot;
+</code></pre>
+<pre><code class="language-text">[main 7c3a1fb] Add notes.txt with initial learning notes
+ 1 file changed, 1 insertion(+)
+ create mode 100644 notes.txt
+</code></pre>
+<p><strong>Step 7 — Confirm commit in history:</strong></p>
+<pre><code class="language-bash">git log --oneline
+</code></pre>
+<pre><code class="language-text">7c3a1fb Add notes.txt with initial learning notes
+91da4e1 Initial project setup
+</code></pre>
+<p><strong>Step 8 — Stage and commit <code>progress.txt</code>:</strong></p>
+<pre><code class="language-bash">git add progress.txt
+git commit -m &quot;Add progress.txt tracking daily learning&quot;
+</code></pre>
+<pre><code class="language-text">[main 2e9d4a3] Add progress.txt tracking daily learning
+ 1 file changed, 1 insertion(+)
+ create mode 100644 progress.txt
+</code></pre>
+<p><strong>Step 9 — Confirm both commits in log:</strong></p>
+<pre><code class="language-bash">git log --oneline
+</code></pre>
+<pre><code class="language-text">2e9d4a3 Add progress.txt tracking daily learning
+7c3a1fb Add notes.txt with initial learning notes
+91da4e1 Initial project setup
+</code></pre>
+<p>Both commits appear in history, each with its own meaningful message.</p>
+<hr />
+<h2 id="03-history-and-diff">03: History and Diff</h2>
+<p><strong>Exercise:</strong> Make commits, run <code>git log --oneline</code>, use <code>git show</code> on the most recent commit, make a new change and use <code>git diff</code>, stage it and use <code>git diff --staged</code>, compare two commits with <code>git diff</code>, and view the full branch graph.</p>
+<p><strong>Solution:</strong></p>
+<p><strong>Step 1 — Navigate to your repository:</strong></p>
+<pre><code class="language-bash">cd ~/git-practice
+</code></pre>
+<p>If you do not have a practice repository, create one:</p>
+<pre><code class="language-bash">mkdir ~/git-practice &amp;&amp; cd ~/git-practice
+git init
+echo &quot;# My Project&quot; &gt; README.md
+git add README.md
+git commit -m &quot;Initial project setup&quot;
+</code></pre>
+<p><strong>Step 2 — Make additional commits:</strong></p>
+<pre><code class="language-bash">echo &quot;Feature A&quot; &gt;&gt; features.txt
+git add features.txt
+git commit -m &quot;Add features list&quot;
+
+echo &quot;Feature B&quot; &gt;&gt; features.txt
+git add features.txt
+git commit -m &quot;Add second feature to list&quot;
+</code></pre>
+<p><strong>Step 3 — View recent history:</strong></p>
+<pre><code class="language-bash">git log --oneline -n 5
+</code></pre>
+<pre><code class="language-text">c7f3b2a Add second feature to list
+91da4e1 Add features list
+a3f7c2d Add notes.txt with initial learning notes
+b3f1a2c Add user authentication module
+2e9d4a3 Initial project setup
+</code></pre>
+<p>Note the second-most-recent commit hash: <code>91da4e1</code>.</p>
+<p><strong>Step 4 — Inspect the most recent commit:</strong></p>
+<pre><code class="language-bash">git show c7f3b2a
+</code></pre>
+<pre><code class="language-text">commit c7f3b2a
+Author: Alex Rivera &lt;alex.rivera@example.dev&gt;
+Date:   Thu Jun 11 17:45:22 2026 +0000
+
+    Add second feature to list
+
+diff --git a/features.txt b/features.txt
+index 9b2c1d4..e5f8a72 100644
+--- a/features.txt
++++ b/features.txt
+@@ -1 +1,2 @@
+ Feature A
++Feature B
+</code></pre>
+<p>This shows the full metadata and diff for the commit — a single line addition of "Feature B".</p>
+<p><strong>Step 5 — Make and diff unstaged changes:</strong></p>
+<pre><code class="language-bash">echo &quot;Feature C&quot; &gt;&gt; features.txt
+git diff
+</code></pre>
+<pre><code class="language-text">diff --git a/features.txt b/features.txt
+index e5f8a72..a1b3c9d 100644
+--- a/features.txt
++++ b/features.txt
+@@ -1,2 +1,3 @@
+ Feature A
+ Feature B
++Feature C
+</code></pre>
+<p>The <code>+Feature C</code> line is unstaged — it exists only in your working directory.</p>
+<p><strong>Step 6 — Stage and view staged changes:</strong></p>
+<pre><code class="language-bash">git add features.txt
+git diff --staged
+</code></pre>
+<pre><code class="language-text">diff --git a/features.txt b/features.txt
+index e5f8a72..a1b3c9d 100644
+--- a/features.txt
++++ b/features.txt
+@@ -1,2 +1,3 @@
+ Feature A
+ Feature B
++Feature C
+</code></pre>
+<p>The same change now appears under "staged" — this is what will be committed.</p>
+<p><strong>Step 7 — Compare two commits directly:</strong></p>
+<pre><code class="language-bash">git diff 91da4e1..c7f3b2a
+</code></pre>
+<pre><code class="language-text">diff --git a/features.txt b/features.txt
+index 8b1b3c7..a1b3c9d 100644
+--- a/features.txt
++++ b/features.txt
+@@ -1 +1,3 @@
+ Feature A
++Feature B
++Feature C
+</code></pre>
+<p>This shows everything that changed between <code>91da4e1</code> (only "Feature A") and <code>c7f3b2a</code> (now has "Feature A", "Feature B", and "Feature C").</p>
+<p><strong>Step 8 — Full branch graph:</strong></p>
+<pre><code class="language-bash">git log --oneline --graph --decorate --all
+</code></pre>
+<pre><code class="language-text">* c7f3b2a (HEAD -&gt; main) Add second feature to list
+* 91da4e1 Add features list
+* a3f7c2d Add notes.txt with initial learning notes
+* b3f1a2c Add user authentication module
+* 2e9d4a3 Initial project setup
+</code></pre>
+<hr />
+<h2 id="04-undoing-changes">04: Undoing Changes</h2>
+<p><strong>Exercise:</strong> Using <code>git reset --soft HEAD~1</code>, fix the last commit message while keeping the changes staged, then recommit with a proper message.</p>
+<p><strong>Solution:</strong></p>
+<pre><code class="language-bash">mkdir undo-practice
+cd undo-practice
+git init
+</code></pre>
+<pre><code class="language-text">Initialized empty Git repository in /home/user/undo-practice/.git/
+</code></pre>
+<pre><code class="language-bash">echo &quot;database=localhost&quot; &gt; config.txt
+git add config.txt
+git commit -m &quot;WIP&quot;
+</code></pre>
+<pre><code class="language-text">[main (root-commit) 1a2b3c4] WIP
+ 1 file changed, 1 insertion(+)
+ create mode 100644 config.txt
+</code></pre>
+<pre><code class="language-bash">echo &quot;port=8080&quot; &gt;&gt; config.txt
+git add config.txt
+git commit -m &quot;WIP 2&quot;
+</code></pre>
+<pre><code class="language-text">[main 5d6e7f8] WIP 2
+ 1 file changed, 1 insertion(+)
+</code></pre>
+<pre><code class="language-bash">git log --oneline
+</code></pre>
+<pre><code class="language-text">5d6e7f8 WIP 2
+1a2b3c4 WIP
+</code></pre>
+<p>Now fix the last commit. Use <code>--soft</code> to keep changes staged, then recommit with the correct message:</p>
+<pre><code class="language-bash">git reset --soft HEAD~1
+</code></pre>
+<pre><code class="language-text"># No output — changes are staged
+</code></pre>
+<pre><code class="language-bash">git commit -m &quot;Add port configuration to config.txt&quot;
+</code></pre>
+<pre><code class="language-text">[main 9g0h1i2] Add port configuration to config.txt
+ 1 file changed, 1 insertion(+)
+</code></pre>
+<pre><code class="language-bash">git log --oneline
+</code></pre>
+<pre><code class="language-text">9g0h1i2 Add port configuration to config.txt
+1a2b3c4 WIP
+</code></pre>
+<p>The "WIP 2" commit is gone, but its changes are now in a properly named commit. Your file <code>config.txt</code> contains both lines:</p>
+<pre><code class="language-bash">cat config.txt
+</code></pre>
+<pre><code class="language-text">database=localhost
+port=8080
+</code></pre>
+<hr />
+<h2 id="05-branching">05: Branching</h2>
+<p><strong>Exercise:</strong> Create a branch <code>fix-typo</code>, switch to it, fix a typo in README.md, commit, switch back to <code>main</code>, create a new file on <code>main</code>, and verify the branches have independent histories.</p>
+<p><strong>Solution:</strong></p>
+<p><strong>1. Initialize the repository:</strong></p>
+<pre><code class="language-bash">mkdir branch-practice &amp;&amp; cd branch-practice &amp;&amp; git init
+</code></pre>
+<pre><code class="language-text">Initialized empty Git repository in /home/user/branch-practice/.git/
+</code></pre>
+<p><strong>2. Create the initial commit:</strong></p>
+<pre><code class="language-bash">echo &quot;Project Alpha v1.0&quot; &gt; README.md
+git add README.md
+git commit -m &quot;Initial commit&quot;
+</code></pre>
+<pre><code class="language-text">[main (root-commit) 1a2b3c4] Initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+</code></pre>
+<p><strong>3. Create and switch to the <code>fix-typo</code> branch:</strong></p>
+<pre><code class="language-bash">git switch -c fix-typo
+</code></pre>
+<pre><code class="language-text">Switched to a new branch 'fix-typo'
+</code></pre>
+<p><strong>4. Fix the typo:</strong></p>
+<pre><code class="language-bash">echo &quot;Project Alpha v1.1&quot; &gt; README.md
+</code></pre>
+<p><strong>5. Commit the fix on <code>fix-typo</code>:</strong></p>
+<pre><code class="language-bash">git add README.md
+git commit -m &quot;Fix version typo in README&quot;
+</code></pre>
+<pre><code class="language-text">[fix-typo d5e6f7g] Fix version typo in README
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+</code></pre>
+<p><strong>6. Switch back to <code>main</code>:</strong></p>
+<pre><code class="language-bash">git switch main
+</code></pre>
+<pre><code class="language-text">Switched to branch 'main'
+</code></pre>
+<p><strong>7. On <code>main</code>, add a user guide file and commit:</strong></p>
+<pre><code class="language-bash">mkdir -p docs
+echo &quot;# User Guide\n\nComing soon.&quot; &gt; docs/user-guide.md
+git add docs/user-guide.md
+git commit -m &quot;Add user guide draft&quot;
+</code></pre>
+<pre><code class="language-text">[main h8i9j0k] Add user guide draft
+ 1 file changed, 3 insertions(+)
+ create mode 100644 docs/user-guide.md
+</code></pre>
+<p><strong>8. Verify the typo fix is NOT on <code>main</code>:</strong></p>
+<pre><code class="language-bash">cat README.md
+</code></pre>
+<pre><code class="language-text">Project Alpha v1.0
+</code></pre>
+<p>The file still reads <code>v1.0</code> — the typo fix lives only on <code>fix-typo</code>.</p>
+<p><strong>9. Verify <code>docs/user-guide.md</code> does NOT exist on <code>fix-typo</code>:</strong></p>
+<p>Switch to <code>fix-typo</code> and check:</p>
+<pre><code class="language-bash">git switch fix-typo
+</code></pre>
+<pre><code class="language-text">Switched to branch 'fix-typo'
+</code></pre>
+<pre><code class="language-bash">ls docs/
+</code></pre>
+<pre><code class="language-text">ls: cannot access 'docs/': No such file or directory
+</code></pre>
+<p>The <code>docs/</code> directory and its contents exist only on <code>main</code>. Each branch holds its own independent line of commits.</p>
+<hr />
+<h2 id="06-merging">06: Merging</h2>
+<p><strong>Exercise:</strong> Perform a fast-forward merge of <code>branch-a</code> into <code>main</code>, then create a conflict by merging <code>branch-b</code> (which modified the same lines differently), and resolve the conflict by keeping both changes.</p>
+<p><strong>Solution:</strong></p>
+<h3 id="setup">Setup</h3>
+<pre><code class="language-bash">mkdir merge-practice
+cd merge-practice
+git init
+echo &quot;Line 1&quot; &gt; notes.txt
+git add notes.txt
+git commit -m &quot;Initial commit&quot;
+</code></pre>
+<pre><code class="language-text">[main (root-commit) a1b2c3d] Initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 notes.txt
+</code></pre>
+<h3 id="create-branch-a-and-make-a-change">Create branch-a and make a change</h3>
+<pre><code class="language-bash">git checkout -b branch-a
+echo &quot;Line 2 from branch-a&quot; &gt;&gt; notes.txt
+git add notes.txt
+git commit -m &quot;Add line from branch-a&quot;
+</code></pre>
+<pre><code class="language-text">[branch-a 4d5e6f7] Add line from branch-a
+ 1 file changed, 1 insertion(+)
+</code></pre>
+<h3 id="create-branch-b-from-main-not-from-branch-a">Create branch-b from main (not from branch-a)</h3>
+<pre><code class="language-bash">git checkout main
+git checkout -b branch-b
+echo &quot;Line 2 from branch-b&quot; &gt;&gt; notes.txt
+git add notes.txt
+git commit -m &quot;Add line from branch-b&quot;
+</code></pre>
+<pre><code class="language-text">[branch-b 8h9i0j1] Add line from branch-b
+ 1 file changed, 1 insertion(+)
+</code></pre>
+<h3 id="merge-branch-a-fast-forward">Merge branch-a (fast-forward)</h3>
+<pre><code class="language-bash">git checkout main
+git merge branch-a
+</code></pre>
+<pre><code class="language-text">Updating a1b2c3d..4d5e6f7
+Fast-forward
+ notes.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+</code></pre>
+<p>Because <code>main</code> hasn't moved since <code>branch-a</code> was created, Git fast-forwards <code>main</code> to <code>branch-a</code>'s commit. No merge commit is created.</p>
+<h3 id="merge-branch-b-conflict">Merge branch-b (conflict!)</h3>
+<pre><code class="language-bash">git merge branch-b
+</code></pre>
+<pre><code class="language-text">Auto-merging notes.txt
+CONFLICT (content): Merge conflict in notes.txt
+Automatic merge failed; fix conflicts and then commit the result.
+</code></pre>
+<h3 id="check-the-conflict-status">Check the conflict status</h3>
+<pre><code class="language-bash">git status
+</code></pre>
+<pre><code class="language-text">On branch main
+You have unmerged paths.
+  (use &quot;git add &lt;file&gt;...&quot;)
+
+        both modified:   notes.txt
+
+no changes added to commit (use &quot;git add &lt;file&gt;...&quot; to commit)
+</code></pre>
+<h3 id="view-the-conflicted-file">View the conflicted file</h3>
+<pre><code class="language-bash">cat notes.txt
+</code></pre>
+<pre><code class="language-text">Line 1
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Line 2 from branch-a
+=======
+Line 2 from branch-b
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; branch-b
+</code></pre>
+<p>Git has marked the conflicting region. The current branch (<code>main</code>, which now includes <code>branch-a</code>'s change) wants "Line 2 from branch-a". The incoming <code>branch-b</code> wants "Line 2 from branch-b".</p>
+<h3 id="resolve-the-conflict-by-keeping-both-lines">Resolve the conflict by keeping both lines</h3>
+<p>Open <code>notes.txt</code> in your editor and replace the conflict markers with both lines:</p>
+<pre><code class="language-text">Line 1
+Line 2 from branch-a
+Line 2 from branch-b
+</code></pre>
+<p>Now the file contains both additions, which is the correct combined result.</p>
+<h3 id="complete-the-merge">Complete the merge</h3>
+<pre><code class="language-bash">git add notes.txt
+git commit
+</code></pre>
+<pre><code class="language-text">[main 2k3l4m5] Merge branch 'branch-b' into main
+</code></pre>
+<p>Git has created a merge commit that combines both histories.</p>
+<h3 id="verify-the-final-result">Verify the final result</h3>
+<pre><code class="language-bash">cat notes.txt
+git log --oneline --graph --all
+</code></pre>
+<pre><code class="language-text">Line 1
+Line 2 from branch-a
+Line 2 from branch-b
+</code></pre>
+<pre><code class="language-text">*   Merge branch 'branch-b' into main
+|\
+| * 8h9i0j1 Add line from branch-b
+* | 4d5e6f7 Add line from branch-a
+|/
+* a1b2c3d Initial commit
+</code></pre>
+<p>The <code>notes.txt</code> file now contains all three lines. The graph clearly shows the two branches diverging from the initial commit and being brought back together by the merge commit.</p>
+<hr />
+<h2 id="07-remotes">07: Remotes</h2>
+<p><strong>Exercise:</strong> Simulate a two-developer workflow using local "bare" repositories as remotes — create a shared bare repository, clone it to two separate repos, have colleague push changes, fetch and pull them, make your own changes, push, and verify both repos have identical histories.</p>
+<p><strong>Solution:</strong></p>
+<pre><code class="language-bash"># Step 1: Create the directory structure
+mkdir -p ~/git-remotes-exercise
+cd ~/git-remotes-exercise
+
+# Step 2: Create and initialize the shared remote as a bare repository
+mkdir shared-remote.git
+cd shared-remote.git
+git init --bare
+cd ..
+</code></pre>
+<pre><code class="language-text">Initialized empty Git repository in /home/user/git-remotes-exercise/shared-remote.git/
+</code></pre>
+<pre><code class="language-bash"># Step 3: Clone the shared remote into both repos
+git clone shared-remote.git your-repo
+git clone shared-remote.git colleague-repo
+
+# Check remotes in each
+cd your-repo
+git remote -v
+</code></pre>
+<pre><code class="language-text">origin  /home/user/git-remotes-exercise/shared-remote.git (fetch)
+origin  /home/user/git-remotes-exercise/shared-remote.git (push)
+</code></pre>
+<pre><code class="language-bash"># Step 4: In colleague-repo, add file, commit, and push
+cd ../colleague-repo
+
+# Configure git user (for this exercise)
+git config user.name &quot;Colleague&quot;
+git config user.email &quot;colleague@example.com&quot;
+
+# Create about.html
+cat &gt; about.html &lt;&lt; 'EOF'
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;About Us&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;About Our Project&lt;/h1&gt;
+    &lt;p&gt;This is the about page.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+EOF
+
+# Commit and push
+git add about.html
+git commit -m &quot;Add about page&quot;
+git push origin main
+</code></pre>
+<pre><code class="language-text">[main (root-commit) 1a2b3c4] Add about page
+ 1 file changed, 9 insertions(+)
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 150 bytes | 100.00 KiB/s, done.
+To /home/user/git-remotes-exercise/shared-remote.git
+ * [new branch]      main -&gt; main
+</code></pre>
+<pre><code class="language-bash"># Step 5: In your-repo, fetch and view what your colleague did
+cd ../your-repo
+git config user.name &quot;You&quot;
+git config user.email &quot;you@example.com&quot;
+
+# Fetch the changes
+git fetch origin
+</code></pre>
+<pre><code class="language-text">remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+Compressing objects: 100% (3/3), done.
+Receiving objects: 100% (3/3), 70 bytes | 70.00 KiB/s, done.
+Resolving deltas: 100% (3/3), done.
+From /home/user/git-remotes-exercise/shared-remote
+ * [new branch]      main -&gt; origin/main
+</code></pre>
+<pre><code class="language-bash"># See what your colleague pushed
+git log origin/main --oneline
+</code></pre>
+<pre><code class="language-text">1a2b3c4 Add about page
+</code></pre>
+<pre><code class="language-bash"># Pull the changes (fast-forward since no divergent history)
+git pull origin main
+</code></pre>
+<pre><code class="language-text">From /home/user/git-remotes-exercise/shared-remote
+ * [new branch]      main -&gt; origin/main
+Already up to date.
+</code></pre>
+<p>Wait, that says "Already up to date" — that's because <code>git pull</code> fetched AND merged, but our local main was at the same commit as origin/main. Let's verify:</p>
+<pre><code class="language-bash">git log --oneline
+</code></pre>
+<pre><code class="language-text">1a2b3c4 Add about page
+</code></pre>
+<p>The about.html file should now be here:</p>
+<pre><code class="language-bash">ls -la
+</code></pre>
+<pre><code class="language-text">total -rw-r--r-- about.html
+total drwxr-xr-x about.html
+total -rw-r--r-- about.html
+</code></pre>
+<p>Now make your changes:</p>
+<pre><code class="language-bash"># Create index.html
+cat &gt; index.html &lt;&lt; 'EOF'
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Home&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome&lt;/h1&gt;
+    &lt;p&gt;This is the home page.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+EOF
+
+# Commit and push with upstream tracking (-u)
+git add index.html
+git commit -m &quot;Add index page&quot;
+git push -u origin main
+</code></pre>
+<pre><code class="language-text">[main 2b3c4d5] Add index page
+ 1 file changed, 9 insertions(+)
+Counting objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 150 bytes | 150.00 KiB/s, done.
+To /home/user/git-remotes-exercise/shared-remote.git
+   1a2b3c4..2b3c4d5  main -&gt; main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+</code></pre>
+<pre><code class="language-bash"># Step 6: In colleague-repo, pull your changes
+cd ../colleague-repo
+git pull origin main
+</code></pre>
+<pre><code class="language-text">remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+Compressing objects: 100% (3/3), done.
+From /home/user/git-remotes-exercise/shared-remote
+   1a2b3c4..2b3c4d5  main     -&gt; origin/main
+Updating 1a2b3c4..2b3c4d5
+Fast-forward
+ index.html | 9 +++++++++++++++++
+ 1 file changed, 1 insertion(+)
+</code></pre>
+<pre><code class="language-bash"># Step 7: Verify both repos have the same history
+cd ../your-repo
+echo &quot;=== Your repo ===&quot;
+git log --oneline --all
+
+cd ../colleague-repo
+echo &quot;=== Colleague repo ===&quot;
+git log --oneline --all
+</code></pre>
+<pre><code class="language-text">=== Your repo ===
+2b3c4d5 Add index page
+1a2b3c4 Add about page
+
+=== Colleague repo ===
+2b3c4d5 Add index page
+1a2b3c4 Add about page
+</code></pre>
+<p>Both repos now have identical commit histories!</p>
+<hr />
+<h2 id="08-github-repos-and-forks">08: GitHub Repos and Forks</h2>
+<p><strong>Exercise:</strong> Create a repository <code>my-devops-scripts</code> on GitHub with README, Python .gitignore, and MIT license. Customize the README, add DevOps-specific .gitignore patterns, commit and push. Then fork <code>github/gitignore</code>, clone it, add upstream remote, fetch and merge from upstream/main, and push to origin.</p>
+<p><strong>Solution:</strong></p>
+<h3 id="part-1-create-your-own-repository">Part 1: Create Your Own Repository</h3>
+<pre><code class="language-bash"># Using GitHub CLI to create the repository
+gh repo create my-devops-scripts \
+  --public \
+  --description &quot;A collection of automation scripts for CI/CD pipelines&quot; \
+  --gitignore-template Python \
+  --license MIT \
+  --clone
+</code></pre>
+<pre><code class="language-text">- Creating repository username/my-devops-scripts on GitHub...
+  ✓ Created repository username/my-devops-scripts
+  ✓ Cloned repository
+  ✓ Initialized git repository
+</code></pre>
+<pre><code class="language-bash"># Navigate into the repo
+cd my-devops-scripts
+
+# Check what was created
+ls -la
+</code></pre>
+<pre><code class="language-text">.git
+.gitignore
+LICENSE
+README.md
+</code></pre>
+<pre><code class="language-bash"># Replace the default README with a custom one
+cat &gt; README.md &lt;&lt; 'EOF'
+# My DevOps Scripts
+
+A collection of automation scripts for CI/CD pipelines.
+
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/username/my-devops-scripts.git
+
+# Install dependencies
+pip install -r requirements.txt
+</code></pre>
+<h2 id="usage">Usage</h2>
+<p>Run any script from the <code>scripts/</code> directory:</p>
+<pre><code class="language-bash">python scripts/deploy.py --env production
+</code></pre>
+<h2 id="contributing">Contributing</h2>
+<p>Pull requests are welcome. For major changes, please open an issue first.<br />
+EOF</p>
+<pre><code>
+```bash
+# Create .gitignore with specific patterns (or verify/edit existing)
+cat &gt;&gt; .gitignore &lt;&lt; 'EOF'
+
+# DevOps specific
+*.log
+node_modules/
+.env
+.env.*
+</code></pre>
+<pre><code class="language-bash"># Check git status
+git status
+</code></pre>
+<pre><code class="language-text">On branch main
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+        modified:   README.md
+
+Untracked files:
+  .gitignore
+</code></pre>
+<pre><code class="language-bash"># Commit and push
+git add README.md .gitignore
+git commit -m &quot;Customize README and add DevOps .gitignore patterns&quot;
+git push origin main
+</code></pre>
+<pre><code class="language-text">[main abc1234] Customize README and add DevOps .gitignore patterns
+ 2 files changed, 24 insertions(+), 3 deletions(-)
+To https://github.com/username/my-devops-scripts.git
+   def5678..abc1234  main -&gt; main
+</code></pre>
+<h3 id="part-2-fork-and-sync">Part 2: Fork and Sync</h3>
+<pre><code class="language-bash"># Fork the official gitignore repository
+gh repo fork github/gitignore
+</code></pre>
+<pre><code class="language-text">- Forking github/gitignore...
+  ✓ Created fork as username/gitignore
+  ✓ Cloned repository
+</code></pre>
+<pre><code class="language-bash"># Navigate into the fork
+cd gitignore
+
+# Verify remotes
+git remote -v
+</code></pre>
+<pre><code class="language-text">origin  https://github.com/username/gitignore.git (fetch)
+origin  https://github.com/username/gitignore.git (push)
+</code></pre>
+<pre><code class="language-bash"># Add the original as upstream
+git remote add upstream https://github.com/github/gitignore.git
+
+# Verify both remotes
+git remote -v
+</code></pre>
+<pre><code class="language-text">origin    https://github.com/username/gitignore.git (fetch)
+origin    https://github.com/username/gitignore.git (push)
+upstream  https://github.com/github/gitignore.git (fetch)
+upstream  https://github.com/github/gitignore.git (push)
+</code></pre>
+<pre><code class="language-bash"># View available branches in upstream
+git fetch upstream
+git branch -r
+</code></pre>
+<pre><code class="language-text">  upstream/main
+  upstream/Python
+  upstream/Node
+  upstream/Terraform
+  upstream/Go
+</code></pre>
+<pre><code class="language-bash"># Check a sample of what's in the Python template
+git show upstream/Python:.gitignore | head -20
+</code></pre>
+<pre><code class="language-text"># Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+...
+</code></pre>
+<pre><code class="language-bash"># Sync upstream/main to your fork's main
+git checkout main
+git pull upstream main
+</code></pre>
+<pre><code class="language-text">From https://github.com/github/gitignore
+ * branch            main       -&gt; FETCH_HEAD
+Merge made by the 'ort' strategy.
+ .gitignore | 4 ++-
+ README.md  | 6 +++-
+ ...
+</code></pre>
+<pre><code class="language-bash"># Push the synced changes to your fork
+git push origin main
+</code></pre>
+<pre><code class="language-text">Enumerating objects: 15, done.
+Counting objects: 100% (15/15), done.
+Writing objects: 100% (15/15), 350 bytes | 350.00 KiB/s, done.
+To https://github.com/username/gitignore.git
+   5a2c1d3..e7f8g9h  main -&gt; main
+</code></pre>
+<pre><code class="language-bash"># Verify the sync worked
+git log --oneline origin/main | head -10
+</code></pre>
+<pre><code class="language-text">e7f8g9h Merge branch 'upstream/main'
+a1b2c3d Update README with new contributors
+...
+</code></pre>
+<p>You now have:<br />
+- Your own <code>my-devops-scripts</code> repository with a proper README and <code>.gitignore</code><br />
+- A forked copy of <code>github/gitignore</code> with the upstream remote configured<br />
+- Practiced the sync workflow that you'll use for every open-source contribution</p>
+<hr />
+<h2 id="09-pull-requests-and-issues">09: Pull Requests and Issues</h2>
+<p><strong>Exercise:</strong> Create an issue for a login page crash bug, create a branch <code>fix-blank-username-crash</code>, make a commit with <code>Fixes #42</code>, push the branch, open a PR that references the issue, merge with squash merge, and verify the issue was closed.</p>
+<p><strong>Solution:</strong></p>
+<pre><code class="language-bash"># 1. Create the issue
+gh issue create \
+  --title &quot;Login page crashes when username is blank&quot; \
+  --body &quot;When the username field is left blank and the user clicks Submit,
+the application crashes with an error.
+
+Steps to reproduce:
+1. Navigate to /login
+2. Leave the username field empty
+3. Click Submit
+Expected: validation message appears
+Actual: application crashes
+
+Labels: bug
+Assignees: yourusername&quot;
+</code></pre>
+<pre><code class="language-text">https://github.com/yourusername/myrepo/issues/42
+</code></pre>
+<pre><code class="language-bash"># 2. Create a feature branch
+git checkout -b fix-blank-username-crash
+</code></pre>
+<pre><code class="language-text">Switched to a new branch 'fix-blank-username-crash'
+</code></pre>
+<pre><code class="language-bash"># 3. Make a commit with Fixes #42 in the message
+# (Assume the file has been edited — here we simulate the commit)
+git add src/auth/login.py
+git commit -m &quot;Fixes #42 — validate username field before submission&quot;
+</code></pre>
+<pre><code class="language-text">[fix-blank-username-crash 5f6g7h8] Fixes #42 — validate username field before submission
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+</code></pre>
+<pre><code class="language-bash"># 4. Push the branch to remote with upstream tracking
+git push -u origin fix-blank-username-crash
+</code></pre>
+<pre><code class="language-text">Enumerating objects: 5, done.
+Counting objects: 100%
+Writing objects: 100%
+To https://github.com/yourusername/myrepo.git
+ * [new branch]      fix-blank-username-crash -&gt; fix-blank-username-crash
+Branch 'fix-blank-username-crash' set up to track remote branch 'fix-blank-username-crash' from 'origin'.
+</code></pre>
+<pre><code class="language-bash"># 5. Open a PR that references the issue
+gh pr create \
+  --title &quot;Fix login crash on blank username&quot; \
+  --body &quot;## What does this PR do?
+Adds client-side validation to reject empty username before submission.
+
+## Why is this needed?
+Fixes #42 — the login page crashes when the username field is blank.
+
+## Testing
+1. Navigate to /login
+2. Leave the username field empty
+3. Click Submit
+4. Verify a validation message appears instead of a crash&quot;
+</code></pre>
+<pre><code class="language-text">https://github.com/yourusername/myrepo/pull/43
+</code></pre>
+<pre><code class="language-bash"># 6. Merge the PR with squash merge and delete the branch
+gh pr merge 43 --squash --delete-branch
+</code></pre>
+<pre><code class="language-text">Merged pull request #43 (Fix login crash on blank username)
+✓ Squashed 1 commit into main
+✓ Deleted branch fix-blank-username-crash, as you requested
+</code></pre>
+<pre><code class="language-bash"># 7. Verify the issue was closed
+gh issue view 42
+</code></pre>
+<pre><code class="language-text">Login page crashes when username is blank
+Labels: bug
+Assignees: yourusername
+State: closed    &lt;-- Issue is now CLOSED
+Opened by: yourusername
+Closed by: yourusername  (via #43)
+</code></pre>
+<p>Issue #42 is automatically closed when PR #43 is merged. The issue even records which PR closed it.</p>
+<hr />
+<h2 id="10-code-review">10: Code Review</h2>
+<p><strong>Exercise:</strong> As both reviewer and author, find a PR needing review, examine its diff, leave a blocking comment, request changes formally, simulate the author fixing the issue, approve the PR, and verify the review history.</p>
+<p><strong>Solution:</strong></p>
+<h3 id="finding-prs-awaiting-review">Finding PRs Awaiting Review</h3>
+<pre><code class="language-bash">gh pr list --search &quot;review-requested:@me&quot; --state open --json number,title,url
+</code></pre>
+<pre><code class="language-text">[
+  {
+    &quot;number&quot;: 38,
+    &quot;title&quot;: &quot;Add health check endpoint&quot;,
+    &quot;url&quot;: &quot;https://github.com/alexdev/your-repo/pull/38&quot;
+  }
+]
+</code></pre>
+<h3 id="examining-the-diff">Examining the Diff</h3>
+<pre><code class="language-bash">gh pr diff 38
+</code></pre>
+<pre><code class="language-text">diff --git a/api/health.py b/api/health.py
+new file mode 100644
+index 0000000..123abc
+--- /dev/null
++++ b/api/health.py
+@@ -0,0 +1,14 @@
++&quot;&quot;&quot;Health check endpoint for load balancer probes.&quot;&quot;&quot;
++from flask import Blueprint, jsonify
++
++health_bp = Blueprint(&quot;health&quot;, __name__)
++
++@health_bp.route(&quot;/health&quot;)
++def health_check():
++    &quot;&quot;&quot;Return service health status.&quot;&quot;&quot;
++    from api.db import check_connection  # expensive import at request time
++
++    db_ok = check_connection()
++    return jsonify({&quot;status&quot;: &quot;ok&quot;, &quot;db&quot;: db_ok})
+</code></pre>
+<h3 id="leaving-a-comment">Leaving a Comment</h3>
+<pre><code class="language-bash">gh pr comment 38 --body &quot;The health check looks like a good start, but there
+is no error handling around \`check_connection()\`. If the database is
+unreachable, this will raise an unhandled exception and return a 500 error.
+Instead, it should catch that exception and return a 200 with \`db: false\`
+so the load balancer knows the service is \`ok\` but the database is
+unhealthy.&quot;
+</code></pre>
+<pre><code class="language-text">https://github.com/alexdev/your-repo/pull/38#issuecomment-XXXXXXX
+</code></pre>
+<h3 id="requesting-changes">Requesting Changes</h3>
+<pre><code class="language-bash">gh pr review 38 --request-changes -b &quot;Thanks for adding this! The structure
+looks good. Blocking issue: \`check_connection()\` is not wrapped in a
+try/except. If the DB is down, the endpoint crashes instead of returning a
+health status. Please catch exceptions and return \`db: false\` rather than
+raising. Non-blocking: consider moving the import to the top of the file —
+importing at request time adds latency to every health check call.&quot;
+</code></pre>
+<pre><code class="language-text">Pull request #38 (Add health check endpoint) reviewed with requested changes.
+</code></pre>
+<h3 id="simulating-the-fix">Simulating the Fix</h3>
+<pre><code class="language-bash">cat &gt; api/health.py &lt;&lt; 'EOF'
+&quot;&quot;&quot;Health check endpoint for load balancer probes.&quot;&quot;&quot;
+from flask import Blueprint, jsonify
+
+health_bp = Blueprint(&quot;health&quot;, __name__)
+
+@health_bp.route(&quot;/health&quot;)
+def health_check():
+    &quot;&quot;&quot;Return service health status.&quot;&quot;&quot;
+    try:
+        db_ok = check_connection()
+    except Exception:
+        db_ok = False
+
+    return jsonify({&quot;status&quot;: &quot;ok&quot;, &quot;db&quot;: db_ok})
+EOF
+</code></pre>
+<pre><code class="language-bash">git add api/health.py
+git commit -m &quot;fix: handle database errors gracefully in health check&quot;
+</code></pre>
+<pre><code class="language-text">[simulate-fix abc123d] fix: handle database errors gracefully in health check
+ 1 file changed, 4 insertions(+), 5 deletions(-)
+</code></pre>
+<h3 id="approving">Approving</h3>
+<pre><code class="language-bash">gh pr review 38 --approve -b &quot;The try/except handles database errors correctly
+now. The health check returns \`db: false\` instead of crashing. Non-blocking
+note about the import placement is a future refactor — not a merge blocker.
+LGTM, ship it!&quot;
+</code></pre>
+<pre><code class="language-text">Approved pull request #38 (Add health check endpoint)
+</code></pre>
+<h3 id="verifying">Verifying</h3>
+<pre><code class="language-bash">gh pr view 38 --json reviews --jq '.reviews[] | {state, body}'
+</code></pre>
+<pre><code class="language-text">{&quot;state&quot;:&quot;COMMENTED&quot;,&quot;body&quot;:&quot;The health check looks like a good start...&quot;}
+{&quot;state&quot;:&quot;CHANGES_REQUESTED&quot;,&quot;body&quot;:&quot;Thanks for adding this...&quot;}
+{&quot;state&quot;:&quot;APPROVED&quot;,&quot;body&quot;:&quot;The try/except handles database errors...&quot;}
+</code></pre>
+<p>The review history shows the complete lifecycle: a comment, a request for changes, and an approval.</p>
+<hr />
+<h2 id="11-branching-strategies">11: Branching Strategies</h2>
+<p><strong>Exercise:</strong> Simulate a complete GitFlow lifecycle: create initial commit on main, develop branch, feature/dashboard branch (merge with --no-ff), release/1.0.0 branch, finish release (merge to main with tag, merge to develop), create hotfix/security-patch (merge to both main and develop with tag), show final history.</p>
+<p><strong>Solution:</strong></p>
+<pre><code class="language-bash"># 1. Setup and initial commit on main
+mkdir -p ~/gitflow-practice &amp;&amp; cd ~/gitflow-practice
+git init
+git config user.email &quot;student@example.com&quot;
+git config user.name &quot;Student&quot;
+
+echo &quot;Initial project&quot; &gt; README.md
+git add README.md
+git commit -m &quot;Initial commit&quot;
+
+# 2. Create develop branch
+git checkout -b develop
+
+# 3. Create feature branch and make a commit
+git checkout -b feature/dashboard develop
+echo &quot;Dashboard page&quot; &gt; dashboard.html
+git add dashboard.html
+git commit -m &quot;Add dashboard feature&quot;
+
+# 4. Merge feature into develop with --no-ff
+git checkout develop
+git merge --no-ff feature/dashboard -m &quot;Merge feature/dashboard into develop&quot;
+
+# 5. Create release branch
+git checkout -b release/1.0.0 develop
+echo &quot;1.0.0&quot; &gt; version.txt
+git add version.txt
+git commit -m &quot;Bump version to 1.0.0&quot;
+
+# 6. Finish the release: merge into main, tag, merge back to develop
+git checkout main
+git merge --no-ff release/1.0.0 -m &quot;Merge release/1.0.0 into main&quot;
+git tag -a v1.0.0 -m &quot;Release version 1.0.0&quot;
+
+git checkout develop
+git merge --no-ff release/1.0.0 -m &quot;Merge release/1.0.0 into develop&quot;
+
+# Clean up release branch
+git branch -d release/1.0.0
+
+# 7. Create and finish a hotfix
+git checkout -b hotfix/security-patch main
+echo &quot;Security fix applied&quot; &gt; security.txt
+git add security.txt
+git commit -m &quot;Apply security hotfix&quot;
+
+git checkout main
+git merge --no-ff hotfix/security-patch -m &quot;Merge hotfix/security-patch into main&quot;
+git tag -a v1.0.1 -m &quot;Hotfix version 1.0.1&quot;
+
+git checkout develop
+git merge --no-ff hotfix/security-patch -m &quot;Merge hotfix/security-patch into develop&quot;
+
+git branch -d hotfix/security-patch
+git branch -d feature/dashboard
+</code></pre>
+<h3 id="final-history">Final History</h3>
+<pre><code class="language-text">*   3f2a1b4 Merge hotfix/security-patch into develop
+|\  
+| * 2a1b3c5 Apply security hotfix
+* |   1b2c3d4 Merge hotfix/security-patch into main
+|\ \  
+| |/  
+| * 4d5e6f7 Security fix applied
+|/|  
+* |   a1b2c3d Merge release/1.0.0 into develop
+|\ \  
+| |/  
+| *   e1f2g3h Merge release/1.0.0 into main
+| |\  
+| | * 9i8j7k6 Bump version to 1.0.0
+* | |   b2c3d4e Merge feature/dashboard into develop
+|\ \ \  
+| | |/  
+| | * 5f6g7h8 Add dashboard feature
+| |/  
+| * c3d4e5f Initial develop setup
+|/  
+* 7h8i9j0 Initial commit
+</code></pre>
+<p>Notice how <code>--no-ff</code> creates a <strong>merge commit</strong> (the commit with two parents shown as <code>*   ...</code>) for each feature and release, making it easy to see where each piece of work began and ended. The <code>develop</code> branch commits (b2c3d4e, 3f2a1b4) show the integration history. The <code>main</code> branch shows only production-ready commits (initial, v1.0.0, v1.0.1).</p>
+<hr />
+<h2 id="12-github-pages">12: GitHub Pages</h2>
+<p><strong>Exercise:</strong> Create a repository <code>git-fruit</code>, add an <code>index.md</code> with Jekyll front matter, enable GitHub Pages from the main branch root, push, and verify the site is live.</p>
+<p><strong>Solution:</strong></p>
+<h3 id="step-1-create-the-repository">Step 1: Create the Repository</h3>
+<pre><code class="language-bash"># Replace YOUR_USERNAME with your GitHub username
+gh repo create git-fruit --public --clone
+</code></pre>
+<pre><code class="language-text">✓ Created repository YOUR_USERNAME/git-fruit
+✓ Cloned repository
+</code></pre>
+<pre><code class="language-bash">cd git-fruit
+</code></pre>
+<h3 id="step-2-create-the-indexmd-file">Step 2: Create the index.md File</h3>
+<pre><code class="language-bash">cat &gt; index.md &lt;&lt; 'EOF'
+---
+title: git-fruit
+description: A delightful Git extension for tracking project milestones
+---
+
+# Welcome to git-fruit
+
+**git-fruit** is a fictional Git extension that helps you track project milestones directly in your commit history using annotated tags.
+
+## Features
+
+- Lightweight milestone tracking via annotated tags
+- Automatic changelog generation
+- Integration with standard Git workflows
+
+## Quick Start
+
+```bash
+git fruit init
+git fruit milestone &quot;v1.0.0&quot;
+git fruit log
+</code></pre>
+<p>For full documentation, visit the project README.<br />
+EOF</p>
+<pre><code>
+```bash
+git add index.md
+git commit -m &quot;Add GitHub Pages homepage&quot;
+</code></pre>
+<pre><code class="language-text">[main (root-commit) a1b2c3d] Add GitHub Pages homepage
+ 1 file changed, 1 insertion(+)
+</code></pre>
+<h3 id="step-3-enable-github-pages">Step 3: Enable GitHub Pages</h3>
+<p>Open Settings → Pages in your browser:</p>
+<pre><code class="language-bash">gh repo view --web
+</code></pre>
+<p>Navigate to <strong>Settings → Pages</strong>. Set:<br />
+- <strong>Source</strong>: Deploy from a branch<br />
+- <strong>Branch</strong>: <code>main</code><br />
+- <strong>Folder</strong>: <code>/ (root)</code></p>
+<p>Click <strong>Save</strong>. GitHub will show the Pages URL after a moment.</p>
+<h3 id="step-4-push-and-wait">Step 4: Push and Wait</h3>
+<pre><code class="language-bash">git push origin main
+</code></pre>
+<pre><code class="language-text">Enumerating objects: 3, done.
+Counting objects: 100%
+Writing objects: 100%
+To https://github.com/YOUR_USERNAME/git-fruit.git
+   a1b2c3d..d4e5f6  main -&gt; main
+</code></pre>
+<h3 id="step-5-verify-the-site">Step 5: Verify the Site</h3>
+<pre><code class="language-bash"># Wait about 1-2 minutes for GitHub to build, then open the Pages URL
+echo &quot;Your site will be at: https://YOUR_USERNAME.github.io/git-fruit/&quot;
+</code></pre>
+<pre><code class="language-text">Your site will be at: https://YOUR_USERNAME.github.io/git-fruit/
+</code></pre>
+<p>Visit that URL in your browser. You should see the rendered Markdown page with:<br />
+- The title from the <code>title</code> front matter variable<br />
+- Your heading and section content styled by the theme</p>
+<hr />
+<h2 id="13-git-hooks">13: Git Hooks</h2>
+<p><strong>Exercise:</strong> Create a <code>commit-msg</code> hook that blocks any commit message shorter than 10 characters. Test it with a blocked short message ("fix bug") and an allowed longer message ("fix: resolve null pointer on login").</p>
+<p><strong>Solution:</strong></p>
+<h3 id="step-1-create-the-commit-msg-hook">Step 1: Create the commit-msg Hook</h3>
+<pre><code class="language-bash">cat &gt; .git/hooks/commit-msg &lt;&lt; 'EOF'
+#!/bin/bash
+# commit-msg hook: Block commits with messages shorter than 10 chars
+
+COMMIT_MSG_FILE=&quot;$1&quot;
+COMMIT_MSG=$(cat &quot;$COMMIT_MSG_FILE&quot;)
+
+# Remove leading and trailing whitespace
+COMMIT_MSG_TRIMMED=$(echo &quot;$COMMIT_MSG&quot; | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+
+# Check length (non-whitespace characters only)
+MSG_LEN=${#COMMIT_MSG_TRIMMED}
+
+if [ $MSG_LEN -lt 10 ]; then
+    echo &quot;ERROR: Commit message too short.&quot;
+    echo &quot;  Received: '$COMMIT_MSG_TRIMMED' (${MSG_LEN} chars)&quot;
+    echo &quot;  Minimum:  10 characters&quot;
+    echo &quot;COMMIT BLOCKED by commit-msg hook.&quot;
+    exit 1
+fi
+
+echo &quot;Commit message check passed (${MSG_LEN} chars).&quot;
+exit 0
+EOF
+chmod +x .git/hooks/commit-msg
+</code></pre>
+<h3 id="step-2-test-block-a-short-message">Step 2: Test — Block a Short Message</h3>
+<pre><code class="language-bash">git add .git/hooks/commit-msg
+git commit -m &quot;Add commit-msg hook&quot;
+</code></pre>
+<p>Now test with a short message:</p>
+<pre><code class="language-bash"># Create a test file to force a non-empty commit
+touch exercise-test.txt
+git add exercise-test.txt
+git commit -m &quot;fix bug&quot;
+</code></pre>
+<pre><code class="language-text">ERROR: Commit message too short.
+  Received: 'fix bug' (8 chars)
+  Minimum:  10 characters
+COMMIT BLOCKED by commit-msg hook.
+</code></pre>
+<pre><code class="language-bash">git log --oneline -1
+</code></pre>
+<pre><code class="language-text"># No new commit — blocked successfully
+</code></pre>
+<h3 id="step-3-test-allow-a-valid-message">Step 3: Test — Allow a Valid Message</h3>
+<pre><code class="language-bash">git commit -m &quot;fix bug: resolve null pointer on login&quot;
+</code></pre>
+<pre><code class="language-text">Commit message check passed (38 chars).
+[main a1b2c3d] fix bug: resolve null pointer on login
+ 1 file changed, 0 insertions(+), 0 deletions(+)
+</code></pre>
+<p>The commit succeeded. The hook correctly allows messages of 10 or more characters.</p>
+<hr />
+<h2 id="14-self-hosted-git">14: Self-Hosted Git</h2>
+<p><strong>Exercise:</strong> Install Gitea using Docker, complete the first-run setup wizard, create an admin account, create a repository <code>hello-devops</code>, clone it, add a file, commit and push, and verify in the web UI.</p>
+<p><strong>Solution:</strong></p>
+<pre><code class="language-bash"># 1. Start the Gitea container
+docker run -d \
+  --name=gitea \
+  --hostname=localhost \
+  -p 3000:3000 \
+  -p 2222:22 \
+  -v /tmp/gitea:/data \
+  --restart unless-stopped \
+  gitea/gitea:latest
+</code></pre>
+<pre><code class="language-bash"># 2. Wait for Gitea to start (30–60 seconds)
+docker logs gitea 2&gt;&amp;1 | tail -5
+</code></pre>
+<p>Expected output:</p>
+<pre><code class="language-text">2024/11/01 14:23:01 [I] Gitea version 1.21.11 built with GNU Make
+2024/11/01 14:23:01 [I] Log mode: File (Info)
+2024/11/01 14:23:02 [I] XORM Log Mode: File (Info)
+2024/11/01 14:23:03 [I] Migration completed successfully
+2024/11/01 14:23:03 [I] listen: http://0.0.0.0:3000
+</code></pre>
+<p>The line <code>listen: http://0.0.0.0:3000</code> confirms Gitea is ready.</p>
+<pre><code class="language-bash"># 3. Open the setup wizard
+# Open http://localhost:3000 in your browser.
+# If first time, redirected to http://localhost:3000/install
+</code></pre>
+<p><strong>4. Fill in the setup form:</strong><br />
+- <strong>Database Type:</strong> SQLite3 (default)<br />
+- <strong>Site Title:</strong> <code>Gitea Local</code><br />
+- <strong>Repository Root Path:</strong> <code>/data/git/repositories</code> (default)<br />
+- <strong>Domain:</strong> <code>localhost</code><br />
+- <strong>SSH Port:</strong> <code>2222</code><br />
+- <strong>HTTP Port:</strong> <code>3000</code><br />
+- <strong>Base URL:</strong> <code>http://localhost:3000/</code></p>
+<p>Under <strong>Administrator Account</strong>:<br />
+- <strong>Email:</strong> <code>admin@gitea.local</code><br />
+- <strong>Password:</strong> <code>SecureAdmin123!</code><br />
+- <strong>Username:</strong> <code>gitea_admin</code></p>
+<p>Click <strong>Install Gitea</strong>.</p>
+<pre><code class="language-bash"># 5. Sign in as admin and create repository
+# Click the + icon → Create Repository
+# Name: hello-devops
+# ☑️ Add a README
+</code></pre>
+<pre><code class="language-bash"># 6. Clone the repository
+git clone http://localhost:3000/gitea_admin/hello-devops.git
+</code></pre>
+<pre><code class="language-text">Cloning into 'hello-devops'...
+warning: redirecting to http://localhost:3000/gitea_admin/hello-devops.git/
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+</code></pre>
+<pre><code class="language-bash"># 7. Add a file, commit, and push
+cd hello-devops
+echo &quot;# Hello DevOps&quot; &gt; devops.txt
+git add devops.txt
+git commit -m &quot;Add devops.txt marker file&quot;
+git push -u origin main
+</code></pre>
+<pre><code class="language-text">[main (root-commit) abc1234] Add devops.txt marker file
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ create mode 100644 devops.txt
+Username for 'http://localhost:3000': gitea_admin
+Password for 'http://localhost:3000': SecureAdmin123!
+Enumerating objects: 2, done.
+Counting objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 81 bytes, done.
+Total 2 (delta 0), reused 0 (delta 0), pack-reused 0
+To http://localhost:3000/gitea_admin/hello-devops.git
+ * [new branch]      main -&gt; main
+branch 'main' set up to track 'main'.
+</code></pre>
+<pre><code class="language-bash"># 8. Verify in the web UI
+# Refresh the Gitea repository page.
+# You should see devops.txt in the file tree and the commit in history.
+</code></pre>
+<p><strong>To verify your setup was successful:</strong></p>
+<pre><code class="language-bash"># Verify the container is running
+docker ps --filter name=gitea --format &quot;{{.Names}} {{.Status}}&quot;
+
+# Verify the clone worked
+ls hello-devops/devops.txt &amp;&amp; echo &quot;File exists&quot;
+
+# Verify the commit history
+git -C hello-devops log --oneline
+</code></pre>
+<p>Expected output:</p>
+<pre><code class="language-text">gitea Up (healthy)
+File exists
+abc1234 Add devops.txt marker file
+</code></pre>
+<p>If you see the commit in the log and the file exists, your self-hosted Git server is working correctly.</p>
+<hr />
+<p><a href="index.html">← Back to Index</a></p>
+
+      <div class="lesson-actions">
+        <button class="btn-mark-complete" id="btn-mark-complete" data-lesson="solutions">
+          <span class="btn-icon">✓</span> Mark Complete
+        </button>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Previous and next lessons">
+        <a href="lessons/15-capstone.html" class="lesson-nav-prev">
+          <span class="nav-label">← Previous</span>
+          <span class="nav-title">Capstone Mini-Project</span>
+        </a>
+
+        <span class="lesson-nav-next disabled">
+          <span class="nav-label">Next →</span>
+          <span class="nav-title">—</span>
+        </span>
+      </nav>
+    </div>
+  </div>
+</article>
+      </main>
+
+      <footer class="site-footer">
+        <p>Built with ❤️ for DevOps learners</p>
+        <p class="footer-small">Git Kimchi — A free Git &amp; GitHub course</p>
+      </footer>
+    </div>
+  </div>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script src="static/js/app.js"></script>
+</body>
+</html>

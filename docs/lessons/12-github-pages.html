@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Pages — Git Kimchi</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body data-page="lesson">
+  <div class="site-wrapper">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-brand">
+          <span class="brand-icon">🌶️</span>
+          <span class="brand-text">Git Kimchi</span>
+        </a>
+        <button class="sidebar-close" id="sidebar-close" aria-label="Close navigation">×</button>
+      </div>
+      <nav class="sidebar-nav" aria-label="Lessons">
+        <div class="nav-section">
+          <span class="nav-section-title">Core Git</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="01-getting-started.html" class="nav-link" data-lesson="1">
+                <span class="nav-num">1</span>
+                <span class="nav-title">Getting Started with Git</span>
+                <span class="nav-status" data-status-lesson="1"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="02-staging-and-commits.html" class="nav-link" data-lesson="2">
+                <span class="nav-num">2</span>
+                <span class="nav-title">Staging and Commits</span>
+                <span class="nav-status" data-status-lesson="2"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="03-history-and-diff.html" class="nav-link" data-lesson="3">
+                <span class="nav-num">3</span>
+                <span class="nav-title">History and Diff</span>
+                <span class="nav-status" data-status-lesson="3"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="04-undoing-changes.html" class="nav-link" data-lesson="4">
+                <span class="nav-num">4</span>
+                <span class="nav-title">Undoing Changes</span>
+                <span class="nav-status" data-status-lesson="4"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Intermediate</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="05-branching.html" class="nav-link" data-lesson="5">
+                <span class="nav-num">5</span>
+                <span class="nav-title">Branching</span>
+                <span class="nav-status" data-status-lesson="5"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="06-merging.html" class="nav-link" data-lesson="6">
+                <span class="nav-num">6</span>
+                <span class="nav-title">Merging</span>
+                <span class="nav-status" data-status-lesson="6"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="07-remotes.html" class="nav-link" data-lesson="7">
+                <span class="nav-num">7</span>
+                <span class="nav-title">Remotes</span>
+                <span class="nav-status" data-status-lesson="7"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="08-github-repos-and-forks.html" class="nav-link" data-lesson="8">
+                <span class="nav-num">8</span>
+                <span class="nav-title">GitHub Repositories and Forks</span>
+                <span class="nav-status" data-status-lesson="8"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="09-pull-requests-and-issues.html" class="nav-link" data-lesson="9">
+                <span class="nav-num">9</span>
+                <span class="nav-title">Pull Requests and Issues</span>
+                <span class="nav-status" data-status-lesson="9"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Advanced / DevOps</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="10-code-review.html" class="nav-link" data-lesson="10">
+                <span class="nav-num">10</span>
+                <span class="nav-title">Code Review</span>
+                <span class="nav-status" data-status-lesson="10"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="11-branching-strategies.html" class="nav-link" data-lesson="11">
+                <span class="nav-num">11</span>
+                <span class="nav-title">Branching Strategies</span>
+                <span class="nav-status" data-status-lesson="11"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="12-github-pages.html" class="nav-link" data-lesson="12">
+                <span class="nav-num">12</span>
+                <span class="nav-title">GitHub Pages</span>
+                <span class="nav-status" data-status-lesson="12"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="13-git-hooks.html" class="nav-link" data-lesson="13">
+                <span class="nav-num">13</span>
+                <span class="nav-title">Git Hooks</span>
+                <span class="nav-status" data-status-lesson="13"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="14-self-hosted-git.html" class="nav-link" data-lesson="14">
+                <span class="nav-num">14</span>
+                <span class="nav-title">Self-Hosted Git</span>
+                <span class="nav-status" data-status-lesson="14"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Capstone &amp; Reference</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="15-capstone.html" class="nav-link" data-lesson="15">
+                <span class="nav-num">15</span>
+                <span class="nav-title">Capstone Mini-Project</span>
+                <span class="nav-status" data-status-lesson="15"></span>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="../solutions.html" class="nav-link" data-lesson="solutions">
+                <span class="nav-num">💡</span>
+                <span class="nav-title">Solutions</span>
+                <span class="nav-status" data-status-lesson="solutions"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="main-area">
+      <header class="site-header">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="header-title">
+          <a href="../index.html">Git Kimchi</a>
+        </div>
+        <div class="header-progress" id="header-progress" style="display:none;">
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+          </div>
+          <span class="progress-text" id="progress-text">0 / 15</span>
+        </div>
+      </header>
+
+      <main class="content-wrapper">
+<article class="lesson">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">GitHub Pages</span>
+  </nav>
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="lesson-number">Lesson 12</span>
+      <span class="lesson-readtime">12 min read</span>
+    </div>
+    <h1 class="lesson-title">GitHub Pages</h1>
+  </header>
+
+  <div class="lesson-body-wrapper">
+    <div class="lesson-toc" id="lesson-toc" aria-label="Table of contents">
+      <h2>On this page</h2>
+      <div class="toc">
+<ul>
+<li><a href="#github-pages">GitHub Pages</a><ul>
+<li><a href="#what-is-github-pages">What is GitHub Pages?</a></li>
+<li><a href="#types-of-github-pages-sites">Types of GitHub Pages Sites</a><ul>
+<li><a href="#user-site">User Site</a></li>
+<li><a href="#project-site">Project Site</a></li>
+<li><a href="#url-comparison">URL Comparison</a></li>
+</ul>
+</li>
+<li><a href="#setting-up-from-a-branch">Setting Up from a Branch</a><ul>
+<li><a href="#step-by-step-setup">Step-by-Step Setup</a></li>
+<li><a href="#ui-path-reference">UI Path Reference</a></li>
+<li><a href="#branch-and-folder-combinations">Branch and Folder Combinations</a></li>
+</ul>
+</li>
+<li><a href="#creating-a-simple-site">Creating a Simple Site</a><ul>
+<li><a href="#what-github-pages-serves">What GitHub Pages Serves</a></li>
+<li><a href="#workflow-serving-a-markdown-file">Workflow: Serving a Markdown File</a></li>
+<li><a href="#jekyll-auto-conversion">Jekyll Auto-Conversion</a></li>
+</ul>
+</li>
+<li><a href="#jekyll-basics-conceptual">Jekyll Basics (Conceptual)</a><ul>
+<li><a href="#how-jekyll-works">How Jekyll Works</a></li>
+<li><a href="#front-matter">Front Matter</a></li>
+<li><a href="#the-_configyml-file">The _config.yml File</a></li>
+<li><a href="#file-organization">File Organization</a></li>
+<li><a href="#building-locally-optional">Building Locally (Optional)</a></li>
+</ul>
+</li>
+<li><a href="#custom-domains-conceptual">Custom Domains (Conceptual)</a><ul>
+<li><a href="#what-you-need">What You Need</a></li>
+</ul>
+</li>
+<li><a href="#checking-pages-status">Checking Pages Status</a><ul>
+<li><a href="#in-the-repository-settings">In the Repository Settings</a></li>
+<li><a href="#from-the-command-line">From the Command Line</a></li>
+<li><a href="#common-status-issues">Common Status Issues</a></li>
+</ul>
+</li>
+<li><a href="#exercise">Exercise</a><ul>
+<li><a href="#scenario">Scenario</a></li>
+<li><a href="#tasks">Tasks</a></li>
+</ul>
+</li>
+<li><a href="#solution">Solution</a><ul>
+<li><a href="#step-1-create-the-repository">Step 1: Create the Repository</a></li>
+<li><a href="#step-2-create-the-indexmd-file">Step 2: Create the index.md File</a></li>
+<li><a href="#step-3-enable-github-pages">Step 3: Enable GitHub Pages</a></li>
+<li><a href="#step-4-push-and-wait">Step 4: Push and Wait</a></li>
+<li><a href="#step-5-verify-the-site">Step 5: Verify the Site</a></li>
+<li><a href="#what-you-just-did">What You Just Did</a></li>
+</ul>
+</li>
+<li><a href="#key-takeaways">Key Takeaways</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+    </div>
+
+    <div class="lesson-body">
+      <h1 id="github-pages">GitHub Pages</h1>
+<p><a href="11-branching-strategies.html">← Previous: Branching Strategies</a> | <a href="../index.html">← Back to Index</a></p>
+<p>GitHub Pages is GitHub's free static site hosting service. It turns a repository into a live website with no servers to manage, no infrastructure costs, and automatic HTTPS. This makes it the default choice for project documentation, portfolios, and any developer content that lives alongside source code.</p>
+<hr />
+<h2 id="what-is-github-pages">What is GitHub Pages?</h2>
+<p>GitHub Pages takes files from a GitHub repository and publishes them as a website. The site rebuilds automatically every time you push to the linked branch. It is:</p>
+<ul>
+<li><strong>Free</strong> — no paid plans required for public repositories</li>
+<li><strong>Automatic</strong> — push triggers a rebuild, no manual deploy steps</li>
+<li><strong>Simple</strong> — no database, no server configuration, no runtime</li>
+<li><strong>Version-controlled</strong> — your site content is in Git, with full history</li>
+</ul>
+<p>Because GitHub Pages serves <strong>static files</strong>, it works best for sites that do not require server-side logic. Think documentation, READMEs rendered as web pages, portfolios, and landing pages. It does not run Node.js, Ruby, Python, or any backend — it runs Jekyll, a static site generator.</p>
+<hr />
+<h2 id="types-of-github-pages-sites">Types of GitHub Pages Sites</h2>
+<p>GitHub Pages supports two hosting patterns. The difference matters for URL structure and repository naming rules.</p>
+<h3 id="user-site">User Site</h3>
+<p>A user site lives in a repository named <code>username.github.io</code>. When you enable Pages on that repository, GitHub publishes it at:</p>
+<pre><code>https://username.github.io
+</code></pre>
+<p>You are limited to <strong>one user site</strong> — it must be the <code>username.github.io</code> repo associated with your account.</p>
+<h3 id="project-site">Project Site</h3>
+<p>Any other repository can host a project site. GitHub publishes it at:</p>
+<pre><code>https://username.github.io/repo-name/
+</code></pre>
+<p>You can have <strong>unlimited project sites</strong>, one per repository.</p>
+<h3 id="url-comparison">URL Comparison</h3>
+<table>
+<thead>
+<tr>
+<th>Repository Name</th>
+<th>Site Type</th>
+<th>Published URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>johndoe.github.io</code></td>
+<td>User site</td>
+<td><code>https://johndoe.github.io</code></td>
+</tr>
+<tr>
+<td><code>my-api-docs</code></td>
+<td>Project site</td>
+<td><code>https://johndoe.github.io/my-api-docs/</code></td>
+</tr>
+<tr>
+<td><code>portfolio</code></td>
+<td>Project site</td>
+<td><code>https://johndoe.github.io/portfolio/</code></td>
+</tr>
+</tbody>
+</table>
+<p>The repository containing your actual project source code <strong>does not</strong> need to match the site URL. You can keep your code private in <code>my-api-docs</code> while publishing docs from a <code>my-api-docs-docs</code> repository if you prefer separation.</p>
+<hr />
+<h2 id="setting-up-from-a-branch">Setting Up from a Branch</h2>
+<p>The simplest Pages deployment uses a dedicated branch as the site source. GitHub reads the branch contents and publishes them directly.</p>
+<h3 id="step-by-step-setup">Step-by-Step Setup</h3>
+<ol>
+<li><strong>Go to your repository</strong> on GitHub.com</li>
+<li>Click the <strong>Settings</strong> tab (the gear icon)</li>
+<li>In the left sidebar, click <strong>Pages</strong></li>
+<li>Under <strong>Build and deployment</strong>, confirm <strong>Source</strong> is set to <strong>Deploy from a branch</strong></li>
+<li>Select your <strong>branch</strong>:</li>
+<li><code>main</code> — the most common choice for project sites</li>
+<li><code>gh-pages</code> — a convention for dedicated documentation branches</li>
+<li>Select the <strong>folder</strong> to publish:</li>
+<li><code>/ (root)</code> — publishes the entire branch root</li>
+<li><code>/docs</code> — publishes only the <code>docs/</code> folder within the branch</li>
+</ol>
+<p>Using <code>/docs</code> keeps site files alongside source code in a subdirectory rather than cluttering the repository root.<br />
+7. Click <strong>Save</strong></p>
+<p>After a minute or two, GitHub activates Pages and shows the live URL in a green banner at the top of the Settings → Pages panel.</p>
+<h3 id="ui-path-reference">UI Path Reference</h3>
+<pre><code>Settings → Pages → Source: Deploy from a branch
+                                         ├── Branch: [main] ▼
+                                         └── Folder: [/ (root)] ▼
+</code></pre>
+<h3 id="branch-and-folder-combinations">Branch and Folder Combinations</h3>
+<table>
+<thead>
+<tr>
+<th>Branch</th>
+<th>Folder</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>main</code></td>
+<td><code>/ (root)</code></td>
+<td>Single-purpose repos where root contains only site content</td>
+</tr>
+<tr>
+<td><code>main</code></td>
+<td><code>/docs</code></td>
+<td>Code repo where <code>docs/</code> folder contains the site</td>
+</tr>
+<tr>
+<td><code>gh-pages</code></td>
+<td><code>/ (root)</code></td>
+<td>Dedicated docs repository; source code lives elsewhere</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="creating-a-simple-site">Creating a Simple Site</h2>
+<p>Once Pages is enabled on a branch and folder, any HTML or Markdown file in that location becomes part of the site.</p>
+<h3 id="what-github-pages-serves">What GitHub Pages Serves</h3>
+<p>GitHub Pages serves files exactly as they exist in the published branch and folder. An <code>index.html</code> in the root of the branch becomes the homepage. A <code>README.md</code> with YAML front matter becomes a fully rendered page.</p>
+<h3 id="workflow-serving-a-markdown-file">Workflow: Serving a Markdown File</h3>
+<p>If you already have a <code>README.md</code> in your repository and your Pages source is set to the root of <code>main</code>, that README can become your website homepage with minimal changes.</p>
+<pre><code class="language-bash"># Clone or navigate to your repository
+git clone https://github.com/yourname/your-repo.git
+cd your-repo
+
+# Create a simple index page using Markdown
+cat &gt; index.md &lt;&lt; 'EOF'
+---
+title: Welcome to My Site
+---
+
+# Hello, World!
+
+This page is served from a Markdown file in GitHub Pages.
+EOF
+
+# Commit and push to the branch that powers GitHub Pages
+git add index.md
+git commit -m &quot;Add GitHub Pages homepage&quot;
+git push origin main
+</code></pre>
+<p>After pushing, wait 1–2 minutes for the site to build, then visit:</p>
+<pre><code>https://yourname.github.io/repo-name/
+</code></pre>
+<h3 id="jekyll-auto-conversion">Jekyll Auto-Conversion</h3>
+<p>GitHub Pages processes Markdown files through <strong>Jekyll</strong> automatically. Jekyll reads YAML front matter at the top of a file (the <code>---</code> delimiters) and converts the rest from Markdown to HTML. This means <code>index.md</code> with valid front matter becomes <code>index.html</code> on the live site — no build pipeline needed on your side.</p>
+<p>If you push a plain HTML file, Jekyll passes it through unchanged. Either approach works.</p>
+<hr />
+<h2 id="jekyll-basics-conceptual">Jekyll Basics (Conceptual)</h2>
+<p>Jekyll is a static site generator that GitHub Pages runs server-side on every push. Understanding its basic conventions lets you control page titles, choose themes, and organize content without installing Jekyll locally.</p>
+<h3 id="how-jekyll-works">How Jekyll Works</h3>
+<p>When you push to the Pages branch, GitHub:</p>
+<ol>
+<li>Detects a Jekyll site (presence of <code>_config.yml</code> or Markdown files)</li>
+<li>Runs Jekyll to convert Markdown to HTML</li>
+<li>Applies the configured theme's templates and styles</li>
+<li>Publishes the generated HTML</li>
+</ol>
+<p>This means you do not need to run <code>jekyll build</code> yourself. GitHub handles it.</p>
+<h3 id="front-matter">Front Matter</h3>
+<p>Front matter is YAML metadata at the top of a file, between two <code>---</code> lines:</p>
+<pre><code class="language-markdown">---
+title: My Page Title
+layout: default
+---
+</code></pre>
+<p>Front matter variables Jekyll reads:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td>Sets the page <code>&lt;title&gt;</code> tag and often appears in the theme</td>
+</tr>
+<tr>
+<td><code>layout</code></td>
+<td>Which theme template wraps the page content</td>
+</tr>
+<tr>
+<td><code>permalink</code></td>
+<td>Overrides the default URL path for this file</td>
+</tr>
+</tbody>
+</table>
+<p>Every page you want Jekyll to process needs front matter. Even an empty block <code>---</code> above the content is enough to trigger Jekyll processing:</p>
+<pre><code class="language-markdown">---
+---
+# This heading is now rendered by Jekyll
+</code></pre>
+<h3 id="the-_configyml-file">The _config.yml File</h3>
+<p>The <code>_config.yml</code> file in your site root configures Jekyll globally. It sets the theme, site title, description, and URL:</p>
+<pre><code class="language-yaml">title: My Developer Portfolio
+description: A showcase of projects and writing
+theme: minimal
+url: &quot;https://yourname.github.io&quot;
+</code></pre>
+<p>GitHub Pages supports a fixed list of built-in themes:</p>
+<table>
+<thead>
+<tr>
+<th>Theme Name</th>
+<th>Gem Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Minimal</td>
+<td><code>minimal</code></td>
+</tr>
+<tr>
+<td>Cayman</td>
+<td><code>cayman</code></td>
+</tr>
+<tr>
+<td>Slate</td>
+<td><code>slate</code></td>
+</tr>
+<tr>
+<td>Tactile</td>
+<td><code>tactile</code></td>
+</tr>
+<tr>
+<td>Merlot</td>
+<td><code>merlot</code></td>
+</tr>
+<tr>
+<td>Architect</td>
+<td><code>architect</code></td>
+</tr>
+<tr>
+<td>Dinky</td>
+<td><code>dinky</code></td>
+</tr>
+</tbody>
+</table>
+<p>You enable a theme by setting <code>theme: name</code> in <code>_config.yml</code> where <code>name</code> is the gem name from the table above. GitHub Pages handles the rest.</p>
+<h3 id="file-organization">File Organization</h3>
+<p>Jekyll treats directories with special names as having specific purposes:</p>
+<table>
+<thead>
+<tr>
+<th>Directory</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_layouts/</code></td>
+<td>HTML wrappers that wrap each page's content</td>
+</tr>
+<tr>
+<td><code>_includes/</code></td>
+<td>Reusable HTML snippets (headers, footers, sidebars)</td>
+</tr>
+<tr>
+<td><code>_posts/</code></td>
+<td>Blog posts, named <code>YYYY-MM-DD-title.md</code></td>
+</tr>
+<tr>
+<td><code>_drafts/</code></td>
+<td>Unpublished posts, not rendered unless built locally</td>
+</tr>
+<tr>
+<td><code>css/</code></td>
+<td>CSS files, merged into the site output</td>
+</tr>
+</tbody>
+</table>
+<p>For a simple documentation or portfolio site, you rarely need any of these beyond placing Markdown files in the root. Jekyll's defaults handle everything.</p>
+<h3 id="building-locally-optional">Building Locally (Optional)</h3>
+<p>While GitHub runs Jekyll for you, installing it locally lets you preview changes before pushing. Install Ruby and Bundler, then:</p>
+<pre><code class="language-bash"># Clone your repository
+git clone https://github.com/yourname/your-repo.git
+cd your-repo
+
+# Install Jekyll and dependencies
+gem install bundler
+bundle install
+
+# Serve locally (auto-rebuilds on file changes)
+bundle exec jekyll serve
+</code></pre>
+<p>The preview site appears at <code>http://localhost:4000</code>. This is entirely optional — GitHub Pages always rebuilds on push, so local previewing is a convenience, not a requirement.</p>
+<hr />
+<h2 id="custom-domains-conceptual">Custom Domains (Conceptual)</h2>
+<p>GitHub Pages supports custom domains so your site can live at <code>docs.yourproject.com</code> instead of <code>yourname.github.io</code>.</p>
+<h3 id="what-you-need">What You Need</h3>
+<ol>
+<li><strong>A CNAME file</strong> — placed in the root of your Pages branch, it contains your custom domain as plain text:</li>
+</ol>
+<p><code>text
+   docs.yourproject.com</code></p>
+<ol>
+<li>
+<p><strong>DNS records</strong> — your DNS provider must point the domain to GitHub's servers:</p>
+</li>
+<li>
+<p>For <code>yourproject.com</code>: an <strong>A record</strong> pointing to GitHub's IPs, or an <strong>ALIAS record</strong> to <code>yourname.github.io</code></p>
+</li>
+<li>
+<p>For a subdomain like <code>docs.yourproject.com</code>: a <strong>CNAME record</strong> pointing to <code>yourname.github.io</code></p>
+</li>
+<li>
+<p><strong>HTTPS</strong> — GitHub Pages automatically provisions a Let's Encrypt certificate once the DNS change propagates and the domain is verified via the CNAME file. This process can take up to 24 hours.</p>
+</li>
+</ol>
+<p>Enabling a custom domain is a one-time configuration in Settings → Pages. The CNAME file persists in your repository, so it survives future pushes.</p>
+<hr />
+<h2 id="checking-pages-status">Checking Pages Status</h2>
+<p>After enabling Pages and pushing content, you verify that the site is live in two places.</p>
+<h3 id="in-the-repository-settings">In the Repository Settings</h3>
+<p>Go to <strong>Settings → Pages</strong>. GitHub displays:</p>
+<ul>
+<li>The <strong>green checkmark</strong> and status message when the site is published</li>
+<li>The <strong>live URL</strong> (clickable) where your site is published</li>
+<li>The <strong>last deploy time</strong> showing when GitHub last rebuilt the site</li>
+</ul>
+<p>If the build fails, GitHub shows an error message here with details about what went wrong (a broken Markdown file, invalid front matter, etc.).</p>
+<h3 id="from-the-command-line">From the Command Line</h3>
+<p>GitHub CLI can open the Pages URL directly:</p>
+<pre><code class="language-bash"># Open the published GitHub Pages URL in your browser
+gh repo view --web
+</code></pre>
+<p>If your repository has Pages enabled, the Pages URL is shown at the top of the repo view page.</p>
+<h3 id="common-status-issues">Common Status Issues</h3>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely Cause</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Page shows 404 after push</td>
+<td>Wrong branch or folder selected in Settings</td>
+<td>Re-check Settings → Pages → Source</td>
+</tr>
+<tr>
+<td>"Page build failure" email</td>
+<td>Syntax error in <code>_config.yml</code> or invalid front matter</td>
+<td>Check Settings → Pages for error details</td>
+</tr>
+<tr>
+<td>Stale content</td>
+<td>Build is still in progress</td>
+<td>Wait 1–2 minutes after push</td>
+</tr>
+<tr>
+<td>Custom domain shows 404</td>
+<td>DNS records not yet propagated</td>
+<td>Wait up to 24 hours for DNS</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="exercise">Exercise</h2>
+<h3 id="scenario">Scenario</h3>
+<p>You want to publish a simple documentation page for a new open-source tool called <code>git-fruit</code>. You will:</p>
+<ol>
+<li>Create a new <strong>public</strong> repository on GitHub</li>
+<li>Enable GitHub Pages using the <strong>main branch root</strong> as the source</li>
+<li>Create an <code>index.md</code> file with proper Jekyll front matter</li>
+<li>Push and verify the live site loads</li>
+</ol>
+<h3 id="tasks">Tasks</h3>
+<ol>
+<li>Create the repository <code>git-fruit</code> on GitHub (use your own username in the remote URL)</li>
+<li>Clone it locally</li>
+<li>Create an <code>index.md</code> with a heading, a short description, and at least one section</li>
+<li>Enable GitHub Pages from Settings → Pages, source: <code>main</code> branch, folder: <code>/ (root)</code></li>
+<li>Push the changes</li>
+<li>Verify the site is live by checking the URL</li>
+</ol>
+<hr />
+<h2 id="solution">Solution</h2>
+<h3 id="step-1-create-the-repository">Step 1: Create the Repository</h3>
+<pre><code class="language-bash"># Replace YOUR_USERNAME with your GitHub username
+gh repo create git-fruit --public --clone
+</code></pre>
+<pre><code class="language-text">✓ Created repository YOUR_USERNAME/git-fruit
+✓ Cloned repository
+</code></pre>
+<pre><code class="language-bash">cd git-fruit
+</code></pre>
+<h3 id="step-2-create-the-indexmd-file">Step 2: Create the index.md File</h3>
+<pre><code class="language-bash">cat &gt; index.md &lt;&lt; 'EOF'
+---
+title: git-fruit
+description: A delightful Git extension for tracking project milestones
+---
+
+# Welcome to git-fruit
+
+**git-fruit** is a fictional Git extension that helps you track project milestones directly in your commit history using annotated tags.
+
+## Features
+
+- Lightweight milestone tracking via annotated tags
+- Automatic changelog generation
+- Integration with standard Git workflows
+
+## Quick Start
+
+```bash
+git fruit init
+git fruit milestone &quot;v1.0.0&quot;
+git fruit log
+</code></pre>
+<p>For full documentation, visit the project README.<br />
+EOF</p>
+<pre><code>
+```bash
+git add index.md
+git commit -m &quot;Add GitHub Pages homepage&quot;
+</code></pre>
+<pre><code class="language-text">[main (root-commit) a1b2c3d] Add GitHub Pages homepage
+ 1 file changed, 1 insertion(+)
+</code></pre>
+<h3 id="step-3-enable-github-pages">Step 3: Enable GitHub Pages</h3>
+<p>Open Settings → Pages in your browser:</p>
+<pre><code class="language-bash">gh repo view --web
+</code></pre>
+<p>Navigate to <strong>Settings → Pages</strong>. Set:<br />
+- <strong>Source</strong>: Deploy from a branch<br />
+- <strong>Branch</strong>: <code>main</code><br />
+- <strong>Folder</strong>: <code>/ (root)</code></p>
+<p>Click <strong>Save</strong>. GitHub will show the Pages URL after a moment.</p>
+<h3 id="step-4-push-and-wait">Step 4: Push and Wait</h3>
+<pre><code class="language-bash">git push origin main
+</code></pre>
+<pre><code class="language-text">Enumerating objects: 3, done.
+Counting objects: 100%
+Writing objects: 100%
+To https://github.com/YOUR_USERNAME/git-fruit.git
+   a1b2c3d..d4e5f6  main -&gt; main
+</code></pre>
+<h3 id="step-5-verify-the-site">Step 5: Verify the Site</h3>
+<pre><code class="language-bash"># Wait about 1-2 minutes for GitHub to build, then open the Pages URL
+echo &quot;Your site will be at: https://YOUR_USERNAME.github.io/git-fruit/&quot;
+</code></pre>
+<pre><code class="language-text">Your site will be at: https://YOUR_USERNAME.github.io/git-fruit/
+</code></pre>
+<p>Visit that URL in your browser. You should see the rendered Markdown page with:<br />
+- The title from the <code>title</code> front matter variable<br />
+- Your heading and section content styled by the theme</p>
+<h3 id="what-you-just-did">What You Just Did</h3>
+<p>You created a GitHub repository, added a single Markdown file with Jekyll front matter, enabled GitHub Pages from the main branch, and pushed. GitHub automatically detected the Markdown file, processed it through Jekyll, and published it as a live website — no servers, no builds, no cost.</p>
+<hr />
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><strong>GitHub Pages</strong> serves static files from any GitHub repository, free of charge for public repos</li>
+<li><strong>User sites</strong> use <code>username.github.io</code> as the canonical URL; <strong>project sites</strong> append the repository name</li>
+<li>Enabling Pages is a Settings → Pages click-through; no CLI required</li>
+<li><strong>Jekyll</strong> runs server-side on GitHub — front matter (<code>---</code>) on any Markdown file triggers Jekyll processing</li>
+<li><code>_config.yml</code> controls the theme and site-wide settings; built-in themes include <code>minimal</code>, <code>cayman</code>, and <code>slate</code></li>
+<li>Pages rebuilds automatically on every push; wait 1–2 minutes before checking the live URL</li>
+<li><strong>Custom domains</strong> are configured via a <code>CNAME</code> file in the repository root plus DNS records</li>
+</ul>
+<hr />
+<p><a href="13-git-hooks.html">Next: Git Hooks →</a></p>
+
+      <div class="lesson-actions">
+        <button class="btn-mark-complete" id="btn-mark-complete" data-lesson="12">
+          <span class="btn-icon">✓</span> Mark Complete
+        </button>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Previous and next lessons">
+        <a href="11-branching-strategies.html" class="lesson-nav-prev">
+          <span class="nav-label">← Previous</span>
+          <span class="nav-title">Branching Strategies</span>
+        </a>
+
+        <a href="13-git-hooks.html" class="lesson-nav-next">
+          <span class="nav-label">Next →</span>
+          <span class="nav-title">Git Hooks</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+</article>
+      </main>
+
+      <footer class="site-footer">
+        <p>Built with ❤️ for DevOps learners</p>
+        <p class="footer-small">Git Kimchi — A free Git &amp; GitHub course</p>
+      </footer>
+    </div>
+  </div>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script src="../static/js/app.js"></script>
+</body>
+</html>

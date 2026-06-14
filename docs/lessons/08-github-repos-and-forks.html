@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Repositories and Forks — Git Kimchi</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body data-page="lesson">
+  <div class="site-wrapper">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-brand">
+          <span class="brand-icon">🌶️</span>
+          <span class="brand-text">Git Kimchi</span>
+        </a>
+        <button class="sidebar-close" id="sidebar-close" aria-label="Close navigation">×</button>
+      </div>
+      <nav class="sidebar-nav" aria-label="Lessons">
+        <div class="nav-section">
+          <span class="nav-section-title">Core Git</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="01-getting-started.html" class="nav-link" data-lesson="1">
+                <span class="nav-num">1</span>
+                <span class="nav-title">Getting Started with Git</span>
+                <span class="nav-status" data-status-lesson="1"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="02-staging-and-commits.html" class="nav-link" data-lesson="2">
+                <span class="nav-num">2</span>
+                <span class="nav-title">Staging and Commits</span>
+                <span class="nav-status" data-status-lesson="2"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="03-history-and-diff.html" class="nav-link" data-lesson="3">
+                <span class="nav-num">3</span>
+                <span class="nav-title">History and Diff</span>
+                <span class="nav-status" data-status-lesson="3"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="04-undoing-changes.html" class="nav-link" data-lesson="4">
+                <span class="nav-num">4</span>
+                <span class="nav-title">Undoing Changes</span>
+                <span class="nav-status" data-status-lesson="4"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Intermediate</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="05-branching.html" class="nav-link" data-lesson="5">
+                <span class="nav-num">5</span>
+                <span class="nav-title">Branching</span>
+                <span class="nav-status" data-status-lesson="5"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="06-merging.html" class="nav-link" data-lesson="6">
+                <span class="nav-num">6</span>
+                <span class="nav-title">Merging</span>
+                <span class="nav-status" data-status-lesson="6"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="07-remotes.html" class="nav-link" data-lesson="7">
+                <span class="nav-num">7</span>
+                <span class="nav-title">Remotes</span>
+                <span class="nav-status" data-status-lesson="7"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="08-github-repos-and-forks.html" class="nav-link" data-lesson="8">
+                <span class="nav-num">8</span>
+                <span class="nav-title">GitHub Repositories and Forks</span>
+                <span class="nav-status" data-status-lesson="8"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="09-pull-requests-and-issues.html" class="nav-link" data-lesson="9">
+                <span class="nav-num">9</span>
+                <span class="nav-title">Pull Requests and Issues</span>
+                <span class="nav-status" data-status-lesson="9"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Advanced / DevOps</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="10-code-review.html" class="nav-link" data-lesson="10">
+                <span class="nav-num">10</span>
+                <span class="nav-title">Code Review</span>
+                <span class="nav-status" data-status-lesson="10"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="11-branching-strategies.html" class="nav-link" data-lesson="11">
+                <span class="nav-num">11</span>
+                <span class="nav-title">Branching Strategies</span>
+                <span class="nav-status" data-status-lesson="11"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="12-github-pages.html" class="nav-link" data-lesson="12">
+                <span class="nav-num">12</span>
+                <span class="nav-title">GitHub Pages</span>
+                <span class="nav-status" data-status-lesson="12"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="13-git-hooks.html" class="nav-link" data-lesson="13">
+                <span class="nav-num">13</span>
+                <span class="nav-title">Git Hooks</span>
+                <span class="nav-status" data-status-lesson="13"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="14-self-hosted-git.html" class="nav-link" data-lesson="14">
+                <span class="nav-num">14</span>
+                <span class="nav-title">Self-Hosted Git</span>
+                <span class="nav-status" data-status-lesson="14"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Capstone &amp; Reference</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="15-capstone.html" class="nav-link" data-lesson="15">
+                <span class="nav-num">15</span>
+                <span class="nav-title">Capstone Mini-Project</span>
+                <span class="nav-status" data-status-lesson="15"></span>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="../solutions.html" class="nav-link" data-lesson="solutions">
+                <span class="nav-num">💡</span>
+                <span class="nav-title">Solutions</span>
+                <span class="nav-status" data-status-lesson="solutions"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="main-area">
+      <header class="site-header">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="header-title">
+          <a href="../index.html">Git Kimchi</a>
+        </div>
+        <div class="header-progress" id="header-progress" style="display:none;">
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+          </div>
+          <span class="progress-text" id="progress-text">0 / 15</span>
+        </div>
+      </header>
+
+      <main class="content-wrapper">
+<article class="lesson">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">GitHub Repositories and Forks</span>
+  </nav>
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="lesson-number">Lesson 8</span>
+      <span class="lesson-readtime">20 min read</span>
+    </div>
+    <h1 class="lesson-title">GitHub Repositories and Forks</h1>
+  </header>
+
+  <div class="lesson-body-wrapper">
+    <div class="lesson-toc" id="lesson-toc" aria-label="Table of contents">
+      <h2>On this page</h2>
+      <div class="toc">
+<ul>
+<li><a href="#github-repositories-and-forks">GitHub Repositories and Forks</a><ul>
+<li><a href="#why-github">Why GitHub?</a></li>
+<li><a href="#creating-a-github-repository">Creating a GitHub Repository</a><ul>
+<li><a href="#option-1-via-the-github-web-interface">Option 1: Via the GitHub Web Interface</a></li>
+<li><a href="#option-2-via-github-cli">Option 2: Via GitHub CLI</a></li>
+<li><a href="#whats-included-when-you-check-add-a-readme">What's Included When You Check "Add a README"?</a></li>
+</ul>
+</li>
+<li><a href="#cloning-a-repository">Cloning a Repository</a><ul>
+<li><a href="#using-git-clone">Using git clone</a></li>
+<li><a href="#using-gh-repo-clone">Using gh repo clone</a></li>
+<li><a href="#https-vs-ssh-urls">HTTPS vs. SSH URLs</a></li>
+</ul>
+</li>
+<li><a href="#readme-files-your-projects-front-door">README Files: Your Project's Front Door</a><ul>
+<li><a href="#a-readme-template">A README Template</a></li>
+</ul>
+</li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#acknowledgments">Acknowledgments</a><ul>
+<li><a href="#when-to-add-a-license">When to Add a License</a></li>
+</ul>
+</li>
+<li><a href="#the-gitignore-file-ignoring-unnecessary-files">The .gitignore File: Ignoring Unnecessary Files</a><ul>
+<li><a href="#common-patterns">Common Patterns</a></li>
+<li><a href="#githubs-gitignore-templates">GitHub's .gitignore Templates</a></li>
+<li><a href="#how-gitignore-works">How .gitignore Works</a></li>
+</ul>
+</li>
+<li><a href="#forking-contributing-without-write-access">Forking: Contributing Without Write Access</a><ul>
+<li><a href="#why-fork">Why Fork?</a></li>
+<li><a href="#option-1-fork-via-github-web-interface">Option 1: Fork via GitHub Web Interface</a></li>
+<li><a href="#option-2-fork-via-github-cli">Option 2: Fork via GitHub CLI</a></li>
+</ul>
+</li>
+<li><a href="#syncing-a-fork-keeping-your-fork-up-to-date">Syncing a Fork: Keeping Your Fork Up-to-Date</a><ul>
+<li><a href="#the-upstream-workflow">The Upstream Workflow</a></li>
+<li><a href="#step-1-add-the-upstream-remote">Step 1: Add the Upstream Remote</a></li>
+<li><a href="#step-2-fetch-and-merge-upstream-changes">Step 2: Fetch and Merge Upstream Changes</a></li>
+<li><a href="#step-3-push-to-your-fork">Step 3: Push to Your Fork</a></li>
+<li><a href="#pull-vs-merge-for-syncing">Pull vs. Merge for Syncing</a></li>
+</ul>
+</li>
+<li><a href="#the-complete-fork-to-pr-workflow">The Complete Fork-to-PR Workflow</a></li>
+<li><a href="#exercise">Exercise</a><ul>
+<li><a href="#scenario">Scenario</a></li>
+<li><a href="#tasks">Tasks</a></li>
+<li><a href="#success-criteria">Success Criteria</a></li>
+</ul>
+</li>
+<li><a href="#solution">Solution</a><ul>
+<li><a href="#part-1-create-your-own-repository">Part 1: Create Your Own Repository</a></li>
+</ul>
+</li>
+<li><a href="#usage_1">Usage</a></li>
+<li><a href="#contributing_1">Contributing</a><ul>
+<li><a href="#part-2-fork-and-sync">Part 2: Fork and Sync</a></li>
+</ul>
+</li>
+<li><a href="#key-takeaways">Key Takeaways</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+    </div>
+
+    <div class="lesson-body">
+      <h1 id="github-repositories-and-forks">GitHub Repositories and Forks</h1>
+<p><a href="07-remotes.html">← Previous: Remotes</a> | <a href="../index.html">← Back to Index</a></p>
+<p>In the <a href="07-remotes.html">Remotes</a> section, you learned how to work with remote repositories using local bare repositories as stand-ins. Now it's time to use a real remote hosting service: <strong>GitHub</strong>. GitHub is the most popular Git hosting platform, and understanding how to create repositories, fork projects, and manage collaboration will be central to your DevOps workflow.</p>
+<p>This section covers creating repositories on GitHub, understanding key files like README and LICENSE, using <code>.gitignore</code>, and the fork-and-sync workflow that enables contributions to open-source projects.</p>
+<h2 id="why-github">Why GitHub?</h2>
+<p>GitHub hosts over 100 million repositories and is the default platform for open-source collaboration. It provides:</p>
+<ul>
+<li><strong>Remote storage</strong> for your Git repositories (the "remote" you've been connecting to)</li>
+<li><strong>Web interface</strong> for viewing code, history, and branches</li>
+<li><strong>Issue tracking</strong> for bugs and feature requests</li>
+<li><strong>Pull Request system</strong> for code review before merging (covered in the next section)</li>
+<li><strong>Actions</strong> for CI/CD pipelines (covered in the Advanced DevOps section)</li>
+<li><strong>GitHub Pages</strong> for hosting documentation or websites (covered later)</li>
+</ul>
+<p>Even if your team uses GitLab or Bitbucket, the concepts on GitHub apply everywhere.</p>
+<h2 id="creating-a-github-repository">Creating a GitHub Repository</h2>
+<p>You can create a repository in two ways: through the GitHub web interface or via the command line with GitHub CLI.</p>
+<h3 id="option-1-via-the-github-web-interface">Option 1: Via the GitHub Web Interface</h3>
+<p><strong>Step-by-step:</strong></p>
+<ol>
+<li>Log in to GitHub at <code>https://github.com</code></li>
+<li>Click the <strong>+</strong> icon in the top-right corner</li>
+<li>Select <strong>New repository</strong> from the dropdown menu</li>
+<li>You'll see the Create a new repository page:</li>
+<li><strong>Owner</strong>: Your username (or an organization you belong to)</li>
+<li><strong>Repository name</strong>: Choose something descriptive (e.g., <code>my-webapp</code>, <code>devops-scripts</code>)</li>
+<li><strong>Description</strong>: A brief explanation of what the repo contains (optional)</li>
+<li><strong>Visibility</strong>: Choose <strong>Public</strong> (anyone can see) or <strong>Private</strong> (only you and collaborators can see)</li>
+<li><strong>Add a README</strong>: Check this to create a starter <code>README.md</code> file</li>
+<li><strong>Add .gitignore</strong>: Check this to select a <code>.gitignore</code> template for your language/framework</li>
+<li>
+<p><strong>Choose a license</strong>: Optional — see the LICENSE section below</p>
+</li>
+<li>
+<p>Click <strong>Create repository</strong></p>
+</li>
+</ol>
+<p><strong>Screenshot description:</strong></p>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│  GitHub Header: [Logo] [Search] [+] [Your Avatar ▼]             │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│   + New repository                                             │
+│                                                                 │
+│   ┌─────────────────────────────────────────────────────────┐  │
+│   │ Owner:    [ username ▼ ]                                 │  │
+│   │ Repository name: [ _________________ ]                   │  │
+│   │ Description:  [ _________________ ]                     │  │
+│   │                                                     ▼    │  │
+│   │ ○ Public  ● Private                                     │  │
+│   │                                                     ▼    │  │
+│   │ ☑ Add a README file                                     │  │
+│   │ ☑ Add .gitignore: [ None ▼ ] → [Python]                 │  │
+│   │ ☑ Choose a license: [ None ▼ ] → [MIT License]          │  │
+│   │                                                     ▼    │  │
+│   │           [ Create repository ]                         │  │
+│   └─────────────────────────────────────────────────────────┘  │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+</code></pre>
+<h3 id="option-2-via-github-cli">Option 2: Via GitHub CLI</h3>
+<p>If you prefer the terminal, GitHub CLI (<code>gh</code>) makes this seamless:</p>
+<pre><code class="language-bash"># Install GitHub CLI first (macOS)
+brew install gh
+
+# Or on Ubuntu/Debian
+sudo apt install gh
+
+# Authenticate with GitHub
+gh auth login
+</code></pre>
+<pre><code class="language-text">? What account do you want to log into?  [Use arrows to move, Enter to select]
+  &gt; GitHub.com
+    GitHub Enterprise Server
+</code></pre>
+<pre><code class="language-text">? How would you like to authenticate?  [Use arrows to move, Enter to select]
+  &gt; Login with a web browser
+    Paste an authentication token
+</code></pre>
+<p>Once authenticated, create a repository:</p>
+<pre><code class="language-bash"># Create a new public repository with a README
+gh repo create my-new-repo --public --clone
+
+# Or create with specific options:
+# --private for private repo
+# --description &quot;Your description here&quot;
+# --gitignore-template Python (or Node, Go, etc.)
+# --license MIT (or Apache-2.0, GPL-3.0, etc.)
+
+# Example: Create a Python project repo
+gh repo create my-python-project \
+  --public \
+  --description &quot;Python project with CI/CD setup&quot; \
+  --gitignore-template Python \
+  --license MIT \
+  --clone
+</code></pre>
+<pre><code class="language-text">- Creating repository username/my-python-project on GitHub...
+  ✓ Created repository username/my-python-project
+  ✓ Cloned repository
+  ✓ Initialized git repository
+</code></pre>
+<p>The <code>--clone</code> flag automatically clones the new repository into a local directory, so you're ready to start working immediately.</p>
+<h3 id="whats-included-when-you-check-add-a-readme">What's Included When You Check "Add a README"?</h3>
+<p>A README file is the face of your repository. GitHub displays it prominently at the root of your repo. It tells visitors:</p>
+<ul>
+<li>What the project does</li>
+<li>How to install it</li>
+<li>How to use it</li>
+<li>How to contribute</li>
+</ul>
+<p>When you initialize with a README, GitHub creates a bare-bones template. You'll customize it to fit your project.</p>
+<h2 id="cloning-a-repository">Cloning a Repository</h2>
+<p>"Cloning" downloads a remote repository to your local machine, including all its history and branches. After cloning, you have a fully functional local Git repository connected to its remote.</p>
+<h3 id="using-git-clone">Using <code>git clone</code></h3>
+<pre><code class="language-bash">git clone https://github.com/username/repository.git
+</code></pre>
+<pre><code class="language-text">Cloning into 'repository'...
+remote: Enumerating objects: 12, done.
+remote: Counting objects: 100% (12/12), done.
+remote: Compressing objects: 100% (8/8), done.
+Receiving objects: 100% (12/12), done.
+remote: Total 12 (delta 0), reused 0 (delta 0)
+</code></pre>
+<p>By default, Git creates a folder named after the repository (e.g., <code>repository/</code>). To clone into a custom folder:</p>
+<pre><code class="language-bash">git clone https://github.com/username/repository.git my-custom-folder
+</code></pre>
+<h3 id="using-gh-repo-clone">Using <code>gh repo clone</code></h3>
+<p>If you're authenticated with GitHub CLI, you can use <code>gh</code>:</p>
+<pre><code class="language-bash">gh repo clone username/repository
+</code></pre>
+<pre><code class="language-text">- Cloning from https://github.com/username/repository
+Cloning into 'repository'...
+remote: Enumerating objects: 12, done.
+</code></pre>
+<p>The <code>gh</code> command also works for repositories you don't own (if they're public) and for forking workflows.</p>
+<h3 id="https-vs-ssh-urls">HTTPS vs. SSH URLs</h3>
+<p>When you view a repository on GitHub, you can switch between two clone URLs:</p>
+<p><strong>HTTPS:</strong></p>
+<pre><code>https://github.com/username/repository.git
+</code></pre>
+<ul>
+<li><strong>Pros</strong>: Works immediately on any machine, no SSH key setup needed</li>
+<li><strong>Cons</strong>: Requires username/password or personal access token for private repos</li>
+<li><strong>Best for</strong>: Beginners, CI/CD systems (easier authentication)</li>
+</ul>
+<p><strong>SSH:</strong></p>
+<pre><code>git@github.com:username/repository.git
+</code></pre>
+<ul>
+<li><strong>Pros</strong>: No password prompts after SSH key is configured</li>
+<li><strong>Cons</strong>: Requires generating and uploading an SSH key first</li>
+<li><strong>Best for</strong>: Daily development on your own machines</li>
+</ul>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│  On GitHub repository page:                                     │
+│                                                                 │
+│  ┌────────────────────┐  ┌────────────────────┐                │
+│  │ CODE ▼             │  │ SSH                │                │
+│  │                    │  │ git@github.com:    │                │
+│  │ HTTPS   SSH  GitHub CLI │ username/repo.git │                │
+│  └────────────────────┘  └────────────────────┘                │
+│                                                                 │
+│  Click the clipboard icon to copy the URL                       │
+└─────────────────────────────────────────────────────────────────┘
+</code></pre>
+<p>For this tutorial, we use HTTPS URLs for simplicity. See the <strong>Advanced Git</strong> section for SSH key setup.</p>
+<h2 id="readme-files-your-projects-front-door">README Files: Your Project's Front Door</h2>
+<p>The README is the first thing visitors see. A good README answers:</p>
+<ul>
+<li><strong>What</strong> does this project do?</li>
+<li><strong>Why</strong> would someone use it?</li>
+<li><strong>How</strong> do they get started?</li>
+<li><strong>Where</strong> can they get help?</li>
+</ul>
+<h3 id="a-readme-template">A README Template</h3>
+<p>Here's a template you can adapt for any project:</p>
+<pre><code class="language-markdown"># Project Name
+
+A brief description of what this project does and who it's for.
+
+## Features
+
+- Feature 1: Description
+- Feature 2: Description
+- Feature 3: Description
+
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/username/repository.git
+
+# Navigate into the directory
+cd repository
+
+# Install dependencies
+pip install -r requirements.txt
+# or: npm install
+# or: go mod download
+</code></pre>
+<h2 id="usage">Usage</h2>
+<pre><code class="language-bash"># Example command
+python main.py --option value
+</code></pre>
+<h2 id="configuration">Configuration</h2>
+<p>Explain any environment variables or configuration files needed.</p>
+<h2 id="contributing">Contributing</h2>
+<ol>
+<li>Fork the repository</li>
+<li>Create your feature branch (<code>git checkout -b feature/amazing-feature</code>)</li>
+<li>Commit your changes (<code>git commit -m 'Add amazing feature'</code>)</li>
+<li>Push to the branch (<code>git push origin feature/amazing-feature</code>)</li>
+<li>Open a Pull Request</li>
+</ol>
+<h2 id="license">License</h2>
+<p>This project is licensed under the MIT License - see the <a href="LICENSE">LICENSE</a> file for details.</p>
+<h2 id="acknowledgments">Acknowledgments</h2>
+<ul>
+<li>Thanks to contributor 1</li>
+<li>Thanks to contributor 2</li>
+</ul>
+<pre><code>
+### README Best Practices
+
+- **Keep it concise but complete** — cover the essentials without overwhelming
+- **Add badges** — CI/CD status, license, version numbers
+- **Include examples** — show real commands and expected output
+- **Update it** — when features change, update the README too
+
+## LICENSE Files: Legal Protection
+
+Without a license, GitHub's default rules apply: **no one can use your code** in any meaningful way. Adding a license clarifies how others may (or may not) use your work.
+
+### Why Licenses Matter in DevOps
+
+In DevOps, you often:
+- Use open-source tools in your pipelines
+- Share automation scripts publicly
+- Contribute to or maintain open-source projects
+
+Understanding licenses helps you:
+- **Avoid legal issues** — know what you can embed in proprietary code
+- **Choose appropriate tools** — some licenses conflict with each other
+- **Contribute properly** — many projects require a signed Developer Certificate of Origin (DCO)
+
+### Common DevOps-Friendly Licenses
+
+| License | Use Case | Key Terms |
+|---------|----------|-----------|
+| **MIT** | Most popular, extremely permissive | Can do almost anything with the code as long as you include the copyright notice |
+| **Apache-2.0** | Corporate-friendly projects | Like MIT, but also grants explicit patent rights; requires NOTICE file for modifications |
+| **GPL-3.0** | Strong copyleft (share-alike) | If you modify and distribute the code, you must release your version under GPL too |
+| **BSD-3-Clause** | Academic/networking code | Like MIT, but forbids using contributors' names for endorsement without permission |
+
+### Adding a License
+
+When creating a repository on GitHub, you can select a license from the dropdown. After creation, the license file appears at the root of your repository:
+
+```bash
+# View the license file
+cat LICENSE
+</code></pre>
+<pre><code class="language-text">MIT License
+
+Copyright (c) 2024 Your Name
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</code></pre>
+<h3 id="when-to-add-a-license">When to Add a License</h3>
+<ul>
+<li><strong>Public repositories</strong>: Always add a license so people know how to use your code</li>
+<li><strong>Private repositories</strong>: Less critical, but good practice before making public</li>
+<li><strong>Forking</strong>: If you're modifying someone else's code, check the license first</li>
+</ul>
+<h2 id="the-gitignore-file-ignoring-unnecessary-files">The <code>.gitignore</code> File: Ignoring Unnecessary Files</h2>
+<p>Not everything belongs in your repository. Generated files, secrets, and build artifacts should stay local. <code>.gitignore</code> tells Git which files to ignore.</p>
+<h3 id="common-patterns">Common Patterns</h3>
+<pre><code class="language-bash"># Environment variables (never commit secrets!)
+.env
+
+# Dependencies
+node_modules/
+__pycache__/
+venv/
+.env/
+
+# Build artifacts
+dist/
+build/
+*.o
+*.class
+*.pyc
+
+# Logs
+*.log
+logs/
+
+# IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+</code></pre>
+<h3 id="githubs-gitignore-templates">GitHub's <code>.gitignore</code> Templates</h3>
+<p>Instead of writing from scratch, GitHub provides templates for common languages and frameworks:</p>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│  On GitHub when creating a new repository:                      │
+│                                                                 │
+│  Add .gitignore: [ None ▼ ]                                     │
+│                      ├── Python                                  │
+│                      ├── Node                                   │
+│                      ├── Go                                      │
+│                      ├── Ruby                                   │
+│                      ├── Rust                                   │
+│                      └── ...                                     │
+└─────────────────────────────────────────────────────────────────┘
+</code></pre>
+<p>You can also fetch templates manually:</p>
+<pre><code class="language-bash"># View available templates
+gh api repos/github/gitignore/contents | jq '.[].name'
+
+# Download a specific template
+gh api repos/github/gitignore/contents/Python &gt; .gitignore
+</code></pre>
+<h3 id="how-gitignore-works">How <code>.gitignore</code> Works</h3>
+<p>When you add a file to <code>.gitignore</code>, Git pretends it doesn't exist:</p>
+<pre><code class="language-bash"># Create a .gitignore file
+echo &quot;*.log&quot; &gt; .gitignore
+
+# Git status won't show *.log files
+git status
+</code></pre>
+<pre><code class="language-text">On branch main
+Untracked files:
+  .gitignore
+
+nothing else to show (working tree clean)
+</code></pre>
+<p>Even though <code>debug.log</code> exists in the directory, Git ignores it. If a file was already tracked before you added it to <code>.gitignore</code>, you need to unstage it:</p>
+<pre><code class="language-bash"># Remove from tracking but keep the file
+git rm --cached debug.log
+git commit -m &quot;Stop tracking debug.log&quot;
+</code></pre>
+<h2 id="forking-contributing-without-write-access">Forking: Contributing Without Write Access</h2>
+<p>A <strong>fork</strong> is your personal copy of someone else's repository, hosted under your GitHub account. You have full control over your fork — make any changes you want, no permission needed.</p>
+<h3 id="why-fork">Why Fork?</h3>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│           ORIGINAL REPOSITORY                                    │
+│     (owned by another user or organization)                     │
+│                                                                 │
+│   You CANNOT push directly to this repo                         │
+│   You CAN submit Pull Requests                                  │
+└─────────────────────────────────────────────────────────────────┘
+                            │
+                            │ Fork (creates copy under YOUR account)
+                            ▼
+┌─────────────────────────────────────────────────────────────────┐
+│           YOUR FORK                                             │
+│   (your GitHub account / your-username/repository)              │
+│                                                                 │
+│   You HAVE full control — push, branch, delete freely           │
+└─────────────────────────────────────────────────────────────────┘
+</code></pre>
+<p>Forks are the foundation of GitHub's contribution model:</p>
+<ol>
+<li><strong>Open-source projects</strong> rarely give direct commit access to strangers</li>
+<li>Fork the project → make changes → submit a Pull Request</li>
+<li>The maintainer reviews your PR and decides whether to merge</li>
+</ol>
+<h3 id="option-1-fork-via-github-web-interface">Option 1: Fork via GitHub Web Interface</h3>
+<ol>
+<li>Navigate to the repository you want to fork</li>
+<li>Click the <strong>Fork</strong> button in the top-right corner</li>
+<li>Select your account as the owner</li>
+<li>GitHub creates a copy under your account</li>
+</ol>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│  Original Repository Page:                                      │
+│                                                                 │
+│  [ Watch ▼ ]  [ Fork ▲ ]  [ Code ▼ ]                           │
+│                                  ↑                               │
+│                        Click &quot;Fork&quot; here                        │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │ Create a new fork                                       │   │
+│  │                                                         │   │
+│  │ Where should we fork this repository?                  │   │
+│  │                                                         │   │
+│  │ [ your-username ▼ ]                                     │   │
+│  │                                                         │   │
+│  │          [ Create fork ]                                │   │
+│  └─────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────┘
+</code></pre>
+<h3 id="option-2-fork-via-github-cli">Option 2: Fork via GitHub CLI</h3>
+<pre><code class="language-bash"># Fork a repository
+gh repo fork owner/repository
+</code></pre>
+<pre><code class="language-text">- Forking owner/repository...
+  ✓ Created fork as your-username/repository
+  ✓ Cloned repository
+</code></pre>
+<p>The <code>gh repo fork</code> command both forks on GitHub AND clones your fork locally. You're immediately ready to start making changes.</p>
+<h2 id="syncing-a-fork-keeping-your-fork-up-to-date">Syncing a Fork: Keeping Your Fork Up-to-Date</h2>
+<p>The original repository (the "upstream") continues to evolve after you fork. To keep your fork in sync, you need to add the original as a remote and pull from it.</p>
+<h3 id="the-upstream-workflow">The Upstream Workflow</h3>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│  UPSTREAM (original repo)                                       │
+│  owner/original-repo                                            │
+│                                                                 │
+│  ── commit A ── commit B ── commit C ── commit D (newer)        │
+└─────────────────────────────────────────────────────────────────┘
+                            │
+              git remote add upstream &lt;original-url&gt;
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────────┐
+│  YOUR LOCAL REPOSITORY                                          │
+│                                                                 │
+│  origin  ── commit A ── commit B ── commit E (your changes)     │
+│  upstream ── commit A ── commit B ── commit C ── commit D       │
+│                                                                 │
+│  git fetch upstream → git merge upstream/main → git push        │
+└─────────────────────────────────────────────────────────────────┘
+</code></pre>
+<h3 id="step-1-add-the-upstream-remote">Step 1: Add the Upstream Remote</h3>
+<pre><code class="language-bash"># Navigate to your forked repository
+cd your-fork
+
+# Add the original repository as 'upstream'
+git remote add upstream https://github.com/owner/original-repository.git
+
+# Verify the remotes
+git remote -v
+</code></pre>
+<pre><code class="language-text">origin    https://github.com/your-username/repository.git (fetch)
+origin    https://github.com/your-username/repository.git (push)
+upstream  https://github.com/owner/original-repository.git (fetch)
+upstream  https://github.com/owner/original-repository.git (push)
+</code></pre>
+<h3 id="step-2-fetch-and-merge-upstream-changes">Step 2: Fetch and Merge Upstream Changes</h3>
+<pre><code class="language-bash"># Download commits from upstream
+git fetch upstream
+</code></pre>
+<pre><code class="language-text">remote: Enumerating objects: 8, done.
+remote: Counting objects: 100% (8/8), done.
+remote: Compressing objects: 100% (5/5), done.
+Receiving objects: 100% (5/5), done.
+</code></pre>
+<pre><code class="language-bash"># Switch to your main branch
+git checkout main
+
+# Merge upstream changes into your local main
+git merge upstream/main
+</code></pre>
+<pre><code class="language-text">Merge made by the 'ort' strategy.
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+</code></pre>
+<h3 id="step-3-push-to-your-fork">Step 3: Push to Your Fork</h3>
+<pre><code class="language-bash"># Push the synced changes to your fork on GitHub
+git push origin main
+</code></pre>
+<pre><code class="language-text">Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 200 bytes | 200.00 KiB/s, done.
+To https://github.com/your-username/repository.git
+   5a2c1d3..e7f8g9h  main -&gt; main
+</code></pre>
+<h3 id="pull-vs-merge-for-syncing">Pull vs. Merge for Syncing</h3>
+<p>You can also use <code>git pull upstream main</code> instead of fetch + merge:</p>
+<pre><code class="language-bash">git pull upstream main
+</code></pre>
+<pre><code class="language-text">From https://github.com/owner/original-repository
+ * branch            main       -&gt; FETCH_HEAD
+Merge made by the 'ort' strategy.
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+</code></pre>
+<p>Both approaches work. The fetch + merge pattern gives you more visibility into what's changing.</p>
+<h2 id="the-complete-fork-to-pr-workflow">The Complete Fork-to-PR Workflow</h2>
+<p>Here's the full cycle for contributing to an open-source project:</p>
+<pre><code class="language-bash"># 1. Fork on GitHub (via web or gh repo fork)
+
+# 2. Clone your fork
+git clone https://github.com/your-username/repository.git
+cd repository
+
+# 3. Add upstream remote (so you can sync later)
+git remote add upstream https://github.com/owner/original-repository.git
+
+# 4. Create a feature branch (never work directly on main)
+git checkout -b feature/my-contribution
+
+# 5. Make your changes
+# (edit files, add tests, etc.)
+
+# 6. Commit your changes
+git add README.md  # replace with your actual file names
+git commit -m &quot;Add my contribution&quot;
+
+# 7. Push to YOUR fork
+git push origin feature/my-contribution
+
+# 8. Go to GitHub and open a Pull Request
+# Click &quot;Compare &amp; pull request&quot; on your fork's page
+
+# 9. After PR is merged, sync your fork:
+git checkout main
+git pull upstream main
+git push origin main
+</code></pre>
+<p>You'll learn more about Pull Requests in the next section, but the key point is: <strong>always create a branch for your changes</strong>. This keeps your <code>main</code> clean and makes it easy to submit multiple contributions.</p>
+<hr />
+<h2 id="exercise">Exercise</h2>
+<p>In this exercise, you'll create a GitHub repository from scratch, set it up with a README and <code>.gitignore</code>, then fork an existing public repository and sync it.</p>
+<h3 id="scenario">Scenario</h3>
+<p>You're starting a new DevOps automation project. You've decided to host it on GitHub. After making your initial commits, you find a public repository with useful scripts that you want to incorporate. You'll fork it, explore the code, and practice the sync workflow.</p>
+<h3 id="tasks">Tasks</h3>
+<p><strong>Part 1: Create Your Own Repository</strong></p>
+<ol>
+<li>
+<p>Create a new public repository on GitHub called <code>my-devops-scripts</code> with a README, Python <code>.gitignore</code>, and MIT license.</p>
+</li>
+<li>
+<p>Clone the repository to your local machine.</p>
+</li>
+<li>
+<p>Replace the default README with a custom one that includes:</p>
+</li>
+<li>Project title: "My DevOps Scripts"</li>
+<li>Description: "A collection of automation scripts for CI/CD pipelines"</li>
+<li>
+<p>Installation section with <code>pip install -r requirements.txt</code></p>
+</li>
+<li>
+<p>Create a <code>.gitignore</code> file (if not created) with entries for <code>*.log</code>, <code>node_modules/</code>, and <code>.env</code>.</p>
+</li>
+<li>
+<p>Commit and push your changes.</p>
+</li>
+<li>
+<p>Verify on GitHub that your README and <code>.gitignore</code> appear correctly.</p>
+</li>
+</ol>
+<p><strong>Part 2: Fork and Sync</strong></p>
+<ol>
+<li>
+<p>Fork the repository: <code>https://github.com/github/gitignore</code> (this is GitHub's official collection of <code>.gitignore</code> templates).</p>
+</li>
+<li>
+<p>Clone your fork locally.</p>
+</li>
+<li>
+<p>Add the original repository as <code>upstream</code>.</p>
+</li>
+<li>
+<p>In the upstream repo, check what branches exist and note one that looks interesting (e.g., <code>Python</code> or <code>Node</code>).</p>
+</li>
+<li>
+<p>Fetch and merge changes from <code>upstream/main</code> into your local <code>main</code>.</p>
+</li>
+<li>
+<p>Push the merged changes to your fork.</p>
+</li>
+<li>
+<p>Verify on GitHub that your fork shows the latest commits from upstream.</p>
+</li>
+</ol>
+<h3 id="success-criteria">Success Criteria</h3>
+<ul>
+<li>Your <code>my-devops-scripts</code> repository has a customized README with the specified sections</li>
+<li>Your <code>.gitignore</code> contains <code>*.log</code>, <code>node_modules/</code>, and <code>.env</code></li>
+<li><code>git log</code> on your fork shows commits from upstream after syncing</li>
+<li><code>git remote -v</code> shows both <code>origin</code> and <code>upstream</code> remotes correctly</li>
+</ul>
+<hr />
+<h2 id="solution">Solution</h2>
+<h3 id="part-1-create-your-own-repository">Part 1: Create Your Own Repository</h3>
+<pre><code class="language-bash"># Using GitHub CLI to create the repository
+gh repo create my-devops-scripts \
+  --public \
+  --description &quot;A collection of automation scripts for CI/CD pipelines&quot; \
+  --gitignore-template Python \
+  --license MIT \
+  --clone
+</code></pre>
+<pre><code class="language-text">- Creating repository username/my-devops-scripts on GitHub...
+  ✓ Created repository username/my-devops-scripts
+  ✓ Cloned repository
+  ✓ Initialized git repository
+</code></pre>
+<pre><code class="language-bash"># Navigate into the repo
+cd my-devops-scripts
+
+# Check what was created
+ls -la
+</code></pre>
+<pre><code class="language-text">.git
+.gitignore
+LICENSE
+README.md
+</code></pre>
+<pre><code class="language-bash"># Replace the default README with a custom one
+cat &gt; README.md &lt;&lt; 'EOF'
+# My DevOps Scripts
+
+A collection of automation scripts for CI/CD pipelines.
+
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/username/my-devops-scripts.git
+
+# Install dependencies
+pip install -r requirements.txt
+</code></pre>
+<h2 id="usage_1">Usage</h2>
+<p>Run any script from the <code>scripts/</code> directory:</p>
+<pre><code class="language-bash">python scripts/deploy.py --env production
+</code></pre>
+<h2 id="contributing_1">Contributing</h2>
+<p>Pull requests are welcome. For major changes, please open an issue first.<br />
+EOF</p>
+<pre><code>
+```bash
+# Create .gitignore with specific patterns (or verify/edit existing)
+cat &gt;&gt; .gitignore &lt;&lt; 'EOF'
+
+# DevOps specific
+*.log
+node_modules/
+.env
+.env.*
+</code></pre>
+<pre><code class="language-bash"># Check git status
+git status
+</code></pre>
+<pre><code class="language-text">On branch main
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+        modified:   README.md
+
+Untracked files:
+  .gitignore
+</code></pre>
+<pre><code class="language-bash"># Commit and push
+git add README.md .gitignore
+git commit -m &quot;Customize README and add DevOps .gitignore patterns&quot;
+git push origin main
+</code></pre>
+<pre><code class="language-text">[main abc1234] Customize README and add DevOps .gitignore patterns
+ 2 files changed, 24 insertions(+), 3 deletions(-)
+To https://github.com/username/my-devops-scripts.git
+   def5678..abc1234  main -&gt; main
+</code></pre>
+<h3 id="part-2-fork-and-sync">Part 2: Fork and Sync</h3>
+<pre><code class="language-bash"># Fork the official gitignore repository
+gh repo fork github/gitignore
+</code></pre>
+<pre><code class="language-text">- Forking github/gitignore...
+  ✓ Created fork as username/gitignore
+  ✓ Cloned repository
+</code></pre>
+<pre><code class="language-bash"># Navigate into the fork
+cd gitignore
+
+# Verify remotes
+git remote -v
+</code></pre>
+<pre><code class="language-text">origin  https://github.com/username/gitignore.git (fetch)
+origin  https://github.com/username/gitignore.git (push)
+</code></pre>
+<pre><code class="language-bash"># Add the original as upstream
+git remote add upstream https://github.com/github/gitignore.git
+
+# Verify both remotes
+git remote -v
+</code></pre>
+<pre><code class="language-text">origin    https://github.com/username/gitignore.git (fetch)
+origin    https://github.com/username/gitignore.git (push)
+upstream  https://github.com/github/gitignore.git (fetch)
+upstream  https://github.com/github/gitignore.git (push)
+</code></pre>
+<pre><code class="language-bash"># View available branches in upstream
+git fetch upstream
+git branch -r
+</code></pre>
+<pre><code class="language-text">  upstream/main
+  upstream/Python
+  upstream/Node
+  upstream/Terraform
+  upstream/Go
+</code></pre>
+<pre><code class="language-bash"># Check a sample of what's in the Python template
+git show upstream/Python:.gitignore | head -20
+</code></pre>
+<pre><code class="language-text"># Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+...
+</code></pre>
+<pre><code class="language-bash"># Sync upstream/main to your fork's main
+git checkout main
+git pull upstream main
+</code></pre>
+<pre><code class="language-text">From https://github.com/github/gitignore
+ * branch            main       -&gt; FETCH_HEAD
+Merge made by the 'ort' strategy.
+ .gitignore | 4 ++-
+ README.md  | 6 +++-
+ ...
+</code></pre>
+<pre><code class="language-bash"># Push the synced changes to your fork
+git push origin main
+</code></pre>
+<pre><code class="language-text">Enumerating objects: 15, done.
+Counting objects: 100% (15/15), done.
+Writing objects: 100% (15/15), 350 bytes | 350.00 KiB/s, done.
+To https://github.com/username/gitignore.git
+   5a2c1d3..e7f8g9h  main -&gt; main
+</code></pre>
+<pre><code class="language-bash"># Verify the sync worked
+git log --oneline origin/main | head -10
+</code></pre>
+<pre><code class="language-text">e7f8g9h Merge branch 'upstream/main'
+a1b2c3d Update README with new contributors
+...
+</code></pre>
+<p>You now have:<br />
+- Your own <code>my-devops-scripts</code> repository with a proper README and <code>.gitignore</code><br />
+- A forked copy of <code>github/gitignore</code> with the upstream remote configured<br />
+- Practiced the sync workflow that you'll use for every open-source contribution</p>
+<hr />
+<h2 id="key-takeaways">Key Takeaways</h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Command</th>
+<th>When to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create repo (CLI)</td>
+<td><code>gh repo create &lt;name&gt; --public --gitignore-template Python --license MIT</code></td>
+<td>When you prefer terminal workflow</td>
+</tr>
+<tr>
+<td>Clone repo</td>
+<td><code>git clone &lt;url&gt;</code> or <code>gh repo clone owner/repo</code></td>
+<td>When starting work on a new project</td>
+</tr>
+<tr>
+<td>Fork a repo</td>
+<td><code>gh repo fork owner/repo</code></td>
+<td>When you want to contribute without write access</td>
+</tr>
+<tr>
+<td>Add upstream</td>
+<td><code>git remote add upstream &lt;original-url&gt;</code></td>
+<td>When setting up fork sync</td>
+</tr>
+<tr>
+<td>Sync fork</td>
+<td><code>git fetch upstream &amp;&amp; git merge upstream/main &amp;&amp; git push origin main</code></td>
+<td>When keeping your fork up-to-date</td>
+</tr>
+<tr>
+<td>HTTPS vs SSH</td>
+<td>—</td>
+<td>HTTPS for simplicity; SSH for passwordless daily use</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Remember</strong>: Forks are your personal copies of someone else's repository. Always add the original as <code>upstream</code> so you can sync changes. Never commit secrets to repositories — use <code>.gitignore</code> and environment variables.</p>
+<hr />
+<p><a href="07-remotes.html">← Previous: Remotes</a> | <a href="09-pull-requests-and-issues.html">Next: Pull Requests and Issues →</a> | <a href="../index.html">← Back to Index</a></p>
+
+      <div class="lesson-actions">
+        <button class="btn-mark-complete" id="btn-mark-complete" data-lesson="8">
+          <span class="btn-icon">✓</span> Mark Complete
+        </button>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Previous and next lessons">
+        <a href="07-remotes.html" class="lesson-nav-prev">
+          <span class="nav-label">← Previous</span>
+          <span class="nav-title">Remotes</span>
+        </a>
+
+        <a href="09-pull-requests-and-issues.html" class="lesson-nav-next">
+          <span class="nav-label">Next →</span>
+          <span class="nav-title">Pull Requests and Issues</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+</article>
+      </main>
+
+      <footer class="site-footer">
+        <p>Built with ❤️ for DevOps learners</p>
+        <p class="footer-small">Git Kimchi — A free Git &amp; GitHub course</p>
+      </footer>
+    </div>
+  </div>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script src="../static/js/app.js"></script>
+</body>
+</html>

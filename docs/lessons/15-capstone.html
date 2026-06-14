@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capstone Mini-Project — Git Kimchi</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body data-page="lesson">
+  <div class="site-wrapper">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-brand">
+          <span class="brand-icon">🌶️</span>
+          <span class="brand-text">Git Kimchi</span>
+        </a>
+        <button class="sidebar-close" id="sidebar-close" aria-label="Close navigation">×</button>
+      </div>
+      <nav class="sidebar-nav" aria-label="Lessons">
+        <div class="nav-section">
+          <span class="nav-section-title">Core Git</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="01-getting-started.html" class="nav-link" data-lesson="1">
+                <span class="nav-num">1</span>
+                <span class="nav-title">Getting Started with Git</span>
+                <span class="nav-status" data-status-lesson="1"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="02-staging-and-commits.html" class="nav-link" data-lesson="2">
+                <span class="nav-num">2</span>
+                <span class="nav-title">Staging and Commits</span>
+                <span class="nav-status" data-status-lesson="2"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="03-history-and-diff.html" class="nav-link" data-lesson="3">
+                <span class="nav-num">3</span>
+                <span class="nav-title">History and Diff</span>
+                <span class="nav-status" data-status-lesson="3"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="04-undoing-changes.html" class="nav-link" data-lesson="4">
+                <span class="nav-num">4</span>
+                <span class="nav-title">Undoing Changes</span>
+                <span class="nav-status" data-status-lesson="4"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Intermediate</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="05-branching.html" class="nav-link" data-lesson="5">
+                <span class="nav-num">5</span>
+                <span class="nav-title">Branching</span>
+                <span class="nav-status" data-status-lesson="5"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="06-merging.html" class="nav-link" data-lesson="6">
+                <span class="nav-num">6</span>
+                <span class="nav-title">Merging</span>
+                <span class="nav-status" data-status-lesson="6"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="07-remotes.html" class="nav-link" data-lesson="7">
+                <span class="nav-num">7</span>
+                <span class="nav-title">Remotes</span>
+                <span class="nav-status" data-status-lesson="7"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="08-github-repos-and-forks.html" class="nav-link" data-lesson="8">
+                <span class="nav-num">8</span>
+                <span class="nav-title">GitHub Repositories and Forks</span>
+                <span class="nav-status" data-status-lesson="8"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="09-pull-requests-and-issues.html" class="nav-link" data-lesson="9">
+                <span class="nav-num">9</span>
+                <span class="nav-title">Pull Requests and Issues</span>
+                <span class="nav-status" data-status-lesson="9"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Advanced / DevOps</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="10-code-review.html" class="nav-link" data-lesson="10">
+                <span class="nav-num">10</span>
+                <span class="nav-title">Code Review</span>
+                <span class="nav-status" data-status-lesson="10"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="11-branching-strategies.html" class="nav-link" data-lesson="11">
+                <span class="nav-num">11</span>
+                <span class="nav-title">Branching Strategies</span>
+                <span class="nav-status" data-status-lesson="11"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="12-github-pages.html" class="nav-link" data-lesson="12">
+                <span class="nav-num">12</span>
+                <span class="nav-title">GitHub Pages</span>
+                <span class="nav-status" data-status-lesson="12"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="13-git-hooks.html" class="nav-link" data-lesson="13">
+                <span class="nav-num">13</span>
+                <span class="nav-title">Git Hooks</span>
+                <span class="nav-status" data-status-lesson="13"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="14-self-hosted-git.html" class="nav-link" data-lesson="14">
+                <span class="nav-num">14</span>
+                <span class="nav-title">Self-Hosted Git</span>
+                <span class="nav-status" data-status-lesson="14"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Capstone &amp; Reference</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="15-capstone.html" class="nav-link" data-lesson="15">
+                <span class="nav-num">15</span>
+                <span class="nav-title">Capstone Mini-Project</span>
+                <span class="nav-status" data-status-lesson="15"></span>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="../solutions.html" class="nav-link" data-lesson="solutions">
+                <span class="nav-num">💡</span>
+                <span class="nav-title">Solutions</span>
+                <span class="nav-status" data-status-lesson="solutions"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="main-area">
+      <header class="site-header">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="header-title">
+          <a href="../index.html">Git Kimchi</a>
+        </div>
+        <div class="header-progress" id="header-progress" style="display:none;">
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+          </div>
+          <span class="progress-text" id="progress-text">0 / 15</span>
+        </div>
+      </header>
+
+      <main class="content-wrapper">
+<article class="lesson">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">Capstone Mini-Project</span>
+  </nav>
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="lesson-number">Lesson 15</span>
+      <span class="lesson-readtime">19 min read</span>
+    </div>
+    <h1 class="lesson-title">Capstone Mini-Project</h1>
+  </header>
+
+  <div class="lesson-body-wrapper">
+    <div class="lesson-toc" id="lesson-toc" aria-label="Table of contents">
+      <h2>On this page</h2>
+      <div class="toc">
+<ul>
+<li><a href="#capstone-mini-project">Capstone Mini-Project</a><ul>
+<li><a href="#scenario">Scenario</a></li>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#project-requirements">Project Requirements</a><ul>
+<li><a href="#task-1-create-the-github-repository">Task 1 — Create the GitHub Repository</a></li>
+<li><a href="#task-2-configure-git-identity">Task 2 — Configure Git Identity</a></li>
+<li><a href="#task-3-create-the-initial-commit">Task 3 — Create the Initial Commit</a></li>
+<li><a href="#task-4-open-an-issue">Task 4 — Open an Issue</a></li>
+<li><a href="#task-5-create-a-feature-branch">Task 5 — Create a Feature Branch</a></li>
+<li><a href="#task-6-make-multiple-commits-on-the-feature-branch">Task 6 — Make Multiple Commits on the Feature Branch</a></li>
+<li><a href="#task-7-push-the-feature-branch-and-open-a-pull-request">Task 7 — Push the Feature Branch and Open a Pull Request</a></li>
+<li><a href="#task-8-simulate-code-review">Task 8 — Simulate Code Review</a></li>
+<li><a href="#task-9-merge-the-pull-request">Task 9 — Merge the Pull Request</a></li>
+<li><a href="#task-10-set-up-github-pages">Task 10 — Set Up GitHub Pages</a></li>
+<li><a href="#task-11-set-up-a-pre-commit-hook">Task 11 — Set Up a Pre-Commit Hook</a></li>
+<li><a href="#task-12-create-a-bug-fix-branch-with-a-merge-conflict">Task 12 — Create a Bug-Fix Branch with a Merge Conflict</a></li>
+<li><a href="#task-13-final-verification">Task 13 — Final Verification</a></li>
+</ul>
+</li>
+<li><a href="#evaluation-criteria">Evaluation Criteria</a></li>
+<li><a href="#full-solution">Full Solution</a><ul>
+<li><a href="#task-1-create-the-github-repository_1">Task 1 — Create the GitHub Repository</a></li>
+<li><a href="#task-2-configure-git-identity_1">Task 2 — Configure Git Identity</a></li>
+<li><a href="#task-3-create-the-initial-commit_1">Task 3 — Create the Initial Commit</a></li>
+<li><a href="#task-4-open-an-issue_1">Task 4 — Open an Issue</a></li>
+<li><a href="#task-5-create-a-feature-branch_1">Task 5 — Create a Feature Branch</a></li>
+<li><a href="#task-6-make-multiple-commits-on-the-feature-branch_1">Task 6 — Make Multiple Commits on the Feature Branch</a></li>
+<li><a href="#task-7-push-the-feature-branch-and-open-a-pull-request_1">Task 7 — Push the Feature Branch and Open a Pull Request</a></li>
+<li><a href="#task-8-simulate-code-review_1">Task 8 — Simulate Code Review</a></li>
+<li><a href="#task-9-merge-the-pull-request_1">Task 9 — Merge the Pull Request</a></li>
+<li><a href="#task-10-set-up-github-pages_1">Task 10 — Set Up GitHub Pages</a></li>
+<li><a href="#task-11-set-up-a-pre-commit-hook_1">Task 11 — Set Up a Pre-Commit Hook</a></li>
+<li><a href="#task-12-create-a-bug-fix-branch-with-a-merge-conflict_1">Task 12 — Create a Bug-Fix Branch with a Merge Conflict</a></li>
+<li><a href="#task-13-final-verification_1">Task 13 — Final Verification</a></li>
+</ul>
+</li>
+<li><a href="#congratulations">Congratulations</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+    </div>
+
+    <div class="lesson-body">
+      <h1 id="capstone-mini-project">Capstone Mini-Project</h1>
+<p><a href="14-self-hosted-git.html">← Previous: Self-Hosted Git</a> · <a href="../index.html">← Back to Index</a></p>
+<hr />
+<p>This is the final project in the Git and GitHub Documentation guide. Everything you have learned in the preceding 14 sections comes together here. You will simulate a real DevOps team workflow from scratch — creating a repository, branching strategy, code review, issue tracking, GitHub Pages, a pre-commit hook, and a merge conflict resolution.</p>
+<p>No new concepts are introduced. Every task in this project uses skills you have already practiced:</p>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Skill Used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01 — Getting Started</td>
+<td><code>git init</code>, <code>git config</code>, first commit</td>
+</tr>
+<tr>
+<td>02 — Staging and Commits</td>
+<td><code>git add</code>, <code>git commit</code>, meaningful messages</td>
+</tr>
+<tr>
+<td>03 — History and Diff</td>
+<td><code>git log</code>, <code>git diff</code></td>
+</tr>
+<tr>
+<td>04 — Undoing Changes</td>
+<td><code>git restore</code>, <code>git reset</code></td>
+</tr>
+<tr>
+<td>05 — Branching</td>
+<td><code>git branch</code>, <code>git switch</code>, branch per feature</td>
+</tr>
+<tr>
+<td>06 — Merging</td>
+<td><code>git merge</code>, fast-forward vs true merge</td>
+</tr>
+<tr>
+<td>07 — Remotes</td>
+<td><code>git remote</code>, <code>git push</code>, <code>git pull</code></td>
+</tr>
+<tr>
+<td>08 — GitHub Repos and Forks</td>
+<td>GitHub web UI, SSH/HTTP clone URLs</td>
+</tr>
+<tr>
+<td>09 — Pull Requests and Issues</td>
+<td><code>gh pr create</code>, PR-to-issue linking</td>
+</tr>
+<tr>
+<td>10 — Code Review</td>
+<td>PR approval, reviewing and merging</td>
+</tr>
+<tr>
+<td>11 — Branching Strategies</td>
+<td>Feature branches, clean <code>main</code> history</td>
+</tr>
+<tr>
+<td>12 — GitHub Pages</td>
+<td>Static site hosting from <code>main</code> branch</td>
+</tr>
+<tr>
+<td>13 — Git Hooks</td>
+<td>Pre-commit hook with <code>shellcheck</code></td>
+</tr>
+<tr>
+<td>14 — Self-Hosted Git</td>
+<td>Docker-based Gitea setup</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="scenario">Scenario</h2>
+<p>You are a DevOps engineer joining a fictional team called <strong>InfraCore</strong>. The team needs a shared repository for infrastructure automation scripts. Your mission is to set up the repository and go through the full development lifecycle — from a blank GitHub repo to a live GitHub Pages site and a functioning pre-commit hook.</p>
+<p>You will wear three hats:</p>
+<ul>
+<li><strong>Alice</strong> — sets up the repository and creates the initial structure</li>
+<li><strong>Bob</strong> — contributes a feature branch (you, playing Bob)</li>
+<li><strong>Carol</strong> — contributes a bug-fix branch with a merge conflict (you, playing Carol)</li>
+</ul>
+<p>By the end, the repository will contain:</p>
+<ul>
+<li>A meaningful commit history across multiple branches</li>
+<li>A merged feature branch with a linked Pull Request</li>
+<li>A resolved merge conflict on a bug-fix branch</li>
+<li>A live GitHub Pages site</li>
+<li>A pre-commit hook that lints shell scripts</li>
+<li>An issue tracker entry linked to the PR</li>
+</ul>
+<hr />
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before starting, make sure you have:</p>
+<ul>
+<li><strong>Git 2.38 or later</strong> installed (<code>git --version</code>)</li>
+<li><strong>A GitHub account</strong> (free tier is fine) at <a href="https://github.com">github.com</a></li>
+<li><strong><code>gh</code> CLI</strong> installed and authenticated (<code>gh auth status</code>)</li>
+<li><strong><code>shellcheck</code></strong> installed (<code>shellcheck --version</code>) — used by the pre-commit hook</li>
+<li>A web browser to interact with GitHub's web UI</li>
+</ul>
+<p>All work is done from the terminal. No special infrastructure is required.</p>
+<hr />
+<h2 id="project-requirements">Project Requirements</h2>
+<p>Complete all of the following tasks in order. Each task builds on the previous one.</p>
+<h3 id="task-1-create-the-github-repository">Task 1 — Create the GitHub Repository</h3>
+<p>Create a new <strong>public</strong> GitHub repository named <code>infracore-scripts</code>.</p>
+<ul>
+<li>Add a <code>README.md</code> with a brief project description</li>
+<li>Add a <code>.gitignore</code> for <strong>Bash</strong> (GitHub's template)</li>
+<li>Clone it to your local machine</li>
+<li>Configure Git identity (use a name and email — they can be fictional)</li>
+</ul>
+<p><strong>Deliverable:</strong> A clean, cloned repository on your local machine with the GitHub remote set as <code>origin</code>.</p>
+<hr />
+<h3 id="task-2-configure-git-identity">Task 2 — Configure Git Identity</h3>
+<p>Set your name and email in Git's global config. Then set the same identity specifically for this repository (local config) using the name "Alice <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#108;&#105;&#99;&#101;&#64;&#105;&#110;&#102;&#114;&#97;&#99;&#111;&#114;&#101;&#46;&#100;&#101;&#118;">&#97;&#108;&#105;&#99;&#101;&#64;&#105;&#110;&#102;&#114;&#97;&#99;&#111;&#114;&#101;&#46;&#100;&#101;&#118;</a>".</p>
+<p><strong>Deliverable:</strong> <code>git config --local user.email</code> in the repo returns <code>alice@infracore.dev</code>.</p>
+<hr />
+<h3 id="task-3-create-the-initial-commit">Task 3 — Create the Initial Commit</h3>
+<p>Create a <code>deploy.sh</code> shell script with the following content. Make it executable. Commit it with a meaningful message. Push to <code>origin main</code>.</p>
+<pre><code class="language-bash">#!/usr/bin/env bash
+# deploy.sh — Infrastructure deployment script for InfraCore
+# Usage: ./deploy.sh &lt;environment&gt;
+
+set -euo pipefail
+
+ENVIRONMENT=&quot;${1:-staging}&quot;
+echo &quot;Deploying to ${ENVIRONMENT} environment...&quot;
+
+case &quot;$ENVIRONMENT&quot; in
+  staging|production)
+    echo &quot;Deployment target validated: ${ENVIRONMENT}&quot;
+    ;;
+  *)
+    echo &quot;Error: Unknown environment '${ENVIRONMENT}'&quot; &gt;&amp;2
+    exit 1
+    ;;
+esac
+
+echo &quot;Deployment to ${ENVIRONMENT} complete.&quot;
+</code></pre>
+<p><strong>Deliverable:</strong> <code>deploy.sh</code> is committed, pushed, and visible in the <code>main</code> branch on GitHub.</p>
+<hr />
+<h3 id="task-4-open-an-issue">Task 4 — Open an Issue</h3>
+<p>On GitHub, create an issue titled: <strong>"Add health-check script for all environments"</strong></p>
+<p>In the body, describe the request: a new shell script <code>health-check.sh</code> that pings localhost and reports service status.</p>
+<p>Give the issue a label of your choice (e.g., <code>enhancement</code> or <code>feature</code>).</p>
+<p>Note the <strong>issue number</strong> — you will reference it in Task 5.</p>
+<p><strong>Deliverable:</strong> Issue exists on GitHub with a known number (e.g., #1).</p>
+<hr />
+<h3 id="task-5-create-a-feature-branch">Task 5 — Create a Feature Branch</h3>
+<p>As <strong>Bob</strong>, create a branch called <code>feature/health-check</code> from <code>main</code>. This branch will implement the health-check script.</p>
+<p>Switch to the branch.</p>
+<p><strong>Deliverable:</strong> <code>git branch</code> shows <code>feature/health-check</code> as the current branch.</p>
+<hr />
+<h3 id="task-6-make-multiple-commits-on-the-feature-branch">Task 6 — Make Multiple Commits on the Feature Branch</h3>
+<p>Create the <code>health-check.sh</code> script with the following content:</p>
+<pre><code class="language-bash">#!/usr/bin/env bash
+# health-check.sh — Service health check for InfraCore environments
+# Usage: ./health-check.sh &lt;service-name&gt;
+
+set -euo pipefail
+
+SERVICE=&quot;${1:-web}&quot;
+
+echo &quot;Running health check for service: ${SERVICE}&quot;
+echo &quot;Status: OK (simulated)&quot;
+echo &quot;Uptime: 99.98%&quot;
+echo &quot;Health check complete.&quot;
+</code></pre>
+<p>Make it executable.</p>
+<p>Commit this file with a message that references the issue: <code>"Add health-check script refs #1"</code>.</p>
+<p>Then make a <strong>second commit</strong>: edit <code>deploy.sh</code> to call <code>health-check.sh</code> at the start of the deployment. Update the deploy script commit message to reflect the change.</p>
+<p><strong>Deliverable:</strong> The <code>feature/health-check</code> branch has exactly 3 commits (the initial <code>deploy.sh</code> commit + 2 new ones on this branch).</p>
+<hr />
+<h3 id="task-7-push-the-feature-branch-and-open-a-pull-request">Task 7 — Push the Feature Branch and Open a Pull Request</h3>
+<p>Push <code>feature/health-check</code> to <code>origin</code>.</p>
+<p>Open a Pull Request on GitHub with the title: <strong>"feat: add health-check script"</strong></p>
+<p>In the PR body, write:</p>
+<pre><code>## Description
+Adds a `health-check.sh` script that verifies service availability before deployment.
+
+## Related Issue
+Closes #&lt;your-issue-number&gt;
+</code></pre>
+<p>Set the PR to request a review (you can self-review as Alice).</p>
+<p><strong>Deliverable:</strong> PR exists on GitHub, linked to the issue via the <code>Closes #&lt;number&gt;</code> keyword.</p>
+<hr />
+<h3 id="task-8-simulate-code-review">Task 8 — Simulate Code Review</h3>
+<p>As <strong>Alice</strong>, go to the PR on GitHub and add a review comment on the <code>health-check.sh</code> file — leave a comment such as: <em>"Consider adding a <code>--verbose</code> flag for more detailed output."</em> Then <strong>Approve</strong> the PR.</p>
+<p><strong>Deliverable:</strong> The PR has at least one review comment and is in "Approved" state.</p>
+<hr />
+<h3 id="task-9-merge-the-pull-request">Task 9 — Merge the Pull Request</h3>
+<p>Merge the PR using the <strong>Squash and merge</strong> strategy on GitHub.</p>
+<p>Delete the <code>feature/health-check</code> branch after merging.</p>
+<p><strong>Deliverable:</strong> The PR is merged. The <code>feature/health-check</code> branch no longer exists locally or on <code>origin</code>. The <code>main</code> branch contains the squashed commit.</p>
+<hr />
+<h3 id="task-10-set-up-github-pages">Task 10 — Set Up GitHub Pages</h3>
+<p>Enable GitHub Pages in the repository settings:</p>
+<ul>
+<li>Source branch: <code>main</code></li>
+<li>Folder: <code>/ (root)</code></li>
+</ul>
+<p>Save the settings and wait 1–2 minutes for the site to build.</p>
+<p>Find the published URL (it will be <code>https://&lt;yourusername&gt;.github.io/infracore-scripts/</code>).</p>
+<p><strong>Deliverable:</strong> GitHub Pages site is live at the expected URL.</p>
+<hr />
+<h3 id="task-11-set-up-a-pre-commit-hook">Task 11 — Set Up a Pre-Commit Hook</h3>
+<p>In the local repository (on <code>main</code>), create a pre-commit hook at <code>.git/hooks/pre-commit</code> that runs <code>shellcheck</code> on any <code>.sh</code> file being committed. The hook should <strong>fail</strong> (exit non-zero) if <code>shellcheck</code> finds any errors or warnings.</p>
+<p>Use this content:</p>
+<pre><code class="language-bash">#!/usr/bin/env bash
+# Pre-commit hook: run shellcheck on all .sh files being committed
+
+set -euo pipefail
+
+echo &quot;Running shellcheck on staged shell scripts...&quot;
+
+STAGED_SH_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '\.sh$')
+
+if [ -z &quot;$STAGED_SH_FILES&quot; ]; then
+  echo &quot;No shell scripts staged — skipping shellcheck.&quot;
+  exit 0
+fi
+
+for FILE in $STAGED_SH_FILES; do
+  echo &quot;Checking: $FILE&quot;
+  shellcheck --severity=error &quot;$FILE&quot; || {
+    echo &quot;shellcheck failed for $FILE — commit aborted.&quot; &gt;&amp;2
+    exit 1
+  }
+done
+
+echo &quot;shellcheck passed for all staged scripts.&quot;
+exit 0
+</code></pre>
+<p>Make the hook executable.</p>
+<p>Register it with Git:</p>
+<pre><code class="language-bash">git config --local core.hooksPath .git/hooks
+</code></pre>
+<p>Test the hook by staging <code>deploy.sh</code> and running <code>git commit</code>. The commit should succeed (deploy.sh passes shellcheck).</p>
+<p>Then add a deliberate error to <code>health-check.sh</code> (e.g., remove the <code>set -euo pipefail</code> line), stage it, and verify the hook <strong>blocks</strong> the commit.</p>
+<p>After testing, restore <code>health-check.sh</code> to its correct state.</p>
+<p><strong>Deliverable:</strong> The pre-commit hook runs automatically, blocks bad shell scripts, and passes for clean scripts.</p>
+<hr />
+<h3 id="task-12-create-a-bug-fix-branch-with-a-merge-conflict">Task 12 — Create a Bug-Fix Branch with a Merge Conflict</h3>
+<p>As <strong>Carol</strong>, create a branch called <code>fix/deploy-output</code> from <code>main</code>.</p>
+<p>On this branch, edit <code>deploy.sh</code> to change the success message:</p>
+<pre><code class="language-bash">echo &quot;Deployment to ${ENVIRONMENT} complete — SUCCESS.&quot;
+</code></pre>
+<p>Commit this change.</p>
+<p>Switch back to <code>main</code> and make a <strong>different</strong> change to the same line in <code>deploy.sh</code>:</p>
+<pre><code class="language-bash">echo &quot;Deployment to ${ENVIRONMENT} finished.&quot;
+</code></pre>
+<p>Commit this change directly on <code>main</code>.</p>
+<p>Now merge <code>fix/deploy-output</code> into <code>main</code>. Git will report a <strong>merge conflict</strong> on the <code>echo</code> line in <code>deploy.sh</code>.</p>
+<p>Resolve the conflict by keeping <strong>both</strong> useful pieces of information:</p>
+<pre><code class="language-bash">echo &quot;Deployment to ${ENVIRONMENT} complete — SUCCESS.&quot;
+</code></pre>
+<p>Stage the resolved file and commit the merge.</p>
+<p><strong>Deliverable:</strong> <code>main</code> has a merge commit that resolves the conflict without losing either change.</p>
+<hr />
+<h3 id="task-13-final-verification">Task 13 — Final Verification</h3>
+<p>Run the following commands and capture output:</p>
+<pre><code class="language-bash"># Show full commit history
+git log --oneline --graph --all
+
+# Verify GitHub Pages URL
+git remote -v
+
+# Verify the pre-commit hook is registered
+git config --local core.hooksPath
+
+# Show all branches (local and remote)
+git branch -a
+
+# Verify deploy.sh has the merged content
+cat deploy.sh | grep &quot;complete&quot;
+</code></pre>
+<p><strong>Deliverable:</strong> The output confirms a clean, multi-branch history with a merged conflict resolution, a live GitHub Pages URL, and a functioning pre-commit hook.</p>
+<hr />
+<h2 id="evaluation-criteria">Evaluation Criteria</h2>
+<p>A mentor reviewing this capstone would check:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Criterion</th>
+<th>How to Verify</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Repository is public on GitHub with a Bash <code>.gitignore</code></td>
+<td>GitHub repo settings</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Git identity is set locally to Alice's email</td>
+<td><code>git config --local user.email</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>deploy.sh</code> exists, is executable, and is on <code>main</code></td>
+<td><code>ls -la deploy.sh &amp;&amp; git log --oneline main</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Issue #1 exists with a meaningful description</td>
+<td>GitHub Issues tab</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>feature/health-check</code> branch has exactly 3 commits</td>
+<td><code>git log --oneline feature/health-check</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td>PR is open, approved, linked to issue via <code>Closes #1</code></td>
+<td>GitHub PR page</td>
+</tr>
+<tr>
+<td>7</td>
+<td>PR is merged via squash-merge; branch deleted</td>
+<td>GitHub PR merged state</td>
+</tr>
+<tr>
+<td>8</td>
+<td>GitHub Pages is live at the expected URL</td>
+<td>Visit the Pages URL</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Pre-commit hook blocks bad shell scripts</td>
+<td>Intentionally break a script and try to commit</td>
+</tr>
+<tr>
+<td>10</td>
+<td><code>fix/deploy-output</code> branch has a conflict resolved with a merge commit</td>
+<td><code>git log --oneline main</code> shows merge commit</td>
+</tr>
+<tr>
+<td>11</td>
+<td>No broken internal links in the repo (exercise only)</td>
+<td><code>grep -r -- '](\./' 00-index.md 09-*.md</code></td>
+</tr>
+</tbody>
+</table>
+<p>If all 11 criteria pass, the capstone is complete.</p>
+<hr />
+<h2 id="full-solution">Full Solution</h2>
+<p>This section walks through every task step-by-step with the exact commands and expected terminal output. If you get stuck at any point, come here first. Only check this solution when you have genuinely spent time trying — struggle is part of the learning process.</p>
+<hr />
+<h3 id="task-1-create-the-github-repository_1">Task 1 — Create the GitHub Repository</h3>
+<p><strong>On GitHub (web UI):</strong></p>
+<ol>
+<li>Sign in to GitHub and click <strong>+ → New repository</strong>.</li>
+<li>Owner: your username. Repository name: <code>infracore-scripts</code>.</li>
+<li>Description: <code>Shared infrastructure automation scripts for InfraCore team</code>.</li>
+<li>Select <strong>Public</strong>.</li>
+<li>☑️ Add a README file</li>
+<li>☑️ Add .gitignore → filter for "Bash" and select it</li>
+<li>Click <strong>Create repository</strong>.</li>
+</ol>
+<p><strong>Clone it locally:</strong></p>
+<pre><code class="language-bash">git clone https://github.com/YOURUSERNAME/infracore-scripts.git
+cd infracore-scripts
+</code></pre>
+<pre><code class="language-text">Cloning into 'infracore-scripts'...
+warning: redirecting to https://github.com/YOURUSERNAME/infracore-scripts.git/
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+</code></pre>
+<hr />
+<h3 id="task-2-configure-git-identity_1">Task 2 — Configure Git Identity</h3>
+<pre><code class="language-bash">git config --global user.name &quot;Your Name&quot;
+git config --global user.email &quot;your.email@example.com&quot;
+git config --global init.defaultBranch main
+
+git config --local user.name &quot;Alice &lt;alice@infracore.dev&gt;&quot;
+git config --local user.email &quot;alice@infracore.dev&quot;
+</code></pre>
+<p>Verify:</p>
+<pre><code class="language-bash">git config --local user.email
+</code></pre>
+<pre><code class="language-text">alice@infracore.dev
+</code></pre>
+<hr />
+<h3 id="task-3-create-the-initial-commit_1">Task 3 — Create the Initial Commit</h3>
+<p><strong>Create the deploy.sh file:</strong></p>
+<pre><code class="language-bash">cat &gt; deploy.sh &lt;&lt; 'EOF'
+#!/usr/bin/env bash
+# deploy.sh — Infrastructure deployment script for InfraCore
+# Usage: ./deploy.sh &lt;environment&gt;
+
+set -euo pipefail
+
+ENVIRONMENT=&quot;${1:-staging}&quot;
+echo &quot;Deploying to ${ENVIRONMENT} environment...&quot;
+
+case &quot;$ENVIRONMENT&quot; in
+  staging|production)
+    echo &quot;Deployment target validated: ${ENVIRONMENT}&quot;
+    ;;
+  *)
+    echo &quot;Error: Unknown environment '${ENVIRONMENT}'&quot; &gt;&amp;2
+    exit 1
+    ;;
+esac
+
+echo &quot;Deployment to ${ENVIRONMENT} complete.&quot;
+EOF
+</code></pre>
+<p><strong>Make it executable and commit:</strong></p>
+<pre><code class="language-bash">chmod +x deploy.sh
+git add deploy.sh
+git commit -m &quot;Add deploy.sh with staging and production support&quot;
+</code></pre>
+<pre><code class="language-text">[main (root-commit) a1b2c3d] Add deploy.sh with staging and production support
+ 1 file changed, 1 insertion(+)
+ create mode 100755 deploy.sh
+</code></pre>
+<p><strong>Push to GitHub:</strong></p>
+<pre><code class="language-bash">git push -u origin main
+</code></pre>
+<pre><code class="language-text">Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 191 bytes, done.
+To https://github.com/YOURUSERNAME/infracore-scripts.git
+ * [new branch]      main -&gt; main
+branch 'main' set up to track 'main'.
+</code></pre>
+<hr />
+<h3 id="task-4-open-an-issue_1">Task 4 — Open an Issue</h3>
+<p>On GitHub, navigate to the repository → <strong>Issues → New issue</strong>.</p>
+<ul>
+<li>Title: <code>Add health-check script for all environments</code></li>
+<li>Body:<br />
+  ```<br />
+  ## Problem<br />
+  We need a health-check script that verifies services are running before deployment proceeds.</li>
+</ul>
+<p>## Proposed Solution<br />
+  Create a <code>health-check.sh</code> script that can be called by <code>deploy.sh</code> to confirm service availability.</p>
+<p>## Additional Context<br />
+  Should support passing a service name as an argument.<br />
+<code>``
+- Labels:</code>enhancement`<br />
+- Click <strong>Submit new issue</strong></p>
+<p>Note the issue number in the URL. The issue URL will look like:<br />
+<code>https://github.com/YOURUSERNAME/infracore-scripts/issues/1</code></p>
+<p>Assume the issue number is <strong>1</strong> for the rest of this solution.</p>
+<hr />
+<h3 id="task-5-create-a-feature-branch_1">Task 5 — Create a Feature Branch</h3>
+<pre><code class="language-bash">git switch -c feature/health-check
+</code></pre>
+<pre><code class="language-text">Switched to a new branch 'feature/health-check'
+</code></pre>
+<hr />
+<h3 id="task-6-make-multiple-commits-on-the-feature-branch_1">Task 6 — Make Multiple Commits on the Feature Branch</h3>
+<p><strong>Commit 1 — Add health-check.sh:</strong></p>
+<pre><code class="language-bash">cat &gt; health-check.sh &lt;&lt; 'EOF'
+#!/usr/bin/env bash
+# health-check.sh — Service health check for InfraCore environments
+# Usage: ./health-check.sh &lt;service-name&gt;
+
+set -euo pipefail
+
+SERVICE=&quot;${1:-web}&quot;
+
+echo &quot;Running health check for service: ${SERVICE}&quot;
+echo &quot;Status: OK (simulated)&quot;
+echo &quot;Uptime: 99.98%&quot;
+echo &quot;Health check complete.&quot;
+EOF
+
+chmod +x health-check.sh
+git add health-check.sh
+git commit -m &quot;Add health-check script refs #1&quot;
+</code></pre>
+<pre><code class="language-text">[feature/health-check 2b3c4d5] Add health-check script refs #1
+ 1 file changed, 1 insertion(+)
+ create mode 100755 health-check.sh
+</code></pre>
+<p><strong>Commit 2 — Update deploy.sh to call health-check.sh:</strong></p>
+<pre><code class="language-bash">cat &gt; deploy.sh &lt;&lt; 'EOF'
+#!/usr/bin/env bash
+# deploy.sh — Infrastructure deployment script for InfraCore
+# Usage: ./deploy.sh &lt;environment&gt;
+
+set -euo pipefail
+
+ENVIRONMENT=&quot;${1:-staging}&quot;
+echo &quot;Deploying to ${ENVIRONMENT} environment...&quot;
+
+# Run health check before deployment
+./health-check.sh web
+
+case &quot;$ENVIRONMENT&quot; in
+  staging|production)
+    echo &quot;Deployment target validated: ${ENVIRONMENT}&quot;
+    ;;
+  *)
+    echo &quot;Error: Unknown environment '${ENVIRONMENT}'&quot; &gt;&amp;2
+    exit 1
+    ;;
+esac
+
+echo &quot;Deployment to ${ENVIRONMENT} complete.&quot;
+EOF
+
+git add deploy.sh
+git commit -m &quot;Invoke health-check.sh before deployment&quot;
+</code></pre>
+<pre><code class="language-text">[feature/health-check 3c4d5e6] Invoke health-check.sh before deployment
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+</code></pre>
+<p><strong>Verify the branch history:</strong></p>
+<pre><code class="language-bash">git log --oneline feature/health-check
+</code></pre>
+<pre><code class="language-text">3c4d5e6 Invoke health-check.sh before deployment
+2b3c4d5 Add health-check script refs #1
+a1b2c3d Add deploy.sh with staging and production support
+</code></pre>
+<hr />
+<h3 id="task-7-push-the-feature-branch-and-open-a-pull-request_1">Task 7 — Push the Feature Branch and Open a Pull Request</h3>
+<pre><code class="language-bash">git push -u origin feature/health-check
+</code></pre>
+<pre><code class="language-text">Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 300 bytes, done.
+To https://github.com/YOURUSERNAME/infracore-scripts.git
+ * [new branch]      feature/health-check -&gt; feature/health-check
+Branch 'feature/health-check' set up to track remote branch 'feature/health-check' from 'origin'.
+</code></pre>
+<p><strong>Open the Pull Request using <code>gh</code>:</strong></p>
+<pre><code class="language-bash">gh pr create \
+  --title &quot;feat: add health-check script&quot; \
+  --body &quot;## Description
+Adds a \`health-check.sh\` script that verifies service availability before deployment.
+
+## Related Issue
+Closes #1&quot; \
+  --reviewer YOURUSERNAME
+</code></pre>
+<pre><code class="language-text">https://github.com/YOURUSERNAME/infracore-scripts/pull/2
+Creating pull request for 'feature/health-check' against 'main' in YOURUSERNAME/infracore-scripts
+</code></pre>
+<hr />
+<h3 id="task-8-simulate-code-review_1">Task 8 — Simulate Code Review</h3>
+<p>On GitHub, navigate to <strong>Pull Requests → PR #2 → Files changed</strong>.</p>
+<p>Click on <code>health-check.sh</code>. Hover over a line number and click the blue <code>+</code> icon to add a comment:</p>
+<blockquote>
+<p><em>"Consider adding a <code>--verbose</code> flag for more detailed output."</em></p>
+</blockquote>
+<p>Click <strong>Add review comment</strong>.</p>
+<p>Then click <strong>Review → Approve</strong>.</p>
+<hr />
+<h3 id="task-9-merge-the-pull-request_1">Task 9 — Merge the Pull Request</h3>
+<p>On GitHub, in the PR page:</p>
+<ol>
+<li>Click <strong>Squash and merge</strong></li>
+<li>Check the commit message (the PR title is pre-filled)</li>
+<li>Click <strong>Confirm squash and merge</strong></li>
+</ol>
+<p>After merging, GitHub will prompt to delete the branch. Click <strong>Delete branch</strong>.</p>
+<p><strong>Verify locally:</strong></p>
+<pre><code class="language-bash">git switch main
+git pull origin main
+git branch -a
+</code></pre>
+<pre><code class="language-text">Switched to branch 'main'
+Your branch is up to date.
+  main
+* main
+  remotes/origin/main
+</code></pre>
+<p>The <code>feature/health-check</code> branch is gone from both local and remote.</p>
+<pre><code class="language-bash">git log --oneline origin/main
+</code></pre>
+<pre><code class="language-text">4d5e6f7 feat: add health-check script    # squashed commit
+a1b2c3d Add deploy.sh with staging and production support
+</code></pre>
+<hr />
+<h3 id="task-10-set-up-github-pages_1">Task 10 — Set Up GitHub Pages</h3>
+<p>On GitHub, navigate to <strong>Settings → Pages</strong>:</p>
+<ul>
+<li>Source: <strong>Deploy from a branch</strong> → Branch: <code>main</code> / <code>/ (root)</code></li>
+<li>Click <strong>Save</strong></li>
+</ul>
+<p>Wait 1–2 minutes, then visit:<br />
+<code>https://YOURUSERNAME.github.io/infracore-scripts/</code></p>
+<p>The README.md will be published as a static site.</p>
+<p>To find the URL from the terminal:</p>
+<pre><code class="language-bash">gh api repos/YOURUSERNAME/infracore-scripts/pages --jq '.html_url'
+</code></pre>
+<pre><code class="language-text">https://YOURUSERNAME.github.io/infracore-scripts
+</code></pre>
+<hr />
+<h3 id="task-11-set-up-a-pre-commit-hook_1">Task 11 — Set Up a Pre-Commit Hook</h3>
+<p><strong>Create the hooks directory:</strong></p>
+<pre><code class="language-bash">mkdir -p .git/hooks
+</code></pre>
+<p><strong>Write the pre-commit hook:</strong></p>
+<pre><code class="language-bash">cat &gt; .git/hooks/pre-commit &lt;&lt; 'EOF'
+#!/usr/bin/env bash
+# Pre-commit hook: run shellcheck on all .sh files being committed
+
+set -euo pipefail
+
+echo &quot;Running shellcheck on staged shell scripts...&quot;
+
+STAGED_SH_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '\.sh$')
+
+if [ -z &quot;$STAGED_SH_FILES&quot; ]; then
+  echo &quot;No shell scripts staged — skipping shellcheck.&quot;
+  exit 0
+fi
+
+for FILE in $STAGED_SH_FILES; do
+  echo &quot;Checking: $FILE&quot;
+  shellcheck --severity=error &quot;$FILE&quot; || {
+    echo &quot;shellcheck failed for $FILE — commit aborted.&quot; &gt;&amp;2
+    exit 1
+  }
+done
+
+echo &quot;shellcheck passed for all staged scripts.&quot;
+exit 0
+EOF
+</code></pre>
+<p><strong>Make it executable and register it:</strong></p>
+<pre><code class="language-bash">chmod +x .git/hooks/pre-commit
+git config --local core.hooksPath .git/hooks
+</code></pre>
+<p><strong>Verify:</strong></p>
+<pre><code class="language-bash">git config --local core.hooksPath
+</code></pre>
+<pre><code class="language-text">.git/hooks
+</code></pre>
+<p><strong>Test — commit a good file:</strong></p>
+<pre><code class="language-bash">git add deploy.sh
+git commit -m &quot;Update deploy script&quot;
+</code></pre>
+<pre><code class="language-text">Running shellcheck on staged shell scripts...
+Checking: deploy.sh
+shellcheck passed for all staged scripts.
+[main abc7890] Update deploy script
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+</code></pre>
+<p><strong>Test — verify the hook blocks bad scripts:</strong></p>
+<pre><code class="language-bash"># Introduce a deliberate error
+echo 'bad_script.sh &lt;&lt; EOF
+#!/usr/bin/env bash
+echo $UNQUOTED_VAR
+' &gt; test-bad.sh
+git add test-bad.sh
+git commit -m &quot;Add bad script&quot;
+</code></pre>
+<p>Expected output (the commit should be <strong>blocked</strong>):</p>
+<pre><code class="language-text">Running shellcheck on staged shell scripts...
+Checking: test-bad.sh
+
+In test-bad.sh line 3:
+echo $UNQUOTED_VAR
+     ^----------^ SC2086: Double quote to prevent globbing and word splitting.
+shellcheck failed for test-bad.sh — commit aborted.
+</code></pre>
+<p>If you see the blocked commit message, the hook is working correctly.</p>
+<p><strong>Clean up the test file:</strong></p>
+<pre><code class="language-bash">rm test-bad.sh
+git reset HEAD test-bad.sh
+</code></pre>
+<p><strong>Restore health-check.sh to correct state (if modified during testing):</strong></p>
+<pre><code class="language-bash">git checkout -- health-check.sh deploy.sh
+</code></pre>
+<hr />
+<h3 id="task-12-create-a-bug-fix-branch-with-a-merge-conflict_1">Task 12 — Create a Bug-Fix Branch with a Merge Conflict</h3>
+<p><strong>Create and switch to the fix branch:</strong></p>
+<pre><code class="language-bash">git switch -c fix/deploy-output
+</code></pre>
+<pre><code class="language-text">Switched to a new branch 'fix/deploy-output'
+</code></pre>
+<p><strong>Modify deploy.sh on the fix branch:</strong></p>
+<pre><code class="language-bash">cat &gt; deploy.sh &lt;&lt; 'EOF'
+#!/usr/bin/env bash
+# deploy.sh — Infrastructure deployment script for InfraCore
+# Usage: ./deploy.sh &lt;environment&gt;
+
+set -euo pipefail
+
+ENVIRONMENT=&quot;${1:-staging}&quot;
+echo &quot;Deploying to ${ENVIRONMENT} environment...&quot;
+
+# Run health check before deployment
+./health-check.sh web
+
+case &quot;$ENVIRONMENT&quot; in
+  staging|production)
+    echo &quot;Deployment target validated: ${ENVIRONMENT}&quot;
+    ;;
+  *)
+    echo &quot;Error: Unknown environment '${ENVIRONMENT}'&quot; &gt;&amp;2
+    exit 1
+    ;;
+esac
+
+echo &quot;Deployment to ${ENVIRONMENT} complete — SUCCESS.&quot;
+EOF
+
+git add deploy.sh
+git commit -m &quot;Improve deploy success message&quot;
+</code></pre>
+<pre><code class="language-text">[fix/deploy-output 9f0a1b2] Improve deploy success message
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+</code></pre>
+<p><strong>Switch back to main and make a different change to the same line:</strong></p>
+<pre><code class="language-bash">git switch main
+</code></pre>
+<pre><code class="language-text">Switched to branch 'main'
+</code></pre>
+<pre><code class="language-bash">cat &gt; deploy.sh &lt;&lt; 'EOF'
+#!/usr/bin/env bash
+# deploy.sh — Infrastructure deployment script for InfraCore
+# Usage: ./deploy.sh &lt;environment&gt;
+
+set -euo pipefail
+
+ENVIRONMENT=&quot;${1:-staging}&quot;
+echo &quot;Deploying to ${ENVIRONMENT} environment...&quot;
+
+# Run health check before deployment
+./health-check.sh web
+
+case &quot;$ENVIRONMENT&quot; in
+  staging|production)
+    echo &quot;Deployment target validated: ${ENVIRONMENT}&quot;
+    ;;
+  *)
+    echo &quot;Error: Unknown environment '${ENVIRONMENT}'&quot; &gt;&amp;2
+    exit 1
+    ;;
+esac
+
+echo &quot;Deployment to ${ENVIRONMENT} finished.&quot;
+EOF
+
+git add deploy.sh
+git commit -m &quot;Simplify deploy completion message&quot;
+</code></pre>
+<pre><code class="language-text">[main d3e4f5a] Simplify deploy completion message
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+</code></pre>
+<p><strong>Merge the fix branch and encounter the conflict:</strong></p>
+<pre><code class="language-bash">git merge fix/deploy-output
+</code></pre>
+<pre><code class="language-text">Auto-merging deploy.sh
+CONFLICT (content): Merge conflict in deploy.sh
+Automatic merge failed; fix conflicts and then commit the result.
+</code></pre>
+<p><strong>View the conflict:</strong></p>
+<pre><code class="language-bash">git diff
+</code></pre>
+<pre><code class="language-text">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+echo &quot;Deployment to ${ENVIRONMENT} finished.&quot;
+=======
+echo &quot;Deployment to ${ENVIRONMENT} complete — SUCCESS.&quot;
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; fix/deploy-output
+</code></pre>
+<p><strong>Resolve the conflict — keep both improvements:</strong></p>
+<pre><code class="language-bash">cat &gt; deploy.sh &lt;&lt; 'EOF'
+#!/usr/bin/env bash
+# deploy.sh — Infrastructure deployment script for InfraCore
+# Usage: ./deploy.sh &lt;environment&gt;
+
+set -euo pipefail
+
+ENVIRONMENT=&quot;${1:-staging}&quot;
+echo &quot;Deploying to ${ENVIRONMENT} environment...&quot;
+
+# Run health check before deployment
+./health-check.sh web
+
+case &quot;$ENVIRONMENT&quot; in
+  staging|production)
+    echo &quot;Deployment target validated: ${ENVIRONMENT}&quot;
+    ;;
+  *)
+    echo &quot;Error: Unknown environment '${ENVIRONMENT}'&quot; &gt;&amp;2
+    exit 1
+    ;;
+esac
+
+echo &quot;Deployment to ${ENVIRONMENT} complete — SUCCESS.&quot;
+EOF
+</code></pre>
+<p><strong>Stage the resolved file and complete the merge:</strong></p>
+<pre><code class="language-bash">git add deploy.sh
+git commit -m &quot;Merge fix/deploy-output: resolved conflict, kept SUCCESS message&quot;
+</code></pre>
+<pre><code class="language-text">[main e5f6a7b] Merge fix/deploy-output: resolved conflict, kept SUCCESS message
+</code></pre>
+<hr />
+<h3 id="task-13-final-verification_1">Task 13 — Final Verification</h3>
+<pre><code class="language-bash">git log --oneline --graph --all
+</code></pre>
+<pre><code class="language-text">*   e5f6a7b Merge fix/deploy-output: resolved conflict, kept SUCCESS message
+|\
+| * 9f0a1b2 Improve deploy success message
+* | d3e4f5a Simplify deploy completion message
+|/
+* 4d5e6f7 feat: add health-check script (squash-merged from PR #2)
+* a1b2c3d Add deploy.sh with staging and production support
+</code></pre>
+<pre><code class="language-bash">git remote -v
+</code></pre>
+<pre><code class="language-text">origin  https://github.com/YOURUSERNAME/infracore-scripts.git (fetch)
+origin  https://github.com/YOURUSERNAME/infracore-scripts.git (push)
+</code></pre>
+<pre><code class="language-bash">git config --local core.hooksPath
+</code></pre>
+<pre><code class="language-text">.git/hooks
+</code></pre>
+<pre><code class="language-bash">git branch -a
+</code></pre>
+<pre><code class="language-text">  fix/deploy-output
+* main
+  remotes/origin/main
+</code></pre>
+<pre><code class="language-bash">cat deploy.sh | grep &quot;complete&quot;
+</code></pre>
+<pre><code class="language-text">echo &quot;Deployment to ${ENVIRONMENT} complete — SUCCESS.&quot;
+</code></pre>
+<p>All verification commands confirm a correct, complete capstone project.</p>
+<hr />
+<h2 id="congratulations">Congratulations</h2>
+<p>You have completed the full Git and GitHub Development guide from first principles to a production-like workflow. You have:</p>
+<ul>
+<li>Created and configured a repository from scratch</li>
+<li>Used Git's branching model to isolate and review work</li>
+<li>Linked issues, branches, and pull requests into a cohesive development cycle</li>
+<li>Published a live GitHub Pages site</li>
+<li>Automated code quality checks with a pre-commit hook</li>
+<li>Resolved a merge conflict without losing any change</li>
+</ul>
+<p>These are the exact skills DevOps engineers use every day. The tools and workflows you practiced here scale to teams of any size.</p>
+<hr />
+<p><a href="14-self-hosted-git.html">← Previous: Self-Hosted Git</a> · <a href="../solutions.html">Next: Consolidated Solutions →</a> · <a href="../index.html">← Back to Index</a></p>
+
+      <div class="lesson-actions">
+        <button class="btn-mark-complete" id="btn-mark-complete" data-lesson="15">
+          <span class="btn-icon">✓</span> Mark Complete
+        </button>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Previous and next lessons">
+        <a href="14-self-hosted-git.html" class="lesson-nav-prev">
+          <span class="nav-label">← Previous</span>
+          <span class="nav-title">Self-Hosted Git</span>
+        </a>
+
+        <span class="lesson-nav-next disabled">
+          <span class="nav-label">Next →</span>
+          <span class="nav-title">—</span>
+        </span>
+      </nav>
+    </div>
+  </div>
+</article>
+      </main>
+
+      <footer class="site-footer">
+        <p>Built with ❤️ for DevOps learners</p>
+        <p class="footer-small">Git Kimchi — A free Git &amp; GitHub course</p>
+      </footer>
+    </div>
+  </div>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script src="../static/js/app.js"></script>
+</body>
+</html>

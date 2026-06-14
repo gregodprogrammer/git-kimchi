@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pull Requests and Issues — Git Kimchi</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body data-page="lesson">
+  <div class="site-wrapper">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-brand">
+          <span class="brand-icon">🌶️</span>
+          <span class="brand-text">Git Kimchi</span>
+        </a>
+        <button class="sidebar-close" id="sidebar-close" aria-label="Close navigation">×</button>
+      </div>
+      <nav class="sidebar-nav" aria-label="Lessons">
+        <div class="nav-section">
+          <span class="nav-section-title">Core Git</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="01-getting-started.html" class="nav-link" data-lesson="1">
+                <span class="nav-num">1</span>
+                <span class="nav-title">Getting Started with Git</span>
+                <span class="nav-status" data-status-lesson="1"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="02-staging-and-commits.html" class="nav-link" data-lesson="2">
+                <span class="nav-num">2</span>
+                <span class="nav-title">Staging and Commits</span>
+                <span class="nav-status" data-status-lesson="2"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="03-history-and-diff.html" class="nav-link" data-lesson="3">
+                <span class="nav-num">3</span>
+                <span class="nav-title">History and Diff</span>
+                <span class="nav-status" data-status-lesson="3"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="04-undoing-changes.html" class="nav-link" data-lesson="4">
+                <span class="nav-num">4</span>
+                <span class="nav-title">Undoing Changes</span>
+                <span class="nav-status" data-status-lesson="4"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Intermediate</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="05-branching.html" class="nav-link" data-lesson="5">
+                <span class="nav-num">5</span>
+                <span class="nav-title">Branching</span>
+                <span class="nav-status" data-status-lesson="5"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="06-merging.html" class="nav-link" data-lesson="6">
+                <span class="nav-num">6</span>
+                <span class="nav-title">Merging</span>
+                <span class="nav-status" data-status-lesson="6"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="07-remotes.html" class="nav-link" data-lesson="7">
+                <span class="nav-num">7</span>
+                <span class="nav-title">Remotes</span>
+                <span class="nav-status" data-status-lesson="7"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="08-github-repos-and-forks.html" class="nav-link" data-lesson="8">
+                <span class="nav-num">8</span>
+                <span class="nav-title">GitHub Repositories and Forks</span>
+                <span class="nav-status" data-status-lesson="8"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="09-pull-requests-and-issues.html" class="nav-link" data-lesson="9">
+                <span class="nav-num">9</span>
+                <span class="nav-title">Pull Requests and Issues</span>
+                <span class="nav-status" data-status-lesson="9"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Advanced / DevOps</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="10-code-review.html" class="nav-link" data-lesson="10">
+                <span class="nav-num">10</span>
+                <span class="nav-title">Code Review</span>
+                <span class="nav-status" data-status-lesson="10"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="11-branching-strategies.html" class="nav-link" data-lesson="11">
+                <span class="nav-num">11</span>
+                <span class="nav-title">Branching Strategies</span>
+                <span class="nav-status" data-status-lesson="11"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="12-github-pages.html" class="nav-link" data-lesson="12">
+                <span class="nav-num">12</span>
+                <span class="nav-title">GitHub Pages</span>
+                <span class="nav-status" data-status-lesson="12"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="13-git-hooks.html" class="nav-link" data-lesson="13">
+                <span class="nav-num">13</span>
+                <span class="nav-title">Git Hooks</span>
+                <span class="nav-status" data-status-lesson="13"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="14-self-hosted-git.html" class="nav-link" data-lesson="14">
+                <span class="nav-num">14</span>
+                <span class="nav-title">Self-Hosted Git</span>
+                <span class="nav-status" data-status-lesson="14"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Capstone &amp; Reference</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="15-capstone.html" class="nav-link" data-lesson="15">
+                <span class="nav-num">15</span>
+                <span class="nav-title">Capstone Mini-Project</span>
+                <span class="nav-status" data-status-lesson="15"></span>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="../solutions.html" class="nav-link" data-lesson="solutions">
+                <span class="nav-num">💡</span>
+                <span class="nav-title">Solutions</span>
+                <span class="nav-status" data-status-lesson="solutions"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="main-area">
+      <header class="site-header">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="header-title">
+          <a href="../index.html">Git Kimchi</a>
+        </div>
+        <div class="header-progress" id="header-progress" style="display:none;">
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+          </div>
+          <span class="progress-text" id="progress-text">0 / 15</span>
+        </div>
+      </header>
+
+      <main class="content-wrapper">
+<article class="lesson">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">Pull Requests and Issues</span>
+  </nav>
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="lesson-number">Lesson 9</span>
+      <span class="lesson-readtime">12 min read</span>
+    </div>
+    <h1 class="lesson-title">Pull Requests and Issues</h1>
+  </header>
+
+  <div class="lesson-body-wrapper">
+    <div class="lesson-toc" id="lesson-toc" aria-label="Table of contents">
+      <h2>On this page</h2>
+      <div class="toc">
+<ul>
+<li><a href="#pull-requests-and-issues">Pull Requests and Issues</a><ul>
+<li><a href="#what-is-a-pull-request">What Is a Pull Request?</a></li>
+<li><a href="#the-pr-lifecycle">The PR Lifecycle</a><ul>
+<li><a href="#step-1-create-a-feature-branch">Step 1 — Create a Feature Branch</a></li>
+<li><a href="#step-2-make-commits">Step 2 — Make Commits</a></li>
+<li><a href="#step-3-push-the-branch-to-remote">Step 3 — Push the Branch to Remote</a></li>
+<li><a href="#step-4-open-a-pull-request">Step 4 — Open a Pull Request</a><ul>
+<li><a href="#anatomy-of-a-great-pr-description">Anatomy of a Great PR Description</a></li>
+</ul>
+</li>
+<li><a href="#step-5-code-review">Step 5 — Code Review</a></li>
+<li><a href="#step-6-merge-the-pr">Step 6 — Merge the PR</a></li>
+<li><a href="#step-7-delete-the-branch">Step 7 — Delete the Branch</a></li>
+</ul>
+</li>
+<li><a href="#github-issues">GitHub Issues</a><ul>
+<li><a href="#what-is-an-issue">What Is an Issue?</a></li>
+<li><a href="#creating-issues-via-the-web-ui">Creating Issues via the Web UI</a></li>
+<li><a href="#creating-issues-via-gh">Creating Issues via gh</a></li>
+<li><a href="#listing-and-viewing-issues">Listing and Viewing Issues</a></li>
+<li><a href="#closing-issues">Closing Issues</a></li>
+</ul>
+</li>
+<li><a href="#linking-prs-to-issues">Linking PRs to Issues</a><ul>
+<li><a href="#the-closes-fixes-resolves-keywords">The Closes / Fixes / Resolves Keywords</a></li>
+<li><a href="#multiple-issues">Multiple Issues</a></li>
+</ul>
+</li>
+<li><a href="#draft-pull-requests">Draft Pull Requests</a><ul>
+<li><a href="#what-is-a-draft-pr">What Is a Draft PR?</a></li>
+<li><a href="#creating-a-draft-pr">Creating a Draft PR</a></li>
+<li><a href="#quick-reference-gh-pr-commands">Quick Reference: gh pr Commands</a></li>
+</ul>
+</li>
+<li><a href="#exercise">Exercise</a><ul>
+<li><a href="#scenario">Scenario</a></li>
+<li><a href="#tasks">Tasks</a></li>
+<li><a href="#hints">Hints</a></li>
+</ul>
+</li>
+<li><a href="#solution">Solution</a><ul>
+<li><a href="#what-you-just-did">What You Just Did</a></li>
+</ul>
+</li>
+<li><a href="#quick-reference">Quick Reference</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+    </div>
+
+    <div class="lesson-body">
+      <h1 id="pull-requests-and-issues">Pull Requests and Issues</h1>
+<p><a href="08-github-repos-and-forks.html">← Previous: GitHub Repos and Forks</a> · <a href="../index.html">← Back to Index</a></p>
+<hr />
+<h2 id="what-is-a-pull-request">What Is a Pull Request?</h2>
+<p>A <strong>Pull Request (PR)</strong> is a proposal to merge one branch into another. It is the central hub for code collaboration on GitHub. Before merging, a PR opens a space for discussion, review, and approval of the proposed changes.</p>
+<p>Think of it this way: you have been working on a feature branch. Now you want to merge those changes into <code>main</code>. Instead of just pushing and merging, you <em>request</em> that the maintainers of the repository <em>pull</em> your changes in. This gives them a chance to review before anything lands in the main codebase.</p>
+<p>A PR is not just a technical action — it is a <strong>conversation</strong>. Comments, questions, and suggestions happen right in the PR thread. This is why opening a PR early (even when work is incomplete, as a Draft PR) is often better than keeping it private until it is "done."</p>
+<p><strong>Key point:</strong> A PR is the bridge between your feature branch and the main branch. It ensures changes do not land in <code>main</code> unannounced.</p>
+<hr />
+<h2 id="the-pr-lifecycle">The PR Lifecycle</h2>
+<p>The PR lifecycle has several stages, from creating a branch to cleaning up after a merge. Here is each step in detail.</p>
+<h3 id="step-1-create-a-feature-branch">Step 1 — Create a Feature Branch</h3>
+<p>Always develop new work on a dedicated branch, never directly on <code>main</code>.</p>
+<pre><code class="language-bash">git checkout -b fix-login-bug
+</code></pre>
+<pre><code class="language-text">Switched to a new branch 'fix-login-bug'
+</code></pre>
+<h3 id="step-2-make-commits">Step 2 — Make Commits</h3>
+<p>Edit files and commit your changes. Each commit should represent a logical unit of work.</p>
+<pre><code class="language-bash">git add src/auth/login.py
+git commit -m &quot;Fix: prevent null pointer on empty password field&quot;
+</code></pre>
+<pre><code class="language-text">[fix-login-bug a1b2c3d] Fix: prevent null pointer on empty password field
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+</code></pre>
+<h3 id="step-3-push-the-branch-to-remote">Step 3 — Push the Branch to Remote</h3>
+<p>Your branch does not exist on the remote yet. Use <code>-u</code> (short for <code>--set-upstream</code>) to set the tracking relationship:</p>
+<pre><code class="language-bash">git push -u origin fix-login-bug
+</code></pre>
+<pre><code class="language-text">Enumerating objects: 5, done.
+Counting objects: 100%
+Writing objects: 100%
+To https://github.com/yourusername/myrepo.git
+ * [new branch]      fix-login-bug -&gt; fix-login-bug
+Branch 'fix-login-bug' set up to track remote branch 'fix-login-bug' from 'origin'.
+</code></pre>
+<p>After the first push with <code>-u</code>, a plain <code>git push</code> is sufficient on subsequent commits.</p>
+<h3 id="step-4-open-a-pull-request">Step 4 — Open a Pull Request</h3>
+<p>You can open a PR through the GitHub web UI, or directly from the terminal using the <strong><code>gh</code> CLI</strong>.</p>
+<pre><code class="language-bash">gh pr create --title &quot;Fix login null pointer bug&quot; --body &quot;Fixes #42 — prevents a crash when the password field is empty.&quot;
+</code></pre>
+<pre><code class="language-text">https://github.com/yourusername/myrepo/pull/1
+</code></pre>
+<p>That single line opens the PR and prints the URL. From this point on, teammates can review, comment, and approve.</p>
+<h4 id="anatomy-of-a-great-pr-description">Anatomy of a Great PR Description</h4>
+<p>A good PR description has three parts:</p>
+<ol>
+<li><strong>What does this change?</strong> — Describe the feature, fix, or refactor.</li>
+<li><strong>Why is this needed?</strong> — Provide context. Link to the related issue.</li>
+<li><strong>How was it tested?</strong> — Steps to verify the fix works.</li>
+</ol>
+<h3 id="step-5-code-review">Step 5 — Code Review</h3>
+<p>Reviewers examine the code, leave comments, and either:</p>
+<ul>
+<li><strong>Approve</strong> — ready to merge</li>
+<li><strong>Request changes</strong> — something needs to be fixed first</li>
+<li><strong>Comment</strong> — general feedback, no formal approval or blocking</li>
+</ul>
+<p>As the author, you reply to comments, push additional commits, or dismiss review comments. The PR is a living thread until it is merged or closed.</p>
+<h3 id="step-6-merge-the-pr">Step 6 — Merge the PR</h3>
+<p>Once approved, there are three merge strategies to choose from:</p>
+<table>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>What happens</th>
+<th>When to use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Merge commit</strong></td>
+<td>Creates a merge commit that ties the two histories together</td>
+<td>Teams wanting a full history</td>
+</tr>
+<tr>
+<td><strong>Squash and merge</strong></td>
+<td>Compresses all commits into one</td>
+<td>Feature branches with many small commits</td>
+</tr>
+<tr>
+<td><strong>Rebase and merge</strong></td>
+<td>Replays your commits on top of main</td>
+<td>Clean, linear history</td>
+</tr>
+</tbody>
+</table>
+<p>To merge via <code>gh</code>:</p>
+<pre><code class="language-bash">gh pr merge 1 --squash --delete-branch
+</code></pre>
+<pre><code class="language-text">// If using squash merge:
+Merged pull request #1 (Fix login null pointer bug)
+✓ Squashed 1 commit into main
+✓ Deleted branch fix-login-bug, as you requested
+
+// If using a regular merge commit:
+Merged pull request #1 (Fix login null pointer bug)
+✓ Merged branch fix-login-bug into main
+✓ Deleted branch fix-login-bug, as you requested
+</code></pre>
+<p>GitHub also provides merge buttons in the web UI with all three options.</p>
+<h3 id="step-7-delete-the-branch">Step 7 — Delete the Branch</h3>
+<p>After merging, delete the feature branch both locally and on the remote. <code>gh pr merge</code> with <code>--delete-branch</code> (shown above) handles the remote side. Clean up locally with:</p>
+<pre><code class="language-bash">git checkout main
+git pull origin main
+git branch -d fix-login-bug
+</code></pre>
+<pre><code class="language-text">Deleted branch fix-login-bug (was a1b2c3d).
+</code></pre>
+<hr />
+<h2 id="github-issues">GitHub Issues</h2>
+<h3 id="what-is-an-issue">What Is an Issue?</h3>
+<p>An <strong>Issue</strong> is a record of a task, bug, or feature request associated with a repository. Issues are the primary tool for tracking work independently of code changes. They let anyone — the team, users, contributors — report problems or suggest improvements in a structured way.</p>
+<p>You can create an issue to:<br />
+- Report a bug<br />
+- Request a new feature<br />
+- Track a known problem<br />
+- Plan a refactor<br />
+- Ask a question</p>
+<h3 id="creating-issues-via-the-web-ui">Creating Issues via the Web UI</h3>
+<p>On GitHub, navigate to your repository and click the <strong>Issues</strong> tab, then click <strong>New issue</strong>. Fill in:<br />
+- A clear, descriptive <strong>title</strong><br />
+- A <strong>body</strong> describing the problem or suggestion in detail<br />
+- <strong>Labels</strong> to categorise (e.g. <code>bug</code>, <code>enhancement</code>, <code>good first issue</code>)<br />
+- <strong>Assignees</strong> to delegate responsibility<br />
+- <strong>Milestones</strong> to group related issues by target release</p>
+<h3 id="creating-issues-via-gh">Creating Issues via <code>gh</code></h3>
+<p>You can create issues directly from the terminal:</p>
+<pre><code class="language-bash">gh issue create --title &quot;Login form crashes on empty password&quot; --body &quot;Steps to reproduce:
+1. Navigate to /login
+2. Leave the password field empty
+3. Click Submit
+Expected: validation message appears
+Actual: application throws NullPointerException&quot;
+</code></pre>
+<pre><code class="language-text">https://github.com/yourusername/myrepo/issues/42
+</code></pre>
+<h3 id="listing-and-viewing-issues">Listing and Viewing Issues</h3>
+<pre><code class="language-bash">gh issue list
+</code></pre>
+<pre><code class="language-text">Showing 3 open issues in yourusername/myrepo
+
+#42  bug       Login form crashes on empty password       about 1 hour ago
+#41  enhancem  Add dark mode support                      about 1 day ago
+#40  question  How do I reset my password?                about 3 days ago
+</code></pre>
+<pre><code class="language-bash">gh issue view 42
+</code></pre>
+<pre><code class="language-text">Login form crashes on empty password
+Labels: bug
+Assignees: yourusername
+Milestone: v2.1.0
+Opened by: yourusername
+---
+Steps to reproduce:
+1. Navigate to /login
+2. Leave the password field empty
+3. Click Submit
+Expected: validation message appears
+Actual: application throws NullPointerException
+</code></pre>
+<h3 id="closing-issues">Closing Issues</h3>
+<p>You can close an issue manually:</p>
+<pre><code class="language-bash">gh issue close 42
+</code></pre>
+<p>Or you can close it automatically — this is one of the most powerful GitHub automations.</p>
+<hr />
+<h2 id="linking-prs-to-issues">Linking PRs to Issues</h2>
+<h3 id="the-closes-fixes-resolves-keywords">The <code>Closes</code> / <code>Fixes</code> / <code>Resolves</code> Keywords</h3>
+<p>When you write a commit message or PR description, you can include one of these keywords followed by an issue number:</p>
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Closes #42</code></td>
+<td>Closes issue #42 when the PR is merged</td>
+</tr>
+<tr>
+<td><code>Fixes #42</code></td>
+<td>Closes issue #42 and marks it as fixed</td>
+</tr>
+<tr>
+<td><code>Resolves #42</code></td>
+<td>Closes issue #42 and marks it as resolved</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example PR body:</strong></p>
+<pre><code class="language-text">## What does this PR do?
+Adds client-side validation to the login form so an empty password is
+rejected before it reaches the server.
+
+## Why is this needed?
+Fixes #42 — the empty password field causes a NullPointerException.
+
+## Testing
+1. Navigate to /login
+2. Leave password blank and click Submit
+3. Verify a validation message appears instead of a crash
+</code></pre>
+<p>When this PR is merged, GitHub automatically closes issue #42 and adds a link from the issue to the PR.</p>
+<h3 id="multiple-issues">Multiple Issues</h3>
+<p>You can close multiple issues at once:</p>
+<pre><code class="language-text">Closes #42
+Closes #43
+Closes #44
+</code></pre>
+<p>Or use a list in the PR description. Each referenced issue gets updated automatically.</p>
+<hr />
+<h2 id="draft-pull-requests">Draft Pull Requests</h2>
+<h3 id="what-is-a-draft-pr">What Is a Draft PR?</h3>
+<p>A <strong>Draft Pull Request</strong> is a PR that is explicitly marked as a work in progress. It cannot be merged, and reviewers are not automatically assigned. Draft PRs are useful when:</p>
+<ul>
+<li>You want early feedback before the work is complete</li>
+<li>You want CI to run on your branch before investing time in review</li>
+<li>The feature is large and you want to track progress incrementally</li>
+</ul>
+<h3 id="creating-a-draft-pr">Creating a Draft PR</h3>
+<pre><code class="language-bash">gh pr create --draft --title &quot;Implement dark mode&quot; --body &quot;Work in progress — not ready for review&quot;
+</code></pre>
+<pre><code class="language-text">https://github.com/yourusername/myrepo/pull/3
+</code></pre>
+<p>The PR will appear with a <code>Draft</code> badge on GitHub. When you are ready for review, click the <strong>"Ready for review"</strong> button in the GitHub UI, or convert it with:</p>
+<pre><code class="language-bash">gh pr ready 3
+</code></pre>
+<pre><code class="language-text">https://github.com/yourusername/myrepo/pull/3
+Pull request #3 is now ready for review
+</code></pre>
+<h3 id="quick-reference-gh-pr-commands">Quick Reference: <code>gh pr</code> Commands</h3>
+<pre><code class="language-bash">gh pr create --title &quot;...&quot; --body &quot;...&quot;          # Open a new PR
+gh pr create --draft --title &quot;...&quot;                # Open a draft PR
+gh pr list                                         # Show open PRs
+gh pr view 1                                       # View a specific PR
+gh pr status                                       # Show PRs for current branch
+gh pr ready 1                                      # Convert draft to ready
+gh pr merge 1 --squash --delete-branch            # Merge and clean up
+gh pr close 1                                      # Close a PR without merging
+</code></pre>
+<hr />
+<h2 id="exercise">Exercise</h2>
+<h3 id="scenario">Scenario</h3>
+<p>You are a developer on a team. Someone has reported that the login page crashes when the username field is left blank. Your task is to fix this bug and open a PR that closes the issue.</p>
+<h3 id="tasks">Tasks</h3>
+<ol>
+<li>Create an issue for the bug using <code>gh issue create</code> (simulate the issue creation)</li>
+<li>Create a new branch named <code>fix-blank-username-crash</code></li>
+<li>Make a commit on that branch with the message <code>"Fixes #42 — validate username before submission"</code></li>
+<li>Push the branch with upstream tracking</li>
+<li>Open a PR that references the issue using <code>gh pr create</code></li>
+<li>Merge the PR using squash merge and delete the branch</li>
+<li>Verify the issue was closed</li>
+</ol>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>Use <code>git checkout -b</code> to create and switch to a new branch in one step.</li>
+<li>Use <code>--set-upstream</code> (<code>-u</code>) only on the first push.</li>
+<li>Use <code>gh pr create --title "..." --body "..."</code> to open the PR.</li>
+<li>Use <code>Closes #N</code> or <code>Fixes #N</code> in the PR body to link it to an issue.</li>
+<li>Use <code>gh pr merge --squash --delete-branch</code> to merge and delete in one command.</li>
+</ul>
+<hr />
+<h2 id="solution">Solution</h2>
+<p>Below is a complete, step-by-step walkthrough with all commands and their expected outputs.</p>
+<pre><code class="language-bash"># 1. Create the issue
+gh issue create \
+  --title &quot;Login page crashes when username is blank&quot; \
+  --body &quot;When the username field is left blank and the user clicks Submit,
+the application crashes with an error.
+
+Steps to reproduce:
+1. Navigate to /login
+2. Leave the username field empty
+3. Click Submit
+Expected: validation message appears
+Actual: application crashes
+
+Labels: bug
+Assignees: yourusername&quot;
+</code></pre>
+<pre><code class="language-text">https://github.com/yourusername/myrepo/issues/42
+</code></pre>
+<pre><code class="language-bash"># 2. Create a feature branch
+git checkout -b fix-blank-username-crash
+</code></pre>
+<pre><code class="language-text">Switched to a new branch 'fix-blank-username-crash'
+</code></pre>
+<pre><code class="language-bash"># 3. Make a commit with Fixes #42 in the message
+# (Assume the file has been edited — here we simulate the commit)
+git add src/auth/login.py
+git commit -m &quot;Fixes #42 — validate username field before submission&quot;
+</code></pre>
+<pre><code class="language-text">[fix-blank-username-crash 5f6g7h8] Fixes #42 — validate username field before submission
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+</code></pre>
+<pre><code class="language-bash"># 4. Push the branch to remote with upstream tracking
+git push -u origin fix-blank-username-crash
+</code></pre>
+<pre><code class="language-text">Enumerating objects: 5, done.
+Counting objects: 100%
+Writing objects: 100%
+To https://github.com/yourusername/myrepo.git
+ * [new branch]      fix-blank-username-crash -&gt; fix-blank-username-crash
+Branch 'fix-blank-username-crash' set up to track remote branch 'fix-blank-username-crash' from 'origin'.
+</code></pre>
+<pre><code class="language-bash"># 5. Open a PR that references the issue
+gh pr create \
+  --title &quot;Fix login crash on blank username&quot; \
+  --body &quot;## What does this PR do?
+Adds client-side validation to reject empty username before submission.
+
+## Why is this needed?
+Fixes #42 — the login page crashes when the username field is blank.
+
+## Testing
+1. Navigate to /login
+2. Leave the username field empty
+3. Click Submit
+4. Verify a validation message appears instead of a crash&quot;
+</code></pre>
+<pre><code class="language-text">https://github.com/yourusername/myrepo/pull/43
+</code></pre>
+<pre><code class="language-bash"># 6. Merge the PR with squash merge and delete the branch
+gh pr merge 43 --squash --delete-branch
+</code></pre>
+<pre><code class="language-text">Merged pull request #43 (Fix login crash on blank username)
+✓ Squashed 1 commit into main
+✓ Deleted branch fix-blank-username-crash, as you requested
+</code></pre>
+<pre><code class="language-bash"># 7. Verify the issue was closed
+gh issue view 42
+</code></pre>
+<pre><code class="language-text">Login page crashes when username is blank
+Labels: bug
+Assignees: yourusername
+State: closed    &lt;-- Issue is now CLOSED
+Opened by: yourusername
+Closed by: yourusername  (via #43)
+</code></pre>
+<p>Issue #42 is automatically closed when PR #43 is merged. The issue even records which PR closed it.</p>
+<h3 id="what-you-just-did">What You Just Did</h3>
+<ol>
+<li>Created an issue to track the bug — giving the team a single source of truth.</li>
+<li>Created a feature branch to isolate the fix from <code>main</code>.</li>
+<li>Committed the fix with <code>Fixes #42</code> — this links the commit to the issue.</li>
+<li>Pushed the branch and opened a PR — inviting review.</li>
+<li>Merged the PR with squash merge — keeping the <code>main</code> history clean.</li>
+<li>Verified the issue auto-closed — the whole workflow is connected.</li>
+</ol>
+<p>This workflow is the backbone of how modern software teams collaborate on GitHub. From issue to PR to merge, every step is traceable and reversible.</p>
+<hr />
+<h2 id="quick-reference">Quick Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open PR from current branch</td>
+<td><code>gh pr create --title "..." --body "..."</code></td>
+</tr>
+<tr>
+<td>Open draft PR</td>
+<td><code>gh pr create --draft --title "..."</code></td>
+</tr>
+<tr>
+<td>List open PRs</td>
+<td><code>gh pr list</code></td>
+</tr>
+<tr>
+<td>View a PR</td>
+<td><code>gh pr view 1</code></td>
+</tr>
+<tr>
+<td>Check PR status for current branch</td>
+<td><code>gh pr status</code></td>
+</tr>
+<tr>
+<td>Mark draft PR as ready</td>
+<td><code>gh pr ready 1</code></td>
+</tr>
+<tr>
+<td>Merge a PR</td>
+<td><code>gh pr merge 1 --squash --delete-branch</code></td>
+</tr>
+<tr>
+<td>Close a PR without merging</td>
+<td><code>gh pr close 1</code></td>
+</tr>
+<tr>
+<td>Create an issue</td>
+<td><code>gh issue create --title "..." --body "..."</code></td>
+</tr>
+<tr>
+<td>List open issues</td>
+<td><code>gh issue list</code></td>
+</tr>
+<tr>
+<td>View an issue</td>
+<td><code>gh issue view 42</code></td>
+</tr>
+<tr>
+<td>Close an issue</td>
+<td><code>gh issue close 42</code></td>
+</tr>
+<tr>
+<td>Auto-close via commit message</td>
+<td><code>Fixes #42</code> in commit or PR body</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a href="08-github-repos-and-forks.html">← Previous: GitHub Repos and Forks</a> · <a href="10-code-review.html">Next: Code Review →</a></p>
+
+      <div class="lesson-actions">
+        <button class="btn-mark-complete" id="btn-mark-complete" data-lesson="9">
+          <span class="btn-icon">✓</span> Mark Complete
+        </button>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Previous and next lessons">
+        <a href="08-github-repos-and-forks.html" class="lesson-nav-prev">
+          <span class="nav-label">← Previous</span>
+          <span class="nav-title">GitHub Repositories and Forks</span>
+        </a>
+
+        <a href="10-code-review.html" class="lesson-nav-next">
+          <span class="nav-label">Next →</span>
+          <span class="nav-title">Code Review</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+</article>
+      </main>
+
+      <footer class="site-footer">
+        <p>Built with ❤️ for DevOps learners</p>
+        <p class="footer-small">Git Kimchi — A free Git &amp; GitHub course</p>
+      </footer>
+    </div>
+  </div>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script src="../static/js/app.js"></script>
+</body>
+</html>

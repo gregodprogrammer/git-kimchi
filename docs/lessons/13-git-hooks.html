@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git Hooks — Git Kimchi</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body data-page="lesson">
+  <div class="site-wrapper">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-brand">
+          <span class="brand-icon">🌶️</span>
+          <span class="brand-text">Git Kimchi</span>
+        </a>
+        <button class="sidebar-close" id="sidebar-close" aria-label="Close navigation">×</button>
+      </div>
+      <nav class="sidebar-nav" aria-label="Lessons">
+        <div class="nav-section">
+          <span class="nav-section-title">Core Git</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="01-getting-started.html" class="nav-link" data-lesson="1">
+                <span class="nav-num">1</span>
+                <span class="nav-title">Getting Started with Git</span>
+                <span class="nav-status" data-status-lesson="1"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="02-staging-and-commits.html" class="nav-link" data-lesson="2">
+                <span class="nav-num">2</span>
+                <span class="nav-title">Staging and Commits</span>
+                <span class="nav-status" data-status-lesson="2"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="03-history-and-diff.html" class="nav-link" data-lesson="3">
+                <span class="nav-num">3</span>
+                <span class="nav-title">History and Diff</span>
+                <span class="nav-status" data-status-lesson="3"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="04-undoing-changes.html" class="nav-link" data-lesson="4">
+                <span class="nav-num">4</span>
+                <span class="nav-title">Undoing Changes</span>
+                <span class="nav-status" data-status-lesson="4"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Intermediate</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="05-branching.html" class="nav-link" data-lesson="5">
+                <span class="nav-num">5</span>
+                <span class="nav-title">Branching</span>
+                <span class="nav-status" data-status-lesson="5"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="06-merging.html" class="nav-link" data-lesson="6">
+                <span class="nav-num">6</span>
+                <span class="nav-title">Merging</span>
+                <span class="nav-status" data-status-lesson="6"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="07-remotes.html" class="nav-link" data-lesson="7">
+                <span class="nav-num">7</span>
+                <span class="nav-title">Remotes</span>
+                <span class="nav-status" data-status-lesson="7"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="08-github-repos-and-forks.html" class="nav-link" data-lesson="8">
+                <span class="nav-num">8</span>
+                <span class="nav-title">GitHub Repositories and Forks</span>
+                <span class="nav-status" data-status-lesson="8"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="09-pull-requests-and-issues.html" class="nav-link" data-lesson="9">
+                <span class="nav-num">9</span>
+                <span class="nav-title">Pull Requests and Issues</span>
+                <span class="nav-status" data-status-lesson="9"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Advanced / DevOps</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="10-code-review.html" class="nav-link" data-lesson="10">
+                <span class="nav-num">10</span>
+                <span class="nav-title">Code Review</span>
+                <span class="nav-status" data-status-lesson="10"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="11-branching-strategies.html" class="nav-link" data-lesson="11">
+                <span class="nav-num">11</span>
+                <span class="nav-title">Branching Strategies</span>
+                <span class="nav-status" data-status-lesson="11"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="12-github-pages.html" class="nav-link" data-lesson="12">
+                <span class="nav-num">12</span>
+                <span class="nav-title">GitHub Pages</span>
+                <span class="nav-status" data-status-lesson="12"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="13-git-hooks.html" class="nav-link" data-lesson="13">
+                <span class="nav-num">13</span>
+                <span class="nav-title">Git Hooks</span>
+                <span class="nav-status" data-status-lesson="13"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="14-self-hosted-git.html" class="nav-link" data-lesson="14">
+                <span class="nav-num">14</span>
+                <span class="nav-title">Self-Hosted Git</span>
+                <span class="nav-status" data-status-lesson="14"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Capstone &amp; Reference</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="15-capstone.html" class="nav-link" data-lesson="15">
+                <span class="nav-num">15</span>
+                <span class="nav-title">Capstone Mini-Project</span>
+                <span class="nav-status" data-status-lesson="15"></span>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="../solutions.html" class="nav-link" data-lesson="solutions">
+                <span class="nav-num">💡</span>
+                <span class="nav-title">Solutions</span>
+                <span class="nav-status" data-status-lesson="solutions"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="main-area">
+      <header class="site-header">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="header-title">
+          <a href="../index.html">Git Kimchi</a>
+        </div>
+        <div class="header-progress" id="header-progress" style="display:none;">
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+          </div>
+          <span class="progress-text" id="progress-text">0 / 15</span>
+        </div>
+      </header>
+
+      <main class="content-wrapper">
+<article class="lesson">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">Git Hooks</span>
+  </nav>
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="lesson-number">Lesson 13</span>
+      <span class="lesson-readtime">12 min read</span>
+    </div>
+    <h1 class="lesson-title">Git Hooks</h1>
+  </header>
+
+  <div class="lesson-body-wrapper">
+    <div class="lesson-toc" id="lesson-toc" aria-label="Table of contents">
+      <h2>On this page</h2>
+      <div class="toc">
+<ul>
+<li><a href="#git-hooks">Git Hooks</a><ul>
+<li><a href="#what-are-git-hooks">What Are Git Hooks?</a><ul>
+<li><a href="#key-properties-of-git-hooks">Key Properties of Git Hooks</a></li>
+</ul>
+</li>
+<li><a href="#client-side-hooks">Client-Side Hooks</a><ul>
+<li><a href="#pre-commit-the-most-important-hook">pre-commit — The Most Important Hook</a></li>
+<li><a href="#prepare-commit-msg-edit-the-commit-message-template">prepare-commit-msg — Edit the Commit Message Template</a></li>
+<li><a href="#commit-msg-validate-commit-message-format">commit-msg — Validate Commit Message Format</a></li>
+<li><a href="#post-commit-notifications-and-auditing">post-commit — Notifications and Auditing</a></li>
+<li><a href="#pre-push-final-safety-check-before-push">pre-push — Final Safety Check Before Push</a></li>
+<li><a href="#post-merge-restore-state-after-a-merge">post-merge — Restore State After a Merge</a></li>
+<li><a href="#pre-rebase-prevent-rebasing-shared-branches">pre-rebase — Prevent Rebasing Shared Branches</a></li>
+<li><a href="#hook-execution-order-summary">Hook Execution Order Summary</a></li>
+</ul>
+</li>
+<li><a href="#a-real-pre-commit-hook-blocking-todofixme">A Real pre-commit Hook: Blocking TODO/FIXME</a><ul>
+<li><a href="#step-1-create-the-hook-script">Step 1: Create the Hook Script</a></li>
+<li><a href="#step-2-make-it-executable">Step 2: Make It Executable</a></li>
+<li><a href="#step-3-verify-the-hook-exists">Step 3: Verify the Hook Exists</a></li>
+<li><a href="#step-4-test-block-a-commit-with-todo">Step 4: Test — Block a Commit with TODO</a></li>
+<li><a href="#step-5-test-allow-a-clean-commit">Step 5: Test — Allow a Clean Commit</a></li>
+<li><a href="#important-hooks-are-not-copied-on-clone">Important: Hooks Are NOT Copied on Clone</a></li>
+</ul>
+</li>
+<li><a href="#server-side-hooks">Server-Side Hooks</a><ul>
+<li><a href="#pre-receive-gate-at-the-server-entry-point">pre-receive — Gate at the Server Entry Point</a></li>
+<li><a href="#update-per-branch-gate">update — Per-Branch Gate</a></li>
+<li><a href="#post-receive-trigger-downstream-actions">post-receive — Trigger Downstream Actions</a></li>
+<li><a href="#server-hook-flow">Server Hook Flow</a></li>
+</ul>
+</li>
+<li><a href="#managing-hooks-at-scale">Managing Hooks at Scale</a><ul>
+<li><a href="#pre-commit-python">pre-commit (Python)</a></li>
+<li><a href="#husky-nodejs">husky (Node.js)</a></li>
+</ul>
+</li>
+<li><a href="#exercise">Exercise</a></li>
+<li><a href="#solution">Solution</a><ul>
+<li><a href="#step-1-create-the-commit-msg-hook">Step 1: Create the commit-msg Hook</a></li>
+<li><a href="#step-2-test-block-a-short-message">Step 2: Test — Block a Short Message</a></li>
+<li><a href="#step-3-test-allow-a-valid-message">Step 3: Test — Allow a Valid Message</a></li>
+</ul>
+</li>
+<li><a href="#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+    </div>
+
+    <div class="lesson-body">
+      <h1 id="git-hooks">Git Hooks</h1>
+<p>Git hooks are scripts that Git executes automatically before or after specific events such as commits, pushes, and merges. They live in the <code>.git/hooks/</code> directory of every Git repository and let you automate tasks, enforce policies, and improve code quality without manual intervention.</p>
+<p><a href="../index.html">← Back to Index</a> | <a href="12-github-pages.html">← Previous: GitHub Pages</a> | <a href="14-self-hosted-git.html">Next: Self-Hosted Git →</a></p>
+<hr />
+<h2 id="what-are-git-hooks">What Are Git Hooks?</h2>
+<p>When you initialize a Git repository with <code>git init</code>, Git populates a special directory:</p>
+<pre><code class="language-bash">ls -la .git/hooks/
+</code></pre>
+<pre><code class="language-text">.total 8
+drwxr-xr-x 12 codespace  4096 Jun 13 10:00  .
+drwxr-xr-x 14 codespace  4096 Jun 13 10:00  .
+drwxr-x 8 codespace  4096 Jun 13 10:00  .
+drwxr-xr-x  1 codespace  4096 Jun 13 10:00  applypatch-msg.sample
+drwxr-xr-x  1 codespace  4096 Jun 13 10:00  commit-msg.sample
+drwxr-xr-x  1 codespace  4096 Jun 13 10:00  post-update.sample
+drwxr-xr-x  1 codespace  4096 Jun 13 10:00  pre-applypatch.sample
+drwxr-xr-x  1 codespace  4096 Jun 13 10:00  pre-commit.sample
+drwxr-xr-x  1 codespace  4096 Jun 13 10:00  pre-merge-commit.sample
+drwxr-xr-x  1 codespace  4096 Jun 13 10:00  pre-push.sample
+drwxr-xr-x  3 codespace  4096 Jun 13 10:00  pre-rebase.sample
+drwxr-xr-x  1 codespace  4096 Jun 13 10:00  prepare-commit-msg.sample
+</code></pre>
+<p>Git ships these as <code>.sample</code> files — inactive by default. To activate a hook, remove the <code>.sample</code> suffix and make the file executable:</p>
+<pre><code class="language-bash">mv .git/hooks/pre-commit.sample .git/hooks/pre-commit
+chmod +x .git/hooks/pre-commit
+</code></pre>
+<h3 id="key-properties-of-git-hooks">Key Properties of Git Hooks</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Location</strong></td>
+<td>Stored in <code>.git/hooks/</code> — not version-controlled</td>
+</tr>
+<tr>
+<td><strong>Not copied on clone</strong></td>
+<td>Hooks exist only in the local <code>.git</code> directory</td>
+</tr>
+<tr>
+<td><strong>Blocking</strong></td>
+<td>A non-zero exit code aborts the operation</td>
+</tr>
+<tr>
+<td><strong>Client-side only (by default)</strong></td>
+<td>GitHub does not execute custom client hooks on its servers</td>
+</tr>
+<tr>
+<td><strong>Language-agnostic</strong></td>
+<td>Can be written in any scripting language (Bash, Python, Node.js, etc.)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="client-side-hooks">Client-Side Hooks</h2>
+<p>Client-side hooks run on your local machine. They are triggered by operations you perform in your repository.</p>
+<h3 id="pre-commit-the-most-important-hook">pre-commit — The Most Important Hook</h3>
+<p>The <code>pre-commit</code> hook runs before <code>git commit</code> is finalized, after you stage your changes. This is your first line of defense against bad commits.</p>
+<p><strong>Use cases:</strong><br />
+- Run linters (ESLint, Prettier, ShellCheck)<br />
+- Run unit tests<br />
+- Prevent commits containing secrets, API keys, or passwords<br />
+- Block <code>TODO</code> or <code>FIXME</code> comments in code<br />
+- Enforce file naming conventions</p>
+<p>If the script exits with a non-zero code, the commit is aborted.</p>
+<pre><code class="language-bash">git commit -m &quot;Add new feature&quot;
+# pre-commit hook runs here
+# If it returns 0 → commit proceeds
+# If it returns non-zero → commit is BLOCKED
+</code></pre>
+<h3 id="prepare-commit-msg-edit-the-commit-message-template">prepare-commit-msg — Edit the Commit Message Template</h3>
+<p>This hook runs before the commit message editor opens, and before the default message is generated. It receives the commit message file path as an argument.</p>
+<p><strong>Use cases:</strong><br />
+- Auto-insert the current Git branch name<br />
+- Pre-fill the issue or ticket number from the branch name<br />
+- Add a standardized template</p>
+<pre><code class="language-bash"># Example: Extract issue number from branch name &quot;feature/PROJ-123-add-login&quot;
+# and inject it into the commit message
+</code></pre>
+<h3 id="commit-msg-validate-commit-message-format">commit-msg — Validate Commit Message Format</h3>
+<p>The <code>commit-msg</code> hook runs after you save the commit message but before the commit is created. It receives the message file path.</p>
+<p><strong>Use cases:</strong><br />
+- Enforce Conventional Commits format (<code>feat:</code>, <code>fix:</code>, <code>docs:</code>)<br />
+- Ensure every commit references a ticket number<br />
+- Block empty commit messages</p>
+<pre><code class="language-bash"># Conventional Commits check example
+# Valid: feat: add user authentication
+# Invalid: fixed the thing
+</code></pre>
+<h3 id="post-commit-notifications-and-auditing">post-commit — Notifications and Auditing</h3>
+<p>This hook runs after the commit is created successfully. It cannot block anything — the commit has already happened.</p>
+<p><strong>Use cases:</strong><br />
+- Send notifications (Slack, email) after each commit<br />
+- Update external issue trackers<br />
+- Trigger CI builds locally</p>
+<h3 id="pre-push-final-safety-check-before-push">pre-push — Final Safety Check Before Push</h3>
+<p>The <code>pre-push</code> hook runs during <code>git push</code>, before objects are sent to the remote. It receives the remote name and URL.</p>
+<p><strong>Use cases:</strong><br />
+- Run the full test suite before pushing<br />
+- Block pushes to <code>main</code> directly (enforce code review policy)<br />
+- Check that local branch name matches remote naming conventions</p>
+<pre><code class="language-bash">git push origin feature/my-branch
+# pre-push hook runs here
+# Run tests, block if tests fail
+# If blocked → push does NOT happen
+</code></pre>
+<h3 id="post-merge-restore-state-after-a-merge">post-merge — Restore State After a Merge</h3>
+<p>The <code>post-merge</code> hook runs after a <code>git merge</code> completes successfully. It receives a flag indicating whether the merge was a squash merge.</p>
+<p><strong>Use cases:</strong><br />
+- Automatically install dependencies after a merge (<code>npm install</code>, <code>pip install -r requirements.txt</code>)<br />
+- Restore IDE settings or git hooks after a fresh clone via <code>git pull</code><br />
+- Copy sample configuration files if they are missing</p>
+<h3 id="pre-rebase-prevent-rebasing-shared-branches">pre-rebase — Prevent Rebasing Shared Branches</h3>
+<p>The <code>pre-rebase</code> hook runs before <code>git rebase</code> starts. It can prevent you from rebasing branches that others may have based work on.</p>
+<p><strong>Use cases:</strong><br />
+- Block <code>git rebase</code> on <code>main</code> or <code>develop</code> to prevent rewriting shared history<br />
+- Warn before rebasing branches that are published</p>
+<pre><code class="language-bash">git rebase main feature/my-branch
+# pre-rebase hook checks: is feature/my-branch shared?
+# If shared → block the rebase
+</code></pre>
+<h3 id="hook-execution-order-summary">Hook Execution Order Summary</h3>
+<pre><code>git commit
+├── pre-commit         ← Run linters, tests, block bad commits
+├── prepare-commit-msg ← Modify the commit message template
+├── commit-msg         ← Validate the commit message format
+└── post-commit        ← Notifications, after commit is complete
+
+git push
+└── pre-push           ← Run tests, block push if checks fail
+
+git merge
+└── post-merge         ← Install dependencies, restore state
+
+git rebase
+└── pre-rebase         ← Block rebasing of shared branches
+</code></pre>
+<hr />
+<h2 id="a-real-pre-commit-hook-blocking-todofixme">A Real pre-commit Hook: Blocking TODO/FIXME</h2>
+<p>Let's create a real <code>pre-commit</code> hook that blocks commits containing <code>TODO</code> or <code>FIXME</code> in any staged file. This is a common pattern to prevent forgotten tasks from sneaking into the codebase.</p>
+<h3 id="step-1-create-the-hook-script">Step 1: Create the Hook Script</h3>
+<pre><code class="language-bash">cat &gt; .git/hooks/pre-commit &lt;&lt; 'EOF'
+#!/bin/bash
+# pre-commit hook: Block commits containing TODO or FIXME
+
+echo &quot;Running pre-commit hook...&quot;
+
+# Get the list of staged files
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM)
+
+BLOCKED=0
+
+for file in $STAGED_FILES; do
+    # Check for TODO or FIXME in staged content
+    if grep -EH &quot;(TODO|FIXME)&quot; &quot;$file&quot; 2&gt;/dev/null; then
+        echo &quot;ERROR: Found TODO or FIXME in $file&quot;
+        echo &quot;Please resolve all TODO/FIXME comments before committing.&quot;
+        BLOCKED=1
+    fi
+done
+
+if [ $BLOCKED -eq 1 ]; then
+    echo &quot;COMMIT BLOCKED by pre-commit hook.&quot;
+    exit 1
+fi
+
+echo &quot;pre-commit checks passed.&quot;
+exit 0
+EOF
+</code></pre>
+<h3 id="step-2-make-it-executable">Step 2: Make It Executable</h3>
+<pre><code class="language-bash">chmod +x .git/hooks/pre-commit
+</code></pre>
+<h3 id="step-3-verify-the-hook-exists">Step 3: Verify the Hook Exists</h3>
+<pre><code class="language-bash">ls -la .git/hooks/pre-commit
+</code></pre>
+<pre><code class="language-text">-rwxr-xr-x 1 codespace  4096 Jun 13 10:00  .git/hooks/pre-commit
+</code></pre>
+<h3 id="step-4-test-block-a-commit-with-todo">Step 4: Test — Block a Commit with TODO</h3>
+<pre><code class="language-bash"># Create a file with a TODO comment and stage it
+echo &quot;# TODO: Implement user authentication&quot; &gt; feature.py
+git add feature.py
+git commit -m &quot;Add feature&quot;
+</code></pre>
+<pre><code class="language-text">Running pre-commit hook...
+ERROR: Found TODO or FIXME in feature.py
+Please resolve all TODO/FIXME comments before committing.
+COMMIT BLOCKED by pre-commit hook.
+</code></pre>
+<p>The commit was <strong>blocked</strong>. Notice that <code>git commit</code> returned an error — the commit does not exist.</p>
+<pre><code class="language-bash">git log --oneline -1
+</code></pre>
+<pre><code class="language-text"># No output — commit was never created
+</code></pre>
+<h3 id="step-5-test-allow-a-clean-commit">Step 5: Test — Allow a Clean Commit</h3>
+<p>Remove the TODO, stage again, and commit:</p>
+<pre><code class="language-bash"># Fix the file
+echo &quot;# Implement user authentication&quot; &gt; feature.py
+git add feature.py
+git commit -m &quot;Add feature&quot;
+</code></pre>
+<pre><code class="language-text">Running pre-commit hook...
+pre-commit checks passed.
+[main a1b2c3d] Add feature
+ 1 file changed, 1 insertion(+)
+</code></pre>
+<p>The commit succeeded. The hook passed silently when no TODO/FIXME was found.</p>
+<h3 id="important-hooks-are-not-copied-on-clone">Important: Hooks Are NOT Copied on Clone</h3>
+<p>A critical gotcha: hooks live in <code>.git/hooks/</code>, which is <strong>not</strong> version-controlled. When someone clones your repository, they get an empty hooks directory:</p>
+<pre><code class="language-bash"># On a fresh clone, hooks are NOT included
+git clone https://github.com/your-org/your-repo.git
+ls .git/hooks/
+</code></pre>
+<pre><code class="language-text">applypatch-msg.sample  commit-msg.sample  post-update.sample
+pre-applypatch.sample  pre-commit.sample  pre-merge-commit.sample
+pre-push.sample  pre-rebase.sample  prepare-commit-msg.sample
+</code></pre>
+<p>Only the <code>.sample</code> files ship with Git. Your custom hooks must be distributed separately — either through a bootstrap script, a tool like <code>pre-commit</code> (Python) or <code>husky</code> (Node.js), or by committing hook scripts to the repo itself (in a directory like <code>scripts/hooks/</code> that is tracked, then symlinked or copied into <code>.git/hooks/</code>).</p>
+<hr />
+<h2 id="server-side-hooks">Server-Side Hooks</h2>
+<p>Server-side hooks run on the Git server, not on individual developers' machines. They control what is <strong>accepted</strong> into the repository.</p>
+<blockquote>
+<p><strong>Note:</strong> GitHub and GitLab run their own server-side hooks internally, but they do <strong>not</strong> expose custom server-side hook scripts to users in the way self-hosted Git servers do. The hooks described here apply to self-hosted Git deployments (see <a href="14-self-hosted-git.html">Next: Self-Hosted Git →</a>).</p>
+</blockquote>
+<h3 id="pre-receive-gate-at-the-server-entry-point">pre-receive — Gate at the Server Entry Point</h3>
+<p>Runs on the server when a push is received, <strong>before</strong> any refs are updated. All pushed commits are available for inspection.</p>
+<p><strong>Use cases:</strong><br />
+- Enforce repository policies (branch naming, commit authorship)<br />
+- Block force-pushes to protected branches<br />
+- Validate that pushed commits match certain criteria</p>
+<h3 id="update-per-branch-gate">update — Per-Branch Gate</h3>
+<p>Runs once for each branch being updated. Receives the branch name, the old commit hash, and the new commit hash.</p>
+<p><strong>Use cases:</strong><br />
+- Require signed commits on specific branches<br />
+- Prevent merges that do not pass CI on the server<br />
+- Block non-fast-forward updates to <code>main</code></p>
+<h3 id="post-receive-trigger-downstream-actions">post-receive — Trigger Downstream Actions</h3>
+<p>Runs after the push is fully processed and all refs are updated. It cannot block anything.</p>
+<p><strong>Use cases:</strong><br />
+- Trigger CI/CD pipelines (via webhook)<br />
+- Deploy code after a push to <code>main</code><br />
+- Send email or Slack notifications<br />
+- Mirror the repository to a backup server</p>
+<h3 id="server-hook-flow">Server Hook Flow</h3>
+<pre><code>Developer runs: git push origin main
+           │
+           ▼
+    ┌──────────────────┐
+    │  pre-receive     │  ← Block pushes, validate all refs
+    └────────┬─────────┘
+             │ (if pass)
+    ┌────────▼─────────┐
+    │  update (main)   │  ← Per-branch check: old SHA → new SHA
+    └────────┬─────────┘
+             │ (if pass)
+    ┌────────▼─────────┐
+    │ post-receive     │  ← Trigger deployments, notifications
+    └──────────────────┘
+</code></pre>
+<hr />
+<h2 id="managing-hooks-at-scale">Managing Hooks at Scale</h2>
+<p>As projects grow, managing hooks manually becomes error-prone. Two popular tools solve this:</p>
+<h3 id="pre-commit-python">pre-commit (Python)</h3>
+<p>The <a href="https://pre-commit.com/"><code>pre-commit</code></a> framework is a Python-based tool that installs and manages hooks from a <code>.pre-commit-config.yaml</code> file in your repository. Hooks are versioned and distributed with the repo.</p>
+<pre><code class="language-yaml"># .pre-commit-config.yaml
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+
+  - repo: https://github.com/psf/black
+    rev: 24.1.1
+    hooks:
+      - id: black
+</code></pre>
+<pre><code class="language-bash"># Install pre-commit
+pip install pre-commit
+
+# Install hooks from .pre-commit-config.yaml
+pre-commit install
+
+# Run manually
+pre-commit run --all-files
+</code></pre>
+<p>Hooks defined in <code>.pre-commit-config.yaml</code> <strong>are</strong> tracked in the repository, solving the "hooks not copied on clone" problem.</p>
+<h3 id="husky-nodejs">husky (Node.js)</h3>
+<p><a href="https://typicode.github.io/husky/">Husky</a> is a Node.js tool that makes Git hooks easier to manage, especially for JavaScript/TypeScript projects.</p>
+<pre><code class="language-bash"># Install husky
+npm install husky --save-dev
+
+# Initialize husky in your project
+npx husky init
+
+# Add a hook
+npx husky add .husky/pre-commit &quot;npm test&quot;
+</code></pre>
+<p>This creates <code>.husky/pre-commit</code>:</p>
+<pre><code class="language-bash">#!/usr/bin/env sh
+. &quot;$(dirname -- &quot;$0&quot;)/_/husky.sh&quot;
+
+npm test
+</code></pre>
+<p>The <code>.husky/</code> directory can be committed to the repository, so hooks travel with the code.</p>
+<hr />
+<h2 id="exercise">Exercise</h2>
+<p><strong>Task:</strong> Create a <code>pre-commit</code> hook that blocks any commit message shorter than 10 characters. The hook should:</p>
+<ol>
+<li>Read the commit message from the file passed as the first argument (this is how <code>commit-msg</code> hooks receive the message)</li>
+<li>Check if the message length (excluding whitespace) is at least 10 characters</li>
+<li>Exit with code <code>1</code> (block) if too short, exit with code <code>0</code> (allow) if valid</li>
+<li>Display a helpful error message when blocking</li>
+</ol>
+<p>Test your hook with:<br />
+- A blocked short message (e.g., <code>"fix bug"</code>)<br />
+- An allowed longer message (e.g., <code>"fix: resolve null pointer on login"</code>)</p>
+<hr />
+<h2 id="solution">Solution</h2>
+<h3 id="step-1-create-the-commit-msg-hook">Step 1: Create the commit-msg Hook</h3>
+<pre><code class="language-bash">cat &gt; .git/hooks/commit-msg &lt;&lt; 'EOF'
+#!/bin/bash
+# commit-msg hook: Block commits with messages shorter than 10 chars
+
+COMMIT_MSG_FILE=&quot;$1&quot;
+COMMIT_MSG=$(cat &quot;$COMMIT_MSG_FILE&quot;)
+
+# Remove leading and trailing whitespace
+COMMIT_MSG_TRIMMED=$(echo &quot;$COMMIT_MSG&quot; | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+
+# Check length (non-whitespace characters only)
+MSG_LEN=${#COMMIT_MSG_TRIMMED}
+
+if [ $MSG_LEN -lt 10 ]; then
+    echo &quot;ERROR: Commit message too short.&quot;
+    echo &quot;  Received: '$COMMIT_MSG_TRIMMED' (${MSG_LEN} chars)&quot;
+    echo &quot;  Minimum:  10 characters&quot;
+    echo &quot;COMMIT BLOCKED by commit-msg hook.&quot;
+    exit 1
+fi
+
+echo &quot;Commit message check passed (${MSG_LEN} chars).&quot;
+exit 0
+EOF
+chmod +x .git/hooks/commit-msg
+</code></pre>
+<h3 id="step-2-test-block-a-short-message">Step 2: Test — Block a Short Message</h3>
+<pre><code class="language-bash">git add .git/hooks/commit-msg
+git commit -m &quot;Add commit-msg hook&quot;
+</code></pre>
+<p>Now test with a short message:</p>
+<pre><code class="language-bash"># Create a test file to force a non-empty commit
+touch exercise-test.txt
+git add exercise-test.txt
+git commit -m &quot;fix bug&quot;
+</code></pre>
+<pre><code class="language-text">ERROR: Commit message too short.
+  Received: 'fix bug' (8 chars)
+  Minimum:  10 characters
+COMMIT BLOCKED by commit-msg hook.
+</code></pre>
+<pre><code class="language-bash">git log --oneline -1
+</code></pre>
+<pre><code class="language-text"># No new commit — blocked successfully
+</code></pre>
+<h3 id="step-3-test-allow-a-valid-message">Step 3: Test — Allow a Valid Message</h3>
+<pre><code class="language-bash">git commit -m &quot;fix bug: resolve null pointer on login&quot;
+</code></pre>
+<pre><code class="language-text">Commit message check passed (38 chars).
+[main a1b2c3d] fix bug: resolve null pointer on login
+ 1 file changed, 0 insertions(+), 0 deletions(+)
+</code></pre>
+<p>The commit succeeded. The hook correctly allows messages of 10 or more characters.</p>
+<hr />
+<h2 id="summary">Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Hook</th>
+<th>When It Runs</th>
+<th>Can Block?</th>
+<th>Common Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pre-commit</code></td>
+<td>Before each <code>git commit</code></td>
+<td>Yes</td>
+<td>Linters, tests, secret scanning</td>
+</tr>
+<tr>
+<td><code>prepare-commit-msg</code></td>
+<td>Before message editor opens</td>
+<td>No</td>
+<td>Auto-insert issue numbers</td>
+</tr>
+<tr>
+<td><code>commit-msg</code></td>
+<td>After message is written</td>
+<td>Yes</td>
+<td>Enforce commit message format</td>
+</tr>
+<tr>
+<td><code>post-commit</code></td>
+<td>After commit is complete</td>
+<td>No</td>
+<td>Notifications</td>
+</tr>
+<tr>
+<td><code>pre-push</code></td>
+<td>Before <code>git push</code> sends data</td>
+<td>Yes</td>
+<td>Run full test suite</td>
+</tr>
+<tr>
+<td><code>post-merge</code></td>
+<td>After <code>git merge</code> finishes</td>
+<td>No</td>
+<td>Install dependencies</td>
+</tr>
+<tr>
+<td><code>pre-rebase</code></td>
+<td>Before <code>git rebase</code> starts</td>
+<td>Yes</td>
+<td>Block shared branch rebases</td>
+</tr>
+<tr>
+<td><code>pre-receive</code></td>
+<td>Server-side: push arrives</td>
+<td>Yes</td>
+<td>Enforce server policies</td>
+</tr>
+<tr>
+<td><code>update</code></td>
+<td>Server-side: per branch</td>
+<td>Yes</td>
+<td>Require signed commits</td>
+</tr>
+<tr>
+<td><code>post-receive</code></td>
+<td>Server-side: push complete</td>
+<td>No</td>
+<td>Trigger deployments</td>
+</tr>
+</tbody>
+</table>
+<p>Remember: <strong>hooks are local and not copied on clone</strong>. Use <code>pre-commit</code>, husky, or a bootstrap script to distribute hooks across a team.</p>
+<p><a href="../index.html">← Back to Index</a> | <a href="12-github-pages.html">← Previous: GitHub Pages</a> | <a href="14-self-hosted-git.html">Next: Self-Hosted Git →</a></p>
+
+      <div class="lesson-actions">
+        <button class="btn-mark-complete" id="btn-mark-complete" data-lesson="13">
+          <span class="btn-icon">✓</span> Mark Complete
+        </button>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Previous and next lessons">
+        <a href="12-github-pages.html" class="lesson-nav-prev">
+          <span class="nav-label">← Previous</span>
+          <span class="nav-title">GitHub Pages</span>
+        </a>
+
+        <a href="14-self-hosted-git.html" class="lesson-nav-next">
+          <span class="nav-label">Next →</span>
+          <span class="nav-title">Self-Hosted Git</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+</article>
+      </main>
+
+      <footer class="site-footer">
+        <p>Built with ❤️ for DevOps learners</p>
+        <p class="footer-small">Git Kimchi — A free Git &amp; GitHub course</p>
+      </footer>
+    </div>
+  </div>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script src="../static/js/app.js"></script>
+</body>
+</html>

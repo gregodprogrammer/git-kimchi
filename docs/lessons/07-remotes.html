@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remotes — Git Kimchi</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body data-page="lesson">
+  <div class="site-wrapper">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-brand">
+          <span class="brand-icon">🌶️</span>
+          <span class="brand-text">Git Kimchi</span>
+        </a>
+        <button class="sidebar-close" id="sidebar-close" aria-label="Close navigation">×</button>
+      </div>
+      <nav class="sidebar-nav" aria-label="Lessons">
+        <div class="nav-section">
+          <span class="nav-section-title">Core Git</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="01-getting-started.html" class="nav-link" data-lesson="1">
+                <span class="nav-num">1</span>
+                <span class="nav-title">Getting Started with Git</span>
+                <span class="nav-status" data-status-lesson="1"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="02-staging-and-commits.html" class="nav-link" data-lesson="2">
+                <span class="nav-num">2</span>
+                <span class="nav-title">Staging and Commits</span>
+                <span class="nav-status" data-status-lesson="2"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="03-history-and-diff.html" class="nav-link" data-lesson="3">
+                <span class="nav-num">3</span>
+                <span class="nav-title">History and Diff</span>
+                <span class="nav-status" data-status-lesson="3"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="04-undoing-changes.html" class="nav-link" data-lesson="4">
+                <span class="nav-num">4</span>
+                <span class="nav-title">Undoing Changes</span>
+                <span class="nav-status" data-status-lesson="4"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Intermediate</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="05-branching.html" class="nav-link" data-lesson="5">
+                <span class="nav-num">5</span>
+                <span class="nav-title">Branching</span>
+                <span class="nav-status" data-status-lesson="5"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="06-merging.html" class="nav-link" data-lesson="6">
+                <span class="nav-num">6</span>
+                <span class="nav-title">Merging</span>
+                <span class="nav-status" data-status-lesson="6"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="07-remotes.html" class="nav-link" data-lesson="7">
+                <span class="nav-num">7</span>
+                <span class="nav-title">Remotes</span>
+                <span class="nav-status" data-status-lesson="7"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="08-github-repos-and-forks.html" class="nav-link" data-lesson="8">
+                <span class="nav-num">8</span>
+                <span class="nav-title">GitHub Repositories and Forks</span>
+                <span class="nav-status" data-status-lesson="8"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="09-pull-requests-and-issues.html" class="nav-link" data-lesson="9">
+                <span class="nav-num">9</span>
+                <span class="nav-title">Pull Requests and Issues</span>
+                <span class="nav-status" data-status-lesson="9"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Advanced / DevOps</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="10-code-review.html" class="nav-link" data-lesson="10">
+                <span class="nav-num">10</span>
+                <span class="nav-title">Code Review</span>
+                <span class="nav-status" data-status-lesson="10"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="11-branching-strategies.html" class="nav-link" data-lesson="11">
+                <span class="nav-num">11</span>
+                <span class="nav-title">Branching Strategies</span>
+                <span class="nav-status" data-status-lesson="11"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="12-github-pages.html" class="nav-link" data-lesson="12">
+                <span class="nav-num">12</span>
+                <span class="nav-title">GitHub Pages</span>
+                <span class="nav-status" data-status-lesson="12"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="13-git-hooks.html" class="nav-link" data-lesson="13">
+                <span class="nav-num">13</span>
+                <span class="nav-title">Git Hooks</span>
+                <span class="nav-status" data-status-lesson="13"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="14-self-hosted-git.html" class="nav-link" data-lesson="14">
+                <span class="nav-num">14</span>
+                <span class="nav-title">Self-Hosted Git</span>
+                <span class="nav-status" data-status-lesson="14"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Capstone &amp; Reference</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="15-capstone.html" class="nav-link" data-lesson="15">
+                <span class="nav-num">15</span>
+                <span class="nav-title">Capstone Mini-Project</span>
+                <span class="nav-status" data-status-lesson="15"></span>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="../solutions.html" class="nav-link" data-lesson="solutions">
+                <span class="nav-num">💡</span>
+                <span class="nav-title">Solutions</span>
+                <span class="nav-status" data-status-lesson="solutions"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="main-area">
+      <header class="site-header">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="header-title">
+          <a href="../index.html">Git Kimchi</a>
+        </div>
+        <div class="header-progress" id="header-progress" style="display:none;">
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+          </div>
+          <span class="progress-text" id="progress-text">0 / 15</span>
+        </div>
+      </header>
+
+      <main class="content-wrapper">
+<article class="lesson">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">Remotes</span>
+  </nav>
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="lesson-number">Lesson 7</span>
+      <span class="lesson-readtime">14 min read</span>
+    </div>
+    <h1 class="lesson-title">Remotes</h1>
+  </header>
+
+  <div class="lesson-body-wrapper">
+    <div class="lesson-toc" id="lesson-toc" aria-label="Table of contents">
+      <h2>On this page</h2>
+      <div class="toc">
+<ul>
+<li><a href="#remotes">Remotes</a><ul>
+<li><a href="#what-is-a-remote">What Is a Remote?</a></li>
+<li><a href="#listing-remotes-with-git-remote-v">Listing Remotes with git remote -v</a></li>
+<li><a href="#adding-a-remote-with-git-remote-add">Adding a Remote with git remote add</a><ul>
+<li><a href="#https-vs-ssh-urls">HTTPS vs. SSH URLs</a></li>
+</ul>
+</li>
+<li><a href="#managing-remotes">Managing Remotes</a><ul>
+<li><a href="#renaming-a-remote">Renaming a Remote</a></li>
+<li><a href="#removing-a-remote">Removing a Remote</a></li>
+</ul>
+</li>
+<li><a href="#pushing-to-a-remote-with-git-push">Pushing to a Remote with git push</a><ul>
+<li><a href="#your-first-push-setting-upstream-with-u">Your First Push: Setting Upstream with -u</a></li>
+<li><a href="#subsequent-pushes">Subsequent Pushes</a></li>
+<li><a href="#pushing-a-feature-branch">Pushing a Feature Branch</a></li>
+<li><a href="#deleting-a-remote-branch">Deleting a Remote Branch</a></li>
+</ul>
+</li>
+<li><a href="#fetching-with-git-fetch">Fetching with git fetch</a><ul>
+<li><a href="#what-just-happened">What Just Happened?</a></li>
+<li><a href="#viewing-whats-different-after-a-fetch">Viewing What's Different After a Fetch</a></li>
+<li><a href="#why-fetch-instead-of-pull">Why Fetch Instead of Pull?</a></li>
+</ul>
+</li>
+<li><a href="#pulling-with-git-pull">Pulling with git pull</a><ul>
+<li><a href="#fast-forward-vs-merge-commits">Fast-Forward vs. Merge Commits</a></li>
+</ul>
+</li>
+<li><a href="#pull-with-rebase-git-pull-rebase">Pull with Rebase: git pull --rebase</a></li>
+<li><a href="#tracking-branches">Tracking Branches</a><ul>
+<li><a href="#why-tracking-matters">Why Tracking Matters</a></li>
+<li><a href="#viewing-tracking-info-with-git-branch-vv">Viewing Tracking Info with git branch -vv</a></li>
+<li><a href="#setting-upstream-after-the-fact">Setting Upstream After the Fact</a></li>
+<li><a href="#breaking-the-tracking-link">Breaking the Tracking Link</a></li>
+</ul>
+</li>
+<li><a href="#the-fetchpull-workflow-in-practice">The Fetch/Pull Workflow in Practice</a></li>
+<li><a href="#exercise">Exercise</a><ul>
+<li><a href="#scenario">Scenario</a></li>
+<li><a href="#tasks">Tasks</a></li>
+<li><a href="#success-criteria">Success Criteria</a></li>
+</ul>
+</li>
+<li><a href="#solution">Solution</a></li>
+<li><a href="#key-takeaways">Key Takeaways</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+    </div>
+
+    <div class="lesson-body">
+      <h1 id="remotes">Remotes</h1>
+<p><a href="06-merging.html">← Previous: Merging</a> | <a href="../index.html">← Back to Index</a></p>
+<p>So far, everything we've done has been local — commits, branches, and merges all exist only on your machine. But Git's real power is collaboration, which requires sharing code between computers. That's what remote repositories are for.</p>
+<p>A <strong>remote</strong> is a copy of your Git repository hosted on another server. When you push code to a remote, you're uploading your commits so others can pull them down. Popular remote hosting services include GitHub, GitLab, Bitbucket, and Gitea.</p>
+<h2 id="what-is-a-remote">What Is a Remote?</h2>
+<p>Think of a remote as a shared Dropbox for your Git history. Each collaborator has their own local copy, and they sync changes through a central remote. The remote doesn't just store your latest code — it stores your entire commit history, all branches, and all tags.</p>
+<p>By convention, the default remote is named <code>origin</code>. You can have multiple remotes, but <code>origin</code> is the standard name for your primary source of truth.</p>
+<pre><code class="language-text">┌─────────────────────────────────────────────────────────────────┐
+│                         REMOTE SERVER                           │
+│                     (GitHub, GitLab, etc.)                      │
+│                                                                 │
+│   origin:  main  ·  feature-login  ·  develop  ·  commit abc123 │
+└─────────────────────────────────────────────────────────────────┘
+            │ push/pull              │ push/pull
+            ▼                       ▼
+┌─────────────────────┐     ┌─────────────────────┐
+│   YOUR COMPUTER     │     │   COLLABORATOR      │
+│                     │     │                     │
+│   main              │     │   main              │
+│   feature-login     │     │   feature-dashboard │
+│   develop           │     │                     │
+└─────────────────────┘     └─────────────────────┘
+</code></pre>
+<h2 id="listing-remotes-with-git-remote-v">Listing Remotes with <code>git remote -v</code></h2>
+<p>Before adding or modifying remotes, it's good to see what you already have. The <code>-v</code> flag (verbose) shows both the fetch and push URLs for each remote.</p>
+<pre><code class="language-bash"># Check existing remotes in your repository
+git remote -v
+</code></pre>
+<pre><code class="language-text">origin  https://github.com/username/repo.git (fetch)
+origin  https://github.com/username/repo.git (push)
+</code></pre>
+<p>If you haven't added any remotes yet, you'll see nothing:</p>
+<pre><code class="language-text"># No output means no remotes configured
+</code></pre>
+<p>A fresh <code>git init</code> creates a local repository with no remotes. You need to add one explicitly.</p>
+<h2 id="adding-a-remote-with-git-remote-add">Adding a Remote with <code>git remote add</code></h2>
+<p>To connect your local repository to a remote server, use <code>git remote add</code>. The command takes a name (usually <code>origin</code>) and a URL.</p>
+<pre><code class="language-bash"># Add a remote named 'origin' pointing to your GitHub repository
+git remote add origin https://github.com/username/my-project.git
+</code></pre>
+<p>After adding, verify it worked:</p>
+<pre><code class="language-bash">git remote -v
+</code></pre>
+<pre><code class="language-text">origin  https://github.com/username/my-project.git (fetch)
+origin  https://github.com/username/my-project.git (push)
+</code></pre>
+<p>You can add multiple remotes if you collaborate with different providers:</p>
+<pre><code class="language-bash"># Add GitHub as origin
+git remote add origin https://github.com/username/my-project.git
+
+# Add a colleague's fork as a separate remote
+git remote add colleague https://github.com/colleague/my-project.git
+
+# Verify both remotes are configured
+git remote -v
+</code></pre>
+<pre><code class="language-text">origin     https://github.com/username/my-project.git (fetch)
+origin     https://github.com/username/my-project.git (push)
+colleague  https://github.com/colleague/my-project.git (fetch)
+colleague  https://github.com/colleague/my-project.git (push)
+</code></pre>
+<h3 id="https-vs-ssh-urls">HTTPS vs. SSH URLs</h3>
+<p>When adding remotes, you'll encounter two URL formats:</p>
+<p><strong>HTTPS URLs</strong> (recommended for beginners):</p>
+<pre><code class="language-text">https://github.com/username/repo.git
+</code></pre>
+<ul>
+<li>Works out of the box with no configuration</li>
+<li>Requires username/password or personal access token</li>
+<li>Can use GitHub CLI (<code>gh auth login</code>) for seamless authentication</li>
+</ul>
+<p><strong>SSH URLs</strong>:</p>
+<pre><code class="language-text">git@github.com:username/repo.git
+</code></pre>
+<ul>
+<li>Requires SSH key setup (<code>ssh-keygen</code>)</li>
+<li>No username/password prompts after initial configuration</li>
+<li>Slightly shorter commands for some operations</li>
+</ul>
+<p>For this tutorial, we'll use HTTPS URLs. If you want to switch to SSH later, see the Advanced Git section.</p>
+<h2 id="managing-remotes">Managing Remotes</h2>
+<h3 id="renaming-a-remote">Renaming a Remote</h3>
+<p>If you accidentally added a remote with the wrong name, or you want a more descriptive name, you can rename it:</p>
+<pre><code class="language-bash"># Rename 'origin' to 'github'
+git remote rename origin github
+
+# Verify the change
+git remote -v
+</code></pre>
+<pre><code class="language-text">github  https://github.com/username/my-project.git (fetch)
+github  https://github.com/username/my-project.git (push)
+</code></pre>
+<h3 id="removing-a-remote">Removing a Remote</h3>
+<p>To disconnect from a remote entirely, use <code>git remote remove</code>:</p>
+<pre><code class="language-bash"># Remove the 'github' remote
+git remote remove github
+
+# Verify it's gone
+git remote -v
+</code></pre>
+<pre><code class="language-text"># No output — no remotes configured
+</code></pre>
+<p><strong>Caution</strong>: Removing a remote doesn't delete any local branches or commits. It only removes the connection to that server. Your local history is safe.</p>
+<h2 id="pushing-to-a-remote-with-git-push">Pushing to a Remote with <code>git push</code></h2>
+<p>Pushing uploads your local commits to the remote repository. Let's cover the common scenarios.</p>
+<h3 id="your-first-push-setting-upstream-with-u">Your First Push: Setting Upstream with <code>-u</code></h3>
+<p>When you push a branch for the first time, Git doesn't know which remote branch to track. The <code>-u</code> (or <code>--set-upstream</code>) flag establishes that connection:</p>
+<pre><code class="language-bash">git push -u origin main
+</code></pre>
+<pre><code class="language-text">Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Writing objects: 100% (3/3), 243 bytes | 243.00 KiB/s, done.
+To https://github.com/username/my-project.git
+ * [new branch]      main -&gt; main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+</code></pre>
+<p>After using <code>-u</code>, Git remembers the upstream relationship. Future pushes from this branch are simpler.</p>
+<h3 id="subsequent-pushes">Subsequent Pushes</h3>
+<p>Once the upstream is set, just run <code>git push</code> without arguments:</p>
+<pre><code class="language-bash">git push
+</code></pre>
+<pre><code class="language-text">Enumerating objects: 3, done.
+Counting objects: 100% (3/3), 210 bytes | 210.00 KiB/s, done.
+Writing objects: 100% (3/3), 200 bytes | 200.00 KiB/s, done.
+To https://github.com/username/my-project.git
+   5a2c1d3..e7f8g9h  main -&gt; main
+</code></pre>
+<p>Git automatically pushes to the tracked remote branch.</p>
+<h3 id="pushing-a-feature-branch">Pushing a Feature Branch</h3>
+<p>To share a feature branch with others, specify both the remote and branch name:</p>
+<pre><code class="language-bash">git push origin feature-login
+</code></pre>
+<pre><code class="language-text">Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Writing objects: 100% (4/4), 350 bytes | 350.00 KiB/s, done.
+To https://github.com/username/my-project.git
+ * [new branch]      feature-login -&gt; feature-login
+</code></pre>
+<h3 id="deleting-a-remote-branch">Deleting a Remote Branch</h3>
+<p>To remove a branch from the remote (after it's been merged, for example), use <code>--delete</code>:</p>
+<pre><code class="language-bash">git push origin --delete feature-login
+</code></pre>
+<pre><code class="language-text">To https://github.com/username/my-project.git
+ - [deleted]         feature-login
+</code></pre>
+<p><strong>Important</strong>: This only deletes the remote branch. Your local branch still exists. If you want to clean up locally too:</p>
+<pre><code class="language-bash"># Delete the local branch (only if merged)
+git branch -d feature-login
+</code></pre>
+<h2 id="fetching-with-git-fetch">Fetching with <code>git fetch</code></h2>
+<p>Fetching downloads commits from the remote but <strong>does not merge them</strong> into your local branches. Your code stays exactly as it is — fetch is a safe, non-destructive operation.</p>
+<pre><code class="language-bash">git fetch origin
+</code></pre>
+<pre><code class="language-text">remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (3/3), done.
+Receiving objects: 100% (4/4), 320 bytes | 320.00 KiB/s, done.
+Resolving deltas: 100% (2/2), done.
+From https://github.com/username/my-project
+   5a2c1d3..e7f8g9h  main       -&gt; origin/main
+   8b9c0d1..a1b2c3d  develop    -&gt; origin/develop
+</code></pre>
+<h3 id="what-just-happened">What Just Happened?</h3>
+<p>After fetching:<br />
+- <code>origin/main</code> now points to the same commit as the remote's <code>main</code><br />
+- Your local <code>main</code> is unchanged — it still points to your local commit<br />
+- The remote's commits are now in your local repository, but not yet integrated</p>
+<h3 id="viewing-whats-different-after-a-fetch">Viewing What's Different After a Fetch</h3>
+<p>To see what commits you're missing, compare your branch to the remote:</p>
+<pre><code class="language-bash">git log origin/main..main
+</code></pre>
+<pre><code class="language-text">commit e7f8g9h (HEAD -&gt; main)
+Author: Jane Developer &lt;jane@example.com&gt;
+Date:   Thu Jun 13 10:30:00 2024
+
+    Add user authentication
+
+commit a1b2c3d
+Author: Jane Developer &lt;jane@example.com&gt;
+Date:   Thu Jun 13 09:15:00 2024
+
+    Set up project structure
+</code></pre>
+<p>This shows commits on <code>main</code> that aren't on <code>origin/main</code> — in other words, commits you've made locally but haven't pushed yet.</p>
+<p>To see what the remote has that you don't:</p>
+<pre><code class="language-bash">git log main..origin/main
+</code></pre>
+<pre><code class="language-text">commit 9x0y1z2
+Author: Bob Contributor &lt;bob@example.com&gt;
+Date:   Thu Jun 13 11:00:00 2024
+
+    Fix navigation bug
+</code></pre>
+<h3 id="why-fetch-instead-of-pull">Why Fetch Instead of Pull?</h3>
+<p>Fetch is "peek without touching." Use it when you want to:<br />
+- See what others have done before merging<br />
+- Review remote changes without affecting your working directory<br />
+- Prepare for a rebase (which you'll learn about later)</p>
+<p>Think of fetch as updating your "map" of the remote without changing your "position."</p>
+<h2 id="pulling-with-git-pull">Pulling with <code>git pull</code></h2>
+<p>Pulling is fetch + merge in one command. It downloads remote commits and immediately integrates them into your current branch:</p>
+<pre><code class="language-bash">git pull
+</code></pre>
+<pre><code class="language-text">remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (3/3), done.
+Receiving objects: 100% (4/4), 280 bytes | 280.00 KiB/s, done.
+Resolving deltas: 100% (2/2), done.
+From https://github.com/username/my-project
+   5a2c1d3..e7f8g9h  main     -&gt; origin/main
+Updating 5a2c1d3..e7f8g9h
+Fast-forward
+ index.html | 2 ++
+ 1 file changed, 2 insertions(+)
+</code></pre>
+<h3 id="fast-forward-vs-merge-commits">Fast-Forward vs. Merge Commits</h3>
+<p>If the remote has commits that are directly "ahead" of your local branch (no divergent history), Git does a <strong>fast-forward</strong> — it just moves your branch pointer forward. No merge commit is created.</p>
+<p>If you've made local commits that conflict with the remote, Git creates a <strong>merge commit</strong> to tie the histories together:</p>
+<pre><code class="language-text">Merge branch 'main' of https://github.com/username/my-project
+
+# Please enter a commit message to explain why this merge is necessary.
+# Lines starting with '#' will be ignored, and an empty message
+# aborts the commit.
+</code></pre>
+<p>You'll learn more about merge conflicts in the <a href="06-merging.html">Merging</a> section.</p>
+<h2 id="pull-with-rebase-git-pull-rebase">Pull with Rebase: <code>git pull --rebase</code></h2>
+<p>There's a second way to integrate remote changes: rebasing instead of merging.</p>
+<pre><code class="language-bash">git pull --rebase
+</code></pre>
+<p>This fetches the remote commits and <strong>replays your local commits on top of them</strong>. Instead of a merge commit, your commit history stays linear:</p>
+<pre><code class="language-text">Before pull --rebase:
+
+main:     A -- B -- C
+              \
+feature:        D -- E
+
+After git pull --rebase:
+
+main:     A -- B -- C
+                      \
+feature:               D' -- E'
+</code></pre>
+<p>The <code>--rebase</code> flag is often preferred for keeping history clean, but it rewrites commit hashes (which is fine for local branches, dangerous for shared branches without coordination).</p>
+<p>Rebasing is covered in depth in the <strong>Advanced Git</strong> section, where you'll learn when to rebase and when to merge.</p>
+<h2 id="tracking-branches">Tracking Branches</h2>
+<p>A <strong>tracking branch</strong> (or upstream branch) is a local branch connected to a remote branch. When you push with <code>-u</code>, you create this link.</p>
+<h3 id="why-tracking-matters">Why Tracking Matters</h3>
+<p>Tracking enables convenient shortcuts:<br />
+- <code>git push</code> knows where to push<br />
+- <code>git pull</code> knows where to pull from<br />
+- <code>git status</code> shows how many commits ahead/behind you are<br />
+- <code>git branch -vv</code> shows the relationship</p>
+<h3 id="viewing-tracking-info-with-git-branch-vv">Viewing Tracking Info with <code>git branch -vv</code></h3>
+<p>The double-verbose flag shows upstream relationships:</p>
+<pre><code class="language-bash">git branch -vv
+</code></pre>
+<pre><code class="language-text">* main             a1b2c3d [origin/main] Add user authentication
+  feature-login    d4e5f6g [origin/feature-login] Add login form
+  feature-settings 7h8i9j0 (no upstream) Configure user preferences
+</code></pre>
+<ul>
+<li><code>main</code> and <code>feature-login</code> have upstream branches — they're ready to push/pull</li>
+<li><code>feature-settings</code> has no upstream — it's a local-only branch</li>
+</ul>
+<h3 id="setting-upstream-after-the-fact">Setting Upstream After the Fact</h3>
+<p>If you forgot <code>-u</code> on your first push, set it later:</p>
+<pre><code class="language-bash"># Set feature-dashboard to track origin/feature-dashboard
+git branch -u origin/feature-dashboard feature-dashboard
+
+# Or if you're already on that branch:
+git branch -u origin/feature-dashboard
+</code></pre>
+<pre><code class="language-text">Branch 'feature-dashboard' set up to track remote branch 'feature-dashboard' from 'origin'.
+</code></pre>
+<h3 id="breaking-the-tracking-link">Breaking the Tracking Link</h3>
+<p>To disconnect a local branch from its upstream:</p>
+<pre><code class="language-bash">git branch --unset-upstream feature-dashboard
+</code></pre>
+<pre><code class="language-text">Branch 'feature-dashboard' had its upstream branch removed.
+</code></pre>
+<h2 id="the-fetchpull-workflow-in-practice">The Fetch/Pull Workflow in Practice</h2>
+<p>Here's the typical collaboration loop:</p>
+<pre><code class="language-bash"># 1. Start your workday by fetching the latest changes
+git fetch origin
+
+# 2. See what's new on main
+git log origin/main --oneline
+
+# 3. If everything looks good, pull to merge
+git pull origin main
+
+# 4. Or if you prefer to review first, stay on your branch and pull later
+# (do your work...)
+git push origin feature-login
+</code></pre>
+<p>The key insight: <strong>fetch is safe, pull is convenient</strong>. Use fetch when you want to inspect before integrating. Use pull when you're ready to merge.</p>
+<h2 id="exercise">Exercise</h2>
+<p>In this exercise, you'll simulate a two-developer workflow using local "bare" repositories as remotes. This pattern is how you'd actually collaborate without internet access.</p>
+<h3 id="scenario">Scenario</h3>
+<p>You and a colleague are building a website. You've set up a shared "remote" as a bare repository. Your colleague has already pushed some changes. You need to fetch their work, make your own changes, and push everything to the shared remote.</p>
+<h3 id="tasks">Tasks</h3>
+<ol>
+<li>Create a directory structure with three folders:</li>
+<li><code>shared-remote/</code> — a bare repository acting as your remote server</li>
+<li><code>your-repo/</code> — your local work</li>
+<li>
+<p><code>colleague-repo/</code> — your colleague's work (simulated)</p>
+</li>
+<li>
+<p>Initialize <code>shared-remote</code> as a bare repository.</p>
+</li>
+<li>
+<p>Clone <code>shared-remote</code> into <code>your-repo</code> and <code>colleague-repo</code>.</p>
+</li>
+<li>
+<p>In <code>colleague-repo</code>:</p>
+</li>
+<li>Create a file <code>about.html</code> with content</li>
+<li>
+<p>Commit and push to the shared remote</p>
+</li>
+<li>
+<p>In <code>your-repo</code>:</p>
+</li>
+<li>Fetch the changes from the shared remote</li>
+<li>Verify what your colleague pushed using <code>git log</code></li>
+<li>Pull the changes</li>
+<li>Create <code>index.html</code> with content</li>
+<li>
+<p>Commit and push</p>
+</li>
+<li>
+<p>In <code>colleague-repo</code>:</p>
+</li>
+<li>
+<p>Pull your changes</p>
+</li>
+<li>
+<p>Verify both repos have identical commit histories.</p>
+</li>
+</ol>
+<h3 id="success-criteria">Success Criteria</h3>
+<ul>
+<li><code>your-repo</code> has commits from both you and your colleague</li>
+<li><code>colleague-repo</code> can pull your new <code>index.html</code></li>
+<li><code>git remote -v</code> shows correct URLs in both repos</li>
+<li><code>git branch -vv</code> shows tracking relationships</li>
+</ul>
+<hr />
+<h2 id="solution">Solution</h2>
+<pre><code class="language-bash"># Step 1: Create the directory structure
+mkdir -p ~/git-remotes-exercise
+cd ~/git-remotes-exercise
+
+# Step 2: Create and initialize the shared remote as a bare repository
+mkdir shared-remote.git
+cd shared-remote.git
+git init --bare
+cd ..
+</code></pre>
+<pre><code class="language-text">Initialized empty Git repository in /home/user/git-remotes-exercise/shared-remote.git/
+</code></pre>
+<pre><code class="language-bash"># Step 3: Clone the shared remote into both repos
+git clone shared-remote.git your-repo
+git clone shared-remote.git colleague-repo
+
+# Check remotes in each
+cd your-repo
+git remote -v
+</code></pre>
+<pre><code class="language-text">origin  /home/user/git-remotes-exercise/shared-remote.git (fetch)
+origin  /home/user/git-remotes-exercise/shared-remote.git (push)
+</code></pre>
+<pre><code class="language-bash"># Step 4: In colleague-repo, add file, commit, and push
+cd ../colleague-repo
+
+# Configure git user (for this exercise)
+git config user.name &quot;Colleague&quot;
+git config user.email &quot;colleague@example.com&quot;
+
+# Create about.html
+cat &gt; about.html &lt;&lt; 'EOF'
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;About Us&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;About Our Project&lt;/h1&gt;
+    &lt;p&gt;This is the about page.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+EOF
+
+# Commit and push
+git add about.html
+git commit -m &quot;Add about page&quot;
+git push origin main
+</code></pre>
+<pre><code class="language-text">[main (root-commit) 1a2b3c4] Add about page
+ 1 file changed, 9 insertions(+)
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 100 bytes | 100.00 KiB/s, done.
+To /home/user/git-remotes-exercise/shared-remote.git
+ * [new branch]      main -&gt; main
+</code></pre>
+<pre><code class="language-bash"># Step 5: In your-repo, fetch and view what your colleague did
+cd ../your-repo
+git config user.name &quot;You&quot;
+git config user.email &quot;you@example.com&quot;
+
+# Fetch the changes
+git fetch origin
+</code></pre>
+<pre><code class="language-text">remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+Receiving objects: 100% (2/2), 70 bytes | 70.00 KiB/s, done.
+Resolving deltas: 100% (2/2), done.
+From /home/user/git-remotes-exercise/shared-remote
+ * [new branch]      main -&gt; origin/main
+</code></pre>
+<pre><code class="language-bash"># See what your colleague pushed
+git log origin/main --oneline
+</code></pre>
+<pre><code class="language-text">1a2b3c4 Add about page
+</code></pre>
+<pre><code class="language-bash"># Pull the changes (fast-forward since no divergent history)
+git pull origin main
+</code></pre>
+<pre><code class="language-text">From /home/user/git-remotes-exercise/shared-remote
+ * [new branch]      main -&gt; origin/main
+Already up to date.
+</code></pre>
+<p>Wait, that says "Already up to date" — that's because <code>git pull</code> fetched AND merged, but our local main was at the same commit as origin/main. Let's verify:</p>
+<pre><code class="language-bash">git log --oneline
+</code></pre>
+<pre><code class="language-text">1a2b3c4 Add about page
+</code></pre>
+<p>The about.html file should now be here:</p>
+<pre><code class="language-bash">ls -la
+</code></pre>
+<pre><code class="language-text">total -rw-r--r-- about.html
+total drwxr-xr-x about.html
+</code></pre>
+<p>Now make your changes:</p>
+<pre><code class="language-bash"># Create index.html
+cat &gt; index.html &lt;&lt; 'EOF'
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Home&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome&lt;/h1&gt;
+    &lt;p&gt;This is the home page.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+EOF
+
+# Commit and push with upstream tracking (-u)
+git add index.html
+git commit -m &quot;Add index page&quot;
+git push -u origin main
+</code></pre>
+<pre><code class="language-text">[main 2b3c4d5] Add index page
+ 1 file changed, 9 insertions(+)
+Counting objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 150 bytes | 150.00 KiB/s, done.
+To /home/user/git-remotes-exercise/shared-remote.git
+   1a2b3c4..2b3c4d5  main -&gt; main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+</code></pre>
+<pre><code class="language-bash"># Step 6: In colleague-repo, pull your changes
+cd ../colleague-repo
+git pull origin main
+</code></pre>
+<pre><code class="language-text">remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+From /home/user/git-remotes-exercise/shared-remote
+   1a2b3c4..2b3c4d5  main     -&gt; origin/main
+Updating 1a2b3c4..2b3c4d5
+Fast-forward
+ index.html | 9 +++++++++++++++++
+ 1 file changed, 9 insertions(+)
+</code></pre>
+<pre><code class="language-bash"># Step 7: Verify both repos have the same history
+cd ../your-repo
+echo &quot;=== Your repo ===&quot;
+git log --oneline --all
+
+cd ../colleague-repo
+echo &quot;=== Colleague repo ===&quot;
+git log --oneline --all
+</code></pre>
+<pre><code class="language-text">=== Your repo ===
+2b3c4d5 Add index page
+1a2b3c4 Add about page
+
+=== Colleague repo ===
+2b3c4d5 Add index page
+1a2b3c4 Add about page
+</code></pre>
+<p>Both repos now have identical commit histories! The exercise demonstrated:</p>
+<ul>
+<li><strong>Clone</strong> sets up the remote connection automatically</li>
+<li><strong>Fetch</strong> downloads without merging (you saw <code>origin/main</code> update)</li>
+<li><strong>Pull</strong> fetches and merges in one step</li>
+<li><strong>Push -u</strong> uploads and sets tracking for future convenience</li>
+</ul>
+<hr />
+<h2 id="key-takeaways">Key Takeaways</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What It Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git remote -v</code></td>
+<td>List configured remotes</td>
+</tr>
+<tr>
+<td><code>git remote add &lt;name&gt; &lt;url&gt;</code></td>
+<td>Add a new remote</td>
+</tr>
+<tr>
+<td><code>git remote rename &lt;old&gt; &lt;new&gt;</code></td>
+<td>Rename a remote</td>
+</tr>
+<tr>
+<td><code>git remote remove &lt;name&gt;</code></td>
+<td>Remove a remote</td>
+</tr>
+<tr>
+<td><code>git push -u origin &lt;branch&gt;</code></td>
+<td>Push and set upstream tracking</td>
+</tr>
+<tr>
+<td><code>git push</code></td>
+<td>Push to tracked remote branch</td>
+</tr>
+<tr>
+<td><code>git push origin --delete &lt;branch&gt;</code></td>
+<td>Delete remote branch</td>
+</tr>
+<tr>
+<td><code>git fetch &lt;remote&gt;</code></td>
+<td>Download commits without merging</td>
+</tr>
+<tr>
+<td><code>git pull</code></td>
+<td>Fetch and merge in one step</td>
+</tr>
+<tr>
+<td><code>git pull --rebase</code></td>
+<td>Fetch and rebase instead of merge</td>
+</tr>
+<tr>
+<td><code>git branch -vv</code></td>
+<td>Show tracking relationships</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Remember</strong>: fetch is safe (read-only), pull is convenient (read + write). When in doubt, fetch first to see what you're about to integrate.</p>
+<hr />
+<p><a href="06-merging.html">← Previous: Merging</a> | <a href="08-github-repos-and-forks.html">Next: GitHub Repos and Forks →</a> | <a href="../index.html">← Back to Index</a></p>
+
+      <div class="lesson-actions">
+        <button class="btn-mark-complete" id="btn-mark-complete" data-lesson="7">
+          <span class="btn-icon">✓</span> Mark Complete
+        </button>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Previous and next lessons">
+        <a href="06-merging.html" class="lesson-nav-prev">
+          <span class="nav-label">← Previous</span>
+          <span class="nav-title">Merging</span>
+        </a>
+
+        <a href="08-github-repos-and-forks.html" class="lesson-nav-next">
+          <span class="nav-label">Next →</span>
+          <span class="nav-title">GitHub Repositories and Forks</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+</article>
+      </main>
+
+      <footer class="site-footer">
+        <p>Built with ❤️ for DevOps learners</p>
+        <p class="footer-small">Git Kimchi — A free Git &amp; GitHub course</p>
+      </footer>
+    </div>
+  </div>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script src="../static/js/app.js"></script>
+</body>
+</html>

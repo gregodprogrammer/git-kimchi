@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History and Diff — Git Kimchi</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body data-page="lesson">
+  <div class="site-wrapper">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-brand">
+          <span class="brand-icon">🌶️</span>
+          <span class="brand-text">Git Kimchi</span>
+        </a>
+        <button class="sidebar-close" id="sidebar-close" aria-label="Close navigation">×</button>
+      </div>
+      <nav class="sidebar-nav" aria-label="Lessons">
+        <div class="nav-section">
+          <span class="nav-section-title">Core Git</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="01-getting-started.html" class="nav-link" data-lesson="1">
+                <span class="nav-num">1</span>
+                <span class="nav-title">Getting Started with Git</span>
+                <span class="nav-status" data-status-lesson="1"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="02-staging-and-commits.html" class="nav-link" data-lesson="2">
+                <span class="nav-num">2</span>
+                <span class="nav-title">Staging and Commits</span>
+                <span class="nav-status" data-status-lesson="2"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="03-history-and-diff.html" class="nav-link" data-lesson="3">
+                <span class="nav-num">3</span>
+                <span class="nav-title">History and Diff</span>
+                <span class="nav-status" data-status-lesson="3"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="04-undoing-changes.html" class="nav-link" data-lesson="4">
+                <span class="nav-num">4</span>
+                <span class="nav-title">Undoing Changes</span>
+                <span class="nav-status" data-status-lesson="4"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Intermediate</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="05-branching.html" class="nav-link" data-lesson="5">
+                <span class="nav-num">5</span>
+                <span class="nav-title">Branching</span>
+                <span class="nav-status" data-status-lesson="5"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="06-merging.html" class="nav-link" data-lesson="6">
+                <span class="nav-num">6</span>
+                <span class="nav-title">Merging</span>
+                <span class="nav-status" data-status-lesson="6"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="07-remotes.html" class="nav-link" data-lesson="7">
+                <span class="nav-num">7</span>
+                <span class="nav-title">Remotes</span>
+                <span class="nav-status" data-status-lesson="7"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="08-github-repos-and-forks.html" class="nav-link" data-lesson="8">
+                <span class="nav-num">8</span>
+                <span class="nav-title">GitHub Repositories and Forks</span>
+                <span class="nav-status" data-status-lesson="8"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="09-pull-requests-and-issues.html" class="nav-link" data-lesson="9">
+                <span class="nav-num">9</span>
+                <span class="nav-title">Pull Requests and Issues</span>
+                <span class="nav-status" data-status-lesson="9"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Advanced / DevOps</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="10-code-review.html" class="nav-link" data-lesson="10">
+                <span class="nav-num">10</span>
+                <span class="nav-title">Code Review</span>
+                <span class="nav-status" data-status-lesson="10"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="11-branching-strategies.html" class="nav-link" data-lesson="11">
+                <span class="nav-num">11</span>
+                <span class="nav-title">Branching Strategies</span>
+                <span class="nav-status" data-status-lesson="11"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="12-github-pages.html" class="nav-link" data-lesson="12">
+                <span class="nav-num">12</span>
+                <span class="nav-title">GitHub Pages</span>
+                <span class="nav-status" data-status-lesson="12"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="13-git-hooks.html" class="nav-link" data-lesson="13">
+                <span class="nav-num">13</span>
+                <span class="nav-title">Git Hooks</span>
+                <span class="nav-status" data-status-lesson="13"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="14-self-hosted-git.html" class="nav-link" data-lesson="14">
+                <span class="nav-num">14</span>
+                <span class="nav-title">Self-Hosted Git</span>
+                <span class="nav-status" data-status-lesson="14"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Capstone &amp; Reference</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="15-capstone.html" class="nav-link" data-lesson="15">
+                <span class="nav-num">15</span>
+                <span class="nav-title">Capstone Mini-Project</span>
+                <span class="nav-status" data-status-lesson="15"></span>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="../solutions.html" class="nav-link" data-lesson="solutions">
+                <span class="nav-num">💡</span>
+                <span class="nav-title">Solutions</span>
+                <span class="nav-status" data-status-lesson="solutions"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="main-area">
+      <header class="site-header">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="header-title">
+          <a href="../index.html">Git Kimchi</a>
+        </div>
+        <div class="header-progress" id="header-progress" style="display:none;">
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+          </div>
+          <span class="progress-text" id="progress-text">0 / 15</span>
+        </div>
+      </header>
+
+      <main class="content-wrapper">
+<article class="lesson">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">History and Diff</span>
+  </nav>
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="lesson-number">Lesson 3</span>
+      <span class="lesson-readtime">16 min read</span>
+    </div>
+    <h1 class="lesson-title">History and Diff</h1>
+  </header>
+
+  <div class="lesson-body-wrapper">
+    <div class="lesson-toc" id="lesson-toc" aria-label="Table of contents">
+      <h2>On this page</h2>
+      <div class="toc">
+<ul>
+<li><a href="#history-and-diff">History and Diff</a><ul>
+<li><a href="#understanding-git-history-as-a-timeline">Understanding Git History as a Timeline</a></li>
+<li><a href="#browsing-history-with-git-log">Browsing History with git log</a><ul>
+<li><a href="#a-standard-log">A Standard Log</a></li>
+</ul>
+</li>
+<li><a href="#common-git-log-options">Common git log Options</a><ul>
+<li><a href="#-oneline-compact-view">--oneline — Compact View</a></li>
+<li><a href="#-graph-ascii-branch-visualization">--graph — ASCII Branch Visualization</a></li>
+<li><a href="#-decorate-show-branch-and-tag-names">--decorate — Show Branch and Tag Names</a></li>
+<li><a href="#-all-show-all-branches">--all — Show All Branches</a></li>
+<li><a href="#-n-number-limit-the-number-of-commits">-n &lt;number&gt; — Limit the Number of Commits</a></li>
+<li><a href="#-since-and-until-time-ranges">--since and --until — Time Ranges</a></li>
+<li><a href="#-author-filter-by-author">--author — Filter by Author</a></li>
+<li><a href="#combining-options">Combining Options</a></li>
+</ul>
+</li>
+<li><a href="#git-log-stat-commit-stats">git log --stat — Commit Stats</a></li>
+<li><a href="#git-log-patch-inline-diffs-in-log">git log --patch — Inline Diffs in Log</a></li>
+<li><a href="#git-show-inspecting-a-single-commit">git show — Inspecting a Single Commit</a><ul>
+<li><a href="#basic-git-show">Basic git show</a></li>
+</ul>
+</li>
+<li><a href="#understanding-git-diff-what-changed">Understanding git diff — What Changed?</a></li>
+<li><a href="#git-diff-working-directory-vs-staging-area">git diff — Working Directory vs Staging Area</a><ul>
+<li><a href="#example">Example</a></li>
+<li><a href="#when-to-use-this">When to Use This</a></li>
+</ul>
+</li>
+<li><a href="#git-diff-staged-staging-area-vs-last-commit">git diff --staged — Staging Area vs Last Commit</a><ul>
+<li><a href="#after-staging-a-change">After Staging a Change</a></li>
+<li><a href="#when-to-use-this_1">When to Use This</a></li>
+</ul>
+</li>
+<li><a href="#git-diff-commit1-commit2-comparing-two-commits">git diff &lt;commit1&gt; &lt;commit2&gt; — Comparing Two Commits</a><ul>
+<li><a href="#recent-commits-compared">Recent Commits Compared</a></li>
+</ul>
+</li>
+<li><a href="#git-diff-branch1-branch2-comparing-two-branches">git diff &lt;branch1&gt; &lt;branch2&gt; — Comparing Two Branches</a></li>
+<li><a href="#git-diff-commit-file-diff-a-specific-file">git diff &lt;commit&gt; -- &lt;file&gt; — Diff a Specific File</a></li>
+<li><a href="#a-complete-diff-workflow-example">A Complete Diff Workflow Example</a></li>
+<li><a href="#exercise">Exercise</a><ul>
+<li><a href="#scenario">Scenario</a></li>
+<li><a href="#tasks">Tasks</a></li>
+</ul>
+</li>
+<li><a href="#solution">Solution</a></li>
+<li><a href="#key-takeaways">Key Takeaways</a></li>
+<li><a href="#whats-next">What's Next</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+    </div>
+
+    <div class="lesson-body">
+      <h1 id="history-and-diff">History and Diff</h1>
+<p><a href="02-staging-and-commits.html">← Previous: Staging and Commits</a></p>
+<p>You have been making commits and building your project history. But how do you actually look back at that history? How do you see what changed between two commits, or between your current work and the last saved snapshot? That is what this section covers. By the end, you will know how to browse, filter, and inspect your project's commit timeline with confidence.</p>
+<hr />
+<h2 id="understanding-git-history-as-a-timeline">Understanding Git History as a Timeline</h2>
+<p>Every time you run <code>git commit</code>, Git records a new snapshot of your staged files and attaches metadata: who made the change, when, and why (your commit message). These snapshots form a <strong>linked chain</strong> — each commit points backward to its parent. This chain is your repository's history.</p>
+<p>Think of it like a timeline or a photo album. Each commit is a photograph of your project at a specific moment. <code>git log</code> lets you flip through that album backward in time, from the newest photo to the oldest.</p>
+<hr />
+<h2 id="browsing-history-with-git-log">Browsing History with <code>git log</code></h2>
+<p>The <code>git log</code> command shows you the commit history for your repository. By default, it shows the most recent commits first, with full details including the author name, email, date, and full commit message.</p>
+<h3 id="a-standard-log">A Standard Log</h3>
+<pre><code class="language-bash">git log
+</code></pre>
+<pre><code class="language-text">commit a3f7c2d
+Author: Maria Chen &lt;maria.chen@example.dev&gt;
+Date:   Thu Jun 11 14:32:07 2026 +0000
+
+    Refactor user authentication to use JWT tokens
+
+    - Replace session-based auth with stateless JWT
+    - Add token refresh endpoint
+    - Update client SDK to handle token storage
+</code></pre>
+<p>The log shows one commit at a time with a blank line separating each entry. This format is thorough but verbose — for everyday use, the compact formats below are more practical.</p>
+<hr />
+<h2 id="common-git-log-options">Common <code>git log</code> Options</h2>
+<h3 id="-oneline-compact-view"><code>--oneline</code> — Compact View</h3>
+<p>The <code>--oneline</code> flag collapses each commit to a single line: the short hash and the subject. This is the most common format for daily use.</p>
+<pre><code class="language-bash">git log --oneline
+</code></pre>
+<pre><code class="language-text">a3f7c2d Refactor user authentication to use JWT tokens
+91da4e1 Add password validation utility
+7c3a1fb Fix edge case in email parser
+b3f1a2c Add user authentication module
+2e9d4a3 Add progress.txt tracking daily learning
+</code></pre>
+<p>With hundreds of commits, <code>--oneline</code> keeps the view readable. You can always run <code>git show &lt;hash&gt;</code> to get full details on any specific commit.</p>
+<h3 id="-graph-ascii-branch-visualization"><code>--graph</code> — ASCII Branch Visualization</h3>
+<p>The <code>--graph</code> flag draws an ASCII art representation of branches and merges, making it easier to see the shape of your history.</p>
+<pre><code class="language-bash">git log --oneline --graph
+</code></pre>
+<pre><code class="language-text">* a3f7c2d Refactor user authentication to use JWT tokens
+* 91da4e1 Add password validation utility
+* 7c3a1fb Fix edge case in email parser
+* b3f1a2c Add user authentication module
+* 2e9d4a3 Add progress.txt tracking daily learning
+</code></pre>
+<p>When you have multiple branches, the graph shows you where they diverge and merge:</p>
+<pre><code class="language-text">*   d4b8a91 Merge feature/search into main
+|\
+| * e1c3f72 Add search index caching
+| * 7f2d4a8 Implement search result ranking
+* | c9e1b33 Update dependencies
+|/
+* a3f7c2d Refactor user authentication to use JWT tokens
+</code></pre>
+<p>The <code>*</code> marks commits on the main branch. The <code>|</code> and <code>\</code> characters draw the branching lines. In the merge commit <code>d4b8a91</code>, you can see two parent commits — one from each branch that was merged.</p>
+<h3 id="-decorate-show-branch-and-tag-names"><code>--decorate</code> — Show Branch and Tag Names</h3>
+<p>The <code>--decorate</code> flag adds branch and tag names to the commits they point to. This is especially useful when navigating multi-branch histories.</p>
+<pre><code class="language-bash">git log --oneline --decorate
+</code></pre>
+<pre><code class="language-text">a3f7c2d (main) Refactor user authentication to use JWT tokens
+91da4e1 Add password validation utility
+7c3a1fb Add search index caching
+b3f1a2c Add user authentication module
+</code></pre>
+<p>In this output, <code>(main)</code> appears next to the most recent commit, telling you that <code>main</code> currently points there.</p>
+<h3 id="-all-show-all-branches"><code>--all</code> — Show All Branches</h3>
+<p>By default, <code>git log</code> shows only the current branch's history. To see commits from all branches, add <code>--all</code>:</p>
+<pre><code class="language-bash">git log --oneline --all
+</code></pre>
+<pre><code class="language-text">f9e2d71 (feature/oauth) Add OAuth2 provider integration
+a3f7c2d (main) Refactor user authentication to use JWT tokens
+91da4e1 Add password validation utility
+7c3a1fb Add search index caching
+e1c3f72 (develop) Add search result ranking
+</code></pre>
+<p>The <code>feature/oauth</code> commit <code>f9e2d71</code> exists only on that branch — it would not appear without <code>--all</code>.</p>
+<h3 id="-n-number-limit-the-number-of-commits"><code>-n &lt;number&gt;</code> — Limit the Number of Commits</h3>
+<p>Show only the most recent <code>N</code> commits:</p>
+<pre><code class="language-bash">git log --oneline -n 3
+</code></pre>
+<pre><code class="language-text">a3f7c2d Refactor user authentication to use JWT tokens
+91da4e1 Add password validation utility
+7c3a1fb Fix edge case in email parser
+</code></pre>
+<p>This is equivalent to the common <code>git log -3</code> shorthand.</p>
+<h3 id="-since-and-until-time-ranges"><code>--since</code> and <code>--until</code> — Time Ranges</h3>
+<p>Filter commits by date using natural language or absolute dates:</p>
+<pre><code class="language-bash">git log --oneline --since=&quot;2026-06-01&quot;
+</code></pre>
+<pre><code class="language-text">a3f7c2d Refactor user authentication to use JWT tokens
+91da4e1 Add password validation utility
+</code></pre>
+<pre><code class="language-bash">git log --oneline --since=&quot;2 weeks ago&quot;
+</code></pre>
+<pre><code class="language-text">a3f7c2d Refactor user authentication to use JWT tokens
+91da4e1 Add password validation utility
+7c3a1fb Fix edge case in email parser
+</code></pre>
+<p>Use <code>--until</code> to get commits before a specific date:</p>
+<pre><code class="language-bash">git log --oneline --until=&quot;2026-06-05&quot;
+</code></pre>
+<p>These filters are useful for generating changelogs, weekly reports, or finding which commits landed in a particular release window.</p>
+<h3 id="-author-filter-by-author"><code>--author</code> — Filter by Author</h3>
+<p>Show only commits by a specific author:</p>
+<pre><code class="language-bash">git log --oneline --author=&quot;Maria Chen&quot;
+</code></pre>
+<pre><code class="language-text">a3f7c2d Refactor user authentication to use JWT tokens
+b3f1a2c Add user authentication module
+</code></pre>
+<p>Author filtering works with partial names too — <code>git log --oneline --author="Maria"</code> matches <code>"Maria Chen"</code>.</p>
+<h3 id="combining-options">Combining Options</h3>
+<p>The real power comes from combining options. The most useful everyday combination for understanding your project structure is:</p>
+<pre><code class="language-bash">git log --oneline --graph --decorate --all
+</code></pre>
+<pre><code class="language-text">* f9e2d71 (feature/oauth) Add OAuth2 provider integration
+|\
+| * 7f2d4a8 Implement search result ranking
+* | c9e1b33 Update dependencies
+|/
+*   d4b8a91 (HEAD -&gt; main) Merge feature/search into main
+|\
+| * e1c3f72 Add search index caching
+| * 7f3a1db Add search index
+* | a3f7c2d Refactor user authentication to use JWT tokens
+|/
+* 91da4e1 Add password validation utility
+</code></pre>
+<p><code>HEAD -&gt; main</code> marks which commit the current branch is pointing to. This view shows you exactly where you are in the tree, what branches exist, and how they relate to each other.</p>
+<hr />
+<h2 id="git-log-stat-commit-stats"><code>git log --stat</code> — Commit Stats</h2>
+<p>The <code>--stat</code> flag shows a summary of changed files per commit — how many lines were added and removed — without showing the actual diff:</p>
+<pre><code class="language-bash">git log --stat
+</code></pre>
+<pre><code class="language-text">commit a3f7c2d
+Author: Maria Chen &lt;maria.chen@example.dev&gt;
+Date:   Thu Jun 11 14:32:07 2026 +0000
+
+    Refactor user authentication to use JWT tokens
+
+ auth.py      | 45 +++++++++++++++++------------------
+ auth_test.py | 22 +++++++++++++++----
+ utils.py     |  5 +++++
+ 3 files changed, 41 insertions(+), 31 deletions(-)
+</code></pre>
+<p>Each file is listed with a visual representation of the change magnitude: <code>45 +++++++++++++++++------------------</code> shows the additions and deletions. The summary line at the bottom (<code>3 files changed, 41 insertions(+), 31 deletions(-)</code>) gives you the totals.</p>
+<p><code>--stat</code> is useful when you want a high-level view of what changed across several commits without wading into the full diffs.</p>
+<hr />
+<h2 id="git-log-patch-inline-diffs-in-log"><code>git log --patch</code> — Inline Diffs in Log</h2>
+<p>The <code>--patch</code> flag (or <code>-p</code>) shows the actual code changes (the diff) inline within the log. This combines the commit metadata with the full diff for each commit:</p>
+<pre><code class="language-bash">git log --patch
+</code></pre>
+<pre><code class="language-text">commit a3f7c2d
+Author: Maria Chen &lt;maria.chen@example.dev&gt;
+Date:   Thu Jun 11 14:32:07 2026 +0000
+
+    Refactor user authentication to use JWT tokens
+
+diff --git a/auth.py b/auth.py
+index 8a1b3c7..d4e5f92 100644
+--- a/auth.py
++++ b/auth.py
+@@ -15,10 +15,12 @@ class AuthHandler:
+-    def authenticate(self, username, password):
+-        return self.db.verify(username, password)
++    def authenticate(self, username, password):
++        token = self.jwt_service.generate_token(username)
++        return {&quot;token&quot;: token, &quot;expires_in&quot;: 3600}
+
+     def refresh(self, token):
+         return self.jwt_service.refresh(token)
+</code></pre>
+<p>The diff shows lines removed (prefixed with <code>-</code>) and lines added (prefixed with <code>+</code>). This format is equivalent to running <code>git show</code> on each commit individually — covered next.</p>
+<hr />
+<h2 id="git-show-inspecting-a-single-commit"><code>git show</code> — Inspecting a Single Commit</h2>
+<p>The <code>git show</code> command displays the full details of a single commit: its hash, author, date, message, and the complete diff. It is equivalent to <code>git log --patch</code> but focused on one specific commit.</p>
+<h3 id="basic-git-show">Basic <code>git show</code></h3>
+<pre><code class="language-bash">git show a3f7c2d
+</code></pre>
+<pre><code class="language-text">commit a3f7c2d (main)
+Author: Maria Chen &lt;maria.chen@example.dev&gt;
+Date:   Thu Jun 11 14:32:07 2026 +0000
+
+    Refactor user authentication to use JWT tokens
+
+diff --git a/auth.py b/auth.py
+index 8a1b3c7..d4e5f92 100644
+--- a/auth.py
++++ b/auth.py
+@@ -15,10 +15,12 @@ class AuthHandler:
+-    def authenticate(self, username, password):
+-        return self.db.verify(username, password)
++    def authenticate(self, username, password):
++        token = self.jwt_service.generate_token(username)
++        return {&quot;token&quot;: token, &quot;expires_in&quot;: 3600}
+
+     def refresh(self, token):
+         return self.jwt_service.refresh(token)
+diff --git a/auth_test.py b/auth_test.py
+index 9b2c4d8..e1f3a72 100644
+--- a/auth_test.py
++++ b/auth_test.py
+@@ -22,6 +22,9 @@ def test_authenticate():
+     assert response[&quot;expires_in&quot;] == 3600
+
++def test_token_refresh():
++    assert auth.refresh(&quot;expired_token&quot;) is not None
++
+</code></pre>
+<p><code>git show</code> is the go-to command when you need to review exactly what a specific commit changed — during code review, debugging, or when exploring unfamiliar code.</p>
+<hr />
+<h2 id="understanding-git-diff-what-changed">Understanding <code>git diff</code> — What Changed?</h2>
+<p>While <code>git log</code> shows you the <strong>history</strong>, <code>git diff</code> shows you the <strong>changes</strong> between different states of your project. It is how you answer: "What have I actually changed?"</p>
+<p>Git compares pairs of commits, branches, or work states and reports the differences line by line. Lines that were removed show with a <code>-</code> prefix; lines that were added show with a <code>+</code> prefix.</p>
+<hr />
+<h2 id="git-diff-working-directory-vs-staging-area"><code>git diff</code> — Working Directory vs Staging Area</h2>
+<p>The plain <code>git diff</code> (with no arguments) compares your <strong>working directory</strong> (uncommitted changes) against the <strong>staging area</strong> (what you have staged with <code>git add</code>). This shows what you have changed but not yet staged.</p>
+<h3 id="example">Example</h3>
+<p>You edit <code>README.md</code> and add a new line. Running <code>git diff</code> shows:</p>
+<pre><code class="language-bash">git diff
+</code></pre>
+<pre><code class="language-text">diff --git a/README.md b/README.md
+index 8b1b3c7..d4e5f92 100644
+--- a/README.md
++++ b/README.md
+@@ -5,6 +5,7 @@
+
+  ## Project Overview
+  This is a documentation project for learning Git.
++Added this new line to the README.
+  ## Getting Started
+  Follow the sections in order.
+</code></pre>
+<p>The <code>+</code> line (with no <code>-</code> counterpart) is an addition. If you had deleted a line, it would show with a <code>-</code> prefix.</p>
+<h3 id="when-to-use-this">When to Use This</h3>
+<p>Run <code>git diff</code> before staging to review exactly what you are about to commit. It lets you catch unintended changes before they enter the staging area and eventually the history.</p>
+<hr />
+<h2 id="git-diff-staged-staging-area-vs-last-commit"><code>git diff --staged</code> — Staging Area vs Last Commit</h2>
+<p>The <code>--staged</code> flag (also <code>--cached</code>) compares the <strong>staging area</strong> against the <strong>last commit</strong>. This shows what you have staged but not yet committed — the changes that will enter the next snapshot.</p>
+<h3 id="after-staging-a-change">After Staging a Change</h3>
+<p>You edit <code>README.md</code> and run <code>git add README.md</code>. Then:</p>
+<pre><code class="language-bash">git diff --staged
+</code></pre>
+<pre><code class="language-text">diff --git a/README.md b/README.md
+index 8b1b3c7..d4e5f92 100644
+--- a/README.md
++++ b/README.md
+@@ -5,6 +5,7 @@
+  ## Project Overview
+  This is a documentation project for learning Git.
++Added this new line to the README.
+  ## Getting Started
+  Follow the sections in order.
+</code></pre>
+<p>The output looks identical to plain <code>git diff</code> — but it is comparing against the staged state, not the working directory.</p>
+<h3 id="when-to-use-this_1">When to Use This</h3>
+<p>Run <code>git diff --staged</code> after staging to double-check exactly what will be committed. This is your final review pass before running <code>git commit</code>.</p>
+<hr />
+<h2 id="git-diff-commit1-commit2-comparing-two-commits"><code>git diff &lt;commit1&gt; &lt;commit2&gt;</code> — Comparing Two Commits</h2>
+<p>Compare any two commits by giving their hashes. The order matters: the output shows what changed <strong>from the first commit to the second</strong>.</p>
+<h3 id="recent-commits-compared">Recent Commits Compared</h3>
+<pre><code class="language-bash">git diff 91da4e1 a3f7c2d
+</code></pre>
+<pre><code class="language-text">diff --git a/auth.py b/auth.py
+index 8a1b3c7..d4e5f92 100644
+--- a/auth.py
++++ b/auth.py
+@@ -15,10 +15,12 @@ class AuthHandler:
+-    def authenticate(self, username, password):
+-        return self.db.verify(username, password)
++    def authenticate(self, username, password):
++        token = self.jwt_service.generate_token(username)
++        return {&quot;token&quot;: token, &quot;expires_in&quot;: 3600}
+</code></pre>
+<p>This shows exactly what changed between <code>91da4e1</code> (the earlier commit) and <code>a3f7c2d</code> (the later one).</p>
+<p>You can also use relative references:</p>
+<pre><code class="language-bash">git diff HEAD~3 HEAD
+</code></pre>
+<p>This compares the commit 3 steps back from <code>HEAD</code> to the current <code>HEAD</code>.</p>
+<hr />
+<h2 id="git-diff-branch1-branch2-comparing-two-branches"><code>git diff &lt;branch1&gt; &lt;branch2&gt;</code> — Comparing Two Branches</h2>
+<p>Compare the tips of two branches to see all changes that would result from merging one into the other:</p>
+<pre><code class="language-bash">git diff main feature/oauth
+</code></pre>
+<pre><code class="language-text">diff --git a/oauth.py b/oauth.py
+new file mode 100644
+index 0000000..e1f3a72
+--- /dev/null
++++ b/oauth.py
+@@ -0,0 +1,34 @@
++import oauthlib
++
++class OAuthProvider:
++    def authenticate(self, provider):
++        return oauthlib.authenticate(provider)
+</code></pre>
+<p>In this output, <code>oauth.py</code> is a new file that exists on <code>feature/oauth</code> but not on <code>main</code>. To understand how a branch diverged from <code>main</code>, use:</p>
+<pre><code class="language-bash">git diff main...feature/oauth
+</code></pre>
+<p>The triple-dot syntax shows only the changes on <code>feature/oauth</code> since it diverged from <code>main</code> — not every difference between the two branch tips.</p>
+<hr />
+<h2 id="git-diff-commit-file-diff-a-specific-file"><code>git diff &lt;commit&gt; -- &lt;file&gt;</code> — Diff a Specific File</h2>
+<p>Focus the diff on a single file by naming it after <code>--</code>:</p>
+<pre><code class="language-bash">git diff a3f7c2d -- auth.py
+</code></pre>
+<pre><code class="language-text">diff --git a/auth.py b/auth.py
+index 8a1b3c7..d4e5f92 100644
+--- a/auth.py
++++ b/auth.py
+@@ -15,10 +15,12 @@ class AuthHandler:
+-    def authenticate(self, username, password):
+-        return self.db.verify(username, password)
++    def authenticate(self, username, password):
++        token = self.jwt_service.generate_token(username)
++        return {&quot;token&quot;: token, &quot;expires_in&quot;: 3600}
+</code></pre>
+<p>This ignores changes to any other file. It is especially useful in large repositories where a full diff is overwhelming.</p>
+<p>You can also diff the working directory version of a single file against a specific commit:</p>
+<pre><code class="language-bash">git diff HEAD -- README.md
+</code></pre>
+<hr />
+<h2 id="a-complete-diff-workflow-example">A Complete Diff Workflow Example</h2>
+<p>Here is how these commands fit together in a real development session:</p>
+<ol>
+<li><strong>Start your day:</strong> Check recent commits on your branch:</li>
+</ol>
+<pre><code class="language-bash">git log --oneline -n 5
+</code></pre>
+<pre><code class="language-text">a3f7c2d Refactor user authentication to use JWT tokens
+91da4e1 Add password validation utility
+7c3a1fb Fix edge case in email parser
+b3f1a2c Add user authentication module
+</code></pre>
+<ol>
+<li>
+<p><strong>Make some changes:</strong> Edit <code>auth.py</code> and <code>config.py</code>.</p>
+</li>
+<li>
+<p><strong>Review unstaged changes:</strong></p>
+</li>
+</ol>
+<pre><code class="language-bash">git diff
+</code></pre>
+<p>Shows working directory changes against the staging area.</p>
+<ol>
+<li><strong>Stage the changes you want to commit:</strong></li>
+</ol>
+<pre><code class="language-bash">git add auth.py
+</code></pre>
+<ol>
+<li><strong>Review staged changes (final check before commit):</strong></li>
+</ol>
+<pre><code class="language-bash">git diff --staged
+</code></pre>
+<p>Shows exactly what will be committed.</p>
+<ol>
+<li><strong>Commit:</strong></li>
+</ol>
+<pre><code class="language-bash">git commit -m &quot;Add rate limiting to auth endpoints&quot;
+</code></pre>
+<p>This workflow — <strong>diff, stage, diff --staged, commit</strong> — is a reliable routine for making intentional, well-reviewed commits.</p>
+<hr />
+<h2 id="exercise">Exercise</h2>
+<h3 id="scenario">Scenario</h3>
+<p>You are working on a Python CLI tool and have made several commits. Your task is to explore the commit history, understand what changed between commits, and review your working directory changes before making a new commit.</p>
+<h3 id="tasks">Tasks</h3>
+<ol>
+<li>Navigate to your practice repository (or the repository you created in the previous exercise).</li>
+<li>Make at least 2 more commits if you have not already done so. Give each a meaningful commit message.</li>
+<li>Run <code>git log --oneline -n 5</code> to see your recent history. Note the hash of the second-most-recent commit.</li>
+<li>Run <code>git show &lt;hash&gt;</code> on your most recent commit to review its full diff.</li>
+<li>Make a new change to any file, then run <code>git diff</code> to see the unstaged changes.</li>
+<li>Stage that change with <code>git add</code>, then run <code>git diff --staged</code> to see it in staged form.</li>
+<li>Use <code>git diff &lt;older-hash&gt;..&lt;newer-hash&gt;</code> to compare two commits directly.</li>
+<li>Run <code>git log --oneline --graph --decorate --all</code> to see the full branch structure.</li>
+</ol>
+<hr />
+<h2 id="solution">Solution</h2>
+<p>Follow these steps to complete the exercise:</p>
+<p><strong>Step 1 — Navigate to your repository:</strong></p>
+<pre><code class="language-bash">cd ~/git-practice
+</code></pre>
+<p>If you do not have a practice repository, create one:</p>
+<pre><code class="language-bash">mkdir ~/git-practice &amp;&amp; cd ~/git-practice
+git init
+echo &quot;# My Project&quot; &gt; README.md
+git add README.md
+git commit -m &quot;Initial project setup&quot;
+</code></pre>
+<p><strong>Step 2 — Make additional commits:</strong></p>
+<pre><code class="language-bash">echo &quot;Feature A&quot; &gt;&gt; features.txt
+git add features.txt
+git commit -m &quot;Add features list&quot;
+
+echo &quot;Feature B&quot; &gt;&gt; features.txt
+git add features.txt
+git commit -m &quot;Add second feature to list&quot;
+</code></pre>
+<p><strong>Step 3 — View recent history:</strong></p>
+<pre><code class="language-bash">git log --oneline -n 5
+</code></pre>
+<pre><code class="language-text">c7f3b2a Add second feature to list
+91da4e1 Add features list
+a3f7c2d Add notes.txt with initial learning notes
+b3f1a2c Add user authentication module
+2e9d4a3 Initial project setup
+</code></pre>
+<p>Note the second-most-recent commit hash: <code>91da4e1</code>.</p>
+<p><strong>Step 4 — Inspect the most recent commit:</strong></p>
+<pre><code class="language-bash">git show c7f3b2a
+</code></pre>
+<pre><code class="language-text">commit c7f3b2a
+Author: Alex Rivera &lt;alex.rivera@example.dev&gt;
+Date:   Thu Jun 11 17:45:22 2026 +0000
+
+    Add second feature to list
+
+diff --git a/features.txt b/features.txt
+index 9b2c1d4..e5f8a72 100644
+--- a/features.txt
++++ b/features.txt
+@@ -1 +1,2 @@
+ Feature A
++Feature B
+</code></pre>
+<p>This shows the full metadata and diff for the commit — a single line addition of "Feature B".</p>
+<p><strong>Step 5 — Make and diff unstaged changes:</strong></p>
+<pre><code class="language-bash">echo &quot;Feature C&quot; &gt;&gt; features.txt
+git diff
+</code></pre>
+<pre><code class="language-text">diff --git a/features.txt b/features.txt
+index e5f8a72..a1b3c9d 100644
+--- a/features.txt
++++ b/features.txt
+@@ -1,2 +1,3 @@
+ Feature A
+ Feature B
++Feature C
+</code></pre>
+<p>The <code>+Feature C</code> line is unstaged — it exists only in your working directory.</p>
+<p><strong>Step 6 — Stage and view staged changes:</strong></p>
+<pre><code class="language-bash">git add features.txt
+git diff --staged
+</code></pre>
+<pre><code class="language-text">diff --git a/features.txt b/features.txt
+index e5f8a72..a1b3c9d 100644
+--- a/features.txt
++++ b/features.txt
+@@ -1,2 +1,3 @@
+ Feature A
+ Feature B
++Feature C
+</code></pre>
+<p>The same change now appears under "staged" — this is what will be committed.</p>
+<p><strong>Step 7 — Compare two commits directly:</strong></p>
+<pre><code class="language-bash">git diff 91da4e1..c7f3b2a
+</code></pre>
+<pre><code class="language-text">diff --git a/features.txt b/features.txt
+index 8b1b3c7..a1b3c9d 100644
+--- a/features.txt
++++ b/features.txt
+@@ -1 +1,3 @@
+ Feature A
++Feature B
++Feature C
+</code></pre>
+<p>This shows everything that changed between <code>91da4e1</code> (only "Feature A") and <code>c7f3b2a</code> (now has "Feature A", "Feature B", and "Feature C").</p>
+<p><strong>Step 8 — Full branch graph:</strong></p>
+<pre><code class="language-bash">git log --oneline --graph --decorate --all
+</code></pre>
+<pre><code class="language-text">* c7f3b2a (HEAD -&gt; main) Add second feature to list
+* 91da4e1 Add features list
+* a3f7c2d Add notes.txt with initial learning notes
+* b3f1a2c Add user authentication module
+* 2e9d4a3 Initial project setup
+</code></pre>
+<p>Since you are working on a single branch, the graph is linear. Once you create branches and merges (covered in a later section), the <code>--graph</code> output becomes more interesting.</p>
+<hr />
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><strong><code>git log</code></strong> shows the commit timeline; use <code>--oneline</code> for compact views and <code>--graph</code> to see branch structure.</li>
+<li><strong><code>git log --stat</code></strong> summarizes changed files per commit; <strong><code>git log --patch</code></strong> shows full diffs inline.</li>
+<li><strong><code>git show &lt;commit&gt;</code></strong> gives full details (metadata + diff) for a single commit.</li>
+<li><strong><code>git diff</code></strong> compares states: working directory vs staging area, staging area vs last commit, or any two commits/branches.</li>
+<li><strong>Use <code>git diff --staged</code> before every commit</strong> as your final review pass.</li>
+<li><strong><code>git diff branch1 branch2</code></strong> compares branch tips; <strong><code>git diff branch1...branch2</code></strong> compares only the changes since they diverged.</li>
+</ul>
+<hr />
+<h2 id="whats-next">What's Next</h2>
+<p>You now know how to browse and inspect your project's history. But what happens when you make a mistake? The next section covers undoing changes — from un-staging a file you accidentally added, to rolling back a commit that introduced a bug.</p>
+<p><a href="04-undoing-changes.html">Next: Undoing Changes →</a></p>
+<p><a href="../index.html">← Back to Index</a></p>
+
+      <div class="lesson-actions">
+        <button class="btn-mark-complete" id="btn-mark-complete" data-lesson="3">
+          <span class="btn-icon">✓</span> Mark Complete
+        </button>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Previous and next lessons">
+        <a href="02-staging-and-commits.html" class="lesson-nav-prev">
+          <span class="nav-label">← Previous</span>
+          <span class="nav-title">Staging and Commits</span>
+        </a>
+
+        <a href="04-undoing-changes.html" class="lesson-nav-next">
+          <span class="nav-label">Next →</span>
+          <span class="nav-title">Undoing Changes</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+</article>
+      </main>
+
+      <footer class="site-footer">
+        <p>Built with ❤️ for DevOps learners</p>
+        <p class="footer-small">Git Kimchi — A free Git &amp; GitHub course</p>
+      </footer>
+    </div>
+  </div>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script src="../static/js/app.js"></script>
+</body>
+</html>

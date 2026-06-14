@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Branching — Git Kimchi</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body data-page="lesson">
+  <div class="site-wrapper">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-brand">
+          <span class="brand-icon">🌶️</span>
+          <span class="brand-text">Git Kimchi</span>
+        </a>
+        <button class="sidebar-close" id="sidebar-close" aria-label="Close navigation">×</button>
+      </div>
+      <nav class="sidebar-nav" aria-label="Lessons">
+        <div class="nav-section">
+          <span class="nav-section-title">Core Git</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="01-getting-started.html" class="nav-link" data-lesson="1">
+                <span class="nav-num">1</span>
+                <span class="nav-title">Getting Started with Git</span>
+                <span class="nav-status" data-status-lesson="1"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="02-staging-and-commits.html" class="nav-link" data-lesson="2">
+                <span class="nav-num">2</span>
+                <span class="nav-title">Staging and Commits</span>
+                <span class="nav-status" data-status-lesson="2"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="03-history-and-diff.html" class="nav-link" data-lesson="3">
+                <span class="nav-num">3</span>
+                <span class="nav-title">History and Diff</span>
+                <span class="nav-status" data-status-lesson="3"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="04-undoing-changes.html" class="nav-link" data-lesson="4">
+                <span class="nav-num">4</span>
+                <span class="nav-title">Undoing Changes</span>
+                <span class="nav-status" data-status-lesson="4"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Intermediate</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="05-branching.html" class="nav-link" data-lesson="5">
+                <span class="nav-num">5</span>
+                <span class="nav-title">Branching</span>
+                <span class="nav-status" data-status-lesson="5"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="06-merging.html" class="nav-link" data-lesson="6">
+                <span class="nav-num">6</span>
+                <span class="nav-title">Merging</span>
+                <span class="nav-status" data-status-lesson="6"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="07-remotes.html" class="nav-link" data-lesson="7">
+                <span class="nav-num">7</span>
+                <span class="nav-title">Remotes</span>
+                <span class="nav-status" data-status-lesson="7"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="08-github-repos-and-forks.html" class="nav-link" data-lesson="8">
+                <span class="nav-num">8</span>
+                <span class="nav-title">GitHub Repositories and Forks</span>
+                <span class="nav-status" data-status-lesson="8"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="09-pull-requests-and-issues.html" class="nav-link" data-lesson="9">
+                <span class="nav-num">9</span>
+                <span class="nav-title">Pull Requests and Issues</span>
+                <span class="nav-status" data-status-lesson="9"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Advanced / DevOps</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="10-code-review.html" class="nav-link" data-lesson="10">
+                <span class="nav-num">10</span>
+                <span class="nav-title">Code Review</span>
+                <span class="nav-status" data-status-lesson="10"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="11-branching-strategies.html" class="nav-link" data-lesson="11">
+                <span class="nav-num">11</span>
+                <span class="nav-title">Branching Strategies</span>
+                <span class="nav-status" data-status-lesson="11"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="12-github-pages.html" class="nav-link" data-lesson="12">
+                <span class="nav-num">12</span>
+                <span class="nav-title">GitHub Pages</span>
+                <span class="nav-status" data-status-lesson="12"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="13-git-hooks.html" class="nav-link" data-lesson="13">
+                <span class="nav-num">13</span>
+                <span class="nav-title">Git Hooks</span>
+                <span class="nav-status" data-status-lesson="13"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="14-self-hosted-git.html" class="nav-link" data-lesson="14">
+                <span class="nav-num">14</span>
+                <span class="nav-title">Self-Hosted Git</span>
+                <span class="nav-status" data-status-lesson="14"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Capstone &amp; Reference</span>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="15-capstone.html" class="nav-link" data-lesson="15">
+                <span class="nav-num">15</span>
+                <span class="nav-title">Capstone Mini-Project</span>
+                <span class="nav-status" data-status-lesson="15"></span>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="../solutions.html" class="nav-link" data-lesson="solutions">
+                <span class="nav-num">💡</span>
+                <span class="nav-title">Solutions</span>
+                <span class="nav-status" data-status-lesson="solutions"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="main-area">
+      <header class="site-header">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="header-title">
+          <a href="../index.html">Git Kimchi</a>
+        </div>
+        <div class="header-progress" id="header-progress" style="display:none;">
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+          </div>
+          <span class="progress-text" id="progress-text">0 / 15</span>
+        </div>
+      </header>
+
+      <main class="content-wrapper">
+<article class="lesson">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">Branching</span>
+  </nav>
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="lesson-number">Lesson 5</span>
+      <span class="lesson-readtime">10 min read</span>
+    </div>
+    <h1 class="lesson-title">Branching</h1>
+  </header>
+
+  <div class="lesson-body-wrapper">
+    <div class="lesson-toc" id="lesson-toc" aria-label="Table of contents">
+      <h2>On this page</h2>
+      <div class="toc">
+<ul>
+<li><a href="#branching">Branching</a><ul>
+<li><a href="#why-branch">Why Branch?</a></li>
+<li><a href="#listing-and-managing-branches">Listing and Managing Branches</a><ul>
+<li><a href="#viewing-branches">Viewing Branches</a></li>
+<li><a href="#creating-a-branch">Creating a Branch</a></li>
+<li><a href="#deleting-a-branch">Deleting a Branch</a></li>
+<li><a href="#renaming-a-branch">Renaming a Branch</a></li>
+</ul>
+</li>
+<li><a href="#switching-branches-with-git-switch">Switching Branches with git switch</a><ul>
+<li><a href="#switching-to-an-existing-branch">Switching to an Existing Branch</a></li>
+<li><a href="#switching-back-to-main">Switching Back to Main</a></li>
+</ul>
+</li>
+<li><a href="#switching-branches-with-git-checkout-legacy">Switching Branches with git checkout (Legacy)</a></li>
+<li><a href="#creating-and-switching-in-one-step">Creating and Switching in One Step</a></li>
+<li><a href="#a-basic-branching-workflow">A Basic Branching Workflow</a></li>
+<li><a href="#tracking-branches">Tracking Branches</a></li>
+<li><a href="#exercise">Exercise</a><ul>
+<li><a href="#scenario">Scenario</a></li>
+<li><a href="#tasks">Tasks</a></li>
+</ul>
+</li>
+<li><a href="#solution">Solution</a><ul>
+<li><a href="#step-by-step">Step-by-step</a></li>
+</ul>
+</li>
+<li><a href="#key-takeaways">Key Takeaways</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+    </div>
+
+    <div class="lesson-body">
+      <h1 id="branching">Branching</h1>
+<p><a href="04-undoing-changes.html">← Previous: Undoing Changes</a> · <a href="../index.html">← Back to Index</a></p>
+<p>In the projects you've worked on so far, every commit lives on a single line of history. That works fine for solo experiments, but real software involves multiple people simultaneously: someone is adding a login feature while another person fixes a bug in the payments code, and neither wants to interfere with the other until the work is proven solid. Branching is the mechanism that makes this possible.</p>
+<p>A <strong>branch</strong> is an independent line of development. Think of it as a parallel universe for your codebase — changes you make on one branch don't affect any other branch until you explicitly bring them together (merged). Git's branching is cheap, local, and safe. Unlike older version control systems that copied entire directories, Git stores branches as lightweight pointers to commits, making it trivial to create, switch, and delete branches without consuming significant resources.</p>
+<hr />
+<h2 id="why-branch">Why Branch?</h2>
+<p>Branches solve three fundamental problems in collaborative software development:</p>
+<p><strong>Isolation for features and experiments.</strong> When you start working on a new feature, you don't want its half-finished code sitting in the main project and breaking things for everyone else. Creating a branch gives you a private sandbox. You can commit freely, experiment with different approaches, and only share the result when it's ready.</p>
+<p><strong>Safe bug fixes.</strong> A critical bug report comes in while your team is in the middle of a large refactor. Branching lets you hot-fix the production issue on a separate branch without destabilizing the in-progress work — you fix the bug in isolation, then merge the fix back into main alongside the refactor.</p>
+<p><strong>Parallel development streams.</strong> Multiple team members can work on separate features simultaneously, each on their own branch. When feature A is done, it gets reviewed and merged. When feature B is done, it follows the same path. Nothing blocks anything else.</p>
+<p>The <code>main</code> (or <code>master</code>, depending on your git version) branch is the default and typically represents the canonical, deployable state of your project. Other branches feed into it through code review and merging — topics covered in the next two sections.</p>
+<hr />
+<h2 id="listing-and-managing-branches">Listing and Managing Branches</h2>
+<h3 id="viewing-branches">Viewing Branches</h3>
+<p>The <code>git branch</code> command lists all local branches in your repository. The current branch is marked with an asterisk (<code>*</code>):</p>
+<pre><code class="language-bash">git branch
+</code></pre>
+<pre><code class="language-text">* main
+  feature-login
+  hotfix-payment-bug
+</code></pre>
+<p>In this output, <code>main</code> is the active branch (you are "on" main). The other branches exist in the repository but you haven't switched to them yet.</p>
+<h3 id="creating-a-branch">Creating a Branch</h3>
+<p>To create a new branch without switching to it, pass the branch name to <code>git branch</code>:</p>
+<pre><code class="language-bash">git branch feature-dark-mode
+</code></pre>
+<p>Running <code>git branch</code> again shows the new branch exists, but you are still on <code>main</code>:</p>
+<pre><code class="language-bash">git branch
+</code></pre>
+<pre><code class="language-text">  feature-dark-mode
+* main
+</code></pre>
+<p>Creating a branch does not switch you to it. The new branch starts at the same commit you are currently on — it shares the same history up to that point.</p>
+<h3 id="deleting-a-branch">Deleting a Branch</h3>
+<p>When a branch's work is done and merged (or abandoned), you can delete it:</p>
+<pre><code class="language-bash">git branch -d feature-dark-mode
+</code></pre>
+<pre><code class="language-text">Deleted branch feature-dark-mode (was a3f7d21).
+</code></pre>
+<p>Git protects you from accidentally deleting a branch that hasn't been merged. If you try to delete an unmerged branch, you'll see a warning:</p>
+<pre><code class="language-bash">git branch -d feature-abandoned-work
+</code></pre>
+<pre><code class="language-text">error: The branch 'feature-abandoned-work' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D feature-abandoned-work'.
+</code></pre>
+<p>The lowercase <code>-d</code> flag is <em>safe</em> — it refuses to delete unless the branch's commits are already integrated somewhere else. The uppercase <code>-D</code> flag forces deletion regardless:</p>
+<pre><code class="language-bash">git branch -D feature-abandoned-work
+</code></pre>
+<pre><code class="language-text">Deleted branch feature-abandoned-work (was 8c2e101).
+</code></pre>
+<p>Use <code>-D</code> with caution. Unmerged commits on a deleted branch are unrecoverable (unless you referenced them elsewhere).</p>
+<h3 id="renaming-a-branch">Renaming a Branch</h3>
+<p>If you named a branch incorrectly, you can rename it while on the branch:</p>
+<pre><code class="language-bash">git branch -m feature-old-name feature-correct-name
+</code></pre>
+<p>Or rename a different branch while on any branch:</p>
+<pre><code class="language-bash">git branch -m feature-old-name feature-correct-name
+</code></pre>
+<p>There is no output on success — the rename is silent.</p>
+<hr />
+<h2 id="switching-branches-with-git-switch">Switching Branches with <code>git switch</code></h2>
+<p>Git 2.23 introduced <code>git switch</code> as a cleaner replacement for the legacy <code>git checkout</code> command (covered below). Use <code>git switch</code> in all new work unless you are on an older Git version.</p>
+<h3 id="switching-to-an-existing-branch">Switching to an Existing Branch</h3>
+<p>To switch from your current branch to another branch:</p>
+<pre><code class="language-bash">git switch feature-login
+</code></pre>
+<pre><code class="language-text">Switched to branch 'feature-login'
+</code></pre>
+<p>Git moves your working directory to match the latest commit on that branch. Any uncommitted changes in your working directory must either be committed or stashed (covered in a later section) before switching — otherwise Git refuses the switch to prevent losing work.</p>
+<h3 id="switching-back-to-main">Switching Back to Main</h3>
+<pre><code class="language-bash">git switch main
+</code></pre>
+<pre><code class="language-text">Switched to branch 'main'
+</code></pre>
+<hr />
+<h2 id="switching-branches-with-git-checkout-legacy">Switching Branches with <code>git checkout</code> (Legacy)</h2>
+<p>The <code>git checkout</code> command has been the traditional way to switch branches in older Git versions. It still works, but <code>git switch</code> is preferred in modern Git because its name is more intuitive — <code>checkout</code> historically did too many different things (switch branches, restore files, create new branches).</p>
+<p>To switch branches with <code>git checkout</code>:</p>
+<pre><code class="language-bash">git checkout feature-login
+</code></pre>
+<pre><code class="language-text">Switched to branch 'feature-login'
+</code></pre>
+<p>To switch back:</p>
+<pre><code class="language-bash">git checkout main
+</code></pre>
+<pre><code class="language-text">Switched to branch 'main'
+</code></pre>
+<p>Throughout this guide, <code>git switch</code> is the primary command shown. If your system has an older Git version that predates 2.23, substitute <code>git checkout</code> for any <code>git switch</code> command — they are functionally equivalent for branch switching.</p>
+<hr />
+<h2 id="creating-and-switching-in-one-step">Creating and Switching in One Step</h2>
+<p>Typing two commands — create the branch, then switch to it — is common enough that Git provides a shortcut. The <code>-c</code> flag (create and switch) does both at once:</p>
+<pre><code class="language-bash">git switch -c feature-user-profile
+</code></pre>
+<pre><code class="language-text">Switched to a new branch 'feature-user-profile'
+</code></pre>
+<p>The equivalent with <code>git checkout</code> (the legacy approach):</p>
+<pre><code class="language-bash">git checkout -b feature-user-profile
+</code></pre>
+<pre><code class="language-text">Switched to a new branch 'feature-user-profile'
+</code></pre>
+<p>Both commands create the branch at your current location and immediately check it out. After running either, you are on the new branch and ready to start committing.</p>
+<hr />
+<h2 id="a-basic-branching-workflow">A Basic Branching Workflow</h2>
+<p>The typical day-to-day workflow with branches follows a consistent pattern:</p>
+<p><strong>1. Create a branch for your work.</strong></p>
+<pre><code class="language-bash">git switch -c feature-newsletter
+</code></pre>
+<pre><code class="language-text">Switched to a new branch 'feature-newsletter'
+</code></pre>
+<p><strong>2. Make commits on that branch.</strong> Every commit you make on <code>feature-newsletter</code> is isolated from <code>main</code>.</p>
+<pre><code class="language-bash">echo &quot;# Newsletter Signup&quot; &gt; newsletter.md
+git add newsletter.md
+git commit -m &quot;Add newsletter signup page&quot;
+</code></pre>
+<pre><code class="language-text">[feature-newsletter abc1234] Add newsletter signup page
+ 1 file changed, 1 insertion(+)
+ create mode 100644 newsletter.md
+</code></pre>
+<p><strong>3. Switch back to <code>main</code> when you need to context-shift.</strong> For example, a colleague asks you to review their work, or a production issue comes in.</p>
+<pre><code class="language-bash">git switch main
+</code></pre>
+<pre><code class="language-text">Switched to branch 'main'
+</code></pre>
+<p>Notice that after switching to <code>main</code>, the <code>newsletter.md</code> file you just created and committed on <code>feature-newsletter</code> is gone from your working directory — it exists only on that branch. This is the core of branching isolation.</p>
+<p><strong>4. When your feature is ready, merge the branch into <code>main</code>.</strong> Merging is covered in detail in the next section. For now, know that the command is:</p>
+<pre><code class="language-bash">git merge feature-newsletter
+</code></pre>
+<p>This brings the isolated work back into the main line.</p>
+<p>This cycle — create, commit, switch, merge — is the foundation of all Git branching workflows. Small teams may share branches directly; larger teams push branches to a remote and open pull requests for review before merging. Both patterns build on the same core mechanism.</p>
+<hr />
+<h2 id="tracking-branches">Tracking Branches</h2>
+<p>When you clone a repository that has branches on the remote, your local branches start with no upstream tracking by default. The <code>git branch -vv</code> command shows which local branches are tracking remote branches:</p>
+<pre><code class="language-bash">git branch -vv
+</code></pre>
+<pre><code class="language-text">* main              a3f7d21 [origin/main] Add homepage hero section
+  feature-login     8c2e101 Add login form stub
+  feature-dashboard 5d9a3c7 [origin/dashboard] Add dashboard layout
+</code></pre>
+<p>Each branch with <code>[origin/branch-name]</code> is tracking a remote branch. <code>feature-login</code> has no tracking configured — it exists only locally. <code>main</code> and <code>feature-dashboard</code> are tracking their remote counterparts.</p>
+<p>Tracking is set automatically when you clone or when you create a branch with <code>git switch -t origin/branch-name</code>. When a branch tracks a remote, Git can show you how many commits your local branch is ahead or behind the remote with <code>git fetch</code> followed by <code>git status</code>.</p>
+<hr />
+<h2 id="exercise">Exercise</h2>
+<p>In this exercise you will practice creating branches, switching between them, committing changes, and observing how commits are isolated per branch.</p>
+<h3 id="scenario">Scenario</h3>
+<p>You are working on a documentation site. While preparing a draft of the user guide, you remember you need to fix an urgent typo in the README. You will use branching to handle both tasks without mixing them together.</p>
+<h3 id="tasks">Tasks</h3>
+<ol>
+<li>Initialize a new Git repository in a directory called <code>branch-practice</code>.</li>
+<li>Create an initial commit with a <code>README.md</code> file containing the text <code>Project Alpha v1.0</code>.</li>
+<li>Create a branch called <code>fix-typo</code> and switch to it.</li>
+<li>On <code>fix-typo</code>, fix the typo by changing the README content to <code>Project Alpha v1.1</code>.</li>
+<li>Commit the fix on <code>fix-typo</code>.</li>
+<li>Switch back to <code>main</code>.</li>
+<li>On <code>main</code>, create a commit that adds a <code>docs/user-guide.md</code> file (any placeholder content is fine).</li>
+<li>Verify that the typo fix from step 5 does NOT appear in the README on <code>main</code>.</li>
+<li>Verify that the <code>docs/user-guide.md</code> file you created on <code>main</code> does NOT exist on <code>fix-typo</code>.</li>
+</ol>
+<hr />
+<h2 id="solution">Solution</h2>
+<h3 id="step-by-step">Step-by-step</h3>
+<p><strong>1. Initialize the repository:</strong></p>
+<pre><code class="language-bash">mkdir branch-practice &amp;&amp; cd branch-practice &amp;&amp; git init
+</code></pre>
+<pre><code class="language-text">Initialized empty Git repository in /home/user/branch-practice/.git/
+</code></pre>
+<p><strong>2. Create the initial commit:</strong></p>
+<pre><code class="language-bash">echo &quot;Project Alpha v1.0&quot; &gt; README.md
+git add README.md
+git commit -m &quot;Initial commit&quot;
+</code></pre>
+<pre><code class="language-text">[main (root-commit) 1a2b3c4] Initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+</code></pre>
+<p><strong>3. Create and switch to the <code>fix-typo</code> branch:</strong></p>
+<pre><code class="language-bash">git switch -c fix-typo
+</code></pre>
+<pre><code class="language-text">Switched to a new branch 'fix-typo'
+</code></pre>
+<p><strong>4. Fix the typo:</strong></p>
+<pre><code class="language-bash">echo &quot;Project Alpha v1.1&quot; &gt; README.md
+</code></pre>
+<p><strong>5. Commit the fix on <code>fix-typo</code>:</strong></p>
+<pre><code class="language-bash">git add README.md
+git commit -m &quot;Fix version typo in README&quot;
+</code></pre>
+<pre><code class="language-text">[fix-typo d5e6f7g] Fix version typo in README
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+</code></pre>
+<p><strong>6. Switch back to <code>main</code>:</strong></p>
+<pre><code class="language-bash">git switch main
+</code></pre>
+<pre><code class="language-text">Switched to branch 'main'
+</code></pre>
+<p><strong>7. On <code>main</code>, add a user guide file and commit:</strong></p>
+<pre><code class="language-bash">mkdir -p docs
+echo &quot;# User Guide\n\nComing soon.&quot; &gt; docs/user-guide.md
+git add docs/user-guide.md
+git commit -m &quot;Add user guide draft&quot;
+</code></pre>
+<pre><code class="language-text">[main h8i9j0k] Add user guide draft
+ 1 file changed, 3 insertions(+)
+ create mode 100644 docs/user-guide.md
+</code></pre>
+<p><strong>8. Verify the typo fix is NOT on <code>main</code>:</strong></p>
+<pre><code class="language-bash">cat README.md
+</code></pre>
+<pre><code class="language-text">Project Alpha v1.0
+</code></pre>
+<p>The file still reads <code>v1.0</code> — the typo fix lives only on <code>fix-typo</code>.</p>
+<p><strong>9. Verify <code>docs/user-guide.md</code> does NOT exist on <code>fix-typo</code>:</strong></p>
+<p>Switch to <code>fix-typo</code> and check:</p>
+<pre><code class="language-bash">git switch fix-typo
+</code></pre>
+<pre><code class="language-text">Switched to branch 'fix-typo'
+</code></pre>
+<pre><code class="language-bash">ls docs/
+</code></pre>
+<pre><code class="language-text">ls: cannot access 'docs/': No such file or directory
+</code></pre>
+<p>The <code>docs/</code> directory and its contents exist only on <code>main</code>. Each branch holds its own independent line of commits.</p>
+<hr />
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><code>git branch</code> lists local branches; the asterisk marks the current branch.</li>
+<li><code>git switch -c &lt;branch&gt;</code> creates and switches to a new branch in one step.</li>
+<li><code>git switch &lt;branch&gt;</code> switches to an existing branch.</li>
+<li>Commits made on one branch are invisible on all other branches — this isolation is the point.</li>
+<li>Always switch back to <code>main</code> (or your integration branch) before starting new, unrelated work.</li>
+<li>Delete branches with <code>-d</code> once their work is merged, and with <code>-D</code> only for truly unwanted branches.</li>
+</ul>
+<p><a href="06-merging.html">Next: Merging →</a></p>
+
+      <div class="lesson-actions">
+        <button class="btn-mark-complete" id="btn-mark-complete" data-lesson="5">
+          <span class="btn-icon">✓</span> Mark Complete
+        </button>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Previous and next lessons">
+        <a href="04-undoing-changes.html" class="lesson-nav-prev">
+          <span class="nav-label">← Previous</span>
+          <span class="nav-title">Undoing Changes</span>
+        </a>
+
+        <a href="06-merging.html" class="lesson-nav-next">
+          <span class="nav-label">Next →</span>
+          <span class="nav-title">Merging</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+</article>
+      </main>
+
+      <footer class="site-footer">
+        <p>Built with ❤️ for DevOps learners</p>
+        <p class="footer-small">Git Kimchi — A free Git &amp; GitHub course</p>
+      </footer>
+    </div>
+  </div>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script src="../static/js/app.js"></script>
+</body>
+</html>
