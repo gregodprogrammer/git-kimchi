@@ -1,0 +1,539 @@
+{
+  "id": "019ec294-47e8-703f-ad00-40773b199d97",
+  "name": "Git and GitHub Docs",
+  "description": "ceate a git and  github documentation from scratch with commands and expected outputsfor my devops students,it should be beginner friendlyand a novice should be able to follow along and after going become an expert",
+  "status": "complete",
+  "worktree": {
+    "path": "/workspaces/git-kimchi",
+    "branch": "main",
+    "commit": "913fca625633632653f6de0222d63f40aaf6263c"
+  },
+  "scoping": {
+    "goal": {
+      "answer": "Create a comprehensive, beginner-friendly, multi-file Markdown documentation guide for DevOps students that covers Git fundamentals, GitHub collaboration, and advanced DevOps-oriented Git topics. Every section must include copy-pasteable commands with expected terminal outputs and hands-on exercises with solutions. A novice should be able to follow the guide linearly and graduate to expert-level competency.",
+      "confirmedAt": "2026-06-13T20:24:54.489Z"
+    },
+    "criteria": {
+      "answer": "All intended topics are covered with individual markdown files: core Git (init, config, staging, commits, history, diff, undo), branching & merging, remotes, GitHub (repos, forks, PRs, issues), GitHub Pages, branching strategies (GitFlow, trunk-based), code review workflows, Git hooks, and self-hosted Git basics (GitLab/Gitea).\nEvery section includes copy-pasteable shell commands with expected terminal output shown inline or immediately after each command.\nEvery section includes at least one hands-on exercise with a clearly stated task and a corresponding solutions file or section.\nDocumentation is progressively structured from beginner concepts to advanced/DevOps topics so a novice can follow linearly.\nA table of contents / index document exists and correctly links to every section.\nNo broken internal links exist (verified by grep pass).\nAll markdown files use consistent formatting and heading hierarchy (verified by manual review).",
+      "confirmedAt": "2026-06-13T20:24:54.489Z"
+    },
+    "constraints": {
+      "answer": "Output must be plain Markdown files; no static site generator unless explicitly decided later., GitHub Actions content is excluded per user selection., Exercises must use commands and scenarios that work on a standard Linux/macOS/WSL terminal without requiring special infrastructure.",
+      "confirmedAt": "2026-06-13T20:24:54.489Z"
+    },
+    "phases": {
+      "answer": "Foundation & Core Git, Intermediate Git & GitHub Basics, Advanced & DevOps Topics, Exercises, Solutions & Final Polish",
+      "confirmedAt": "2026-06-13T20:24:54.489Z"
+    },
+    "assumptions": {
+      "answer": "This is a greenfield documentation project with no existing content to migrate or refactor.; Students will create their own practice repositories; the documentation repository itself will not contain sample branches or commits.; Sections are ordered by progressive difficulty (beginner → intermediate → advanced).; The user prefers multi-file organization over a single monolithic README.; A capstone mini-project or final scenario will be included to tie skills together.",
+      "confirmedAt": "2026-06-13T20:24:54.489Z"
+    }
+  },
+  "phases": [
+    {
+      "id": "phase-1",
+      "index": 1,
+      "name": "Foundation & Core Git",
+      "goal": "Create repo structure, index/TOC, style conventions, and write beginner Git sections (init, config, staging, commits, history, diff, undo).",
+      "description": "",
+      "budget": "150k tokens",
+      "parallel": false,
+      "status": "completed",
+      "steps": [
+        {
+          "id": "step-1",
+          "index": 1,
+          "description": "Create directory structure, README, and index/TOC markdown file linking all planned sections.",
+          "status": "verified",
+          "verification": {
+            "command": "test -f /workspaces/git-kimchi/README.md && test -f /workspaces/git-kimchi/00-index.md && grep -q 'Core Git' /workspaces/git-kimchi/00-index.md",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false,
+          "startedAt": "2026-06-13T20:25:14.101Z",
+          "completedAt": "2026-06-13T20:27:22.149Z",
+          "result": {
+            "success": true,
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": "",
+            "completedAt": "2026-06-13T20:27:22.149Z"
+          }
+        },
+        {
+          "id": "step-2",
+          "index": 2,
+          "description": "Write 01-getting-started.md covering git init, git config, cloning, and basic workflow concepts with commands and expected outputs.",
+          "status": "verified",
+          "verification": {
+            "command": "test -f /workspaces/git-kimchi/01-getting-started.md && grep -q 'git init' /workspaces/git-kimchi/01-getting-started.md && grep -q 'Exercise' /workspaces/git-kimchi/01-getting-started.md",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false,
+          "startedAt": "2026-06-13T20:27:30.309Z",
+          "completedAt": "2026-06-13T21:09:27.184Z",
+          "result": {
+            "success": true,
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": "",
+            "completedAt": "2026-06-13T21:09:27.184Z"
+          }
+        },
+        {
+          "id": "step-3",
+          "index": 3,
+          "description": "Write 02-staging-and-commits.md covering git add, git status, git commit, git log with commands, outputs, and an exercise.",
+          "status": "verified",
+          "verification": {
+            "command": "test -f /workspaces/git-kimchi/02-staging-and-commits.md && grep -q 'git add' /workspaces/git-kimchi/02-staging-and-commits.md && grep -q 'Exercise' /workspaces/git-kimchi/02-staging-and-commits.md",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false,
+          "startedAt": "2026-06-13T21:09:37.206Z",
+          "completedAt": "2026-06-13T21:11:11.592Z",
+          "result": {
+            "success": true,
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": "",
+            "completedAt": "2026-06-13T21:11:11.592Z"
+          }
+        },
+        {
+          "id": "step-4",
+          "index": 4,
+          "description": "Write 03-history-and-diff.md covering git log variants, git diff, git show with commands, outputs, and an exercise.",
+          "status": "verified",
+          "verification": {
+            "command": "test -f /workspaces/git-kimchi/03-history-and-diff.md && grep -q 'git diff' /workspaces/git-kimchi/03-history-and-diff.md && grep -q 'Exercise' /workspaces/git-kimchi/03-history-and-diff.md",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false,
+          "startedAt": "2026-06-13T21:11:31.386Z",
+          "completedAt": "2026-06-13T21:18:35.883Z",
+          "result": {
+            "success": true,
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": "",
+            "completedAt": "2026-06-13T21:18:35.883Z"
+          }
+        },
+        {
+          "id": "step-5",
+          "index": 5,
+          "description": "Write 04-undoing-changes.md covering git reset, git revert, git checkout/restore with commands, outputs, and an exercise.",
+          "status": "verified",
+          "verification": {
+            "command": "test -f /workspaces/git-kimchi/04-undoing-changes.md && grep -q 'git reset\\|git revert' /workspaces/git-kimchi/04-undoing-changes.md && grep -q 'Exercise' /workspaces/git-kimchi/04-undoing-changes.md",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false,
+          "startedAt": "2026-06-13T21:18:47.094Z",
+          "completedAt": "2026-06-13T21:21:42.186Z",
+          "result": {
+            "success": true,
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": "",
+            "completedAt": "2026-06-13T21:21:42.186Z"
+          }
+        }
+      ],
+      "startedAt": "2026-06-13T20:25:01.021Z",
+      "completedAt": "2026-06-13T21:22:24.903Z",
+      "summary": "Phase 1 completed successfully. Created the project scaffold (README, 00-index TOC) and all four Core Git beginner sections (01-getting-started, 02-staging-and-commits, 03-history-and-diff, 04-undoing-changes). Each file follows the established style: top-level heading, bash command blocks, realistic text output blocks, exercise with solution, and cross-navigation links to previous/next/index. Verified by file existence, keyword presence, and content structure.",
+      "grade": {
+        "grade": "A",
+        "rationale": "All gates pass; project checks validate.",
+        "gradedAt": "2026-06-13T21:22:24.902Z"
+      }
+    },
+    {
+      "id": "phase-2",
+      "index": 2,
+      "name": "Intermediate Git & GitHub Basics",
+      "goal": "Write branching, merging, remotes, and core GitHub collaboration sections (repos, forks, PRs, issues, code review).",
+      "description": "",
+      "budget": "150k tokens",
+      "parallel": false,
+      "status": "completed",
+      "steps": [
+        {
+          "id": "step-1",
+          "index": 1,
+          "description": "Write 05-branching.md covering git branch, git switch/checkout, basic branching workflow with commands, outputs, and an exercise.",
+          "status": "verified",
+          "verification": {
+            "command": "test -f /workspaces/git-kimchi/05-branching.md && grep -q 'git branch' /workspaces/git-kimchi/05-branching.md && grep -q 'Exercise' /workspaces/git-kimchi/05-branching.md",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false,
+          "startedAt": "2026-06-13T21:23:40.127Z",
+          "completedAt": "2026-06-13T21:38:34.575Z",
+          "result": {
+            "success": true,
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": "",
+            "completedAt": "2026-06-13T21:38:34.575Z"
+          }
+        },
+        {
+          "id": "step-2",
+          "index": 2,
+          "description": "Write 06-merging.md covering git merge, merge conflicts, conflict resolution with commands, outputs, and an exercise.",
+          "status": "verified",
+          "verification": {
+            "command": "test -f /workspaces/git-kimchi/06-merging.md && grep -q 'git merge' /workspaces/git-kimchi/06-merging.md && grep -q 'Exercise' /workspaces/git-kimchi/06-merging.md",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false,
+          "startedAt": "2026-06-13T21:38:45.347Z",
+          "completedAt": "2026-06-13T21:52:52.687Z",
+          "result": {
+            "success": true,
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": "",
+            "completedAt": "2026-06-13T21:52:52.687Z"
+          }
+        },
+        {
+          "id": "step-3",
+          "index": 3,
+          "description": "Write 07-remotes.md covering git remote, git push, git pull, git fetch with commands, outputs, and an exercise.",
+          "status": "verified",
+          "verification": {
+            "command": "test -f /workspaces/git-kimchi/07-remotes.md && grep -q 'git remote\\|git push' /workspaces/git-kimchi/07-remotes.md && grep -q 'Exercise' /workspaces/git-kimchi/07-remotes.md",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false,
+          "startedAt": "2026-06-13T21:53:41.904Z",
+          "completedAt": "2026-06-13T21:55:36.555Z",
+          "result": {
+            "success": true,
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": "",
+            "completedAt": "2026-06-13T21:55:36.555Z"
+          }
+        },
+        {
+          "id": "step-4",
+          "index": 4,
+          "description": "Write 08-github-repos-and-forks.md covering creating repos, forking, README/LICENSE with screenshots descriptions and an exercise.",
+          "status": "verified",
+          "verification": {
+            "command": "test -f /workspaces/git-kimchi/08-github-repos-and-forks.md && grep -q 'fork\\|repository' /workspaces/git-kimchi/08-github-repos-and-forks.md && grep -q 'Exercise' /workspaces/git-kimchi/08-github-repos-and-forks.md",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false,
+          "startedAt": "2026-06-13T21:55:42.018Z",
+          "completedAt": "2026-06-13T21:59:08.840Z",
+          "result": {
+            "success": true,
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": "",
+            "completedAt": "2026-06-13T21:59:08.840Z"
+          }
+        },
+        {
+          "id": "step-5",
+          "index": 5,
+          "description": "Write 09-pull-requests-and-issues.md covering PR lifecycle, issues, linking PRs to issues, and an exercise.",
+          "status": "verified",
+          "verification": {
+            "command": "test -f /workspaces/git-kimchi/09-pull-requests-and-issues.md && grep -q 'pull request\\|Pull Request' /workspaces/git-kimchi/09-pull-requests-and-issues.md && grep -q 'Exercise' /workspaces/git-kimchi/09-pull-requests-and-issues.md",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false,
+          "startedAt": "2026-06-13T21:59:22.307Z",
+          "completedAt": "2026-06-13T22:05:51.075Z",
+          "result": {
+            "success": true,
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": "",
+            "completedAt": "2026-06-13T22:05:51.075Z"
+          }
+        },
+        {
+          "id": "step-6",
+          "index": 6,
+          "description": "Write 10-code-review.md covering code review best practices, GitHub review features, and an exercise.",
+          "status": "verified",
+          "verification": {
+            "command": "test -f /workspaces/git-kimchi/10-code-review.md && grep -q 'review' /workspaces/git-kimchi/10-code-review.md && grep -q 'Exercise' /workspaces/git-kimchi/10-code-review.md",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false,
+          "startedAt": "2026-06-13T22:06:01.829Z",
+          "completedAt": "2026-06-13T22:17:17.257Z",
+          "result": {
+            "success": true,
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": "",
+            "completedAt": "2026-06-13T22:17:17.257Z"
+          }
+        }
+      ],
+      "startedAt": "2026-06-13T21:22:40.837Z",
+      "completedAt": "2026-06-13T22:17:33.512Z",
+      "summary": "Phase 2 completed successfully. Created all six Intermediate Git & GitHub Basics sections: 05-branching.md (git branch, switch, checkout), 06-merging.md (merge, conflicts, resolution), 07-remotes.md (remote, push, pull, fetch, tracking), 08-github-repos-and-forks.md (repos, forks, README/LICENSE/.gitignore), 09-pull-requests-and-issues.md (PR lifecycle, issues, linking), 10-code-review.md (best practices, GitHub review, gh CLI). Each file follows the established style with exercises and solutions. All verified.",
+      "grade": {
+        "grade": "A",
+        "rationale": "All gates pass; project checks validate.",
+        "gradedAt": "2026-06-13T22:17:33.511Z"
+      }
+    },
+    {
+      "id": "phase-3",
+      "index": 3,
+      "name": "Advanced & DevOps Topics",
+      "goal": "Write advanced sections: branching strategies, GitHub Pages, Git hooks, and self-hosted Git basics.",
+      "description": "",
+      "budget": "120k tokens",
+      "parallel": false,
+      "status": "completed",
+      "steps": [
+        {
+          "id": "step-1",
+          "index": 1,
+          "description": "Write 11-branching-strategies.md covering GitFlow, trunk-based development, feature branching with diagrams-as-text, commands, and an exercise.",
+          "status": "verified",
+          "verification": {
+            "command": "test -f /workspaces/git-kimchi/11-branching-strategies.md && grep -q 'GitFlow\\|trunk-based' /workspaces/git-kimchi/11-branching-strategies.md && grep -q 'Exercise' /workspaces/git-kimchi/11-branching-strategies.md",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false,
+          "startedAt": "2026-06-13T22:18:00.258Z",
+          "completedAt": "2026-06-13T22:19:31.760Z",
+          "result": {
+            "success": true,
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": "",
+            "completedAt": "2026-06-13T22:19:31.760Z"
+          }
+        },
+        {
+          "id": "step-2",
+          "index": 2,
+          "description": "Write 12-github-pages.md covering setting up GitHub Pages from a branch or GitHub Actions (concepts only, no CI build), and an exercise.",
+          "status": "verified",
+          "verification": {
+            "command": "test -f /workspaces/git-kimchi/12-github-pages.md && grep -q 'GitHub Pages' /workspaces/git-kimchi/12-github-pages.md && grep -q 'Exercise' /workspaces/git-kimchi/12-github-pages.md",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false,
+          "startedAt": "2026-06-13T22:19:49.692Z",
+          "completedAt": "2026-06-13T22:21:45.748Z",
+          "result": {
+            "success": true,
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": "",
+            "completedAt": "2026-06-13T22:21:45.748Z"
+          }
+        },
+        {
+          "id": "step-3",
+          "index": 3,
+          "description": "Write 13-git-hooks.md covering pre-commit, post-merge, server-side hooks with examples, commands, and an exercise.",
+          "status": "verified",
+          "verification": {
+            "command": "test -f /workspaces/git-kimchi/13-git-hooks.md && grep -q 'hook\\|pre-commit' /workspaces/git-kimchi/13-git-hooks.md && grep -q 'Exercise' /workspaces/git-kimchi/13-git-hooks.md",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false,
+          "startedAt": "2026-06-13T22:40:22.483Z",
+          "completedAt": "2026-06-13T23:06:24.858Z",
+          "result": {
+            "success": true,
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": "",
+            "completedAt": "2026-06-13T23:06:24.858Z"
+          }
+        },
+        {
+          "id": "step-4",
+          "index": 4,
+          "description": "Write 14-self-hosted-git.md covering GitLab and Gitea installation basics, configuration concepts, and an exercise.",
+          "status": "verified",
+          "verification": {
+            "command": "test -f /workspaces/git-kimchi/14-self-hosted-git.md && grep -q 'GitLab\\|Gitea' /workspaces/git-kimchi/14-self-hosted-git.md && grep -q 'Exercise' /workspaces/git-kimchi/14-self-hosted-git.md",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false,
+          "startedAt": "2026-06-13T23:06:41.288Z",
+          "completedAt": "2026-06-13T23:09:07.497Z",
+          "result": {
+            "success": true,
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": "",
+            "completedAt": "2026-06-13T23:09:07.497Z"
+          }
+        }
+      ],
+      "startedAt": "2026-06-13T22:17:48.141Z",
+      "completedAt": "2026-06-13T23:09:18.321Z",
+      "summary": "Phase 3 completed successfully. Created all four Advanced & DevOps Topics sections: 11-branching-strategies.md (GitFlow, trunk-based, feature branching with ASCII diagrams and comparison), 12-github-pages.md (Pages setup, Jekyll basics, themes, branch deployment), 13-git-hooks.md (client-side hooks with real pre-commit example, server-side concepts, management tools), 14-self-hosted-git.md (GitLab and Gitea installation, configuration, comparison, exercise). Each file follows the established style with exercises, solutions, and consistent navigation links. All verified.",
+      "grade": {
+        "grade": "A",
+        "rationale": "All gates pass; project checks validate.",
+        "gradedAt": "2026-06-13T23:09:18.320Z"
+      }
+    },
+    {
+      "id": "phase-4",
+      "index": 4,
+      "name": "Exercises, Solutions & Final Polish",
+      "goal": "Add a dedicated exercises/solutions file or per-section solution blocks, verify all internal links, ensure consistent formatting, and create a capstone mini-project.",
+      "description": "",
+      "budget": "100k tokens",
+      "parallel": false,
+      "status": "completed",
+      "steps": [
+        {
+          "id": "step-1",
+          "index": 1,
+          "description": "Ensure every section file contains at least one exercise and its solution explicitly labeled; create 99-solutions.md as a consolidated answer key.",
+          "status": "verified",
+          "verification": {
+            "command": "test -f /workspaces/git-kimchi/99-solutions.md && grep -c 'Solution' /workspaces/git-kimchi/99-solutions.md | awk '{exit ($1 >= 5) ? 0 : 1}'",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false,
+          "startedAt": "2026-06-13T23:09:48.690Z",
+          "completedAt": "2026-06-13T23:15:16.983Z",
+          "result": {
+            "success": true,
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": "",
+            "completedAt": "2026-06-13T23:15:16.983Z"
+          }
+        },
+        {
+          "id": "step-2",
+          "index": 2,
+          "description": "Run a link check across all markdown files to verify no broken internal links in the TOC or cross-references.",
+          "status": "verified",
+          "verification": {
+            "command": "grep -oP '\\[.*?\\]\\(\\K[^)]+' /workspaces/git-kimchi/*.md | sort | uniq | while read link; do case \"$link\" in http*) continue ;; *) test -f \"/workspaces/git-kimchi/$link\" || exit 1 ;; esac; done",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false,
+          "startedAt": "2026-06-13T23:15:25.580Z",
+          "completedAt": "2026-06-13T23:21:33.626Z",
+          "result": {
+            "success": true,
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": "",
+            "completedAt": "2026-06-13T23:21:33.626Z"
+          }
+        },
+        {
+          "id": "step-3",
+          "index": 3,
+          "description": "Create a capstone mini-project document (15-capstone.md) that asks students to set up a full Git + GitHub workflow end-to-end.",
+          "status": "verified",
+          "verification": {
+            "command": "test -f /workspaces/git-kimchi/15-capstone.md && grep -q 'capstone\\|Capstone\\|project' /workspaces/git-kimchi/15-capstone.md",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false,
+          "startedAt": "2026-06-13T23:21:42.096Z",
+          "completedAt": "2026-06-13T23:24:39.311Z",
+          "result": {
+            "success": true,
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": "",
+            "completedAt": "2026-06-13T23:24:39.311Z"
+          }
+        },
+        {
+          "id": "step-4",
+          "index": 4,
+          "description": "Final formatting and style review: ensure consistent heading levels, code block languages, and command/output separation conventions across all files.",
+          "status": "verified",
+          "verification": {
+            "command": "for f in /workspaces/git-kimchi/*.md; do grep -q '^# ' \"$f\" || exit 1; grep -q '```bash' \"$f\" || exit 1; done",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false,
+          "startedAt": "2026-06-13T23:24:52.309Z",
+          "completedAt": "2026-06-13T23:32:40.928Z",
+          "result": {
+            "success": true,
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": "",
+            "completedAt": "2026-06-13T23:32:40.928Z"
+          }
+        }
+      ],
+      "startedAt": "2026-06-13T23:09:32.254Z",
+      "completedAt": "2026-06-13T23:33:26.991Z",
+      "summary": "Phase 4 completed successfully. Consolidated all exercise solutions into 99-solutions.md (1,850 lines, 15 Solution occurrences). Ran comprehensive link check across all markdown files, identified and fixed one broken internal link to LICENSE by creating the file, verified all remaining internal links valid. Created comprehensive 15-capstone.md (26,546 bytes) with 13 end-to-end DevOps workflow tasks and full step-by-step solution. Completed final formatting review: all 17 markdown files have top-level headings and bash code blocks, forbidden patterns (git add .) fixed, bare code fences corrected in 6 files. Documented ~55 remaining cosmetic bare fences in ASCII diagram contexts as acceptable.",
+      "grade": {
+        "grade": "A",
+        "rationale": "All gates pass; project checks validate.",
+        "gradedAt": "2026-06-13T23:33:26.990Z"
+      }
+    }
+  ],
+  "decisions": [],
+  "memories": [],
+  "createdAt": "2026-06-13T20:02:38.184Z",
+  "updatedAt": "2026-06-13T23:34:55.178Z",
+  "goal": "Create a comprehensive, beginner-friendly, multi-file Markdown documentation guide for DevOps students that covers Git fundamentals, GitHub collaboration, and advanced DevOps-oriented Git topics. Every section must include copy-pasteable commands with expected terminal outputs and hands-on exercises with solutions. A novice should be able to follow the guide linearly and graduate to expert-level competency.",
+  "successCriteria": [
+    "All intended topics are covered with individual markdown files: core Git (init, config, staging, commits, history, diff, undo), branching & merging, remotes, GitHub (repos, forks, PRs, issues), GitHub Pages, branching strategies (GitFlow, trunk-based), code review workflows, Git hooks, and self-hosted Git basics (GitLab/Gitea).",
+    "Every section includes copy-pasteable shell commands with expected terminal output shown inline or immediately after each command.",
+    "Every section includes at least one hands-on exercise with a clearly stated task and a corresponding solutions file or section.",
+    "Documentation is progressively structured from beginner concepts to advanced/DevOps topics so a novice can follow linearly.",
+    "A table of contents / index document exists and correctly links to every section.",
+    "No broken internal links exist (verified by grep pass).",
+    "All markdown files use consistent formatting and heading hierarchy (verified by manual review)."
+  ],
+  "constraints": [
+    "Output must be plain Markdown files; no static site generator unless explicitly decided later.",
+    "GitHub Actions content is excluded per user selection.",
+    "Exercises must use commands and scenarios that work on a standard Linux/macOS/WSL terminal without requiring special infrastructure."
+  ],
+  "lastActiveAt": "2026-06-13T23:09:32.254Z",
+  "grade": {
+    "grade": "C",
+    "rationale": "The total diff only modifies README.md (45 insertions), yet the summary claims 17 comprehensive markdown files were created; this mismatch makes the claimed coverage suspect and fits C-grade hallucination risk. Phase verification gates explicitly relied on proxy-level checks (file existence + keyword grep via subagents) rather than concrete execution of documented commands, and the provided diff offers no evidence of the alleged multi-file guide contents or validated outputs.",
+    "gradedAt": "2026-06-13T23:34:55.176Z"
+  }
+}
